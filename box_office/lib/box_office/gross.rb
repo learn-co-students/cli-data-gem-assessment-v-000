@@ -18,7 +18,11 @@ class BoxOffice::Gross
     doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
 
     movie = self.new
-    movie.title = doc.css("table tr td table tr td b a").first.text.strip
+    movie.title = doc.css("table tr td table tr td b a").text
+    movie.title.each do |film|
+      film
+    end
+    movie.boxoffice = doc.css("table tr td table tr td").first.attr("text")
 
     movie
 

@@ -10,7 +10,7 @@ class BoxOffice::CLI
   def list_gross
     @grosses = BoxOffice::Gross.today
     @grosses.each.with_index(1) do |gross, i|
-      puts "#{i}. #{gross.name} - #{gross.boxoffice}"
+      puts "#{i}. #{gross.title} - #{gross.boxoffice}"
     end
   end
 
@@ -21,7 +21,7 @@ class BoxOffice::CLI
       input = gets.strip.downcase
       if input.to_i > 0
         the_gross = @grosses[input.to_i-1]
-        puts "#{i}. #{the_gross.name} - #{the_gross.boxoffice}"
+        # puts "#{i}. #{the_gross.name} - #{the_gross.boxoffice}"
       elsif input == 'list'
         list_gross
       # case input
