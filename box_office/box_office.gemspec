@@ -2,6 +2,8 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'box_office/version'
+require 'nokogiri'
+require 'pry'
 
 Gem::Specification.new do |spec|
   spec.name          = "box_office"

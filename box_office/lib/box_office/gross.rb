@@ -1,6 +1,6 @@
 class BoxOffice::Gross
 
-  attr_accessor :name, :boxoffice
+  attr_accessor :name, :boxoffice, :title
 
   def self.today
     self.scrape_grosses
@@ -10,19 +10,35 @@ class BoxOffice::Gross
     grosses = []
 
     grosses << self.scrape_boxofficemojo
+  
     grosses
   end
 
   def self.scrape_boxofficemojo
-    doc = Nokogirl::HTML(open("http:www.boxofficemojo.com"))
+    doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
 
-    binding.pry
+    movie = self.new
+    movie.title = doc.css("table tr td table tr td b a").first.text.strip
+
+    movie
+
   end
+
 end
 
+    # second_movie = doc.css("table tr td table tr td b a").first(2)
+
+    # binding.pry
+
+    #url = doc.search("a.wantone").first.attr("href")
 
 
+# title = doc.search('table.tbody.tr.td.b.a').text
+# first_movie = doc.css("table tr td table tr td b a").first.text
 
+# second_movie = doc.css("table tr td table tr td b a").first(2)
+
+# first_movie = doc.css("table tr td table tr td b a")
 
 #old code
 
