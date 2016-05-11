@@ -4,13 +4,13 @@ class BoxOffice::Gross
   attr_accessor :name, :boxoffice, :title, :gross
 
   def self.today
-    self.scrape_grosses
+    objects = self.scrape_grosses
+    arr = objects.first(5)
+    arr
   end
 
   def self.scrape_grosses
-
     self.scrape_boxofficemojo
-
   end
 
   def self.scrape_boxofficemojo
