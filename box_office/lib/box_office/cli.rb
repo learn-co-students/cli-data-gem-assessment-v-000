@@ -9,19 +9,28 @@ class BoxOffice::CLI
 
   def list_gross
     @grosses = BoxOffice::Gross.today
-    @grosses.each.with_index(1) do |gross, i|
-      puts "#{i}. #{gross.title} - #{gross.boxoffice}"
+    # binding.pry
+    @grosses.each.with_index(1) do |title, i|
+      puts "#{i}. #{title}"
     end
   end
 
   def menu
+    @grosses = BoxOffice::Gross.today
     input = nil
     while input != 'exit'
       puts "Enter number of movie you'd like more info on or type 'list' or 'exit':"
       input = gets.strip.downcase
       if input.to_i > 0
-        the_gross = @grosses[input.to_i-1]
-        # puts "#{i}. #{the_gross.name} - #{the_gross.boxoffice}"
+
+        # the_gross = @grosses[input.to_i-1]
+        @grosses.each do |title|
+          puts " #{title}".
+        end
+      end
+       
+
+         #{grosses.name} - #{the_gross.boxoffice}"
       elsif input == 'list'
         list_gross
       # case input
