@@ -16,7 +16,6 @@ class BoxOffice::CLI
   end
 
   def menu
-    @grosses = BoxOffice::Gross.today
     input = nil
     while input != 'exit'
       puts "Enter number of movie you'd like more info on or type 'list' or 'exit':"
@@ -25,8 +24,12 @@ class BoxOffice::CLI
         case input
         when "1"
           puts "More info on movie 1..."
+          @gross = BoxOffice::Gross.scrape_grosses_1
+          puts "#{@gross}"
         when "2"
           puts "More info on movie 2..."
+          @gross = BoxOffice::Gross.scrape_grosses_2
+          puts "#{@gross}"
         when "3"
           puts "More info on movie 3..."
         when "4"

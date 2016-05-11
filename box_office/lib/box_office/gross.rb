@@ -4,14 +4,11 @@ class BoxOffice::Gross
   attr_accessor :name, :boxoffice, :title, :gross
 
   def self.today
-    objects = self.scrape_grosses
+    objects = self.scrape_boxofficemojo
     arr = objects.first(5)
     arr
   end
 
-  def self.scrape_grosses
-    self.scrape_boxofficemojo
-  end
 
   def self.scrape_boxofficemojo
     doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
@@ -26,17 +23,57 @@ class BoxOffice::Gross
     end
 
     titles 
-    # grosses = []
-    #  movie.gross = doc.css("table tr td table tr td b p").each do |e| 
-    #   grosses << e.text 
-    # end
-    # binding.pry
 
-    # [titles, grosses]
+  end
+
+  def self.scrape_grosses_1
+    doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
+    gross = self.new
+
+    # gross = []
+    # gross = doc.css("table tr td table tr td b p").text
+    #   gross << 
+    # end
+
+    gross = doc.css("table tr td table tr td b a").first.text
+    
+
+    gross
+
+  end
+
+  def self.scrape_grosses_2
+    doc = Nokogiri::HTML(open("http://www.fandango.com/boxoffice"))
+    gross = self.new
+
+    gross = doc.css("td.movieTitle:nth-of-type(-n+4)").text
+
+    gross
+
+  end
+
+  def self.scrape_grosses_5
+    doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
+    gross = self.new
+
+    # gross = []
+    # gross = doc.css("table tr td table tr td b p").text
+    #   gross << 
+    # end
+
+    gross = doc.css("td:nth-child(4)").text
+    
+
+    gross
 
   end
 
 end
+
+    # grosses = []
+    #  movie.gross = doc.css("table tr td table tr td b p").each do |e| 
+    #   grosses << e.text 
+    # end
 
 # 1. The jungle Book - 40 mil
 # 2. the huntsman - 30 mil
