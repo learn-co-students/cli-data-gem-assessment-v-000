@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+require 'nokogiri'
+require 'pry'
+
+gem 'nokogiri'
+gem 'pry'
+gem 'capybara'
+
+# Specify your gem's dependencies in box_office.gemspec
+gemspec
