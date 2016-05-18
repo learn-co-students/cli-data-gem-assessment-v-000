@@ -4,12 +4,12 @@ class BoxOffice::Gross
   attr_accessor :boxoffice, :title, :gross
 
   def self.get_movie_titles
-    titles = self.scrape_boxofficemojo
+    titles = self.scrape_movie_titles
     titles.first(5)
   end
 
 
-  def self.scrape_boxofficemojo
+  def self.scrape_movie_titles
     doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
 
     puts "Today's Top of the Box Office"
