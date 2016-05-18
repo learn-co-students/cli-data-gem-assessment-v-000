@@ -1,12 +1,11 @@
 require 'pry'
 class BoxOffice::Gross
 
-  attr_accessor :name, :boxoffice, :title, :gross
+  attr_accessor :boxoffice, :title, :gross
 
-  def self.today
-    objects = self.scrape_boxofficemojo
-    arr = objects.first(5)
-    arr
+  def self.get_movie_titles
+    titles = self.scrape_boxofficemojo
+    titles.first(5)
   end
 
 
@@ -27,18 +26,13 @@ class BoxOffice::Gross
   end
 
   def self.scrape_grosses_1
-    doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
+    doc = Nokogiri::HTML(open("http://www.fandango.com/boxoffice"))
     gross = self.new
 
-    # gross = []
-    # gross = doc.css("table tr td table tr td b p").text
-    #   gross << 
-    # end
-
-    gross = doc.css("table tr td table tr td b a").first.text
-    
-
-    gross
+    gross = doc.css("td.movieTitle + td").text
+    gross = gross.split("\n")
+    gross.select!{|a| a.include?("M")}
+    gross[0].strip
 
   end
 
@@ -46,29 +40,72 @@ class BoxOffice::Gross
     doc = Nokogiri::HTML(open("http://www.fandango.com/boxoffice"))
     gross = self.new
 
-    gross = doc.css("td.movieTitle:nth-of-type(-n+4)").text
+    gross = doc.css("td.movieTitle + td").text
+    gross = gross.split("\n")
+    gross.select!{|a| a.include?("M")}
+    gross[1].strip
 
-    gross
+  end
+
+  def self.scrape_grosses_3
+    doc = Nokogiri::HTML(open("http://www.fandango.com/boxoffice"))
+    gross = self.new
+
+    gross = doc.css("td.movieTitle + td").text
+    gross = gross.split("\n")
+    gross.select!{|a| a.include?("M")}
+    gross[2].strip
+
+  end
+
+  def self.scrape_grosses_4
+    doc = Nokogiri::HTML(open("http://www.fandango.com/boxoffice"))
+    gross = self.new
+
+    gross = doc.css("td.movieTitle + td").text
+    gross = gross.split("\n")
+    gross.select!{|a| a.include?("M")}
+    gross[3].strip
 
   end
 
   def self.scrape_grosses_5
-    doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
+    doc = Nokogiri::HTML(open("http://www.fandango.com/boxoffice"))
     gross = self.new
 
-    # gross = []
-    # gross = doc.css("table tr td table tr td b p").text
-    #   gross << 
-    # end
+    gross = doc.css("td.movieTitle + td").text
 
-    gross = doc.css("td:nth-child(4)").text
-    
+    gross = gross.split("\n")
+    gross.select!{|a| a.include?("M")}
+    gross[4].strip
 
-    gross
+  end
+
+  def self.scrape_theaters_5
+    doc = Nokogiri::HTML(open("http://www.fandango.com/boxoffice"))
+    theaters = self.new
+
+    theaters = doc.css("td.movieTitle + td + td").text
+
+    theaters = theaters.split("\n")
+    # theaters.select!{|a| a.exclude?("                                    ")}
+    # theaters.select!{|a| a.include?("=~ /^[-+]?[1-9]([0-9]*)?$/")}
+    theaters[4].strip
 
   end
 
 end
+
+  # def self.scrape_grosses_1
+  #   doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
+  #   gross = self.new
+
+  #   gross = doc.css("table tr td table tr td b a").first.text
+    
+
+  #   gross
+
+  # end
 
     # grosses = []
     #  movie.gross = doc.css("table tr td table tr td b p").each do |e| 
