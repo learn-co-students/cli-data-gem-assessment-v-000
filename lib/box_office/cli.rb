@@ -1,12 +1,12 @@
 class BoxOffice::CLI
 
   def call
-    list_gross
+    list_titles
     menu
     goodbye
   end
 
-  def list_gross
+  def list_titles
     @titles = BoxOffice::Movie.get_movie_titles
 
     @titles.each.with_index(1) do |title, i|

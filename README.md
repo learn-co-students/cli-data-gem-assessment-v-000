@@ -4,7 +4,7 @@ Welcome to the weekend movie box office gem! The CLI interface reports the top 5
 
 ## Installation
 
-First run bundle to install any gems.
+First run 'bundle install' to install any gems.
 
 ## Usage
 
