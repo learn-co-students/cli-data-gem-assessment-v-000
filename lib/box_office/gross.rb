@@ -1,7 +1,7 @@
 require 'pry'
 class BoxOffice::Gross # or maybe Movie?
 
-  attr_accessor :boxoffice, :title, :gross
+  attr_accessor :title
 
   def self.get_movie_titles
     titles = self.scrape_movie_titles
