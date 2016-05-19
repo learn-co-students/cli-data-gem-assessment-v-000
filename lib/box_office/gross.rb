@@ -1,5 +1,5 @@
 require 'pry'
-class BoxOffice::Gross
+class BoxOffice::Gross # or maybe Movie?
 
   attr_accessor :boxoffice, :title, :gross
 
@@ -14,9 +14,10 @@ class BoxOffice::Gross
 
     puts "Today's Top of the Box Office"
 
-    movie = self.new
+    movie = self.new # Do we need to create objects in  *this* method?
     
     titles = []
+    # What is the assignmenbt below doing - if anything?
     movie.title = doc.css("table tr td table tr td b a").each do |e| 
       titles << e.text 
     end
