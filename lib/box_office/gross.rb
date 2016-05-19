@@ -13,11 +13,10 @@ class BoxOffice::Movie
 
     puts "Today's Top of the Box Office"
 
-    movie = self.new # Do we need to create objects in  *this* method?
     
     titles = []
     # What is the assignmenbt below doing - if anything?
-    movie.title = doc.css("table tr td table tr td b a").each do |e| 
+    doc.css("table tr td table tr td b a").each do |e| 
       titles << e.text 
     end
 
