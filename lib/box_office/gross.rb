@@ -8,7 +8,6 @@ class BoxOffice::Movie
     titles.first(5)
   end
 
-
   def self.scrape_movie_titles
     doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
 
