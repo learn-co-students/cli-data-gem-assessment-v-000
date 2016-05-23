@@ -10,12 +10,8 @@ class BoxOffice::Movie
 
   def self.scrape_movie_titles
     doc = Nokogiri::HTML(open("http://www.boxofficemojo.com/daily/chart/"))
-
-    puts "Today's Top of the Box Office"
-
     
     titles = []
-    # What is the assignmenbt below doing - if anything?
     doc.css("table tr td table tr td b a").each do |e| 
       titles << e.text 
     end

@@ -1,15 +1,15 @@
 class BoxOffice::CLI
 
   def call
-    list_titles
+    puts "Today's Top of the Box Office"
+    get_titles
     menu
     goodbye
   end
 
-  def list_titles
-    @titles = BoxOffice::Movie.get_movie_titles
-
-    @titles.each.with_index(1) do |title, i|
+  def get_titles
+    titles = BoxOffice::Movie.get_movie_titles
+    titles.each.with_index(1) do |title, i|
       puts "#{i}. #{title}"
     end
   end
@@ -19,7 +19,7 @@ class BoxOffice::CLI
     while input != 'exit'
       puts "Enter number of movie you'd like more info on or type 'list' or 'exit':"
       input = gets.strip.downcase
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i < 6
         case input
         when "1"
           puts "More info on movie 1..."
