@@ -1,5 +1,5 @@
 class StayRelevant::Trend
-  attr_accessor :name, :url 
+  attr_accessor :name
 
   def self.today 
   self.scrape_trends
