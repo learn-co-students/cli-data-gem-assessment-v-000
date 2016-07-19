@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+
+require "bundler/setup"
+require './lib/stay_relevant'
+require "stay_relevant"
+
+StayRelevant::CLI.new.call
