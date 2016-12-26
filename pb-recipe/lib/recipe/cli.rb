@@ -9,11 +9,15 @@ class Recipe::CLI
 
   def list_dishes
     # Displays a list of the 2 dish options using an instance variable of the dish array
-    puts "Dish of the Day:"
+    puts ""
+    puts "Dishes of the Day:"
+    puts ""
     @d_today = Recipe::Dish.scrape_dishes
     @d_today.each.with_index(1) do |dish, i|
       puts "#{i}. #{dish.name}"
-      puts "#{dish.url}"
+      puts ""
+      puts "link: #{dish.url}"
+      puts ""
     end
   end
 
@@ -29,12 +33,16 @@ class Recipe::CLI
     #Allows user to view the list again or exit from the program
     input = nil
     while input != "end"
+      puts ""
       puts "Please enter the number for the dish you would like to learn more about."
+      puts ""
       input = gets.strip
       if input.to_i == 1 || input.to_i == 2
         d_choice = @d_today[input.to_i-1]
+        puts ""
         puts "#{d_choice.name}:"
         r_choice = @r_today[input.to_i-1]
+        puts ""
         puts "Total Time: #{r_choice.time}"
         puts ""
         puts "Servings: #{r_choice.servings}"
@@ -44,7 +52,7 @@ class Recipe::CLI
         puts "Instructions: #{r_choice.instructions}"
       elsif input == "list"
         list_dishes
-      else
+      elsif input != "end"
         puts "Please enter 1 or 2. You may also enter list to see today's dishes again or end to leave."
       end
     end
@@ -55,4 +63,3 @@ class Recipe::CLI
   end
 
 end
-
