@@ -14,8 +14,8 @@ class Recipe::Recipes
     #scrapes and returns recipe information for dish 1 from Food Network
     r_page = Nokogiri::HTML(open("http://www.foodnetwork.com/recipes/food-network-kitchens/herb-roasted-chicken-with-melted-tomatoes-recipe.html"))
     r_info = self.new
-    r_info.time = r_page.search("dd.total").text.strip
-    r_info.servings = r_page.search("div.difficulty dd").text.strip
+    r_info.time = r_page.search("div.cooking-times dd.total").first.text
+    r_info.servings = r_page.search("div.difficulty dd").first.text.strip
     r_info.ingredients = r_page.search("div.col8 ingredients ul").text.strip
     r_info.instructions = r_page.search("div.col10 directions ul").text.strip
     r_info
