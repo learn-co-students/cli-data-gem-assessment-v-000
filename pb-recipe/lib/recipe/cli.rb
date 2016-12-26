@@ -18,7 +18,6 @@ class Recipe::CLI
 
   def recipe_options
     #Creates an instance variable for the recipe array
-    @r_today = []
     @r_today << Recipe::Recipes.scrape_recipes
   end
 
