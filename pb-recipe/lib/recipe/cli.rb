@@ -2,6 +2,7 @@ class Recipe::CLI
 
   def call
     list_dishes
+    recipe_options
     choices
     final
   end
@@ -18,7 +19,7 @@ class Recipe::CLI
 
   def recipe_options
     #Creates an instance variable for the recipe array
-    @r_today << Recipe::Recipes.scrape_recipes
+    @r_today = Recipe::Recipes.scrape_recipes
   end
 
 
@@ -31,6 +32,8 @@ class Recipe::CLI
       puts "Please enter the number for the dish you would like to learn more about."
       input = gets.strip
       if input.to_i == 1 || input.to_i == 2
+        d_choice = @d_today[input.to_i-1]
+        puts "#{d_choice}:"
         r_choice = @r_today[input.to_i-1]
         puts "Total Time: #{r_choice.time}"
         puts ""
@@ -52,3 +55,4 @@ class Recipe::CLI
   end
 
 end
+
