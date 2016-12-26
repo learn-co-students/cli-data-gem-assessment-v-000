@@ -1,7 +1,7 @@
 class Recipe::Dish
   #Scrapes and returns initial information about the recipe of the day from 2 different sites
 
-  attr_accessor :name, :url
+  attr_accessor :name, :url, :time, :servings, :ingredients, :instructions
 
   def self.scrape_dishes
     #returns an array of the recipe of the day from Food Network and the recipe of the day from My Daily Moment
@@ -42,8 +42,7 @@ class Recipe::Dish
     info
     r_info
   end
-  
-  attr_accessor :time, :servings, :ingredients, :Instructions
+ 
 
 
 
