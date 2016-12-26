@@ -33,7 +33,7 @@ class Recipe::CLI
       input = gets.strip
       if input.to_i == 1 || input.to_i == 2
         d_choice = @d_today[input.to_i-1]
-        puts "#{d_choice}:"
+        puts "#{d_choice.name}:"
         r_choice = @r_today[input.to_i-1]
         puts "Total Time: #{r_choice.time}"
         puts ""
