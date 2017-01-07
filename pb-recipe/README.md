@@ -1,28 +1,17 @@
 # Recipe
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/recipe`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Recipe of the Day Ruby gem! This gem includes a CLI that allows the user to view a dish of the day from two different websites. The websites include foodnetwork.com and mydailymoment.com. The user can choose which dish they would like more information on, including total time, servings, ingredients, and instructions.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install it yourself as:
 
-```ruby
-gem 'recipe'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install recipe
+    $ gem install recipe_of_the_day
 
 ## Usage
-
-TODO: Write usage instructions here
+1. Run "ruby bin/recipe_of_the_day
+2. Enter 1, 2, list, or end
+3. Repeat step 2 until user enters "end"
 
 ## Development
 
