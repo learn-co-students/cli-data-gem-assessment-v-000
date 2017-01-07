@@ -6,7 +6,7 @@ Welcome to the Recipe of the Day Ruby gem! This gem includes a CLI that allows t
 
 Install it yourself as:
 
-    $ gem install recipe_of_the_day
+    $ gem install recipe
 
 ## Usage
 1. Run "ruby bin/recipe_of_the_day
