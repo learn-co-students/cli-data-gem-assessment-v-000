@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 #require "bundler/setup"
-require "/home/pbortnick/code/labs/cli-data-gem-assessment-v-000/pb-recipe/lib/recipe"
+require "/home/pbortnick/code/cli-data-gem-assessment-v-000/pb-recipe/lib/recipe"
 
 Recipe::CLI.new.call
