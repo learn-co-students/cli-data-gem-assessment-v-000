@@ -1,8 +1,5 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
+module Recipe
+end
 
-require_relative "./recipe/version"
-require_relative './recipe/dishes'
-require_relative './recipe/cli'
-require_relative './recipe/recipes'
+
+require_relative '../config/environment'

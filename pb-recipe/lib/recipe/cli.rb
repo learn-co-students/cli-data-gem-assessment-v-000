@@ -1,8 +1,12 @@
 class Recipe::CLI
 
+  @@d_info = Recipe::DishesInfo.all
+  @@r_info = Recipe::RecipesInfo.all
+
   def call
+    Recipe::Scraper.scrape_dishes
     list_dishes
-    recipe_options
+    Recipe::Scraper.scrape_recipes
     choices
     final
   end
@@ -12,20 +16,13 @@ class Recipe::CLI
     puts ""
     puts "Dishes of the Day:"
     puts ""
-    @d_today = Recipe::Dish.scrape_dishes
-    @d_today.each.with_index(1) do |dish, i|
+    @@d_info.each.with_index(1) do |dish, i|
       puts "#{i}. #{dish.name}"
       puts ""
       puts "link: #{dish.url}"
       puts ""
     end
   end
-
-  def recipe_options
-    #Creates an instance variable for the recipe array
-    @r_today = Recipe::Recipes.scrape_recipes
-  end
-
 
   def choices
     #User chooses which dish they would like the
@@ -38,18 +35,18 @@ class Recipe::CLI
       puts ""
       input = gets.strip
       if input.to_i == 1 || input.to_i == 2
-        d_choice = @d_today[input.to_i-1]
+        @d_choice = @@d_info[input.to_i-1]
+        @r_choice = @@r_info[input.to_i-1]
         puts ""
-        puts "#{d_choice.name}:"
-        r_choice = @r_today[input.to_i-1]
+        puts "#{@d_choice.name}:"
         puts ""
-        puts "Total Time: #{r_choice.time}"
+        puts "Total Time: #{@r_choice.time}"
         puts ""
-        puts "Servings: #{r_choice.servings}"
+        puts "Servings: #{@r_choice.servings}"
         puts ""
-        puts "Ingredients: #{r_choice.ingredients}"
+        puts "Ingredients: #{@r_choice.ingredients}"
         puts ""
-        puts "Instructions: #{r_choice.instructions}"
+        puts "Instructions: #{@r_choice.instructions}"
       elsif input == "list"
         list_dishes
       elsif input != "end"
