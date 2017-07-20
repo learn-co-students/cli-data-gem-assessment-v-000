@@ -1,12 +1,12 @@
 class BestCompanies::Company
   attr_accessor :name, :rank, :url
-  
+
   def self.year
     #I should return a bunch of instances of company
-    puts <<-DOC.gsub /^\s+/, ""
-      1. Google - #1
-      2. Wegmans Food Markets - #2
-    DOC
+  #  puts <<-DOC.gsub /^\s+/, ""
+  #    1. Google - #1
+  #    2. Wegmans Food Markets - #2
+  #  DOC
 
       company_1 = self.new
       company_1.name = "Google"

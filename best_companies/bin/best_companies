@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/best_companies'
+require "bundler/setup"
+require "best_companies"
 
 BestCompanies::CLI.new.call
 #all you need to start my program
