@@ -24,5 +24,4 @@ class BestCompanies::Company
     end
 end
 
-# doc.css("company-list.span").first.text
-#pageContent > div.F500-list-page.container.small-12.columns > div.row > div > div:nth-child(1) > div.small-12.large-8.columns.list-wrapper > ul > li:nth-child(2)
+#doc.css("a .company-title").first.text
