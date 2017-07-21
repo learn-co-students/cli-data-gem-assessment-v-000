@@ -3,27 +3,30 @@
  class BestCompanies::CLI
 
    def call
-     puts "♥ Best Companies to Work For:"
+
      list_companies
      menu
      goodbye
    end
 
    def list_companies
+     puts "♥ Best Companies to Work For:"
      @companies = BestCompanies::Company.year
+     @companies.each.with_index(1) do |company, i|
+       puts "#{i}. #{company.name} - #{company.rank}"
    end
+end
 
     def menu
      input = nil
      while input != "exit"
        puts "Enter the number of the company you'd like more info on or type list to see the deals again or type exit:"
        input = gets.strip.downcase
-       case input
-       when "1"
-         puts "More info on deal 1..."
-       when "2"
-         puts "More info on deal 2..."
-       when "list"
+
+       if input.to_i > 0
+         the_companu = @companies[input.to_i-1]
+         puts "#{i}. #{company.name} - #{company.rank}"
+       elsif input == "list"
          list_companies
        else
          puts "Oops! Not sure what you want, type list or exit"

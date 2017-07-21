@@ -2,23 +2,27 @@ class BestCompanies::Company
   attr_accessor :name, :rank, :url
 
   def self.year
-    #I should return a bunch of instances of company
-  #  puts <<-DOC.gsub /^\s+/, ""
-  #    1. Google - #1
-  #    2. Wegmans Food Markets - #2
-  #  DOC
-
-      company_1 = self.new
-      company_1.name = "Google"
-      company_1.rank = "#1"
-      company_1.url = "http://fortune.com/best-companies/google/"
-
-      company_2 = self.new
-      company_2.name = "Wegmans Food Markets"
-      company_2.rank = "#2"
-      company_2.url = "http://fortune.com/best-companies/wegmans-food-markets/"
-
-      [company_1, company_2]
-
+    #scrape fortune best companies to work with and retun company
+    self.scrape_companies
   end
+
+  def self.scrape_companies
+    companies = []
+
+    companies << scrape_fortune
+
+       # go to fortune website, find the company
+       # extract the info wanted
+       #instantiate the company
+
+    companies
+  end
+
+    def self.scrape_fortune
+      doc = Nokogiri::HTML(open("http://fortune.com/best-companies/list"))
+      binding.pry
+    end
 end
+
+# doc.css("company-list.span").first.text
+#pageContent > div.F500-list-page.container.small-12.columns > div.row > div > div:nth-child(1) > div.small-12.large-8.columns.list-wrapper > ul > li:nth-child(2)
