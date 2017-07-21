@@ -1,5 +1,5 @@
   class BestCompanies::Company
-  attr_accessor :name, :rank, :url, :location, :employees, :industry, :year, :organization
+  attr_accessor :name, :rank, :url, :location, :industry, :year_started,
 
 
   def self.scrape_companies
