@@ -24,10 +24,9 @@ show a list of top 10 best companies to work for
 Which company do you want to learn more about?
 
 inout [1] then I choose what info I want
-- Rank last year
+
 - HQ location
 - Total employees
 - Industry
 - Year founded
 - Type of Organization
-- Website

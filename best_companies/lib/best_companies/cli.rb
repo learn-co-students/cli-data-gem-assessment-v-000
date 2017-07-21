@@ -3,7 +3,7 @@
  class BestCompanies::CLI
 
    def call
-
+     BestCompanies::Scraper.new.scrape_fortune
      list_companies
      menu
      goodbye
@@ -11,11 +11,11 @@
 
    def list_companies
      puts "♥ Best Companies to Work For:"
-     @companies = BestCompanies::Company.year
-     @companies.each.with_index(1) do |company, i|
+     @companies.each_with_index(1) do |company, i|
        puts "#{i}. #{company.name} - #{company.rank}"
+     end
    end
-end
+
 
     def menu
      input = nil
@@ -24,8 +24,10 @@ end
        input = gets.strip.downcase
 
        if input.to_i > 0
-         the_companu = @companies[input.to_i-1]
+         the_company = @companies[input.to_i-1]
          puts "#{i}. #{company.name} - #{company.rank}"
+       #elsif #More info about selected company or return to main list
+
        elsif input == "list"
          list_companies
        else
