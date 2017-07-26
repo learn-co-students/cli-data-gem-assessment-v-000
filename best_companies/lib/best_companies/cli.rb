@@ -13,14 +13,14 @@ class BestCompanies::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "Type 'list' to see the companies, or select the number of the company you'd like more info on, or type exit:"
+      puts "Type 'list' to see the companies. Select the number of the company you'd like more info on or type exit:"
       input = gets.strip.downcase
 
       if input.to_i > 0
         @companies.each.with_index(0) do |company, i|
           puts "--------------------------------------"
-          puts "You have selected - #{[input.to_i]}"
-          puts "#{company.name[input.to_i]} - #{company.rank[input.to_i-1]}"
+          puts "You have selected : #{input.to_i}"
+          puts " ★ #{company.name[input.to_i]} - Rank ##{company.rank[input.to_i-1]}"
           puts "--------------------------------------"
         end
       elsif input == "list"
