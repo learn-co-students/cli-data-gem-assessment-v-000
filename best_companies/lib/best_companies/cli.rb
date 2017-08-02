@@ -26,10 +26,11 @@ class BestCompanies::CLI
 
     input = gets.strip.downcase
     if input == "y"
-      start
+      menu
     else
       puts ""
-      puts "See you tomorrow for more on the Best Companies to Work For!!"
+      puts "----------- Goodbye! -----------"
+      puts "See you tomorrow for more on the Best Companies to Work For!"
       exit
     end
   end
@@ -43,7 +44,7 @@ class BestCompanies::CLI
     puts "Industry:           #{company.industry}"
     puts "Year Founded:       #{company.year_founded}"
     puts ""
-    puts "---------------Description--------------"
+    puts "----------- Description -----------"
     puts ""
     puts "#{company.description}"
     puts ""

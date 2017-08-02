@@ -39,10 +39,8 @@ class BestCompanies::Company
     @year_founded ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[15].text
   end
 
-  def description #NEED TO BE DESCRIPTION
+  def description 
     @description ||= doc.css('div.company-info-card').css('.row').css('p')[0].text
-    #pageContent > div.F500-item-page.bestcos.container > div.F500-body-container > div > div.company-info-card > div > div.small-12.large-7.columns.bg-white.company-info-c > div:nth-child(1) > div > span > p:nth-child(1)
-
   end
 
   def doc
