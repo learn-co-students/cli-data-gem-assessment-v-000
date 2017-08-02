@@ -2,24 +2,24 @@ class BestCompanies::CLI
 
   def call
     BestCompanies::Scraper.new.make_companies
-    puts "Welcome! We're going to share with you the top 20 companies to work for!"
+    puts "Welcome! We're going to share with you the Top 20 Companies to Work For!"
     menu
   end
 
   def menu
     puts ""
-    puts "Select the number of the Top Company you'd like more info on or type exit:"
+    puts "What number companies would you like to see? 1-10, 11-20"
     input = gets.strip.to_i
 
     print_companies(input)
 
     puts ""
-    puts "What company would you like more information on?"
+    puts "Please type the number of the company you would like more information on."
     input = gets.strip
 
     company = BestCompanies::Company.find(input.to_i)
 
-    print_companies(company)
+    print_company(company)
 
     puts ""
     puts "Would you like to see another company? Enter Y or N"
@@ -34,11 +34,10 @@ class BestCompanies::CLI
     end
   end
 
-  def print_companies(company)
-    puts "--------------------------------------"
-    puts "♥ Best Companies to Work For:"
+  def print_company(company)
     puts ""
-    puts "----------- #{company.name} - #{company.rank} -----------"
+    puts "♥ Best Companies to Work For:"
+    puts "----------- #{company.name} - Rank# #{company.rank} -----------"
     puts ""
     puts "Location:           #{company.location}"
     puts "Industry:           #{company.industry}"
@@ -54,7 +53,7 @@ class BestCompanies::CLI
     puts ""
     puts "---------- ♥ Best Companies to Work For ----------"
     puts ""
-    BestCompanies::Company.all[from_number-1, 10].each.with_index(from_number) do |company, index|
+    BestCompanies::Company.all[from_number-1, 20].each.with_index(from_number) do |company, index|
       puts "#{index}. #{company.name} - #{company.rank}"
     end
   end
