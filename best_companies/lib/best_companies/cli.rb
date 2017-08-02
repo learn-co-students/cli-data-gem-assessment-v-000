@@ -8,7 +8,7 @@ class BestCompanies::CLI
 
   def menu
     puts ""
-    puts "What number companies would you like to see? 1-10, 11-20"
+    puts "Please select the number companies you would like to see? (Ex. 1-10, 11-20. We will list 10 at a time.)"
     input = gets.strip.to_i
 
     print_companies(input)
@@ -23,16 +23,20 @@ class BestCompanies::CLI
 
     puts ""
     puts "Would you like to see another company? Enter Y or N"
-
     input = gets.strip.downcase
     if input == "y"
       menu
+
     else
-      puts ""
-      puts "----------- Goodbye! -----------"
-      puts "See you tomorrow for more on the Best Companies to Work For!"
-      exit
+      goodbye
     end
+  end
+
+  def goodbye
+    puts ""
+    puts "----------- Goodbye! -----------"
+    puts "See you tomorrow for more on the Best Companies to Work For!"
+    exit
   end
 
   def print_company(company)
@@ -52,9 +56,9 @@ class BestCompanies::CLI
 
   def print_companies(from_number)
     puts ""
-    puts "---------- ♥ Best Companies to Work For ----------"
+    puts "---------- Companies #{from_number} - #{from_number+9} ----------"
     puts ""
-    BestCompanies::Company.all[from_number-1, 20].each.with_index(from_number) do |company, index|
+    BestCompanies::Company.all[from_number-1, 10].each.with_index(from_number) do |company, index|
       puts "#{index}. #{company.name} - #{company.rank}"
     end
   end
