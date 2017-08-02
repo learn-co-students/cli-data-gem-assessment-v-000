@@ -7,7 +7,7 @@ class BestCompanies::Company
    self.new(
       c.css("span.company-title").text,  #name
       c.css("span.company-rank").text, #rank
-      "http://fortune.com/#{c.css("a").attribute("href").text}"     
+      "http://fortune.com/#{c.css("a").attribute("href").text}"
       )
  end
 
@@ -27,7 +27,6 @@ class BestCompanies::Company
   end
 
   def location
-    # @location ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[5].text
     @location ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[5].text
 
   end
@@ -41,7 +40,9 @@ class BestCompanies::Company
   end
 
   def description #NEED TO BE DESCRIPTION
-    @description ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[5].text
+    @description ||= doc.css('div.company-info-card').css('.row').css('p')[0].text
+    #pageContent > div.F500-item-page.bestcos.container > div.F500-body-container > div > div.company-info-card > div > div.small-12.large-7.columns.bg-white.company-info-c > div:nth-child(1) > div > span > p:nth-child(1)
+
   end
 
   def doc
