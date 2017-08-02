@@ -1,37 +1,46 @@
 class BestCompanies::Company
-  attr_accessor :name, :rank, :profile_url, :location, :industry, :year_founded
+  attr_accessor :name, :rank, :location, :industry, :year_founded, :description
 
-  def self.year
-    self.scrape_companies
+  @@all = []
+
+  def self.new_from_index_page(c)
+   self.new(
+      c.css("span.company-title").text,  #name
+      c.css("span.company-rank").text
+     )
+ end
+
+  def initialize(name=nil, rank=nil)
+    @name =  name
+    @rank =  rank
+    @@all << self
   end
 
-  def self.scrape_companies
-    companies = []
-    companies << self.scrape_fortune
-    companies
+  def self.all
+    @@all
   end
 
-  def self.scrape_fortune
-    doc = Nokogiri::HTML(open("http://fortune.com/best-companies/list"))
-    company_list = doc.css("ul.company-list li").text.scan(/\d+|\D+/)
-    company_names = []
+  def self.find(id)
+    self.all[id-1]
+  end
 
-    company = self.new
-    company.rank = company_list.select{|x| company_list.index(x) % 2 == 0}
-    company.name = company_list.select{|x| company_list.index(x) % 2 != 0}
-    company.profile_url = company_names
+  def location
+    @location ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[5].text
+  end
 
-    #Create list of profile urls from company_name list
-    company_name = company.name
-    company_name.map{|name| company_names << ("http://fortune.com/best-companies/" + name.downcase.split.join("-"))}
-    #Remove '&' from company_name
+  def industry
+    @industry ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[11].text
+  end
 
-    # company_names.each do |url|
-    #   page = Nokogiri::HTML(open(url))
-    #   company.location = page.css('div.row.company-info-card-table').css('.row').css('p')[5].text
-    #   company.industry = page.css('div.row.company-info-card-table').css('.row').css('p')[11].text
-    #   company.year_founded = page.css('div.row.company-info-card-table').css('.row').css('p')[15].text
-    # end
-    company
+  def year_founded
+    @year_founded ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[15].text
+  end
+
+  def description #NEED TO BE DESCRIPTION
+    @description ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[5].text
+  end
+
+  def doc
+    @doc ||= Nokogiri::HTML(open(self.url))
   end
 end
