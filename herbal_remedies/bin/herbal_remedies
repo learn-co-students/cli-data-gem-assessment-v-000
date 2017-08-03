@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "hello"
+require './lib/herbal_remedies'
+
+HerbalRemedies::CLI.new.call
