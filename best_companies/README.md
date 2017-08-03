@@ -1,8 +1,6 @@
 # BestCompanies
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/best_companies`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Hello and Welcome to Best Companies. This is a Command Line Interface (CLI) based gem that gathers information about the Fortune's Top 20 Companies to work for. It provides the user with the list of the companies and more information about each and everyone of the companies.
 
 ## Installation
 
@@ -38,4 +36,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/Ccordo
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

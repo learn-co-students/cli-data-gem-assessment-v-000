@@ -9,9 +9,8 @@ class BestCompanies::Scraper
     end
 
     def make_companies
-      scrape_companies_index.each do |c|
+      scrape_companies_index.each do |c| #'c' is filtering through the li to select the one that is called in the CLI
         BestCompanies::Company.new_from_index_page(c)
     end
   end
 end
-

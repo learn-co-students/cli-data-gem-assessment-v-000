@@ -8,7 +8,7 @@ class BestCompanies::CLI
 
   def menu
     puts ""
-    puts "Please select the number companies you would like to see? (Ex. 1-10, 11-20. We will list 10 at a time.)"
+    puts "Please select the number companies you would like to see. (Ex. 1-10, 11-20. We will list 10 at a time.)"
     input = gets.strip.to_i
 
     print_companies(input)

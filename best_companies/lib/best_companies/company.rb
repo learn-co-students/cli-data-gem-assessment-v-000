@@ -39,7 +39,7 @@ class BestCompanies::Company
     @year_founded ||= doc.css('div.row.company-info-card-table').css('.row').css('p')[15].text
   end
 
-  def description 
+  def description
     @description ||= doc.css('div.company-info-card').css('.row').css('p')[0].text
   end
 
