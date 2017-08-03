@@ -1,4 +1,4 @@
-class HerbalRemedies::CLI
+class CommandLineInteface
 
   def call
     puts "Herbal Remedies for Common Ailments"

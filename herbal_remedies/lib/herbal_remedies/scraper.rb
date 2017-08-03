@@ -18,7 +18,6 @@ class Scraper
   def self.scrape_ailments
     doc = Nokogiri::HTML(open(HERB_REM))
     doc.css('tr').css('strong')[2..-1].map {|ailment| ailment.text}
-    binding.pry
   end
 
   def self.scrape_remedies
