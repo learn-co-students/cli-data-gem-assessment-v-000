@@ -7,8 +7,7 @@ class CommandLineInteface
     puts 'Welcome to Hebal Remedies'
     puts'Choose from the following options'
     puts '1. Herbal Remdies for Common Ilnesess'
-    Ailment.create_from_hash(Scraper.ailment_remedy_hash)
-    puts Scraper.scrape_ailments
+    all_ailments
       # user input
       # print herbal remedy
     # puts '2. Could Herbal tretments be harmful?'
@@ -17,7 +16,9 @@ class CommandLineInteface
   end
 
   def all_ailments
-
+    Scraper.scrape_ailments.each_with_index do |ailment, i|
+      puts "#{i+1}. #{ailment}"
+    end
   end
 
 
