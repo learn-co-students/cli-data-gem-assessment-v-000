@@ -11,6 +11,6 @@ require "herbal_remedies"
 #Pry.start
 
 require "irb"
-puts "Hello"
-#IRB.start(__FILE__)
-IRB.start
+
+IRB.start(__FILE__)
+# IRB.start

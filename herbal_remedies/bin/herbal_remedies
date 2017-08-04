@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/herbal_remedies'
-#require_relative '../config/environment'
+require_relative '../config/environment'
 
 CommandLineInteface.new.call
