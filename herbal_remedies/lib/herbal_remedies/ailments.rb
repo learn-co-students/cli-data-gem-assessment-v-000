@@ -26,4 +26,5 @@ class Ailment
 #send(("#{name}="), name)
 end
 
-#Ailment.create_from_hash(Scraper.ailment_remedy_hash)
+# Ailment.create_from_hash(Scraper.ailment_remedy_hash)
+# Ailment.all
