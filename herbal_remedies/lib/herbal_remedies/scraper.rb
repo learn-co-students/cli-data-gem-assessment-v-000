@@ -34,6 +34,11 @@ class Scraper
     Hash[scrape_ailments.zip(scrape_remedies.map { |r| r.split(",")  })]
   end
 
+  def self.herbal_medicine
+    doc = Nokogiri::HTML(open("https://draxe.com/herbal-medicine/"))
+    
+  end
+
 end
 
 # Scraper.hash_ailments_remedy
