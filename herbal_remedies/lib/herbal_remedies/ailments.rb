@@ -5,9 +5,7 @@ class Ailment
   attr_accessor :name, :remedy
   @@all = []
 
-  def initialize#(name = nil, remedy = nil)
-    #@name = name
-    #@remedy = remedy
+  def initialize
     @@all << self
   end
 
@@ -23,8 +21,4 @@ class Ailment
     @@all
   end
 
-#send(("#{name}="), name)
 end
-
-# Ailment.create_from_hash(Scraper.ailment_remedy_hash)
-# Ailment.all

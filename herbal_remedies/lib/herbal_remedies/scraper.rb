@@ -14,15 +14,16 @@ require 'pry'
 class Scraper
 
   HERB_REM = "http://www.motherearthnews.com/natural-health/herbal-remedies/herbal-remedies-common-ailments"
-  @@doc = Nokogiri::HTML(open(HERB_REM))
+  @@doc_1 = Nokogiri::HTML(open(HERB_REM))
+  @@doc_2 = Nokogiri::HTML(open("https://draxe.com/herbal-medicine/"))
 
   def self.scrape_ailments
-    @@doc.css('tr').css('strong')[2..-1].map {|ailment| ailment.text}
+    @@doc_1.css('tr').css('strong')[2..-1].map {|ailment| ailment.text}
   end
 
   def self.scrape_remedies
     remedies = []
-    @@doc.css('tr').css('td')[2..-1].each_with_index do |cell, i|
+    @@doc_1.css('tr').css('td')[2..-1].each_with_index do |cell, i|
       if i.odd?
         remedies << cell.text
       end
@@ -35,10 +36,19 @@ class Scraper
   end
 
   def self.herbal_medicine
-    doc = Nokogiri::HTML(open("https://draxe.com/herbal-medicine/"))
-    doc.css('p')[4..7]
+    @@doc_2.css('p')[4..7]
+  end
+
+  def self.benefits_of_h_m
+    @@doc_2.css('p')[8..15]
+  end
+
+  def self.bonus
+    doc = Nokogiri::HTML(open("https://www.meaningfullife.com/body-and-soul/"))
+    doc.css("p")[7..8]
   end
 
 end
 
+Scraper.bonus
 # Scraper.hash_ailments_remedy
