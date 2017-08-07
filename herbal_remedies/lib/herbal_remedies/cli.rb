@@ -15,11 +15,11 @@ class CommandLineInteface
           search_remedy_for_ailment(input.to_i)
         end
       elsif input == 2
-        display_what_is_h_m?
+        display(Scraper.herbal_medicine)
       elsif input == 3
-        display_benefits_of_h_m
+        display(Scraper.benefits_of_h_m)
       elsif input == 4
-        display_bonus
+        display(Scraper.bonus)
       else
         puts "please select a valid option"
       end
@@ -50,22 +50,8 @@ class CommandLineInteface
     puts ''
   end
 
-  def display_what_is_h_m?
-    Scraper.herbal_medicine.each do |info|
-      puts "#{info.text}"
-      puts ""
-    end
-  end
-
-  def display_benefits_of_h_m
-    Scraper.benefits_of_h_m.each do |info|
-      puts "#{info.text}"
-      puts ""
-    end
-  end
-
-  def display_bonus
-    Scraper.bonus.each do |info|
+  def display(from_scraper)
+    from_scraper.each do |info|
       puts info.text
       puts ""
     end
