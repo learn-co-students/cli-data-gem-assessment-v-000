@@ -36,7 +36,7 @@ class Scraper
 
   def self.herbal_medicine
     doc = Nokogiri::HTML(open("https://draxe.com/herbal-medicine/"))
-    
+    doc.css('p')[4..7]
   end
 
 end

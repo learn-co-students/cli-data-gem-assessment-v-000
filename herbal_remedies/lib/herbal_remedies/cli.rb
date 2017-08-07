@@ -15,7 +15,7 @@ class CommandLineInteface
           search_remedy_for_ailment(input.to_i)
         end
       elsif input == 2
-        puts "text with more info"
+        display_what_it_h_m?
       elsif input == 3
         puts "text with even more info"
       elsif input == 4
@@ -49,5 +49,13 @@ class CommandLineInteface
     puts '4. BONUS: Controversial Divine Remedy for All Ailments'
     puts ''
   end
+
+  def display_what_it_h_m?
+    Scraper.herbal_medicine.each do |info|
+      puts "#{info.text}"
+      puts ""
+    end
+  end
+
 
 end
