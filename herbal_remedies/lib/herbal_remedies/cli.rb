@@ -6,7 +6,7 @@ class CommandLineInteface
   def call
     print_options
     input = nil
-    
+
     while input != "exit"
       print_instructions
 
@@ -16,7 +16,6 @@ class CommandLineInteface
         Ailment.create_from_hash(Scraper.ailment_remedy_hash)
         print_all_ailments
         puts "Select a number of an ilness to discover it's respective herbal remedy, or type exit."
-
         while input != "exit"
           input = gets.strip
           search_remedy_for_ailment(input.to_i)
