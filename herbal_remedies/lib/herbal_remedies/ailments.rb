@@ -22,3 +22,5 @@ class Ailment
   end
 
 end
+
+Ailment.create_from_hash(Scraper.ailment_remedy_hash)

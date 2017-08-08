@@ -70,8 +70,8 @@ class CommandLineInteface
   end
 
   def search_remedy_for_ailment(a)
-    ary = Ailment.all
-    puts "#{ary[a-1].name}: #{ary[a-1].remedy.join(", ")}"
+    array = Ailment.all
+    puts "#{array[a-1].name}: #{array[a-1].remedy.join(", ")}"
   end
 
   def display(from_scraper)

@@ -4,12 +4,8 @@ require 'pry'
 
 #Herbal Remedies for Common Ailments - doc.css("h1").text
 #Ailments: doc.css('tr').css('strong')[2..-1].text
-#Remedies: remedies = []
-  # doc.css('tr').css('td')[2..-1].each_with_index do |cell, i|
-  #   if i.odd?
-  #     remedies << cell.text
-  #   end
-  # end
+# Name of herbs :doc.css('td').css('a').css('.herb')
+# Link for herb :attr('href')
 
 class Scraper
 
@@ -48,7 +44,18 @@ class Scraper
     doc.css("p")[7..8]
   end
 
-end
+  # Extended Functionality and New Feature #
 
-Scraper.bonus
-# Scraper.hash_ailments_remedy
+  def self.herb_names_and_path_hash
+    doc = Nokogiri::HTML(open("https://www.anniesremedy.com/chart.php"))
+    hash = {}
+    doc.css('td').css('a').css('.herb').each do |plant|
+      hash[plant.text.strip.chomp(',')] = plant.attr('href')
+    end
+    hash
+  end
+
+
+end
+binding.pry
+Scraper.herb_names
