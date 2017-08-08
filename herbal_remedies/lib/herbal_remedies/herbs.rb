@@ -14,16 +14,21 @@ class Herbs
       new_herb = Herbs.new
       new_herb.name = herb
       new_herb.path = h_path
-      binding.pry
     end
+  end
+
+  def add_herb_attributes(herb_attributes_hash)
+    herb_attributes_hash.each do |key, value|
+      self.send(("#{key}="), value)
+    end
+    self
   end
 
   def self.all
     @@all
   end
 
-
 end
 
-binding.pry
+
 Herbs.create_from_hash(Scraper.herb_names_and_path_hash)

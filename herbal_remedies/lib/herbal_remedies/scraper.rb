@@ -60,9 +60,9 @@ class Scraper
     attribute_hash = {}
     medicinal_uses = doc.css('.nobullets').css('li').css('.tag').text
     properties = doc.css('.nobullets').css('li').css('.chartID').text
-    attribute_hash["Medicinal Uses"] = medicinal_uses if medicinal_uses != ""
-    attribute_hash["Properties"] = properties if properties != ""
-    attribute_hash["Preparation"] = doc.css('.physW').text
+    attribute_hash[:medicinal_uses] = medicinal_uses if medicinal_uses != ""
+    attribute_hash[:properties] = properties if properties != ""
+    attribute_hash[:preparation] = doc.css('.physW').text
     attribute_hash
   end
 
