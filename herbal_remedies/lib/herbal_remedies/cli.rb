@@ -18,18 +18,32 @@ class CommandLineInteface
       if input.to_i == 1
         puts 'Common Ailments:'
         print_all_ailments
-        unless input == "exit"
+        loop do
           input = gets.strip
-          search_remedy_for_ailment(input.to_i)
+          if input.to_i > 0
+            search_remedy_for_ailment(input.to_i)
+          elsif input == "exit"
+            break
+          elsif input == "menu"
+            call
+          else
+            puts "Please select a valid option. You can also enter 'exit':"
+          end
         end
 
       elsif input.to_i == 2
         puts "Top 65 Most Commonly Used Herbs:"
         add_herb_attributes
         display_herbal_remedies
-        while input != "exit"
+        loop do
           input = gets.strip
-          search_herbal_remedy(input.to_i-1)
+          if input.to_i > 0
+            search_herbal_remedy(input.to_i-1)
+          elsif input == "exit"
+            break
+          else
+            puts "Please select a valid option. You can also enter 'exit':"
+          end
         end
 
       elsif input.to_i == 3
@@ -68,7 +82,7 @@ class CommandLineInteface
   def print_instructions
     puts "-----------------------------------------------------------------"
     puts "Choose a number from the list above to learn more or enter 'exit'."
-    puts "To see the list of options again, enter 'menu'."
+    puts "To see the menu again, enter 'menu'."
     puts ""
   end
 
@@ -82,12 +96,14 @@ class CommandLineInteface
       puts "#{i+1}. #{ailment}"
     end
     puts ""
-    puts "Select a number of an ilness to discover it's respective herbal remedy, or type exit:"
+    puts "Select a number of an ilness to discover it's respective herbal remedy."
+    puts "You can also enter 'all' to see all remedies or enter exit:"
   end
 
   def search_remedy_for_ailment(input)
     array = Ailment.all
     puts "#{array[input-1].name}: #{array[input-1].remedy.join(", ")}"
+    puts ""
   end
 
   def display_text(from_scraper)
@@ -129,20 +145,5 @@ class CommandLineInteface
     puts ""
     puts "----------------------"
   end
-
-
-  # def search_herbal_remedy(input)
-  #   Herbs.all.fetch(input-1) do |herb|
-  #     puts " #{herb.name.upcase}"
-  #     puts ""
-  #     puts "  Medical uses:" + " #{herb.medicinal_uses}"
-  #     puts ""
-  #     puts "  Properties:" + " #{herb.properties}"
-  #     puts ""
-  #     puts "  Preparation:" + " #{herb.preparation}"
-  #     puts ""
-  #     puts "----------------------"
-  #   end
-  # end
 
 end
