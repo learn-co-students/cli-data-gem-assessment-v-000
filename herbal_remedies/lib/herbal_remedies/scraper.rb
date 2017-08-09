@@ -55,8 +55,8 @@ class Scraper
     hash
   end
 
-  def self.herb_attributes_hash
-    doc = Nokogiri::HTML(open("https://www.anniesremedy.com/prunella-vulgaris-self-heal.php"))
+  def self.herb_attributes_hash(path)
+    doc = Nokogiri::HTML(open(path)) 
     attribute_hash = {}
     medicinal_uses = doc.css('.nobullets').css('li').css('.tag').text
     properties = doc.css('.nobullets').css('li').css('.chartID').text

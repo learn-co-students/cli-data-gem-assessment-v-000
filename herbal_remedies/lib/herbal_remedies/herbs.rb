@@ -9,7 +9,7 @@ class Herbs
     @@all << self
   end
 
-  def self.create_from_hash(herbs_and_path_hash)
+  def self.create_herbs_from_hash(herbs_and_path_hash)
     herbs_and_path_hash.each do |herb, h_path|
       new_herb = Herbs.new
       new_herb.name = herb
@@ -30,5 +30,4 @@ class Herbs
 
 end
 
-
-Herbs.create_from_hash(Scraper.herb_names_and_path_hash)
+#Herbs.create_herb_from_hash(Scraper.herb_names_and_path_hash)

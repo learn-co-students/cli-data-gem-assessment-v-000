@@ -16,11 +16,11 @@ class Ailment
       new_ailment.remedy = r
     end
   end
-
+  
   def self.all
     @@all
   end
 
 end
 
-Ailment.create_from_hash(Scraper.ailment_remedy_hash)
+#Ailment.create_from_hash(Scraper.ailment_remedy_hash)
