@@ -1,5 +1,3 @@
-require_relative './scraper'
-require_relative './ailments'
 
 class CommandLineInteface
   BASE_PATH = "https://www.anniesremedy.com/"
@@ -15,7 +13,7 @@ class CommandLineInteface
 
       if input.to_i == 1
         puts 'Common Ailments:'
-        create_ailments 
+        create_ailments
         print_all_ailments
         loop do
           input = gets.strip
@@ -28,7 +26,7 @@ class CommandLineInteface
           elsif input == "menu"
             call
           else
-            puts "Please select a valid option. You can also enter 'exit':"
+            puts "Please select a valid option. You can also enter 'menu' or 'exit':"
           end
         end
 
@@ -41,10 +39,12 @@ class CommandLineInteface
           input = gets.strip
           if input.to_i > 0
             search_herbal_remedy(input.to_i-1)
+          elsif input == "menu"
+            call
           elsif input == "exit"
             break
           else
-            puts "Please select a valid option. You can also enter 'exit':"
+            puts "Please select a valid option. You can also enter 'menu' or 'exit':"
           end
         end
 

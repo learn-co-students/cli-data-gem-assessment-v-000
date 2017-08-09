@@ -2,11 +2,6 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-#Herbal Remedies for Common Ailments - doc.css("h1").text
-#Ailments: doc.css('tr').css('strong')[2..-1].text
-# Name of herbs :doc.css('td').css('a').css('.herb')
-# Link for herb :attr('href')
-
 class Scraper
 
   HERB_REM = "http://www.motherearthnews.com/natural-health/herbal-remedies/herbal-remedies-common-ailments"
@@ -56,7 +51,7 @@ class Scraper
   end
 
   def self.herb_attributes_hash(path)
-    doc = Nokogiri::HTML(open(path)) 
+    doc = Nokogiri::HTML(open(path))
     attribute_hash = {}
     medicinal_uses = doc.css('.nobullets').css('li').css('.tag').text
     properties = doc.css('.nobullets').css('li').css('.chartID').text
@@ -67,5 +62,3 @@ class Scraper
   end
 
 end
-
-# Scraper.herb_attributes

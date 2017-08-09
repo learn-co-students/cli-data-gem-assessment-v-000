@@ -1,5 +1,3 @@
-require_relative './scraper'
-
 class Herbs
 
   attr_accessor :name, :path, :medicinal_uses, :properties, :preparation
