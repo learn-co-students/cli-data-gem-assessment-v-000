@@ -5,8 +5,6 @@ class CommandLineInteface
   BASE_PATH = "https://www.anniesremedy.com/"
 
   def call
-    create_herbal_remedies
-    create_ailments
     print_options
 
     input = nil
@@ -17,11 +15,14 @@ class CommandLineInteface
 
       if input.to_i == 1
         puts 'Common Ailments:'
+        create_ailments 
         print_all_ailments
         loop do
           input = gets.strip
           if input.to_i > 0
             search_remedy_for_ailment(input.to_i)
+          elsif input.downcase == "all"
+            display_all_remedies_for_ailments
           elsif input == "exit"
             break
           elsif input == "menu"
@@ -33,6 +34,7 @@ class CommandLineInteface
 
       elsif input.to_i == 2
         puts "Top 65 Most Commonly Used Herbs:"
+        create_herbal_remedies
         add_herb_attributes
         display_herbal_remedies
         loop do
@@ -103,6 +105,12 @@ class CommandLineInteface
   def search_remedy_for_ailment(input)
     array = Ailment.all
     puts "#{array[input-1].name}: #{array[input-1].remedy.join(", ")}"
+    puts ""
+  end
+
+  def display_all_remedies_for_ailments
+    puts ""
+    Ailment.all.each {|a| puts " #{a.name}: #{a.remedy.join(", ")}"}
     puts ""
   end
 
