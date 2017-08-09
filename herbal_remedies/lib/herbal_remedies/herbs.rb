@@ -29,5 +29,3 @@ class Herbs
   end
 
 end
-
-#Herbs.create_herb_from_hash(Scraper.herb_names_and_path_hash)

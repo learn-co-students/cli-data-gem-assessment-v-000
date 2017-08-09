@@ -5,7 +5,10 @@ class CommandLineInteface
   BASE_PATH = "https://www.anniesremedy.com/"
 
   def call
+    create_herbal_remedies
+    create_ailments
     print_options
+
     input = nil
 
     until input == "exit"
@@ -13,19 +16,21 @@ class CommandLineInteface
       input = gets.strip
 
       if input.to_i == 1
-        create_ailments
+        puts 'Common Ailments:'
         print_all_ailments
-        puts "Select a number of an ilness to discover it's respective herbal remedy, or type exit."
-        while input != "exit"
+        unless input == "exit"
           input = gets.strip
           search_remedy_for_ailment(input.to_i)
         end
 
       elsif input.to_i == 2
-        puts "Top 65 Most Commonly Used Herbs"
-        create_herbal_remedies
+        puts "Top 65 Most Commonly Used Herbs:"
         add_herb_attributes
         display_herbal_remedies
+        while input != "exit"
+          input = gets.strip
+          search_herbal_remedy(input.to_i-1)
+        end
 
       elsif input.to_i == 3
         puts "What Is Herbal Medicine?"
@@ -72,17 +77,17 @@ class CommandLineInteface
   end
 
   def print_all_ailments
-    puts 'Common Ailments:'
     puts ''
     Scraper.scrape_ailments.each_with_index do |ailment, i|
       puts "#{i+1}. #{ailment}"
     end
     puts ""
+    puts "Select a number of an ilness to discover it's respective herbal remedy, or type exit:"
   end
 
-  def search_remedy_for_ailment(a)
+  def search_remedy_for_ailment(input)
     array = Ailment.all
-    puts "#{array[a-1].name}: #{array[a-1].remedy.join(", ")}"
+    puts "#{array[input-1].name}: #{array[input-1].remedy.join(", ")}"
   end
 
   def display_text(from_scraper)
@@ -105,17 +110,39 @@ class CommandLineInteface
   end
 
   def display_herbal_remedies
-    Herbs.all.each do |herb|
-      puts " #{herb.name.upcase}"
-      puts ""
-      puts "  Medical uses:" + " #{herb.medicinal_uses}"
-      puts ""
-      puts "  Properties:" + " #{herb.properties}"
-      puts ""
-      puts "  Preparation:" + " #{herb.preparation}"
-      puts ""
-      puts "----------------------"
+    Herbs.all.each_with_index do |herb, index|
+      puts " #{index+1}. #{herb.name}"
     end
+    puts ""
+    puts "Select a number of the herb you would like to learn more about:"
   end
+
+  def search_herbal_remedy(input)
+    array = Herbs.all
+    puts " #{array[input].name.upcase}"
+    puts ""
+    puts "  Medical uses:" + " #{array[input].medicinal_uses}"
+    puts ""
+    puts "  Properties:" + " #{array[input].properties}"
+    puts ""
+    puts "  Preparation:" + " #{array[input].preparation}"
+    puts ""
+    puts "----------------------"
+  end
+
+
+  # def search_herbal_remedy(input)
+  #   Herbs.all.fetch(input-1) do |herb|
+  #     puts " #{herb.name.upcase}"
+  #     puts ""
+  #     puts "  Medical uses:" + " #{herb.medicinal_uses}"
+  #     puts ""
+  #     puts "  Properties:" + " #{herb.properties}"
+  #     puts ""
+  #     puts "  Preparation:" + " #{herb.preparation}"
+  #     puts ""
+  #     puts "----------------------"
+  #   end
+  # end
 
 end
