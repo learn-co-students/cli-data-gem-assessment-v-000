@@ -1,8 +1,20 @@
 # HerbalRemedies
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/herbal_remedies`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to Herbal Remedies!
 
-TODO: Delete this and the text above, and describe your gem
+This is a CLI application that scrapes data from four different websites and provides general and more specific information on herbal remedies.
+
+Some available options are:
+
+1. Search for ailments and see the corresponding herbal remedies.
+
+2. Search the Top 65 Most Commonly Used Herbs and see their medicinal uses as well as their properties and how to prepare them.
+
+3. What is Herbal Medicine?
+
+4. Benefits of Herbal Medicine
+
+Hope you learn and enjoy the Gem.
 
 ## Installation
 
@@ -20,10 +32,6 @@ Or install it yourself as:
 
     $ gem install herbal_remedies
 
-## Usage
-
-TODO: Write usage instructions here
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -38,4 +46,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'abald
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
