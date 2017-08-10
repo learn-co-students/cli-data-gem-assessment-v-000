@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# use require for external files like gems
+require "bundler/setup"
+#use require_relative for files internal to the project
+require_relative "../lib/best_companies"
+
+BestCompanies::CLI.new.call
+#all you need to start my program
