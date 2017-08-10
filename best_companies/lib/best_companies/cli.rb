@@ -15,12 +15,16 @@ class BestCompanies::CLI
 
     puts ""
     puts "Please type the number of the company you would like more information on."
-    input = gets.strip
+    input = gets.strip.to_i
 
+    if input >20 || input <=0
+      puts "Opps!! Please select a number between 1 - 20"
+    else
     company = BestCompanies::Company.find(input.to_i)
+    BestCompanies::Scraper.scrape_details(company)
 
     print_company(company)
-
+  end
     puts ""
     puts "Would you like to see another company? Enter Y or N"
     input = gets.strip.downcase
