@@ -2,6 +2,12 @@
 class CommandLineInteface
   BASE_PATH = "https://www.anniesremedy.com/"
 
+  def start
+    create_ailments
+    create_herbal_remedies
+    add_herb_attributes
+  end
+
   def call
     print_options
 
@@ -13,7 +19,6 @@ class CommandLineInteface
 
       if input.to_i == 1
         puts 'Common Ailments:'
-        create_ailments
         print_all_ailments
         loop do
           input = gets.strip
@@ -32,17 +37,34 @@ class CommandLineInteface
 
       elsif input.to_i == 2
         puts "Top 65 Most Commonly Used Herbs:"
-        create_herbal_remedies
-        add_herb_attributes
         display_herbal_remedies
         loop do
+          puts "Here you can also enter 'search', 'all', 'menu' or 'exit':"
           input = gets.strip
           if input.to_i > 0
             search_herbal_remedy(input.to_i-1)
+          elsif input == "search"
+            puts "Would you like to search by Medicinal Use or Properties (M/P)"
+            input = gets.strip.downcase
+            if input == "m"
+              until input == "exit"
+                puts "Enter the Medicinal Use or condition you would like to search for or type 'exit':"
+                input = gets.strip
+                search_by_medicinal_use(input)
+              end
+            elsif input == "p"
+              until input == "exit"
+                puts "Enter the Herbal Property you would like to search for or type 'exit':"
+                input = gets.strip
+                search_by_properties(input)
+              end
+            end
           elsif input == "menu"
             call
           elsif input == "exit"
             break
+          elsif input == "all"
+            display_herbal_remedies
           else
             puts "Please select a valid option. You can also enter 'menu' or 'exit':"
           end
@@ -94,8 +116,8 @@ class CommandLineInteface
 
   def print_all_ailments
     puts ''
-    Scraper.scrape_ailments.each_with_index do |ailment, i|
-      puts "#{i+1}. #{ailment}"
+    Ailment.all.each_with_index do |ailment, i|
+      puts "#{i+1}. #{ailment.name}"
     end
     puts ""
     puts "Select a number of an ilness to discover it's respective herbal remedy."
@@ -138,7 +160,7 @@ class CommandLineInteface
       puts " #{index+1}. #{herb.name}"
     end
     puts ""
-    puts "Select a number of the herb you would like to learn more about:"
+    puts "Select the number of the herb you would like to learn more about."
   end
 
   def search_herbal_remedy(input)
@@ -152,6 +174,26 @@ class CommandLineInteface
     puts "  Preparation:" + " #{array[input].preparation}"
     puts ""
     puts "----------------------"
+  end
+
+  def search_by_medicinal_use(input)
+    puts ""
+    Herbs.search_by_medicinal_use(input).each do |herb|
+      puts herb.name.upcase
+      puts ""
+      puts herb.medicinal_uses
+      puts ""
+    end
+  end
+
+  def search_by_properties(input)
+    puts ""
+    Herbs.search_by_properties(input).each do |herb|
+      puts herb.name.upcase
+      puts ""
+      puts herb.properties
+      puts ""
+    end
   end
 
 end

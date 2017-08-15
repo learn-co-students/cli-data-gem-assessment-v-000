@@ -2,4 +2,6 @@
 
 require_relative '../config/environment'
 
-CommandLineInteface.new.call
+cli = CommandLineInteface.new
+cli.start
+cli.call
