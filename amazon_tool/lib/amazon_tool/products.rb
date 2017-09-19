@@ -33,6 +33,21 @@ class AmazonTool::Products
       @@items["Toys & Games"].each_with_index do |product, index|
         puts "#{index + 1}. #{product.name}"
       end
+
+    puts "Type corresponding number for more info, or 'back' to return to the main menu."
+    new_response = nil
+    while new_response != "back"
+      new_response = gets.strip.downcase
+      case new_response
+      when "1"
+      when "2"
+      when "3"
+      when "back"
+        "list_products"
+      else
+        puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
+      end
+    end
   end
 
   def self.electronics
