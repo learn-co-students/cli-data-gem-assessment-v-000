@@ -37,7 +37,7 @@ class AmazonTool::Products
     scrape_products
 
       @@items["Toys & Games"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name} - #{product.price}"
+        puts "#{index + 1}. #{product.name[0]} - #{product.price}"
       end
 
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
@@ -73,7 +73,7 @@ class AmazonTool::Products
     scrape_products
 
       @@items["Electronics"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name} - #{product.price}"
+        puts "#{index + 1}. #{product.name[0]} - #{product.price}"
       end
 
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
@@ -109,7 +109,7 @@ class AmazonTool::Products
     scrape_products
 
       @@items["Camera & Photo"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name} - #{product.price}"
+        puts "#{index + 1}. #{product.name[0]} - #{product.price}"
       end
 
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
@@ -145,7 +145,7 @@ class AmazonTool::Products
     scrape_products
 
       @@items["Video Games"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name} - #{product.price}"
+        puts "#{index + 1}. #{product.name[0]} - #{product.price}"
       end
 
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
@@ -181,7 +181,7 @@ class AmazonTool::Products
     scrape_products
 
       @@items["Books"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name} - #{product.price}"
+        puts "#{index + 1}. #{product.name[0]} - #{product.price}"
       end
 
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
@@ -217,7 +217,7 @@ class AmazonTool::Products
     scrape_products
 
       @@items["Clothing, Shoes & Jewelry"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name} - #{product.price}"
+        puts "#{index + 1}. #{product.name[0]} - #{product.price}"
       end
 
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
