@@ -46,22 +46,26 @@ class AmazonTool::Products
       new_response = gets.strip.downcase
       case new_response
       when "1"
-        puts "#{@@items["Toys & Games"][0].name}"
+        puts "#{@@items["Toys & Games"][0].name[0]}"
         puts "You can buy yours here - #{@@items["Toys & Games"][0].url}"
         puts "Rating - #{@@items["Toys & Games"][0].rating}"
         puts "Price - #{@@items["Toys & Games"][0].price}"
       when "2"
-        puts "#{@@items["Toys & Games"][1].name}"
+        puts "#{@@items["Toys & Games"][1].name[0]}"
         puts "You can buy yours here - #{@@items["Toys & Games"][1].url}"
         puts "Rating - #{@@items["Toys & Games"][1].rating}"
         puts "Price - #{@@items["Toys & Games"][1].price}"
       when "3"
-        puts "#{@@items["Toys & Games"][2].name}"
+        puts "#{@@items["Toys & Games"][2].name[0]}"
         puts "You can buy yours here - #{@@items["Toys & Games"][2].url}"
         puts "Rating - #{@@items["Toys & Games"][2].rating}"
         puts "Price - #{@@items["Toys & Games"][2].price}"
       when "back"
-        puts "list_products"
+        puts <<-DOC.gsub /^\s*/, ''
+        1.  Show Amazon best sellers, by category.
+        2.  Generate Review
+        3.  Find Sales Rank of Product
+        DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
       end
@@ -82,22 +86,26 @@ class AmazonTool::Products
       new_response = gets.strip.downcase
       case new_response
       when "1"
-        puts "#{@@items["Electronics"][0].name}"
+        puts "#{@@items["Electronics"][0].name[0]}"
         puts "You can buy yours here - #{@@items["Electronics"][0].url}"
         puts "Rating - #{@@items["Electronics"][0].rating}"
         puts "Price - #{@@items["Electronics"][0].price}"
       when "2"
-        puts "#{@@items["Electronics"][1].name}"
+        puts "#{@@items["Electronics"][1].name[0]}"
         puts "You can buy yours here - #{@@items["Electronics"][1].url}"
         puts "Rating - #{@@items["Electronics"][1].rating}"
         puts "Price - #{@@items["Electronics"][1].price}"
       when "3"
-        puts "#{@@items["Electronics"][2].name}"
+        puts "#{@@items["Electronics"][2].name[0]}"
         puts "You can buy yours here - #{@@items["Electronics"][2].url}"
         puts "Rating - #{@@items["Electronics"][2].rating}"
         puts "Price - #{@@items["Electronics"][2].price}"
       when "back"
-        puts "list_products"
+        puts <<-DOC.gsub /^\s*/, ''
+        1.  Show Amazon best sellers, by category.
+        2.  Generate Review
+        3.  Find Sales Rank of Product
+        DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
       end
@@ -118,22 +126,26 @@ class AmazonTool::Products
       new_response = gets.strip.downcase
       case new_response
       when "1"
-        puts "#{@@items["Camera & Photo"][0].name}"
+        puts "#{@@items["Camera & Photo"][0].name[0]}"
         puts "You can buy yours here - #{@@items["Camera & Photo"][0].url}"
         puts "Rating - #{@@items["Camera & Photo"][0].rating}"
         puts "Price - #{@@items["Camera & Photo"][0].price}"
       when "2"
-        puts "#{@@items["Camera & Photo"][1].name}"
+        puts "#{@@items["Camera & Photo"][1].name[0]}"
         puts "You can buy yours here - #{@@items["Camera & Photo"][1].url}"
         puts "Rating - #{@@items["Camera & Photo"][1].rating}"
         puts "Price - #{@@items["Camera & Photo"][1].price}"
       when "3"
-        puts "#{@@items["Camera & Photo"][2].name}"
+        puts "#{@@items["Camera & Photo"][2].name[0]}"
         puts "You can buy yours here - #{@@items["Camera & Photo"][2].url}"
         puts "Rating - #{@@items["Camera & Photo"][2].rating}"
         puts "Price - #{@@items["Camera & Photo"][2].price}"
       when "back"
-        puts "list_products"
+        puts <<-DOC.gsub /^\s*/, ''
+        1.  Show Amazon best sellers, by category.
+        2.  Generate Review
+        3.  Find Sales Rank of Product
+        DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
       end
@@ -154,22 +166,26 @@ class AmazonTool::Products
       new_response = gets.strip.downcase
       case new_response
       when "1"
-        puts "#{@@items["Video Games"][0].name}"
+        puts "#{@@items["Video Games"][0].name[0]}"
         puts "You can buy yours here - #{@@items["Video Games"][0].url}"
         puts "Rating - #{@@items["Video Games"][0].rating}"
         puts "Price - #{@@items["Video Games"][0].price}"
       when "2"
-        puts "#{@@items["Video Games"][1].name}"
+        puts "#{@@items["Video Games"][1].name[0]}"
         puts "You can buy yours here - #{@@items["Video Games"][1].url}"
         puts "Rating - #{@@items["Video Games"][1].rating}"
         puts "Price - #{@@items["Video Games"][1].price}"
       when "3"
-        puts "#{@@items["Video Games"][2].name}"
+        puts "#{@@items["Video Games"][2].name[0]}"
         puts "You can buy yours here - #{@@items["Video Games"][2].url}"
         puts "Rating - #{@@items["Video Games"][2].rating}"
         puts "Price - #{@@items["Video Games"][2].price}"
       when "back"
-        puts "list_products"
+        puts <<-DOC.gsub /^\s*/, ''
+        1.  Show Amazon best sellers, by category.
+        2.  Generate Review
+        3.  Find Sales Rank of Product
+        DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
       end
@@ -190,22 +206,26 @@ class AmazonTool::Products
       new_response = gets.strip.downcase
       case new_response
       when "1"
-        puts "#{@@items["Books"][0].name}"
+        puts "#{@@items["Books"][0].name[0]}"
         puts "You can buy yours here - #{@@items["Books"][0].url}"
         puts "Rating - #{@@items["Books"][0].rating}"
         puts "Price - #{@@items["Books"][0].price}"
       when "2"
-        puts "#{@@items["Books"][1].name}"
+        puts "#{@@items["Books"][1].name[0]}"
         puts "You can buy yours here - #{@@items["Books"][1].url}"
         puts "Rating - #{@@items["Books"][1].rating}"
         puts "Price - #{@@items["Books"][1].price}"
       when "3"
-        puts "#{@@items["Books"][2].name}"
+        puts "#{@@items["Books"][2].name[0]}"
         puts "You can buy yours here - #{@@items["Books"][2].url}"
         puts "Rating - #{@@items["Books"][2].rating}"
         puts "Price - #{@@items["Books"][2].price}"
       when "back"
-        puts "list_products"
+        puts <<-DOC.gsub /^\s*/, ''
+        1.  Show Amazon best sellers, by category.
+        2.  Generate Review
+        3.  Find Sales Rank of Product
+        DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
       end
@@ -226,22 +246,26 @@ class AmazonTool::Products
       new_response = gets.strip.downcase
       case new_response
       when "1"
-        puts "#{@@items["Clothing, Shoes & Jewelry"][0].name}"
+        puts "#{@@items["Clothing, Shoes & Jewelry"][0].name[0][0]}"
         puts "You can buy yours here - #{@@items["Clothing, Shoes & Jewelry"][0].url}"
         puts "Rating - #{@@items["Clothing, Shoes & Jewelry"][0].rating}"
         puts "Price - #{@@items["Clothing, Shoes & Jewelry"][0].price}"
       when "2"
-        puts "#{@@items["Clothing, Shoes & Jewelry"][1].name}"
+        puts "#{@@items["Clothing, Shoes & Jewelry"][1].name[0]}"
         puts "You can buy yours here - #{@@items["Clothing, Shoes & Jewelry"][1].url}"
         puts "Rating - #{@@items["Clothing, Shoes & Jewelry"][1].rating}"
         puts "Price - #{@@items["Clothing, Shoes & Jewelry"][1].price}"
       when "3"
-        puts "#{@@items["Clothing, Shoes & Jewelry"][2].name}"
+        puts "#{@@items["Clothing, Shoes & Jewelry"][2].name[0]}"
         puts "You can buy yours here - #{@@items["Clothing, Shoes & Jewelry"][2].url}"
         puts "Rating - #{@@items["Clothing, Shoes & Jewelry"][2].rating}"
         puts "Price - #{@@items["Clothing, Shoes & Jewelry"][2].price}"
       when "back"
-        puts "list_products"
+        puts <<-DOC.gsub /^\s*/, ''
+        1.  Show Amazon best sellers, by category.
+        2.  Generate Review
+        3.  Find Sales Rank of Product
+        DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
       end
