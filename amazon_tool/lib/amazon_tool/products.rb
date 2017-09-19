@@ -5,12 +5,14 @@ class AmazonTool::Products
 
   def self.scrape_products
     products = []
-    doc = Nokogiri::HTML(open(https://www.amazon.com/Best-Sellers/zgbs))
+    doc = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers/zgbs"))
+    binding.pry
     #GO TO Amazon
     #GO TO category
     #Scrape Bestsellers + Info
     #INSTANTIATE A Product
     products
+  end
 
   def self.toys_and_games
     #Array Location - 0

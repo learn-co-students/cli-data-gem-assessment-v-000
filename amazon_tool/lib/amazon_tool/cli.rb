@@ -25,12 +25,14 @@ class AmazonTool::CLI
 
     case new_response
     when "1"
-      puts "Toys & Games - Top 5 Bestsellers:"
-      i = 0
-      while i < AmazonTool::Products.toys_and_games.length
-        puts "#{i+1}. #{AmazonTool::Products.toys_and_games[i].name} - #{AmazonTool::Products.toys_and_games[i].price} - #{AmazonTool::Products.toys_and_games[i].availability}."
-        i+=1
-      end
+      AmazonTool::Products.scrape_products
+
+      # puts "Toys & Games - Top 5 Bestsellers:"
+      # i = 0
+      # while i < AmazonTool::Products.toys_and_games.length
+      #   puts "#{i+1}. #{AmazonTool::Products.toys_and_games[i].name} - #{AmazonTool::Products.toys_and_games[i].price} - #{AmazonTool::Products.toys_and_games[i].availability}."
+      #   i+=1
+      # end
 
     when "2"
       puts "Electronics - Top 5 Bestsellers:"
