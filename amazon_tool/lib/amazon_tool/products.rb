@@ -24,25 +24,27 @@ class AmazonTool::Products
             name_and_rating = product.search('a.a-link-normal').text.split("\n")
             new_item.name = name_and_rating[0].split(" {10,}")
             new_item.rating = "#{name_and_rating[1]}".lstrip
-            AmazonTool::Products.price_scrape(new_item)
+            new_category.scrape(new_item)
+            # AmazonTool::Products.price_scrape(new_item)
             @@items[new_category.name] << new_item
           end
       end
    @@items
   end
 
-  def self.price_scrape(new_item)
-      pricing = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/"))
-      prices = pricing.search('span.p13n-sc-price')
-      prices.each do |price|
-            new_item.price = price.text
-      end
-
-      binding.pry
-  end
+  # def self.price_scrape(new_item)
+  #     pricing = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/"))
+  #     prices = pricing.search('span.p13n-sc-price')
+  #     prices.each do |price|
+  #           new_item.price = price.text
+  #     end
+  # 
+  #     binding.pry
+  # end
 
   def self.toys_and_games
     scrape_products
+    
 
     #SCRAPE PRICE
       @@items["Toys & Games"].each_with_index do |product, index|
