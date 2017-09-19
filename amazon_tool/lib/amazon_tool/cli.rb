@@ -1,5 +1,7 @@
 #Our CLI Controller
 
+require 'pry'
+
 class AmazonTool::CLI
 
   def call
@@ -23,17 +25,28 @@ class AmazonTool::CLI
 
     case new_response
     when "1"
-      puts "Toys & Games:"
+      puts "Toys & Games - Top 5 Bestsellers:"
+      i = 0
+      while i < AmazonTool::Products.all.length
+        puts "#{i+1}. #{AmazonTool::Products.all[i].name} - #{AmazonTool::Products.all[i].price} - #{AmazonTool::Products.all[i].availability}."
+        i+=1
+      end
+
     when "2"
-      puts "Electronics"
+      puts "Electronics - Top 5 Bestsellers:"
+      # @products = AmazonTool::Products.all[1]
     when "3"
-      puts "Camera & Photo"
+      puts "Camera & Photo - Top 5 Bestsellers:"
+      # @products = AmazonTool::Products.all[2]
     when "4"
-      puts "Video Games"
+      puts "Video Games - Top 5 Bestsellers:"
+      # @products = AmazonTool::Products.all[3]
     when "5"
-      puts "Books"
+      puts "Books - Top 5 Bestsellers:"
+      # @products = AmazonTool::Products.all[4]
     when "6"
-      puts "Clothing, Shoes & Jewelry"
+      puts "Clothing, Shoes & Jewelry - Top 5 Bestsellers:"
+      # @products = AmazonTool::Products.all[5]
     when "menu"
       menu
     when "products"
@@ -41,9 +54,6 @@ class AmazonTool::CLI
     else
       puts "Not sure what you're wanting to do. Type products, or menu"
     end
-
-    @products = AmazonTool::Products.all
-
 
 
   end
