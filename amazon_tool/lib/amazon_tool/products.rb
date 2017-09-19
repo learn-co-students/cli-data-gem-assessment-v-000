@@ -6,7 +6,22 @@ class AmazonTool::Products
   def self.scrape_products
     products = []
     doc = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers/zgbs"))
-    binding.pry
+    categories = doc.search('.zg_homeWidget')
+      categories.each do |category|
+        new_category = AmazonTool::Category.new
+        new_category.name = category.search('h3').text
+        products = category.search('.zg_item.zg_homeWidgetItem')
+          products.each do |product|
+            new_item = AmazonTool::Items.new
+            name = product.search('.data-p13n-asin-metadata a').text
+            url = product.search('.data-p13n-asin-metadata a href')
+            new_item.name = name
+            new_item.category = new_category
+            new_item.price = "$27.999999"
+            binding.pry
+          end
+      end
+
     #GO TO Amazon
     #GO TO category
     #Scrape Bestsellers + Info
@@ -16,7 +31,6 @@ class AmazonTool::Products
 
   def self.toys_and_games
     #Array Location - 0
-
     product_1 = self.new
     product_1.name = "WowWee Fingerlings Mia Purple Baby Monkey with Bonus Stand"
     product_1.price = "$7"
