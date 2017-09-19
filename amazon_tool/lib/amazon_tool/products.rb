@@ -18,14 +18,25 @@ class AmazonTool::Products
           products.each do |product|
             new_item = AmazonTool::Items.new
             new_item.category = new_category
-            url = "http://www.amazon.com#{product.search('a.a-link-normal').attr('href').text}"
+            url = "https://www.amazon.com#{product.search('a.a-link-normal').attr('href').text}"
             new_item.url = url
             name_and_rating = product.search('a.a-link-normal').text.split("\n")
-            new_item.name = name_and_rating[0]
+            new_item.name = name_and_rating[0].split(" {10,}")
+            new_item.rating = "#{name_and_rating[1]}".lstrip
+            price_scrape
             @@items[new_category.name] << new_item
           end
       end
    @@items
+  end
+
+  def price_scrape
+    pricing = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/"))
+    prices = pricing.search('span.p13n-sc-price')
+      prices.each do |price|
+        new_item.price = price.text
+        binding.pry
+      end
   end
 
   def self.toys_and_games
@@ -40,8 +51,13 @@ class AmazonTool::Products
       new_response = gets.strip.downcase
       case new_response
       when "1"
+        puts "#{@@items["Toys & Games"][0].name}"
+        puts "You can buy yours here - #{@@items["Toys & Games"][0].url}"
+        puts "Rating - #{@@items["Toys & Games"][0].rating}"
       when "2"
+        puts @@items["Toys & Games"][1]
       when "3"
+        puts @@items["Toys & Games"][2]
       when "back"
         "list_products"
       else

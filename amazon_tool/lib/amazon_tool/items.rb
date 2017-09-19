@@ -1,6 +1,6 @@
 class AmazonTool::Items
 
-  attr_accessor :name, :products, :price, :all, :category, :url
+  attr_accessor :name, :products, :price, :all, :category, :url, :rating
 
   @products = []
 
