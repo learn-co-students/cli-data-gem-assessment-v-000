@@ -14,7 +14,7 @@ class AmazonTool::Products
         products = category.search('.zg_item.zg_homeWidgetItem')
 
         @@items[new_category.name] = []
-          # 
+          #
           # binding.pry
           begin
             products.each_with_index do |product, index|
@@ -32,13 +32,13 @@ class AmazonTool::Products
           end
           rescue
             next
-          
+
           end
       end
    @@items
   end
 
-  def self.toys_and_games  
+  def self.toys_and_games
     puts "Please wait a moment while your information is being gathered."
     scrape_products
 

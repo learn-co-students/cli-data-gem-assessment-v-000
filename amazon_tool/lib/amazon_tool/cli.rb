@@ -12,7 +12,7 @@ class AmazonTool::CLI
 
   def review
     AmazonTool::Review.new
-    
+
   end
 
   def list_products
