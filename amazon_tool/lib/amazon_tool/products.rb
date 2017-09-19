@@ -13,11 +13,12 @@ class AmazonTool::Products
         products = category.search('.zg_item.zg_homeWidgetItem')
           products.each do |product|
             new_item = AmazonTool::Items.new
-            name = product.search('.data-p13n-asin-metadata a').text
-            url = product.search('.data-p13n-asin-metadata a href')
-            new_item.name = name
             new_item.category = new_category
-            new_item.price = "$27.999999"
+
+            if product.search('a.a-link-normal').include?('href')
+              url = "www.amazon.com#{product.search('a.a-link-normal').attr('href').text}"
+            end
+            
             binding.pry
           end
       end
