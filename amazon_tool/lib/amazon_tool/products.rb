@@ -14,8 +14,10 @@ class AmazonTool::Products
         products = category.search('.zg_item.zg_homeWidgetItem')
 
         @@items[new_category.name] = []
-
-          products.each_with_index do |product, index|
+          # 
+          # binding.pry
+          begin
+            products.each_with_index do |product, index|
             new_item = AmazonTool::Items.new
             new_item.index = index
             new_item.category = new_category
@@ -27,6 +29,10 @@ class AmazonTool::Products
             new_item.price = new_category.scrape_price(new_item)
             # AmazonTool::Products.price_scrape(new_item)
             @@items[new_category.name] << new_item
+          end
+          rescue
+            next
+          
           end
       end
    @@items
@@ -101,11 +107,7 @@ class AmazonTool::Products
         puts "Rating - #{@@items["Electronics"][2].rating}"
         puts "Price - #{@@items["Electronics"][2].price}"
       when "back"
-        puts <<-DOC.gsub /^\s*/, ''
-        1.  Show Amazon best sellers, by category.
-        2.  Generate Review
-        3.  Find Sales Rank of Product
-        DOC
+        puts "1.  Show Amazon best sellers, by category."
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
       end

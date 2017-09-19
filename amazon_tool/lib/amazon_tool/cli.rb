@@ -53,9 +53,9 @@ class AmazonTool::CLI
 
   def menu
     puts <<-DOC.gsub /^\s*/, ''
-    1.  Show Amazon best sellers, by category.
-    2.  Generate Review
-    3.  Find Sales Rank of Product
+    Type '1' to Show Amazon best sellers, by category.
+
+    MORE FEATURES WILL SOON BE ADDED...
     DOC
 
     response = nil
@@ -64,12 +64,6 @@ class AmazonTool::CLI
         case response
         when "1"
           list_products
-        when "2"
-          puts "Enter the product you would like reviewed:"
-          url = gets
-          review
-        when "3"
-          puts "sales_rank"
         when "menu"
           menu
         else
