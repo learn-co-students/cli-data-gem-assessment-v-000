@@ -1,12 +1,12 @@
-Amazon Seller Tool
+Amazon Tool
 
 
-Welcome to the Amazon Seller Tool
+Welcome to the Amazon Tool
 
 - A command line interface providing you with Amazon Best Sellers, including a few added features for Amazon Sellers.
 
 
-user types amazon-seller-tool
+** User types amazon-tool **
 
 1.  Show Amazon best sellers(hourly), by category.
 2.  Generate Review

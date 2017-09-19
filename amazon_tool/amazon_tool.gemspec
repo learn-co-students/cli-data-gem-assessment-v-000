@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "amazon/tool/version"
+require "amazon_tool/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "amazon-tool"
-  spec.version       = Amazon::Tool::VERSION
+  spec.name          = "amazon_tool"
+  spec.version       = AmazonTool::VERSION
   spec.authors       = ["'Braydon Whitmarsh'"]
   spec.email         = ["'braydonwhitmarsh@me.com'"]
 
