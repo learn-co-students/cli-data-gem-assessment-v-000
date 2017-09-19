@@ -11,6 +11,7 @@ class AmazonTool::CLI
   end
 
   def list_products
+
     puts <<-DOC.gsub /^\s*/, ''
       Please select category:
       1. Toys & Games
@@ -26,42 +27,16 @@ class AmazonTool::CLI
     case new_response
     when "1"
       AmazonTool::Products.toys_and_games
-
     when "2"
-      puts "Electronics - Top 5 Bestsellers:"
-      i = 0
-      while i < AmazonTool::Products.electronics.length
-        puts "#{i+1}. #{AmazonTool::Products.electronics[i].name} - #{AmazonTool::Products.electronics[i].price} - #{AmazonTool::Products.electronics[i].availability}."
-        i+=1
-      end
+        AmazonTool::Products.electronics
     when "3"
-      puts "Camera & Photo - Top 5 Bestsellers:"
-      i = 0
-      while i < AmazonTool::Products.camera_and_photo.length
-        puts "#{i+1}. #{AmazonTool::Products.camera_and_photo[i].name} - #{AmazonTool::Products.camera_and_photo[i].price} - #{AmazonTool::Products.camera_and_photo[i].availability}."
-        i+=1
-      end
+      AmazonTool::Products.camera_and_photo
     when "4"
-      puts "Video Games - Top 5 Bestsellers:"
-      i = 0
-      while i < AmazonTool::Products.video_games.length
-        puts "#{i+1}. #{AmazonTool::Products.video_games[i].name} - #{AmazonTool::Products.video_games[i].price} - #{AmazonTool::Products.video_games[i].availability}."
-        i+=1
-      end
+      AmazonTool::Products.video_games
     when "5"
-      puts "Books - Top 5 Bestsellers:"
-      i = 0
-      while i < AmazonTool::Products.books.length
-        puts "#{i+1}. #{AmazonTool::Products.books[i].name} - #{AmazonTool::Products.books[i].price} - #{AmazonTool::Products.books[i].availability}."
-        i+=1
-      end
+      AmazonTool::Products.books
     when "6"
-      puts "Clothing, Shoes & Jewelry - Top 5 Bestsellers:"
-      i = 0
-      while i < AmazonTool::Products.clothing_shoes_and_jewelry.length
-        puts "#{i+1}. #{AmazonTool::Products.clothing_shoes_and_jewelry[i].name} - #{AmazonTool::Products.clothing_shoes_and_jewelry[i].price} - #{AmazonTool::Products.clothing_shoes_and_jewelry[i].availability}."
-        i+=1
-      end
+      AmazonTool::Products.clothing_shoes_and_jewelry
     when "menu"
       menu
     when "products"

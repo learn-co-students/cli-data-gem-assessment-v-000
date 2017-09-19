@@ -2,7 +2,6 @@ class AmazonTool::Products
 
   attr_accessor :name, :price, :availability, :url
 
-
   def self.scrape_products
     @@items = {}
     products = []
@@ -38,7 +37,6 @@ class AmazonTool::Products
 
   def self.electronics
     scrape_products
-    binding.pry
       @@items["Electronics"].each_with_index do |product, index|
         puts "#{index + 1}. #{product.name}"
       end
@@ -67,7 +65,7 @@ class AmazonTool::Products
 
   def self.clothing_shoes_and_jewelry
     scrape_products
-      @@items["Shoes & Jewelry"].each_with_index do |product, index|
+      @@items["Clothing, Shoes & Jewelry"].each_with_index do |product, index|
         puts "#{index + 1}. #{product.name}"
       end
   end
