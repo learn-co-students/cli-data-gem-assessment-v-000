@@ -15,34 +15,38 @@ class AmazonTool::Products
 
         @@items[new_category.name] = []
 
-          products.each do |product|
+          products.each_with_index do |product, index|
             new_item = AmazonTool::Items.new
+            new_item.index = index
             new_item.category = new_category
             url = "https://www.amazon.com#{product.search('a.a-link-normal').attr('href').text}"
             new_item.url = url
             name_and_rating = product.search('a.a-link-normal').text.split("\n")
             new_item.name = name_and_rating[0].split(" {10,}")
             new_item.rating = "#{name_and_rating[1]}".lstrip
-            price_scrape
+            AmazonTool::Products.price_scrape(new_item)
             @@items[new_category.name] << new_item
           end
       end
    @@items
   end
 
-  def price_scrape
-    pricing = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/"))
-    prices = pricing.search('span.p13n-sc-price')
+  def self.price_scrape(new_item)
+      pricing = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/"))
+      prices = pricing.search('span.p13n-sc-price')
       prices.each do |price|
-        new_item.price = price.text
-        binding.pry
+            new_item.price = price.text
       end
+
+      binding.pry
   end
 
   def self.toys_and_games
     scrape_products
+
+    #SCRAPE PRICE
       @@items["Toys & Games"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name}"
+        puts "#{index + 1}. #{product.name} - #{product.price}"
       end
 
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
@@ -54,6 +58,7 @@ class AmazonTool::Products
         puts "#{@@items["Toys & Games"][0].name}"
         puts "You can buy yours here - #{@@items["Toys & Games"][0].url}"
         puts "Rating - #{@@items["Toys & Games"][0].rating}"
+        puts "Price - #{@@items["Toys & Games"][0].price}"
       when "2"
         puts @@items["Toys & Games"][1]
       when "3"
