@@ -24,7 +24,7 @@ class AmazonTool::Products
             name_and_rating = product.search('a.a-link-normal').text.split("\n")
             new_item.name = name_and_rating[0].split(" {10,}")
             new_item.rating = "#{name_and_rating[1]}".lstrip
-            new_category.scrape_price(new_item)
+            new_item.price = new_category.scrape_price(new_item)
             # AmazonTool::Products.price_scrape(new_item)
             @@items[new_category.name] << new_item
           end
