@@ -10,6 +10,10 @@ class AmazonTool::CLI
     goodbye
   end
 
+  def review(url)
+    AmazonTool:Review.new(url)
+  end
+
   def list_products
 
     puts <<-DOC.gsub /^\s*/, ''
@@ -44,8 +48,6 @@ class AmazonTool::CLI
     else
       puts "Not sure what you're wanting to do. Type products, or menu"
     end
-
-
   end
 
   def menu
@@ -62,7 +64,8 @@ class AmazonTool::CLI
         when "1"
           list_products
         when "2"
-          puts "generate_review"
+          puts "Please paste in your product URL"
+          review(gets.strip)
         when "3"
           puts "sales_rank"
         when "menu"
