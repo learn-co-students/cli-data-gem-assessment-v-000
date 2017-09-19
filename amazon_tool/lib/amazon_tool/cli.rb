@@ -10,8 +10,9 @@ class AmazonTool::CLI
     goodbye
   end
 
-  def review(url)
-    AmazonTool:Review.new(url)
+  def review
+    AmazonTool::Review.new
+    
   end
 
   def list_products
@@ -64,8 +65,9 @@ class AmazonTool::CLI
         when "1"
           list_products
         when "2"
-          puts "Please paste in your product URL"
-          review(gets.strip)
+          puts "Enter the product you would like reviewed:"
+          url = gets
+          review
         when "3"
           puts "sales_rank"
         when "menu"

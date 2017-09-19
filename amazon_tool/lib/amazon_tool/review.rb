@@ -1,9 +1,12 @@
 class AmazonTool::Review
 
-  def initialize(url)
-    doc = Nokogiri::HTML(open(url))
-    binding.pry
-    reviews = doc.search('a-section review-views celwidget')
+  attr_accessor :review
+
+  def initialize
+    generate_review
   end
 
+  def generate_review
+    
+  end
 end
