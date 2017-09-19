@@ -27,26 +27,46 @@ class AmazonTool::CLI
     when "1"
       puts "Toys & Games - Top 5 Bestsellers:"
       i = 0
-      while i < AmazonTool::Products.all.length
-        puts "#{i+1}. #{AmazonTool::Products.all[i].name} - #{AmazonTool::Products.all[i].price} - #{AmazonTool::Products.all[i].availability}."
+      while i < AmazonTool::Products.toys_and_games.length
+        puts "#{i+1}. #{AmazonTool::Products.toys_and_games[i].name} - #{AmazonTool::Products.toys_and_games[i].price} - #{AmazonTool::Products.toys_and_games[i].availability}."
         i+=1
       end
 
     when "2"
       puts "Electronics - Top 5 Bestsellers:"
-      # @products = AmazonTool::Products.all[1]
+      i = 0
+      while i < AmazonTool::Products.electronics.length
+        puts "#{i+1}. #{AmazonTool::Products.electronics[i].name} - #{AmazonTool::Products.electronics[i].price} - #{AmazonTool::Products.electronics[i].availability}."
+        i+=1
+      end
     when "3"
       puts "Camera & Photo - Top 5 Bestsellers:"
-      # @products = AmazonTool::Products.all[2]
+      i = 0
+      while i < AmazonTool::Products.camera_and_photo.length
+        puts "#{i+1}. #{AmazonTool::Products.camera_and_photo[i].name} - #{AmazonTool::Products.camera_and_photo[i].price} - #{AmazonTool::Products.camera_and_photo[i].availability}."
+        i+=1
+      end
     when "4"
       puts "Video Games - Top 5 Bestsellers:"
-      # @products = AmazonTool::Products.all[3]
+      i = 0
+      while i < AmazonTool::Products.video_games.length
+        puts "#{i+1}. #{AmazonTool::Products.video_games[i].name} - #{AmazonTool::Products.video_games[i].price} - #{AmazonTool::Products.video_games[i].availability}."
+        i+=1
+      end
     when "5"
       puts "Books - Top 5 Bestsellers:"
-      # @products = AmazonTool::Products.all[4]
+      i = 0
+      while i < AmazonTool::Products.books.length
+        puts "#{i+1}. #{AmazonTool::Products.books[i].name} - #{AmazonTool::Products.books[i].price} - #{AmazonTool::Products.books[i].availability}."
+        i+=1
+      end
     when "6"
       puts "Clothing, Shoes & Jewelry - Top 5 Bestsellers:"
-      # @products = AmazonTool::Products.all[5]
+      i = 0
+      while i < AmazonTool::Products.clothing_shoes_and_jewelry.length
+        puts "#{i+1}. #{AmazonTool::Products.clothing_shoes_and_jewelry[i].name} - #{AmazonTool::Products.clothing_shoes_and_jewelry[i].price} - #{AmazonTool::Products.clothing_shoes_and_jewelry[i].availability}."
+        i+=1
+      end
     when "menu"
       menu
     when "products"
