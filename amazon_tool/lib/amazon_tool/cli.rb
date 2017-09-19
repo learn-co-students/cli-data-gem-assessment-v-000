@@ -42,6 +42,8 @@ class AmazonTool::CLI
       puts "Not sure what you're wanting to do. Type products, or menu"
     end
 
+    @products = AmazonTool::Products.all
+
 
 
   end
