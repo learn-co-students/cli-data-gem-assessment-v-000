@@ -14,13 +14,10 @@ class AmazonTool::Products
         products = category.search('.zg_item.zg_homeWidgetItem')
 
         @@items[new_category.name] = []
-          #
-          # binding.pry
-
-            products.each_with_index do |product, index|
-
+            i = 0
+            products.each do |product|
             new_item = AmazonTool::Items.new
-            new_item.index = index
+            new_item.index = i
             new_item.category = new_category
             begin
             url = "https://www.amazon.com#{product.search('a.a-link-normal').attr('href').text}"
@@ -31,7 +28,9 @@ class AmazonTool::Products
             new_item.price = new_category.scrape_price(new_item)
             # AmazonTool::Products.price_scrape(new_item)
             @@items[new_category.name] << new_item
+            i+=1
             rescue
+            --i
             next
           end
           end
@@ -70,8 +69,6 @@ class AmazonTool::Products
       when "back"
         puts <<-DOC.gsub /^\s*/, ''
         1.  Show Amazon best sellers, by category.
-        2.  Generate Review
-        3.  Find Sales Rank of Product
         DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
@@ -146,8 +143,6 @@ class AmazonTool::Products
       when "back"
         puts <<-DOC.gsub /^\s*/, ''
         1.  Show Amazon best sellers, by category.
-        2.  Generate Review
-        3.  Find Sales Rank of Product
         DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
@@ -186,8 +181,6 @@ class AmazonTool::Products
       when "back"
         puts <<-DOC.gsub /^\s*/, ''
         1.  Show Amazon best sellers, by category.
-        2.  Generate Review
-        3.  Find Sales Rank of Product
         DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
@@ -266,8 +259,6 @@ class AmazonTool::Products
       when "back"
         puts <<-DOC.gsub /^\s*/, ''
         1.  Show Amazon best sellers, by category.
-        2.  Generate Review
-        3.  Find Sales Rank of Product
         DOC
       else
         puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
