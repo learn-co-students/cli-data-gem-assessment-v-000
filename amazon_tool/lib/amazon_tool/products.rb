@@ -16,11 +16,13 @@ class AmazonTool::Products
         @@items[new_category.name] = []
           #
           # binding.pry
-          begin
+
             products.each_with_index do |product, index|
+
             new_item = AmazonTool::Items.new
             new_item.index = index
             new_item.category = new_category
+            begin
             url = "https://www.amazon.com#{product.search('a.a-link-normal').attr('href').text}"
             new_item.url = url
             name_and_rating = product.search('a.a-link-normal').text.split("\n")
@@ -29,10 +31,9 @@ class AmazonTool::Products
             new_item.price = new_category.scrape_price(new_item)
             # AmazonTool::Products.price_scrape(new_item)
             @@items[new_category.name] << new_item
-          end
-          rescue
+            rescue
             next
-
+          end
           end
       end
    @@items

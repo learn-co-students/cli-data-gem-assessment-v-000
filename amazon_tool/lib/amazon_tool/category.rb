@@ -21,6 +21,12 @@ class AmazonTool::Category
         return prices[1].text
       elsif item.index == 2
         return prices[2].text
+      elsif item.index == 3
+        return prices[3].text
+      elsif item.index == 4
+        return prices[4].text
+      elsif item.index == 5
+        return prices[5].text
       end
 
     when "Electronics"
