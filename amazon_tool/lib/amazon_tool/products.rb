@@ -38,42 +38,86 @@ class AmazonTool::Products
    @@items
   end
 
+  def self.print_products(category)
+    puts "Please wait a moment while your information is being gathered."
+    scrape_products
+    @category = category
+    puts @category
+  end
+    
+
   def self.toys_and_games
     puts "Please wait a moment while your information is being gathered."
     scrape_products
+    print_products
 
-      @@items["Toys & Games"].each_with_index do |product, index|
-        puts "#{index + 1}. #{product.name[0]} - #{product.price}"
-      end
+    category = "Toys & Games"
 
-    puts "Type corresponding number for more info, or 'back' to return to the main menu."
-    new_response = nil
-    while new_response != "back"
-      new_response = gets.strip.downcase
-      case new_response
-      when "1"
-        puts "#{@@items["Toys & Games"][0].name[0]}"
-        puts "You can buy yours here - #{@@items["Toys & Games"][0].url}"
-        puts "Rating - #{@@items["Toys & Games"][0].rating}"
-        puts "Price - #{@@items["Toys & Games"][0].price}"
-      when "2"
-        puts "#{@@items["Toys & Games"][1].name[0]}"
-        puts "You can buy yours here - #{@@items["Toys & Games"][1].url}"
-        puts "Rating - #{@@items["Toys & Games"][1].rating}"
-        puts "Price - #{@@items["Toys & Games"][1].price}"
-      when "3"
-        puts "#{@@items["Toys & Games"][2].name[0]}"
-        puts "You can buy yours here - #{@@items["Toys & Games"][2].url}"
-        puts "Rating - #{@@items["Toys & Games"][2].rating}"
-        puts "Price - #{@@items["Toys & Games"][2].price}"
-      when "back"
-        puts <<-DOC.gsub /^\s*/, ''
-        1.  Show Amazon best sellers, by category.
-        DOC
-      else
-        puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
-      end
+    @@items["#{category}"].each_with_index do |product, index|
+      puts "#{index + 1}. #{product.name[0]} - #{product.price}"
     end
+
+  puts "Type corresponding number for more info, or 'back' to return to the main menu."
+  new_response = nil
+  while new_response != "back"
+    new_response = gets.strip.downcase
+    case new_response
+    when "1"
+      puts "#{@@items["#{category}"][0].name[0]}"
+      puts "You can buy yours here - #{@@items["#{category}"][0].url}"
+      puts "Rating - #{@@items["#{category}"][0].rating}"
+      puts "Price - #{@@items["#{category}"][0].price}"
+    when "2"
+      puts "#{@@items["#{category}"][1].name[0]}"
+      puts "You can buy yours here - #{@@items["#{category}"][1].url}"
+      puts "Rating - #{@@items["#{category}"][1].rating}"
+      puts "Price - #{@@items["#{category}"][1].price}"
+    when "3"
+      puts "#{@@items["#{category}"][2].name[0]}"
+      puts "You can buy yours here - #{@@items["#{category}"][2].url}"
+      puts "Rating - #{@@items["#{category}"][2].rating}"
+      puts "Price - #{@@items["#{category}"][2].price}"
+    when "back"
+      puts <<-DOC.gsub /^\s*/, ''
+      1.  Show Amazon best sellers, by category.
+      DOC
+    else
+      puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
+    end
+  end
+
+    #   @@items["Toys & Games"].each_with_index do |product, index|
+    #     puts "#{index + 1}. #{product.name[0]} - #{product.price}"
+    #   end
+    # 
+    # puts "Type corresponding number for more info, or 'back' to return to the main menu."
+    # new_response = nil
+    # while new_response != "back"
+    #   new_response = gets.strip.downcase
+    #   case new_response
+    #   when "1"
+    #     puts "#{@@items["Toys & Games"][0].name[0]}"
+    #     puts "You can buy yours here - #{@@items["Toys & Games"][0].url}"
+    #     puts "Rating - #{@@items["Toys & Games"][0].rating}"
+    #     puts "Price - #{@@items["Toys & Games"][0].price}"
+    #   when "2"
+    #     puts "#{@@items["Toys & Games"][1].name[0]}"
+    #     puts "You can buy yours here - #{@@items["Toys & Games"][1].url}"
+    #     puts "Rating - #{@@items["Toys & Games"][1].rating}"
+    #     puts "Price - #{@@items["Toys & Games"][1].price}"
+    #   when "3"
+    #     puts "#{@@items["Toys & Games"][2].name[0]}"
+    #     puts "You can buy yours here - #{@@items["Toys & Games"][2].url}"
+    #     puts "Rating - #{@@items["Toys & Games"][2].rating}"
+    #     puts "Price - #{@@items["Toys & Games"][2].price}"
+    #   when "back"
+    #     puts <<-DOC.gsub /^\s*/, ''
+    #     1.  Show Amazon best sellers, by category.
+    #     DOC
+    #   else
+    #     puts "I'm sorry, I didn't catch that! Type corresponding number for more info, or 'back' to return to the main menu."
+    #   end
+    # end
   end
 
   def self.electronics

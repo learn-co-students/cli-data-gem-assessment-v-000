@@ -31,7 +31,7 @@ class AmazonTool::CLI
 
     case new_response
     when "1"
-      AmazonTool::Products.toys_and_games
+      AmazonTool::Products.print_products("Toys & Games")
     when "2"
         AmazonTool::Products.electronics
     when "3"
