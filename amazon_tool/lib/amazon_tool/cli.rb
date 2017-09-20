@@ -33,15 +33,15 @@ class AmazonTool::CLI
     when "1"
       AmazonTool::Products.print_products("Toys & Games")
     when "2"
-        AmazonTool::Products.electronics
+      AmazonTool::Products.print_products("Electronics")
     when "3"
-      AmazonTool::Products.camera_and_photo
+      AmazonTool::Products.print_products("Camera & Photo")
     when "4"
-      AmazonTool::Products.video_games
+      AmazonTool::Products.print_products("Video Games")
     when "5"
-      AmazonTool::Products.books
+      AmazonTool::Products.print_products("Books")
     when "6"
-      AmazonTool::Products.clothing_shoes_and_jewelry
+      AmazonTool::Products.print_products("Clothing, Shoes & Jewelry")
     when "menu"
       menu
     when "products"
