@@ -10,6 +10,15 @@ class AmazonTool::Category
 
   def scrape_price(item)
 
+    url_hash = {
+      :toys_and_games => https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/
+      :electronics => https://www.amazon.com/Best-Sellers-Electronics/zgbs/electronics/
+      :camera_and_photo => https://www.amazon.com/Best-Sellers-Camera-Photo/zgbs/photo/
+      :video_games => https://www.amazon.com/Best-Sellers-Video-Games/zgbs/videogames/
+      :book => https://www.amazon.com/Best-Sellers-Books-Amazon/zgbs/books/
+      :fashion => https://www.amazon.com/Best-Sellers/zgbs/fashion/
+    }
+
     case item.category.name
 
     when "Toys & Games"
@@ -21,12 +30,6 @@ class AmazonTool::Category
         return prices[1].text
       elsif item.index == 2
         return prices[2].text
-      elsif item.index == 3
-        return prices[3].text
-      elsif item.index == 4
-        return prices[4].text
-      elsif item.index == 5
-        return prices[5].text
       end
 
     when "Electronics"

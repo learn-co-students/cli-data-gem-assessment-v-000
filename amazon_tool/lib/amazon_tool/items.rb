@@ -4,8 +4,4 @@ class AmazonTool::Items
 
   @products = []
 
-  def initialize()
-
-  end
-
 end
