@@ -1,4 +1,4 @@
-class AmazonTool::Products
+class AmazonTool::Scraper
   attr_accessor :name, :price, :availability, :url
 
   def self.scrape_products
@@ -58,7 +58,7 @@ class AmazonTool::Products
    @@items
   end
 
-  def self.print_products(category)
+  def self.print_and_scrape_products(category)
     puts "Please wait a moment while your information is being gathered."
       # amazon best sellers are scraped.
     scrape_products
