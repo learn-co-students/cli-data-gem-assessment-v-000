@@ -6,17 +6,13 @@ class AmazonTool::CLI
 
   def call
     puts "Welcome to the Amazon Tool"
+      # provides menu options by running menu function.
     menu
-    goodbye
-  end
-
-  def review
-    AmazonTool::Review.new
-
+      # goodbye message.
+    puts "See you next time!!!"
   end
 
   def list_products
-
     puts <<-DOC.gsub /^\s*/, ''
       Please select category:
       1. Toys & Games
@@ -27,8 +23,9 @@ class AmazonTool::CLI
       6. Clothing, Shoes & Jewelry
     DOC
 
-    new_response = gets.strip
 
+    new_response = gets.strip
+      # case to determine category for products to be printed.
     case new_response
     when "1"
       AmazonTool::Products.print_products("Toys & Games")
@@ -42,8 +39,10 @@ class AmazonTool::CLI
       AmazonTool::Products.print_products("Books")
     when "6"
       AmazonTool::Products.print_products("Clothing, Shoes & Jewelry")
+      # reverts to menu on call.
     when "menu"
       menu
+      # lists products.
     when "products"
       list_products
     else
@@ -52,28 +51,21 @@ class AmazonTool::CLI
   end
 
   def menu
-    puts <<-DOC.gsub /^\s*/, ''
-    Type '1' to Show Amazon best sellers, by category.
-
-    MORE FEATURES WILL SOON BE ADDED...
-    DOC
-
+    puts "Type '1' to Show Amazon best sellers, by category."
+    puts "MORE FEATURES WILL SOON BE ADDED..."
+      # to allow while loop to function correctly.
     response = nil
+      # loops until exit input.
     while response != "exit"
-        response = gets.strip.downcase
-        case response
+      response = gets.strip.downcase
+      case response
         when "1"
           list_products
         when "menu"
           menu
         else
           puts "Not sure what you're wanting to do. Type Menu, or Exit"
-        end
+      end
     end
   end
-
-  def goodbye
-    puts "See you next time!!!"
-  end
-
 end

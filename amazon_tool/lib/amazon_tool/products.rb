@@ -1,5 +1,4 @@
 class AmazonTool::Products
-
   attr_accessor :name, :price, :availability, :url
 
   def self.scrape_products
@@ -7,7 +6,7 @@ class AmazonTool::Products
     @@items = {}
     products = []
     doc = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers/zgbs"))
-    
+
       # scrape for all categories
     categories = doc.search('.zg_homeWidget')
 
@@ -48,7 +47,7 @@ class AmazonTool::Products
                 # bumping counter up by 1
               i+=1
             rescue
-                # if error is raised, drop counter by 1 ( Error Will Only Raise If Product Is Not Listed On Amazon Best Sellers  
+                # if error is raised, drop counter by 1 ( Error Will Only Raise If Product Is Not Listed On Amazon Best Sellers
                 # => e.g. 1. " " 2. Melissa & Doug Scissor Skills Book 3. Hatchimals
               --i
             next
@@ -63,7 +62,7 @@ class AmazonTool::Products
     puts "Please wait a moment while your information is being gathered."
       # amazon best sellers are scraped.
     scrape_products
-    
+
       # the argument passed through is now printed - followed by scraped data.
     puts category
     @@items["#{category}"].each_with_index do |product, index|
@@ -72,7 +71,7 @@ class AmazonTool::Products
 
       # allows user to select an item by corresponding number.
     puts "Type corresponding number for more info, or 'back' to return to the main menu."
-    
+
       # response is set as nil to allow for while loop to function correctly
     new_response = nil
 
@@ -110,5 +109,5 @@ class AmazonTool::Products
       end
     end
   end
-    
+
 end

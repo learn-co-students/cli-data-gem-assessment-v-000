@@ -5,7 +5,9 @@ class AmazonTool::Category
   @products = []
 
   def scrape_price(item)
+    #### finds the price corresponding to the already found products.
 
+      # provides location of url for different product categories - Amazon would not allow redirect through the previously scraped url.
     pricing_url_hash = {
       :toys_and_games => "https://www.amazon.com/Best-Sellers-Toys-Games/zgbs/toys-and-games/",
       :electronics => "https://www.amazon.com/Best-Sellers-Electronics/zgbs/electronics",
@@ -15,21 +17,22 @@ class AmazonTool::Category
       :fashion => "https://www.amazon.com/Best-Sellers/zgbs/fashion/"
     }
 
+      # sets the pricing variable to the correct category url
     case item.category.name
-    when "Toys & Games"
-      pricing = Nokogiri::HTML(open(pricing_url_hash[:toys_and_games]))
-    when "Electronics"
-      pricing = Nokogiri::HTML(open(pricing_url_hash[:electronics]))
-    when "Camera & Photo"
-      pricing = Nokogiri::HTML(open(pricing_url_hash[:camera_and_photo]))
-    when "Video Games"
-      pricing = Nokogiri::HTML(open(pricing_url_hash[:video_games]))
-    when "Books"
-      pricing = Nokogiri::HTML(open(pricing_url_hash[:book]))
-    when "Clothing, Shoes & Jewelry"
-      pricing = Nokogiri::HTML(open(pricing_url_hash[:fashion]))
+      when "Toys & Games"
+        pricing = Nokogiri::HTML(open(pricing_url_hash[:toys_and_games]))
+      when "Electronics"
+        pricing = Nokogiri::HTML(open(pricing_url_hash[:electronics]))
+      when "Camera & Photo"
+        pricing = Nokogiri::HTML(open(pricing_url_hash[:camera_and_photo]))
+      when "Video Games"
+        pricing = Nokogiri::HTML(open(pricing_url_hash[:video_games]))
+      when "Books"
+        pricing = Nokogiri::HTML(open(pricing_url_hash[:book]))
+      when "Clothing, Shoes & Jewelry"
+        pricing = Nokogiri::HTML(open(pricing_url_hash[:fashion]))
     end
-
+      # scrapes actual prices on page, location in array relates to index of items.
     prices = pricing.search('span.p13n-sc-price')
     if item.index == 0
       return prices[0].text
