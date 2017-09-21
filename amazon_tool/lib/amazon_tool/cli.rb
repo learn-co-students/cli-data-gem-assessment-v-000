@@ -22,7 +22,7 @@ class AmazonTool::CLI
       5. Books
       6. Clothing, Shoes & Jewelry
     DOC
-    
+    s
       # instantiates New Scraper
     scraper = AmazonTool::Scraper.new
     new_response = gets.strip
@@ -41,11 +41,11 @@ class AmazonTool::CLI
       scraper.print_and_scrape_products("Books")
     when "6"
       scraper.print_and_scrape_products("Clothing, Shoes & Jewelry")
-      # reverts to menu on call.
     when "menu"
+      # reverts to menu on call.
       menu
-      # lists products.
     when "products"
+      # lists products.
       list_products
     else
       puts "Not sure what you're wanting to do. Type products, or menu"
