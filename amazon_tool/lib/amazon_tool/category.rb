@@ -32,6 +32,7 @@ class AmazonTool::Category
       when "Clothing, Shoes & Jewelry"
         pricing = Nokogiri::HTML(open(pricing_url_hash[:fashion]))
     end
+    
       # scrapes actual prices on page, location in array relates to index of items.
     prices = pricing.search('span.p13n-sc-price')
     if item.index == 0
