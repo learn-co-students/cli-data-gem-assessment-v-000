@@ -22,9 +22,9 @@ class AmazonTool::CLI
       5. Books
       6. Clothing, Shoes & Jewelry
     DOC
-
+    
+      # instantiates New Scraper
     scraper = AmazonTool::Scraper.new
-
     new_response = gets.strip
 
       # case to determine category for products to be printed.
