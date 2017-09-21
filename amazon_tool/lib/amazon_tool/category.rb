@@ -4,10 +4,6 @@ class AmazonTool::Category
 
   @products = []
 
-  def initialize()
-
-  end
-
   def scrape_price(item)
 
     pricing_url_hash = {
@@ -42,73 +38,6 @@ class AmazonTool::Category
     elsif item.index == 2
       return prices[2].text
     end
-    
-    #
-    # when "Toys & Games"
-    #   pricing = Nokogiri::HTML(open(pricing_url_hash[:toys_and_games]))
-    #   prices = pricing.search('span.p13n-sc-price')
-    #   if item.index == 0
-    #     return prices[0].text
-    #   elsif item.index == 1
-    #     return prices[1].text
-    #   elsif item.index == 2
-    #     return prices[2].text
-    #   end
-
-    # when "Electronics"
-    #   pricing = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers-Electronics/zgbs/electronics/"))
-    #   prices = pricing.search('span.p13n-sc-price')
-    #   if item.index == 0
-    #     return prices[0].text
-    #   elsif item.index == 1
-    #     return prices[1].text
-    #   elsif item.index == 2
-    #     return prices[2].text
-    #   end
-
-    # when "Camera & Photo"
-    #   pricing = Nokogiri::HTML(open("https://www.amazon.com/best-sellers-camera-photo/zgbs/photo/"))
-    #   prices = pricing.search('span.p13n-sc-price')
-    #   if item.index == 0
-    #     return prices[0].text
-    #   elsif item.index == 1
-    #     return prices[1].text
-    #   elsif item.index == 2
-    #     return prices[2].text
-    #   end
-    #
-    # when "Video Games"
-    #   pricing = Nokogiri::HTML(open("https://www.amazon.com/best-sellers-video-games/zgbs/videogames/"))
-    #   prices = pricing.search('span.p13n-sc-price')
-    #   if item.index == 0
-    #     return prices[0].text
-    #   elsif item.index == 1
-    #     return prices[1].text
-    #   elsif item.index == 2
-    #     return prices[2].text
-    #   end
-
-    # when "Books"
-    #   pricing = Nokogiri::HTML(open("https://www.amazon.com/best-sellers-books-Amazon/zgbs/books/"))
-    #   prices = pricing.search('span.p13n-sc-price')
-    #   if item.index == 0
-    #     return prices[0].text
-    #   elsif item.index == 1
-    #     return prices[1].text
-    #   elsif item.index == 2
-    #     return prices[2].text
-    #   end
-
-    # when "Clothing, Shoes & Jewelry"
-    #   pricing = Nokogiri::HTML(open("https://www.amazon.com/Best-Sellers/zgbs/fashion/"))
-    #   prices = pricing.search('span.p13n-sc-price')
-    #   if item.index == 0
-    #     return prices[0].text
-    #   elsif item.index == 1
-    #     return prices[1].text
-    #   elsif item.index == 2
-    #     return prices[2].text
-    #   end
   end
 
 end
