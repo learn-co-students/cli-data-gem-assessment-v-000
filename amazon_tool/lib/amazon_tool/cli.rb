@@ -23,22 +23,24 @@ class AmazonTool::CLI
       6. Clothing, Shoes & Jewelry
     DOC
 
+    scraper = AmazonTool::Scraper.new
 
     new_response = gets.strip
+
       # case to determine category for products to be printed.
     case new_response
     when "1"
-      AmazonTool::Scraper.print_and_scrape_products("Toys & Games")
+      scraper.print_and_scrape_products("Toys & Games")
     when "2"
-      AmazonTool::Scraper.print_and_scrape_products("Electronics")
+      scraper.print_and_scrape_products("Electronics")
     when "3"
-      AmazonTool::Scraper.print_and_scrape_products("Camera & Photo")
+      scraper.print_and_scrape_products("Camera & Photo")
     when "4"
-      AmazonTool::Scraper.print_and_scrape_products("Video Games")
+      scraper.print_and_scrape_products("Video Games")
     when "5"
-      AmazonTool::Scraper.print_and_scrape_products("Books")
+      scraper.print_and_scrape_products("Books")
     when "6"
-      AmazonTool::Scraper.print_and_scrape_products("Clothing, Shoes & Jewelry")
+      scraper.print_and_scrape_products("Clothing, Shoes & Jewelry")
       # reverts to menu on call.
     when "menu"
       menu
