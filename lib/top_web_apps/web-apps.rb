@@ -1,14 +1,15 @@
+# require 'pry'
 class TopWebApps::WebApps
 
   attr_accessor :name, :about, :image, :more_information
 
   def self.web_apps
-    puts "List of the top tech of 2017".upcase
+    puts "List of the top techs of 2017".upcase
     puts ""
     self.web_scraper
   end
 
-  
+
   def self.scrape_web_apps
   web_sites = []
 

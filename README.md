@@ -15,14 +15,13 @@ gem 'top_web_apps'
 And then execute:
 
     $ bundle
-
 Or install it yourself as:
 
     $ gem install top_web_apps
 
 ## Usage
 
-TODO: Write usage instructions here
+This was an example
 
 ## Development
 
