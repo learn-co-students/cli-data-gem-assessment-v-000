@@ -2,7 +2,7 @@ class TopWebApps::CLI
 
   def call
     list_web_apps
-    web_about
+    menu
     bye
   end
 
@@ -14,7 +14,7 @@ class TopWebApps::CLI
       @tech_list
   end
 
-  def web_about
+  def menu
     input = nil
     puts "--------------------------"
     puts "Enter the number of the tech to get more information"
