@@ -1,4 +1,5 @@
 #! /usr/bin/env ruby
-require './lib/amazon_tool'
+
+require_relative '../lib/amazon_tool'
 
 AmazonTool::CLI.new.call

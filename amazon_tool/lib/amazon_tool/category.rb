@@ -1,8 +1,21 @@
 class AmazonTool::Category
 
-  attr_accessor :name, :products, :price, :all
+  attr_accessor :name, :items
 
-  @products = []
+  @@all = []
+
+  def initialize
+    @@all << self
+    @items = []
+  end
+
+  def add_item(item)
+    @items << item
+  end
+
+  def self.all
+    @@all
+  end
 
   def scrape_price(item)
     #### finds the price corresponding to the already found products.
@@ -32,16 +45,20 @@ class AmazonTool::Category
       when "Clothing, Shoes & Jewelry"
         pricing = Nokogiri::HTML(open(pricing_url_hash[:fashion]))
     end
-    
+
       # scrapes actual prices on page, location in array relates to index of items.
     prices = pricing.search('span.p13n-sc-price')
     if item.index == 0
-      return prices[0].text
+      item.price =  prices[0].text
     elsif item.index == 1
-      return prices[1].text
+      item.price = prices[1].text
     elsif item.index == 2
-      return prices[2].text
+      item.price = prices[2].text
     end
+  end
+
+  def remove_last_item
+    @items.pop
   end
 
 end
