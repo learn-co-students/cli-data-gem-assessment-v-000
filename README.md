@@ -1,5 +1,8 @@
 # Build a CLI Application with External Data
 
+## Blog Post
+http://pamelahoneybortnick.com/2017/01/07/recipe_cli_gem_project/
+
 ## Overview
 
 In this lesson you're going to build an application that provides a Command Line Interface (CLI) to an external data source. The CLI will be composed of an Object Oriented Ruby application. 
