@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require './lib/Start_Your_Day'
 
 Start_Your_Day::CLI.new.call
