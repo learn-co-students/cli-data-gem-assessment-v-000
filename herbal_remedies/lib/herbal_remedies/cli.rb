@@ -3,7 +3,7 @@ class CommandLineInteface
   BASE_PATH = "https://www.anniesremedy.com/"
 
   def start
-    create_ailments
+    # create_ailments
     create_herbal_remedies
     add_herb_attributes
   end
