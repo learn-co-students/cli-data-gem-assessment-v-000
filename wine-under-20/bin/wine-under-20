@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require './lib/wine_under_20'
+WineUnder20::CLI.new.call
