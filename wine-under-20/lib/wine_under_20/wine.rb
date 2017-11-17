@@ -17,13 +17,12 @@ class WineUnder20::Wine
   end
 
   def self.scrape_wine_site
-    doc = Nokogiri::HTML(open(insertsitehere))
+    doc = Nokogiri::HTML(open("http://www.binnys.com/wine"))
     binding.pry
-    name =
-    price =
-    url =
+    #name =
+    #price =
+    #url =
     #zip_code
-  end
   end
 
 end
