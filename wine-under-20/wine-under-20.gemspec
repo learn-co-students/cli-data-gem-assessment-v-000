@@ -1,7 +1,7 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "wine/under/20/version"
+require "wine_under_20/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "wine-under-20"
@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'nlisausk@alumni.nd.edu'"]
 
   spec.summary       = %q{Binny's wine finder.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.description   = %q{Binny's wine finder.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
