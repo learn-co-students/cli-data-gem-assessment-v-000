@@ -5,11 +5,11 @@ require "wine/under/20/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "wine-under-20"
-  spec.version       = Wine::Under::20::VERSION
+  spec.version       = WineUnder20::VERSION
   spec.authors       = ["'Nick Lisauskas'"]
   spec.email         = ["'nlisausk@alumni.nd.edu'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
+  spec.summary       = %q{Binny's wine finder.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
@@ -32,4 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "pry"
+  spec.add_dependency "nokogiri"
 end

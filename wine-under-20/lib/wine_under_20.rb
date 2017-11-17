@@ -1,5 +1,5 @@
-class WineUnder20
-
-end
-
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 require_relative './wine_under_20/cli.rb'
+require_relative './wine_under_20/wine.rb'
