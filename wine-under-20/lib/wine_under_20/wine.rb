@@ -1,5 +1,5 @@
 class WineUnder20::Wine
-  attr_accessor :name, :price, :url
+  attr_accessor :name, :price
 
   def self.today
     self.scrape_wines
@@ -17,12 +17,12 @@ class WineUnder20::Wine
   end
 
   def self.scrape_wine_site
+    wine = self.new
     doc = Nokogiri::HTML(open("http://www.binnys.com/wine"))
-    binding.pry
-    #name =
-    #price =
-    #url =
-    #zip_code
+    #binding.pry
+    wine.name = doc.css("h3.title").text
+    wine.price = doc.css("div.prodPrice.unitPrice.salePrice").text
+    wine
   end
 
 end

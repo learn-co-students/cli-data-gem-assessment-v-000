@@ -2,7 +2,7 @@ class WineUnder20::CLI
 
   def call
     puts "Find today's wines under $20 at Binny's. Press enter to continue."
-    #input = gets.chomp
+    input = gets.chomp
     list_wines
     menu
     goodbye
