@@ -16,15 +16,17 @@ class WineUnder20::CLI
   end
 
   def menu
+    @wines = WineUnder20::Wine.scrape_wines
     puts "Enter the number of the deal you'd like more information on or type list to list all wines or type exit to leave."
     input = nil
     while input != "exit"
     input = gets.strip
     if input.to_i > 0
-      the_wine = @wines[input.to_i - 1]
-      puts "#{the_wine.description}"
+      the_wine = @wines[input - 1].description
+      puts the_wine
     elsif input == "list"
       list_wines
+      puts "Which wine do you want to learn more about?"
     elsif input == "exit"
       goodbye
     else
