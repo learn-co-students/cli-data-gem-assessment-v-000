@@ -7,31 +7,14 @@ class WineUnder20::Wine
     @doc = Nokogiri::HTML(open("http://www.binnys.com/wine"))
     @doc.search("div.row.result").collect do |wine_div|
       wine = WineUnder20::Wine.new
-      wine.url = wine_div.search
-      wine.name = wine_div.search
-      wine.price = wine_div.search
-      wine.description = wine_div.search
+      wine.url = wine_div.search().attr("href")
+      wine.name = wine_div.search("h3.title").text
+      wine.price = wine_div.search("div.prodPrice.unitPrice.salePrice").text
+      wine.description = wine_div.search("div.shortreview").text
+
+      wine.save
     end
 
-  end
-
-  def self.scrape_wine_site
-    wine = self.new
-
-    #binding.pry
-# @doc.search each do |wine|
-#name =
-#price =
-
-#end
-    wine.name = doc.css("h3.title").text
-    wine.price = doc.css("div.prodPrice.unitPrice.salePrice").text
-    wine
-  #  binding.pry
-  #  name =
-  #  price =
-  #  url =
-    #zip_code
   end
 
 end
