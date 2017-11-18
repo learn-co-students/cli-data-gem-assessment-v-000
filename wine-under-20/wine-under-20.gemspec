@@ -10,7 +10,11 @@ Gem::Specification.new do |spec|
   spec.email         = ["'nlisausk@alumni.nd.edu'"]
 
   spec.summary       = %q{Binny's wine finder.}
+<<<<<<< HEAD
   spec.description   = %q{Binny's wine finder.}
+=======
+  spec.description   = %q{TODO: Write a longer description or delete this line.}
+>>>>>>> 7e52c4464d65f0a0fb5a728fea59233b3561aee1
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
