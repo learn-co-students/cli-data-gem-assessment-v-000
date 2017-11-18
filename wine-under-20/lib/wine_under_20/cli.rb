@@ -6,7 +6,6 @@ class WineUnder20::CLI
     #input = gets.chomp
     list_wines
     menu
-    goodbye
   end
 
   def list_wines
@@ -23,9 +22,11 @@ class WineUnder20::CLI
     input = gets.strip
     if input.to_i > 0
       the_wine = @wines[input.to_i - 1]
-      puts "#{the_wine.name} - #{the_wine.price}"
+      puts "#{the_wine.description}"
     elsif input == "list"
-      list_deals
+      list_wines
+    elsif input == "exit"
+      goodbye
     else
       puts "Not sure what you meant. Please type list or exit."
     end

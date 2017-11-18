@@ -3,4 +3,3 @@
 require "bundler/setup"
 require "wine_under_20"
 WineUnder20::CLI.new.call
-puts "Today's Wines Under $20 At Binny's"

@@ -10,8 +10,8 @@ class WineUnder20::Wine
       wine = WineUnder20::Wine.new
       # wine.url = wine_div.search().attr("href")
       wine.name = wine_div.search("h3.title").text.strip
-      wine.price = wine_div.search("div.prodPrice.unitPrice.salePrice").text.strip
-      wine.description = wine_div.search("div.shortreview").text.strip
+      wine.price = wine_div.search("div.prodPrice.unitPrice.salePrice").text.gsub("(Reg:$/./)", "").strip
+      wine.description = wine_div.search("div.shortreview.p.a").text.strip
 
       wines << wine
     end
