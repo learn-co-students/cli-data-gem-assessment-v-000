@@ -3,18 +3,19 @@ class WineUnder20::Wine
 
 
 #move this to a scraper class
-  def scrape_wines
-    @doc = Nokogiri::HTML(open("http://www.binnys.com/wine"))
-    @doc.search("div.row.result").collect do |wine_div|
+  def self.scrape_wines
+    wines = []
+    @doc = Nokogiri::HTML(open("http://www.binnys.com/wine//1/72#"))
+    @doc.search("div.row.result").each do |wine_div|
       wine = WineUnder20::Wine.new
-      wine.url = wine_div.search().attr("href")
-      wine.name = wine_div.search("h3.title").text
-      wine.price = wine_div.search("div.prodPrice.unitPrice.salePrice").text
-      wine.description = wine_div.search("div.shortreview").text
+      # wine.url = wine_div.search().attr("href")
+      wine.name = wine_div.search("h3.title").text.strip
+      wine.price = wine_div.search("div.prodPrice.unitPrice.salePrice").text.strip
+      wine.description = wine_div.search("div.shortreview").text.strip
 
-      wine.save
+      wines << wine
     end
-
+    wines
   end
 
 end
