@@ -21,9 +21,17 @@ class WineUnder20::CLI
     input = nil
     while input != "exit"
     input = gets.strip
-    if input.to_i > 0
+    if input.to_i > 0 && input.to_i <= @wines.size
       the_wine = @wines[input.to_i - 1].description
       puts the_wine
+      puts "Would you like to visit the product page for this bottle of wine? 'Y' to visit the site; 'N' to return to the listing of wines."
+      visit = gets.strip
+      if visit == "Y" then
+        url = @wines[input.to_i - 1].url
+        system("open", "#{url}")
+        list_wines
+      else list_wines
+      end
     elsif input == "list"
       list_wines
       puts "Which wine do you want to learn more about?"
