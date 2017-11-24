@@ -22,7 +22,7 @@ class WineUnder20::CLI
     while input != "exit"
     input = gets.strip
     if input.to_i > 0
-      the_wine = @wines[input - 1].description
+      the_wine = @wines[input.to_i - 1].description
       puts the_wine
     elsif input == "list"
       list_wines
