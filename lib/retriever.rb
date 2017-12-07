@@ -1,5 +1,6 @@
 class Retriever
-  def self.dog_scrape(adopt_url)
+
+  def self.dog_scrape(adopt_url) #scrapes MAGSR adoption page (M or F) and returns array of hashes for each dog+parameters
     html = open(adopt_url)
     dogs_page = Nokogiri::HTML(html)
     dogs = []
@@ -21,8 +22,7 @@ class Retriever
               :description => dog_frame.css("span.views-field.views-field-field-dog-description span.field-content p").text,
               :id => dog_frame.css("div.views-field.views-field-nothing-3 span.field-content").text,
               :image_url => dog_frame.css("div.field-content.centerimage a").attribute("href").text
-
-
+              #the sponsor information isn't of probitive value?
           }
 
           #binding.pry
