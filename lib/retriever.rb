@@ -8,6 +8,17 @@ class Retriever
           dogs << {
               :name => dog_frame.css("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text,
               :gender => dog_frame.css("div.views-field.views-field-field-dog-gender div.field-content").text
+              :breed =>
+              :age =>
+              :color =>
+              :size =>
+              :housebroken =>
+              :obedience =>
+              :location =>
+              :kids =>
+              :cats =>
+              :otherdogs =>
+              :description =>
 
 
 
@@ -17,9 +28,9 @@ class Retriever
 
           }
 
-          #binding.pry
+          binding.pry
         end
-    binding.pry
+    #binding.pry
     dogs
   end #dog_scrape
 
