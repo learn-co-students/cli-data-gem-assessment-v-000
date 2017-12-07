@@ -19,3 +19,46 @@ temp = dog_frame.css("div.views-field.views-field-field-dog-color div.field-cont
 temp = dog_frame.css("span.views-field.views-field-field-dog-birthdate span.date-display-interval").text
 temp = dog_frame.css("div.views-field.views-field-field-dog-breed div.field-content").text
 temp = dog_frame.css("span.views-field.views-field-field-dog-living-with span.field-content").text
+
+
+         ^\
+/        //o__o
+/\       /  __/
+\ \______\  /
+\         /
+\ \----\ \
+ \_\_   \_\_
+
+ /\/'-,
+,--'''''   /"
+____,'.  )       \___
+'"""""------'"""`-----'
+
+_
+/ \`.
+||  \ \
+\\  |  \.:```````-.
+\\_/    '-.  .:```-.
+/-.\      `.   .:`-.`_
+|_O.'       |     .`-. `.       _...-----.._
+/`-._       .'   .'    `----'''''            `.
+/      \ _.-'    /                              `.
+/    .- |         |    .'                      `.  \
+(_/ .'  .'.        |    '               .'        \  \
+`-'`-'  ):.      |    :  /            .         |   \
+      ):.    '       |__.:`..:::..|         |    \
+        ):.   \      |      __.....\        |\    `:.     .`|
+          ))```\      `_..-`  |     \       | \      `-_-'  /
+             \ |      \       |     '       `. \        _.-'
+              \|     .'       |      \       `. `.   __..-`
+               |    |         \      /`.      `.  `-._.-`
+               |    '          `.    |  `.      `-.
+               '   .'            \  / \   `-.    / ]
+             .'   .'|            /  ' ]      |  ' .'
+             .'-. | |          .'  .-'       /   /
+             |   \| '    _.-..'   /         /   |
+            .'    |/    / .-.    /       .-'    /
+         .-'      '    /_/___\__/     .'.' .'  |
+       .'.' .'  ./                   ( (  (   .'
+LGB      ( (  (   .'                     `-`--`-`
+       `-`--`-`
