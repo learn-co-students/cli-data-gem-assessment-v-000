@@ -5,9 +5,21 @@ class Retriever
     dogs = []
         dogs_page.css("div.panel-2col-stacked.clearfix.panel-display").each do |dog_frame|
           #:name = dog_frame.css("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text
+          dogs << {
+              :name => dog_frame.css("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text,
+              :gender => dog_frame.css("div.views-field.views-field-field-dog-gender div.field-content").text
 
-          binding.pry
+
+
+
+
+
+
+          }
+
+          #binding.pry
         end
+    binding.pry
     dogs
   end #dog_scrape
 
