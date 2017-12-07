@@ -4,7 +4,7 @@ class Retriever
     dogs_page = Nokogiri::HTML(html)
     dogs = []
         dogs_page.css("div.panel-2col-stacked.clearfix.panel-display").each do |dog_frame|
-          :name = dog_frame.css("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text
+          #:name = dog_frame.css("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text
 
           binding.pry
         end
