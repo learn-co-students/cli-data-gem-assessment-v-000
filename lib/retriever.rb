@@ -18,8 +18,8 @@ class Retriever
               :kids => 1,
               :cats => 1,
               :otherdogs => 1,
-              :description => 1,
-              :id => dog_frame.css("div.views-field.views-field-nothing-3 span.field-content").text
+              :description => dog_frame.css("span.views-field.views-field-field-dog-description span.field-content p").text,
+              :id => dog_frame.css("div.views-field.views-field-nothing-3 span.field-content").text,
               :image_url => dog_frame.css("div.field-content.centerimage a").attribute("href").text
 
 

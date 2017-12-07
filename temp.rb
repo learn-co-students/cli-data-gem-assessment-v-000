@@ -8,3 +8,4 @@ temp = dog_frame.css("div.views-field.views-field-field-dog-gender").text
 temp = dog_frame.css("div.views-field.views-field-field-dog-gender div.field-content") #not further selectable, will have to split with :
 temp = dog_frame.css("div.field-content.centerimage a").attribute("href").text #save
 temp = dog_frame.css("div.views-field.views-field-nothing-3 span.field-content").text
+temp = dog_frame.css("span.views-field.views-field-field-dog-description span.field-content p").text
