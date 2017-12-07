@@ -7,18 +7,18 @@ class Retriever
           #:name = dog_frame.css("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text
           dogs << {
               :name => dog_frame.css("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text,
-              :gender => dog_frame.css("div.views-field.views-field-field-dog-gender div.field-content").text
-              :breed =>
-              :age =>
-              :color =>
-              :size =>
-              :housebroken =>
-              :obedience =>
-              :location =>
-              :kids =>
-              :cats =>
-              :otherdogs =>
-              :description =>
+              :gender => dog_frame.css("div.views-field.views-field-field-dog-gender div.field-content").text,
+              :breed => 1,
+              :age => 1,
+              :color => 1,
+              :size => 1,
+              :housebroken => 1,
+              :obedience => 1,
+              :location => 1,
+              :kids => 1,
+              :cats => 1,
+              :otherdogs => 1,
+              :description => 1
 
 
 
