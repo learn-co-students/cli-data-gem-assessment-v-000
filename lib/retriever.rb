@@ -28,7 +28,7 @@ class Retriever
           #binding.pry
         end
     #binding.pry
-    File.write('output.txt', dogs)
+    #File.write('output.txt', dogs)
     dogs
   end #dog_scrape
 

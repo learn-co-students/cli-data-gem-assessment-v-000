@@ -1,5 +1,6 @@
 require_relative '../config/environment'
 
-#url="http://www.magsr.org/maleadopt.htm"
+url2="http://www.magsr.org/maleadopt.htm"
 url="http://www.magsr.org/femaleadopt.htm"
-Retriever.dog_scrape(url)
+Dog.create_from_webpage(url)
+Dog.create_from_webpage(url2)
