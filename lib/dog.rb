@@ -7,6 +7,21 @@ attr_accessor :name, :gender, :breed, :age, :color, :size, :housebroken, :obedie
 
         end
     end
+    def self.magsr_fixer
+        self.all.each do |dog|
+            dog.each do |key, value|
+                if key == :gender || key == :breed || key == :color || key == :size || key==:housebroken || key == :obedience || key == :kids || key == :cats || key == :otherdogs
+                  dog[key] = extract_value(value)
+                end
+            end
+        end
+    end
+
+    def extract_value(value)
+        output = value.split(": ")
+        output[1]
+    end
+
 
     def self.create_from_webpage(url)
         dog_array = Retriever.dog_scrape(url)
@@ -15,7 +30,7 @@ attr_accessor :name, :gender, :breed, :age, :color, :size, :housebroken, :obedie
             @@all << temp
         end
     binding.pry
-    File.write('output.txt', @@all)
+    #File.write('output.txt', @@all)
     end
     def self.all
       @@all
