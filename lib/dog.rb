@@ -7,29 +7,38 @@ attr_accessor :name, :gender, :breed, :age, :color, :size, :housebroken, :obedie
 
         end
     end
-    def self.magsr_fixer
-        self.all.each do |dog|
-            dog.each do |key, value|
-                if key == :gender || key == :breed || key == :color || key == :size || key==:housebroken || key == :obedience || key == :kids || key == :cats || key == :otherdogs
-                  dog[key] = extract_value(value)
-                end
-            end
-        end
+    def self.magsr_fixer(input_array)
+      input_array.each do |dog|
+          dog.each do |key, value|
+              if key == :gender || key == :breed || key == :color || key == :size || key==:housebroken || key == :obedience || key == :kids || key == :cats || key == :otherdogs
+                dog[key] = extract_value(value)
+              elsif key == :id
+                dog[key] = extract_value(value)
+                dog[key] = dog[key].chomp(" \n")
+              end
+
+          end
+      end
+      input_array
     end
 
-    def extract_value(value)
+    def self.extract_value(value)
         output = value.split(": ")
         output[1]
     end
 
+    def self.save_output
+      File.write('output.txt', @@all)
+    end
 
     def self.create_from_webpage(url)
         dog_array = Retriever.dog_scrape(url)
+        dog_array = magsr_fixer(dog_array)
         dog_array.each do |dog_hash|
             temp = Dog.new(dog_hash)
             @@all << temp
         end
-    binding.pry
+    #binding.pry
     #File.write('output.txt', @@all)
     end
     def self.all

@@ -1,3 +1,13 @@
+def self.magsr_fixer
+    self.all.each do |dog|
+        dog.each do |key, value|
+            if key == :gender || key == :breed || key == :color || key == :size || key==:housebroken || key == :obedience || key == :kids || key == :cats || key == :otherdogs
+              dog[key] = extract_value(value)
+            end
+        end
+    end
+end
+
 dog name
 ("h1.views-field.views-field-field-dog-name.dog-name span.field-content").text
 
