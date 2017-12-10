@@ -1,3 +1,5 @@
+
+
 def self.magsr_fixer
     self.all.each do |dog|
         dog.each do |key, value|
