@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Enter "$ ClevelandMuseumEvents"  in the terminal and follow the prompts.
 
 ## Development
 
