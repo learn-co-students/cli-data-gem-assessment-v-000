@@ -9,14 +9,17 @@ def start
   puts "Would you like to see the events at Cleveland's Museums and Botanical Gardens? (Y/n)"
   input = gets.strip.downcase
   if input == "y"
-    puts "Would you like to see the events for the day? week? or month? (day/week/month)"
-        date_input = gets.strip.downcase
-          if date_input == "day"
+  command
+end
 
-          elsif date_input == "week"
+def command
+  puts "Would you like to see the events for the month? (Y/n)"
+      date_input = gets.strip.downcase
+        if date_input == "y" or "yes"
 
-          elsif date_input == "month"
+        elsif date_input == "n" or "no"
 
-          else puts "Please enter a valid command: 'day', 'week' or 'month'"
-          end
+
+        else puts "Please enter a valid command: 'Yes/Y/y' or 'No/N,n'""
+        end
 end
