@@ -16,7 +16,7 @@ class Retriever
               :housebroken => dog_frame.css("div.views-field.views-field-field-dog-housebroken div.field-content").text,
               :obedience => dog_frame.css("div.views-field.views-field-field-dog-obedience div.field-content").text,
               :location => dog_frame.css("span.views-field.views-field-field-dog-living-with span.field-content").text,
-              :kids => dog_frame.css("div.views-field.views-field-field-dog-kids div.field-content").text,
+              :kids => dog_frame.css("div.views-field.views-field-field-dog-kids div.field-content").text, #can put downcase here
               :cats => dog_frame.css("div.views-field.views-field-field-dog-cats div.field-content").text,
               :otherdogs => dog_frame.css("div.views-field.views-field-field-dog-other-dogs div.field-content").text,
               :description => dog_frame.css("span.views-field.views-field-field-dog-description span.field-content p").text,

@@ -1,4 +1,4 @@
-class Dog_search_session
+class Dog_search_session # change to DogSearchSession
 attr_accessor :selectors, :loaded, :selected_dogs
   def initialize
   end#initialize
@@ -36,3 +36,4 @@ attr_accessor :selectors, :loaded, :selected_dogs
 
 
 end #Dog_search_session
+end
