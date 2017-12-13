@@ -2,4 +2,4 @@
 
 require_relative '../lib/Cleveland_Museum_Events'
 
-ClevelandMuseumEvents::CLI.new.call
+ClevelandMuseumEvents::CLI.new
