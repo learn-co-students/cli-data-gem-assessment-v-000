@@ -10,7 +10,7 @@ class Art_Museum::Scraper
 
     def make_events
       scrape_events_index.each do |e|
-        Art_Museum::Scraper.new_from_index_page(e)
+        Art_Museum::Scrape.new_from_index_page(e)
       end
     end
 
