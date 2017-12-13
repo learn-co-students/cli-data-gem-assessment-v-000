@@ -1,3 +1,5 @@
 #!/bin/env ruby
 
-puts "Welcome to ALS News Today."
+require './lib/ALS_news.rb'
+
+ALSNews::CLI.new.call

@@ -1,5 +1,2 @@
-require "ALS_news/version"
-
-module ALSNews
-  # Your code goes here...
-end
+require_relative './ALS_news/cli'
+require_relative './ALS_news/version'
