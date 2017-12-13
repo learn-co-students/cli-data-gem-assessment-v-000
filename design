@@ -1,5 +1,9 @@
 
 ALS News today
 - User types "ALS News"
-- Show a list of news from https://alsnewstoday.com/
-  1.
+- Show a list of social clips from https://alsnewstoday.com/ in the following format:
+  No. Date: Title
+  * a social clip contains:
+    date
+    title
+  

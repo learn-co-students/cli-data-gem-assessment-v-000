@@ -5,4 +5,3 @@ require "./lib/ALS_news"
 
 new = ALSNews::CLI.new
 new.call
-new.list_news
