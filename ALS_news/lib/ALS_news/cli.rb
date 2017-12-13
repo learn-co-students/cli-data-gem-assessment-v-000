@@ -12,6 +12,7 @@ class ALSNews::CLI
     list_clips
     url
     goodbye
+    print clips
   end
 
   def recent
@@ -36,7 +37,7 @@ class ALSNews::CLI
     input = nil
     while input != "exit"
       puts "Enter (i) the number of the social clip to get its URL; (ii) list to re-list the social clips; or (iii) exit to exit"
-      input = gets.strip
+      input = gets.strip.downcase
       case input
       when "1", "2", "3", "4", "5", "6", "7", "8"
         puts "Here's the URL for social clip #{input}:"
