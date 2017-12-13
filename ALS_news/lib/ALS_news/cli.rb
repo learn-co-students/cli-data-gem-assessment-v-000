@@ -1,5 +1,6 @@
 #CLI Controller
 
+require_relative './version'
 
 class ALSNews::CLI
   def call
