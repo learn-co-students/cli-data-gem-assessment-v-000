@@ -2,8 +2,20 @@
 ALS News today
 - User types "ALS News"
 - Show a list of social clips from https://alsnewstoday.com/ in the following format:
-  No. Date: Title
-  * a social clip contains:
+  Entry_No. Date: Title - URL
+
+  * a social clip object can contain following properties:
+    entry_number
     date
     title
+    URL
+    summary
+
+  After social clips are generated from the website, they are automatically added to an array.
+  Then, by their order, each social clip will be assigned an entry number.
+
+  When a user calls these social clips, they are shown as a list.
+  The user is able to obtain more information (summary) by entering an entry number; or search for social clips for any particular keyword.
+      - the keyword will be search by matching itself to any word in the social clip's actual web contents.
+
   
