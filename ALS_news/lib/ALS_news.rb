@@ -1,1 +1,1 @@
-require_relative "./ALS_news/cli"
+require "./lib/ALS_news/cli"

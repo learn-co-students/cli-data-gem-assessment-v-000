@@ -1,7 +1,8 @@
 #CLI Controller
 
-require_relative './version'
-require_relative './clip'
+require './lib/ALS_news/version'
+require './lib/ALS_news/clip'
+require './lib/ALS_news/clip_scraper'
 
 
 
@@ -10,7 +11,7 @@ class ALSNews::CLI
 
   def call
     list_clips
-    url
+    content
     goodbye
     print clips
   end
@@ -24,6 +25,7 @@ class ALSNews::CLI
     @clips = ALSNews::Clip.today
     @clips.each.with_index(1) do |clip, i|
       puts "#{i}. #{clip.date}: #{clip.title} - #{clip.url}"
+    end
   end
 
   def content
