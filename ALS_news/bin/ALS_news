@@ -2,6 +2,4 @@
 require 'pry'
 require "./lib/ALS_news"
 
-
-new = ALSNews::CLI.new
-new.call
+ALSNews::CLI.new.call
