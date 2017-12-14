@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 require 'pry'
-require "./lib/ALS_news"
+require "./lib/cli"
 
 ALSNews::CLI.new.call

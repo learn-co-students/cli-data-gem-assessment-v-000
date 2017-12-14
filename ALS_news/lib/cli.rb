@@ -1,8 +1,8 @@
 #CLI Controller
 require 'pry'
-require './lib/ALS_news/version'
-require './lib/ALS_news/clip'
-require './lib/ALS_news/clip_scraper'
+require './lib/version'
+require './lib/clip'
+require './lib/clip_scraper'
 
 
 class ALSNews::CLI
