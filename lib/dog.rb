@@ -1,12 +1,31 @@
 class Dog
-attr_accessor :name, :gender, :breed, :age, :color, :size, :housebroken, :obedience, :location, :kids, :cats, :otherdogs, :sponsors, :sponsor_blurb, :sponsor_name, :sponsor_date, :description, :id, :image_url
+attr_accessor :name, :gender, :breed, :age, :color, :size, :housebroken, :obedience, :location, :kids, :cats, :otherdogs, :sponsors, :sponsor_blurb, :sponsor_name, :sponsor_date, :description, :id, :image_url, :selectors
 @@all = []
+@@selected = [] #decided to keep over here rather than duplicate instance variables over inside search class
+
     def initialize(dog_hash) #from Mass Assignment & Metaprogramming Lab
         dog_hash.each do |key, value|
             self.send(("#{key}="), value)
-
         end
     end
+
+    def self.selected
+      @@selected
+    end
+
+    def self.all
+      @@all
+    end
+
+    def self.reset_all
+      @@all.clear
+      @@selected.clear
+    end
+
+    def self.reset_search
+      @@selected.clear
+    end
+
     def self.magsr_fixer(input_array)
       input_array.each do |dog|
           dog.each do |key, value|
@@ -16,7 +35,6 @@ attr_accessor :name, :gender, :breed, :age, :color, :size, :housebroken, :obedie
                 dog[key] = extract_value(value)
                 dog[key] = dog[key].chomp(" \n")
               end
-
           end
       end
       input_array

@@ -1,4 +1,13 @@
-
+def user_input(num_choices)
+  puts "Please enter 1 - #{num_choices}"
+  input = gets.strip.to_i
+  if input < 1 || input > num_choices
+    puts "Invalid input.  Please choose 1 - #{num_choices}"
+    input = nil
+    user_input(num_choices)
+  end
+  input
+end
 
 def self.magsr_fixer
     self.all.each do |dog|
