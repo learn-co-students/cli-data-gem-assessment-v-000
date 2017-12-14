@@ -51,8 +51,6 @@ class ALSNews::Clip
    self.all.each do |clip|
      if clip.content.downcase.include?(input)
        clips_with_keyword << clip
-     else
-       "No clip is found with the keyword, #{input}."
      end
    end
    if clips_with_keyword != []
@@ -60,6 +58,8 @@ class ALSNews::Clip
      clips_with_keyword.each do |clip|
        puts "#{clip.entry_number}. #{clip.date}: #{clip.title} - #{clip.url}"
      end
+   else
+     puts "No clip is found with the keyword, #{input}."
    end
   end
 

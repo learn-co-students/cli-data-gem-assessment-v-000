@@ -31,10 +31,10 @@ class ALSNews::CLI
   def ask_for_more
     input = nil
     while input != "exit"
-      puts "Enter (i) the number of the social clip to get its summary; (ii) search to find by keyword; (iii) list to re-list the social clips; or (iv) exit to exit"
       input = gets.strip.downcase
+      puts "Enter (i) the number of the social clip to get its summary; (ii) search to find by keyword; (iii) list to re-list the social clips; or (iv) exit to exit"
       case input
-      when "1", "2", "3", "4", "5", "6", "7", "8"
+      when "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"
         puts "Here's the summary of social clip #{input}:"
         @clips.each do |clip|
           if clip.entry_number == input.to_i
@@ -54,9 +54,10 @@ class ALSNews::CLI
     input = nil
     while input != "exit"
       input = gets.strip.downcase
+      puts "Searching now..."
       ALSNews::Clip.find_by_keyword(input)
-
-    when
+    end
+  end
 
   def goodbye
     puts "See you next time for more clips!!"
