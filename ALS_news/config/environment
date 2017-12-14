@@ -1,0 +1,7 @@
+require 'pry'
+require 'nokogiri'
+require 'open-uri'
+
+require_relative '../lib/ALS_news/clip_craper'
+require_relative '../lib/ALS_news/clip'
+require_relative '../lib/ALS_news/cli'
