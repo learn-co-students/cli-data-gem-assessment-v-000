@@ -1,5 +1,4 @@
 #CLI Controller
-
 require './lib/ALS_news/version'
 require './lib/ALS_news/clip'
 require './lib/ALS_news/clip_scraper'
