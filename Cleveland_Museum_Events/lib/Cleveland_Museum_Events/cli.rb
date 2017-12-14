@@ -1,4 +1,4 @@
-class CLI
+class ClevelandMusuemEvents::CLI
   attr_accessor :title, :date, :time, :link
   attr_reader :title, :date, :time, :link
 
@@ -24,14 +24,14 @@ class CLI
       puts "What Museum would you like events for? (Art Museum(AM)/Botanical Gardens(BG)/Natural History Museum(NHM)/All)"
           input = gets.strip.downcase
           if museum == "art museum" || "am"
-              Art_Museum::Scrapers.new_from_index_page(e)
-            print_events(am)
+
+
           elsif museum == "botanical gardens" || "bg"
-            Botanical_Gardens::Scrapers.new_from_index_page(e)
-            print_events(bg)
+
+
           elsif museum == "natural history museum" || "nhm"
-            Natural_History_Museum::Scrapers.new_from_index_page(e)
-            print_events(nhm)
+
+            
           elsif museum == "all"
             print_events(all)
           else puts "Please enter a valid command: 'Art Museum(AM)/Botanical Gardens(BG)/Natural History Museum(NHM)/All/Esc (to exit the program)'"
