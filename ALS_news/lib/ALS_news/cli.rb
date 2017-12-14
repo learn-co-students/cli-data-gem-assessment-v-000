@@ -31,7 +31,7 @@ class ALSNews::CLI
   def ask_for_more
     input = nil
     while input != "exit"
-      puts "Enter (i) the number of the social clip to get its summary; (ii) list to re-list the social clips; or (iii) exit to exit"
+      puts "Enter (i) the number of the social clip to get its summary; (ii) search to find by keyword; (iii) list to re-list the social clips; or (iv) exit to exit"
       input = gets.strip.downcase
       case input
       when "1", "2", "3", "4", "5", "6", "7", "8"
@@ -43,9 +43,20 @@ class ALSNews::CLI
         end
       when "list"
         list_clips
+      when "search"
+        search_by_keyword
       end
     end
   end
+
+  def search_by_keyword
+    puts "What is your keyword search term?"
+    input = nil
+    while input != "exit"
+      input = gets.strip.downcase
+      ALSNews::Clip.find_by_keyword(input)
+
+    when
 
   def goodbye
     puts "See you next time for more clips!!"

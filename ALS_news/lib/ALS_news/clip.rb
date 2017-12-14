@@ -49,13 +49,17 @@ class ALSNews::Clip
   def self.find_by_keyword(input)
     clips_with_keyword = []
    self.all.each do |clip|
-     if clip.content.downcase.include?(input.to_s.downcase)
+     if clip.content.downcase.include?(input)
        clips_with_keyword << clip
+     else
+       "No clip is found with the keyword, #{input}."
      end
    end
-   puts "Following are clips with keyword #{input}:"
-   clips_with_keyword.each.with_index(1) do |clip, i|
-     puts "#{i}. #{clip.date}: #{clip.title} - #{clip.url}"
+   if clips_with_keyword != []
+     puts "Following are clips with keyword #{input}:"
+     clips_with_keyword.each do |clip|
+       puts "#{clip.entry_number}. #{clip.date}: #{clip.title} - #{clip.url}"
+     end
    end
   end
 
