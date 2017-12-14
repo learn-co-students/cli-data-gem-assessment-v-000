@@ -4,5 +4,6 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'Cleveland_Musuem_Events'
 gem 'rake'
+gem 'require_all'
 
 gemspec
