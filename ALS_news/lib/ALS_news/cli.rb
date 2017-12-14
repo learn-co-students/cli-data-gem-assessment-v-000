@@ -10,25 +10,27 @@ class ALSNews::CLI
   attr_accessor :clips
 
   def call
+    generate_clips
     list_clips
-    content
+    ask_for_more
     goodbye
     print clips
   end
 
-  def recent
-
+  def generate_clips
+    scraper = ALSNews::Clip_Scraper.new
+    scraper.create_clips
   end
 
   def list_clips
     puts "Recent Social Clips from ALS News Today:"
-    @clips = ALSNews::Clip.today
+    @clips = ALSNews::Clip.all
     @clips.each.with_index(1) do |clip, i|
       puts "#{i}. #{clip.date}: #{clip.title} - #{clip.url}"
     end
   end
 
-  def content
+  def ask_for_more
     input = nil
     while input != "exit"
       puts "Enter (i) the number of the social clip to get its summary; (ii) list to re-list the social clips; or (iii) exit to exit"

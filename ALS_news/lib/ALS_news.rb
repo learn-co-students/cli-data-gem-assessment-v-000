@@ -1,1 +1,1 @@
-require_relative '../config/environment'
+require './lib/ALS_news/cli'

@@ -3,14 +3,11 @@ class ALSNews::Clip
 
   @@all = []
 
-  def initialize(path)
-
   def self.new_from_index(index)
     self.new(
-            index.css("article").css("time").text
-            "http://www.theworlds50best.com#{r.css("a").attribute("href").text}",
-            index.css("h3").text,
-            index.css("a").text
+            index.css("time").text,
+            index.css("h4").css("a[href]").text,
+            index.css.first("a[href]")
             )
   end
 
@@ -23,20 +20,10 @@ class ALSNews::Clip
 
   def content
     doc = Nokogiri::HTML(open(url))
-    doc.css("div#pf-content").css(".p").text
+    doc.css(".pf-content").css("p").text
   end
 
   def self.all
-    clip_1 = self.new
-    clip_1.date = "December 13, 2017"
-    clip_1.title = "The ALS Association Explains the Disease"
-    clip_1.url = "https://alsnewstoday.com/2017/12/13/the-als-association-explains-the-disease/"
-
-    clip_2 = self.new
-    clip_2.date = "December 12, 2017"
-    clip_2.title = "Who was Lou Gehrig?"
-    clip_2.url = "https://alsnewstoday.com/2017/12/12/who-was-lou-gehrig-2/"
-
     @@all
   end
 
