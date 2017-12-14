@@ -5,7 +5,6 @@ require './lib/ALS_news/clip'
 require './lib/ALS_news/clip_scraper'
 
 
-
 class ALSNews::CLI
   attr_accessor :clips
 
@@ -31,8 +30,8 @@ class ALSNews::CLI
   def ask_for_more
     input = nil
     while input != "exit"
-      input = gets.strip.downcase
       puts "Enter (i) the number of the social clip to get its summary; (ii) search to find by keyword; (iii) list to re-list the social clips; or (iv) exit to exit"
+      input = gets.strip.downcase
       case input
       when "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"
         puts "Here's the summary of social clip #{input}:"
@@ -50,12 +49,14 @@ class ALSNews::CLI
   end
 
   def search_by_keyword
-    puts "What is your keyword search term?"
     input = nil
     while input != "exit"
+      puts "What is your keyword search term? (enter exit to exit)"
       input = gets.strip.downcase
-      puts "Searching now..."
-      ALSNews::Clip.find_by_keyword(input)
+      if input != "exit"
+        puts "Searching now..."
+        ALSNews::Clip.find_by_keyword(input)
+      end
     end
   end
 
