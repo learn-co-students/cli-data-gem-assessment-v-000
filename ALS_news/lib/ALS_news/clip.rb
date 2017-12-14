@@ -1,21 +1,27 @@
 class ALSNews::Clip
-  attr_accessor :date, :title, :url
+  attr_accessor :date, :title, :url, :summary, :entry_number
 
   @@all = []
 
   def self.new_from_index(index)
     self.new(
             index.css("time").text,
-            index.css("h4").css("a[href]").text,
-            index.css.first("a[href]")
+            index.css("h1.entry-title").css("a").text,
+            index.css("h1.entry-title").css("a").attribute("href").value,
+            index.css("div.entry-summary").text
             )
   end
 
-  def initialize(date=nil, title=nil, url=nil)
+  def initialize(date=nil, title=nil, url=nil, summary=nil)
       @date = date
       @title = title
       @url = url
+      @summary = summary
       @@all << self
+  end
+
+  def self.add_entry_number
+    self.all.each.with_index(1) {|clip, i| clip.entry_number = i}
   end
 
   def content

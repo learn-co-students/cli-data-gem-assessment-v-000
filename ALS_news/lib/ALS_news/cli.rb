@@ -1,4 +1,5 @@
 #CLI Controller
+require 'pry'
 require './lib/ALS_news/version'
 require './lib/ALS_news/clip'
 require './lib/ALS_news/clip_scraper'
@@ -13,20 +14,18 @@ class ALSNews::CLI
     list_clips
     ask_for_more
     goodbye
-    print clips
   end
 
   def generate_clips
     scraper = ALSNews::Clip_Scraper.new
     scraper.create_clips
+    ALSNews::Clip.add_entry_number
   end
 
   def list_clips
     puts "Recent Social Clips from ALS News Today:"
     @clips = ALSNews::Clip.all
-    @clips.each.with_index(1) do |clip, i|
-      puts "#{i}. #{clip.date}: #{clip.title} - #{clip.url}"
-    end
+    @clips.each {|clip| puts "#{clip.entry_number}. #{clip.date}: #{clip.title} - #{clip.url}"}
   end
 
   def ask_for_more
@@ -37,6 +36,11 @@ class ALSNews::CLI
       case input
       when "1", "2", "3", "4", "5", "6", "7", "8"
         puts "Here's the summary of social clip #{input}:"
+        @clips.each do |clip|
+          if clip.entry_number == input.to_i
+            puts "#{clip.summary}"
+          end
+        end
       when "list"
         list_clips
       end
