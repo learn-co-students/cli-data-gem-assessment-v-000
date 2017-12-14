@@ -6,7 +6,7 @@ class ALSNews::Clip_Scraper
 
   def clips_index
     doc = Nokogiri::HTML(open("https://alsnewstoday.com/category/social-clips/"))
-    doc.css("article")
+    doc.css("article.blog-item")
   end
 
   def create_clips
