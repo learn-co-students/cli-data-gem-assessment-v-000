@@ -1,66 +1,52 @@
-class Scrapers
+class ClevelandMusuemEvents::Events
+  attr_accessor :title, :date, :time, :url
 
-      class Art_Museum
-    attr_accessor :title, :date, :time, :link
+def self.month
+  self.scrape_events
+end
 
-        def open_page
-          doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
-        end
+def self.scrape_events
+  events = []
 
-        def scrape_events_index
-          self.open_page.css("#div.field-name-field-card-title a href").text
-          binding.pry
-        end
+  events << self.scrape_art
+  events << self.scrape_naturalhx
+  events << self.scrape_botanical
+  binding.pry
 
-        def make_events
-          scrape_events_index.each do |e|
-            Art_Museum::Scrape.new_from_index_page(e)
-          end
-        end
+  events
+end
 
-      end
+def self.scrape_art
+  doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
 
+  event = self.new
+  event.title = doc.search(div.field-name-field-card-title).attr("href")
+  event.date =
+  event.time =
+  event.url =
+  binding.pry
+end
 
+def self.scrape_naturalhx
+  doc = Nokogiri::HTML(open("https://www.cmnh.org/visit/calendar"))
 
-    class Natural_History_Museum
-      attr_accessor :title, :date, :time, :link
-
-      def open_page
-        doc = Nokogiri::HTML(open("https://www.cmnh.org/visit/calendar"))
-      end
-
-      def scrape_events_index
-        self.open_page.css("span.title-of-summary").text
-        binding.pry
-      end
-
-      def make_events
-        scrape_events_index.each do |e|
-          Natural_History_Museum::Scrape.new_from_index_page(e)
-        end
-      end
-
-    end
+  event = self.new
+  event.title = doc.search("span.title-of-summary").text
+  event.date =
+  event.time =
+  event.url =
+  binding.pry
+end
 
 
+def self.scrape_botanical
+  doc = Nokogiri::HTML(open("https://www.cbgarden.org/calendar-of-events.aspx"))
 
-    class Botanical_Gardens
-      attr_accessor :title, :date, :time, :link
-
-        def open_page
-          doc = Nokogiri::HTML(open("https://www.cbgarden.org/calendar-of-events.aspx"))
-        end
-
-        def scrape_events_index
-          self.open_page.css("td.days a href").text
-          binding.pry
-        end
-
-        def make_events
-          scrape_events_index.each do |e|
-            Botanical_Gardens::Scrape.new_from_index_page(e)
-          end
-        end
-
-
+  event = self.new
+  event.title = doc.search("td.days a href").text
+  event.date =
+  event.time =
+  event.url =
+  binding.pry
+end
 end

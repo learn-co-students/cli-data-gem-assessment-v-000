@@ -1,5 +1,3 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/Cleveland_Museum_Events'
-
-ClevelandMuseumEvents::CLI.new
+require_relative '../lib/Cleveland_Musuem_Events'
