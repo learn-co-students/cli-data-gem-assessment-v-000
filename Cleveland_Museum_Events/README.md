@@ -1,8 +1,6 @@
-# ClevelandEvents
+# Cleveland_Museum_Events
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ClevelandEvents`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Cleveland_Museum_Events allows a user to list the next 12 events in the Cleveland Art museums online calendar and their individual descriptions and urls by following the command line prompts.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Follow the prompts as prompted.
 
 ## Development
 
