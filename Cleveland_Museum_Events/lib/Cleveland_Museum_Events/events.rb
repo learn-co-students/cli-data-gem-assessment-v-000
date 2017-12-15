@@ -1,83 +1,104 @@
 class ClevelandMuseumEvents::Events
   attr_accessor :title, :description, :url
 
-@@event = []
+@@events = []
 @@description = []
+@@url = []
 #def initialize(title = nil, url = nil, description = nil)
 #  @title = title
 #  @url = url
 #  @description = description
 #end
 
-def self.event
-  title = @@event[0]
+def self.events
+  title = @@events[0]
+  title
+end
+
+def self.index
+  @@events
 end
 
 def self.description
-  description = @@description[0]
+  description = @@description.flatten
+  description
 end
 
-def self.scrape_art_title
+def self.url
+  url = @@url
+  url
+end
+
+def self.scrape_art
   doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
   titles_withdescription = []
-  titles_only = []
   doc.search("div.field-name-field-card-title a").each do |event|
     event_string = event.to_s.split('>')
     event_title = event_string[1].split('<')[0]
     block_titles_withdescription = []
     block_titles_withdescription << event_title
     titles_withdescription << block_titles_withdescription
-    #binding.pry
   end
   titles = titles_withdescription.flatten
   title = titles.map.with_index {|item, index| "#{index +1}. #{item}"}
-  event_titles = puts title[0..11]
-
-  @@event << event_titles
-
-  #binding.pry
+  @@events << title
+  puts title[0..11]
 end
 
 def self.scrape_description
   doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
-  description = doc.search("div.field-card-mobile-description").text
-  @@event << description
-  binding.pry
+  description_clean = []
+  doc.search("div.field-card-mobile-description").each do |d|
+    description_string = d.to_s.split('>')
+    description = description_string[1].split('<')[0]
+    description_clean_block = []
+    description_clean_block << description
+    description_clean << description_clean_block
+  end
+   descriptions = description_clean.flatten
+   description = descriptions.map {|item| "#{item}"}
+   @@description << description
+  #binding.pry
 end
 
 def self.scrape_url
   doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
   url = "www.clevelandart.org" + doc.xpath('//*[@id="calendar-today"]/div[3]/div/div[1]/div/div/div/div/div/div/div/div[1]/a/@href').first.value
-  @@event << url
+  @@url << url
+  #binding.pry
 end
-# self.scrape_naturalhx
-#  doc = Nokogiri::HTML(open("https://www.cmnh.org/visit/calendar"))
-#  title = doc.search("span.title-of-summary").text
-#  description =
-#  url =
-#  @@event << title
-#  @@event << description
-#  @@event << url
-#  binding.pry
-#end#
-#
 
-#def self.scrape_botanical
-#  doc = Nokogiri::HTML(open("https://www.cbgarden.org/calendar-of-events.aspx"))
-#  title = doc.search("td.days a href").text
-#  description =
-#  url =
-#  @@event << title
-#  @@event << description
-#  @@event << url
-#  binding.pry
-#end#
+end
 
-#def self.scrape_all
-#  self.scrape_art
-#  self.scrape_botanical
-#  self.scrape_naturalhx#
+#Saved to potentially also scrape the natural history museum and botanical gardens
+  # self.scrape_naturalhx
+  #  doc = Nokogiri::HTML(open("https://www.cmnh.org/visit/calendar"))
+  #  title = doc.search("span.title-of-summary").text
+  #  description =
+  #  url =
+  #  @@event << title
+  #  @@event << description
+  #  @@event << url
+  #  binding.pry
+  #end#
+  #
 
-#end#
+  #def self.scrape_botanical
+  #  doc = Nokogiri::HTML(open("https://www.cbgarden.org/calendar-of-events.aspx"))
+  #  title = doc.search("td.days a href").text
+  #  description =
+  #  url =
+  #  @@event << title
+  #  @@event << description
+  #  @@event << url
+  #  binding.pry
+  #end#
 
-#end
+  #def self.scrape_all
+  #  self.scrape_art
+  #  self.scrape_botanical
+  #  self.scrape_naturalhx#
+
+  #end#
+
+  #end
