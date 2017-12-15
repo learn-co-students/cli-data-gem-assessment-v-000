@@ -12,12 +12,9 @@ class ClevelandMuseumEvents::CLI
     def start
       puts "Would you like to see the events for the month? (Y/n)"
           date_input = gets.strip.downcase
-            if date_input == "y" or "yes"
-              museum
-            elsif date_input == "n" or "no"
-              puts "Goodbye."
-            else puts "Please enter a valid command: 'Yes/Y/y' or 'No/N,n'"
-            end
+            museum if date_input == "y" || "yes"
+            puts "Goodbye." if date_input == "n" || "no"
+            puts "Please enter a valid command: 'Yes/Y/y' or 'No/N,n'" if date_input != "n" || "no" || "y" || "yes"
     end
 
     def museum
@@ -26,13 +23,19 @@ class ClevelandMuseumEvents::CLI
           if museum == "art museum" || "am"
             ClevelandMuseumEvents::Events.scrape_art
             puts "#{ClevelandMuseumEvents::Events.event}"
-            again
+            again?
           elsif museum == "botanical gardens" || "bg"
             ClevelandMuseumEvents::Events.scrape_botanical
+            puts "#{ClevelandMuseumEvents::Events.event}"
+            again?
           elsif museum == "natural history museum" || "nhm"
             ClevelandMuseumEvents::Events.scrape_naturalhx
+            puts "#{ClevelandMuseumEvents::Events.event}"
+            again?
           elsif museum == "all"
             ClevelandMuseumEvents::Events.scrape_all
+            puts "#{ClevelandMuseumEvents::Events.event}"
+            again?
           else puts "Please enter a valid command: 'Art Museum(AM) / Botanical Gardens(BG)  /Natural History Museum(NHM) / All / Esc (to exit the program)'"
           end
     end

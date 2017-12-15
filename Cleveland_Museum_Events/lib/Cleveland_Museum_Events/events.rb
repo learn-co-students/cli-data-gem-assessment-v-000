@@ -38,24 +38,24 @@ end
 
 def self.scrape_naturalhx
   doc = Nokogiri::HTML(open("https://www.cmnh.org/visit/calendar"))
-
-  event = self.new
-  event.title = doc.search("span.title-of-summary").text
-  event.date =
-  event.time =
-  event.url =
+  title = doc.search("span.title-of-summary").text
+  description =
+  url =
+  @@event << title
+  @@event << description
+  @@event << url
   binding.pry
 end
 
 
 def self.scrape_botanical
   doc = Nokogiri::HTML(open("https://www.cbgarden.org/calendar-of-events.aspx"))
-
-  event = self.new
-  event.title = doc.search("td.days a href").text
-  event.date =
-  event.time =
-  event.url =
+  title = doc.search("td.days a href").text
+  description =
+  url =
+  @@event << title
+  @@event << description
+  @@event << url
   binding.pry
 end
 
