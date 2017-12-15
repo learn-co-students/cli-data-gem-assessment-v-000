@@ -1,0 +1,31 @@
+
+[1mFrom:[0m /home/Ssenkowski/cli-data-gem-assessment-v-000/Cleveland_Museum_Events/lib/Cleveland_Museum_Events/events.rb @ line 33 ClevelandMuseumEvents::Events.scrape_art:
+
+    [1;34m16[0m: [32mdef[0m [1;36mself[0m.[1;34mscrape_art[0m
+    [1;34m17[0m:   doc = [1;34;4mNokogiri[0m::HTML(open([31m[1;31m"[0m[31mhttp://www.clevelandart.org/calendar[1;31m"[0m[31m[0m))
+    [1;34m18[0m:   titles_withdescription = []
+    [1;34m19[0m:   titles_only = []
+    [1;34m20[0m:   doc.search([31m[1;31m"[0m[31mdiv.field-name-field-card-title a[1;31m"[0m[31m[0m).each [32mdo[0m |event|
+    [1;34m21[0m:     event_string = event.to_s.split([31m[1;31m'[0m[31m>[1;31m'[0m[31m[0m)
+    [1;34m22[0m:     event_title = event_string[[1;34m1[0m].split([31m[1;31m'[0m[31m<[1;31m'[0m[31m[0m)[[1;34m0[0m]
+    [1;34m23[0m:     block_titles_withdescription = []
+    [1;34m24[0m:     block_titles_withdescription << event_title
+    [1;34m25[0m:     titles_withdescription << block_titles_withdescription
+    [1;34m26[0m:     [1;34m#binding.pry[0m
+    [1;34m27[0m:   [32mend[0m
+    [1;34m28[0m:   titles = titles_withdescription.flatten
+    [1;34m29[0m:   title = titles.map.with_index {|item, index| [31m[1;31m"[0m[31m#{index +1}[0m[31m. #{item}[0m[31m[1;31m"[0m[31m[0m}
+    [1;34m30[0m:   event_titles = puts title[[1;34m0[0m..[1;34m11[0m]
+    [1;34m31[0m:   doc.search([31m[1;31m"[0m[31mdiv.field-card-mobile-description[1;31m"[0m[31m[0m).each [32mdo[0m |description|
+    [1;34m32[0m:     description
+ => [1;34m33[0m:     binding.pry
+    [1;34m34[0m:   [32mend[0m
+    [1;34m35[0m:   description = doc.search([31m[1;31m"[0m[31mdiv.field-card-mobile-description[1;31m"[0m[31m[0m).text
+    [1;34m36[0m:   [1;34m#event.time =[0m
+    [1;34m37[0m:   url = [31m[1;31m"[0m[31mwww.clevelandart.org[1;31m"[0m[31m[0m + doc.xpath([31m[1;31m'[0m[31m//*[@id="calendar-today"]/div[3]/div/div[1]/div/div/div/div/div/div/div/div[1]/a/@href[1;31m'[0m[31m[0m).first.value
+    [1;34m38[0m:   [36m@@event[0m << event_titles
+    [1;34m39[0m:   [36m@@event[0m << description
+    [1;34m40[0m:   [36m@@event[0m << url
+    [1;34m41[0m:   [1;34m#binding.pry[0m
+    [1;34m42[0m: [32mend[0m
+
