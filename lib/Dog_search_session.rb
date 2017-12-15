@@ -1,8 +1,9 @@
 class DogSearchSession # change to DogSearchSession
-attr_accessor :selectors, :loaded, :selected_dogs
+attr_accessor :selectors, :loaded, :selected
 
   def initialize
     @selectors = []
+    @selected = []
     @loaded = "Not Loaded"
     @selected_dogs = []
   end#initialize
@@ -100,7 +101,7 @@ attr_accessor :selectors, :loaded, :selected_dogs
 
   def search_screen
     DogSearchSession.cls
-    puts "Welcome to the Search Menu.  There are #{Dogs.all.size} dogs available, and #{@selected_dogs.size} matches."
+    puts "Welcome to the Search Menu.  There are #{Dogs.all.size} dogs available, and #{@selected.size} matches."
     puts
     puts "Please select from the following:"
     puts "1) View Results"
