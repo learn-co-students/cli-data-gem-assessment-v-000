@@ -1,4 +1,4 @@
-class ClevelandMusuemEvents::CLI
+class ClevelandMuseumEvents::CLI
   attr_accessor :title, :date, :time, :link
   attr_reader :title, :date, :time, :link
 
@@ -31,7 +31,7 @@ class ClevelandMusuemEvents::CLI
 
           elsif museum == "natural history museum" || "nhm"
 
-            
+
           elsif museum == "all"
             print_events(all)
           else puts "Please enter a valid command: 'Art Museum(AM)/Botanical Gardens(BG)/Natural History Museum(NHM)/All/Esc (to exit the program)'"
@@ -39,8 +39,8 @@ class ClevelandMusuemEvents::CLI
     end
 
 
-    def list_events(Museum)
-      puts
-    end
+    #def list_events(Museum)
+    #  puts
+    #end
 
   end

@@ -1,4 +1,4 @@
-class ClevelandMusuemEvents::Events
+class ClevelandMuseumEvents::Events
   attr_accessor :title, :date, :time, :url
 
 def self.month
