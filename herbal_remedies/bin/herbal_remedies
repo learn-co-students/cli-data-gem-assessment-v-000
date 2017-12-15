@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+
+cli = CommandLineInteface.new
+cli.start
+cli.call
