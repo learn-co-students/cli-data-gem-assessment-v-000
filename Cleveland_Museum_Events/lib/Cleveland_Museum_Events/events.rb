@@ -9,8 +9,9 @@ def self.scrape_events
   events = []
 
   events << self.scrape_art
-  events << self.scrape_naturalhx
   events << self.scrape_botanical
+  events << self.scrape_naturalhx
+
   binding.pry
 
   events
@@ -48,5 +49,12 @@ def self.scrape_botanical
   event.time =
   event.url =
   binding.pry
+end
+
+def self.scrape_all
+  self.scrape_art
+  self.scrape_botanical
+  self.scrape_naturalhx
+
 end
 end

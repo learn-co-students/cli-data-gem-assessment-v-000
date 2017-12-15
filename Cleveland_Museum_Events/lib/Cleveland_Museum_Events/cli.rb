@@ -22,18 +22,21 @@ class ClevelandMuseumEvents::CLI
 
     def museum
       puts "What Museum would you like events for? (Art Museum(AM)/Botanical Gardens(BG)/Natural History Museum(NHM)/All)"
-          input = gets.strip.downcase
+          museum = gets.strip.downcase
           if museum == "art museum" || "am"
-
+            ClevelandMuseumEvents::Events.self.scrape_art
 
           elsif museum == "botanical gardens" || "bg"
+            ClevelandMuseumEvents::Events.self.scrape_botanical
 
 
           elsif museum == "natural history museum" || "nhm"
+            ClevelandMuseumEvents::Events.self.scrape_naturalhx
 
 
           elsif museum == "all"
-            print_events(all)
+            ClevelandMuseumEvents::Events.scrape_all
+
           else puts "Please enter a valid command: 'Art Museum(AM)/Botanical Gardens(BG)/Natural History Museum(NHM)/All/Esc (to exit the program)'"
           end
     end
