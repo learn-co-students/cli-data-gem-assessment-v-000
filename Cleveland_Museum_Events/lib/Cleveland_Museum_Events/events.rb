@@ -21,10 +21,10 @@ def self.scrape_art
   doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
 
   event = self.new
-  event.title = doc.search(div.field-name-field-card-title).attr("href")
-  event.date =
-  event.time =
-  event.url =
+  event.title = doc.search(div.field-name-field-card-title).attr("href").text
+  event.date = doc.search(div.field-card-mobile-description).text
+  #event.time =
+  event.url = doc.search(div.field-name-field-card-title).attr("href").url
   binding.pry
 end
 
