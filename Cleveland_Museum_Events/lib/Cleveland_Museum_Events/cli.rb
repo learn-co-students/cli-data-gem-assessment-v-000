@@ -38,7 +38,7 @@ class ClevelandMuseumEvents::CLI
     end
 
 
-    def again
+    def again?
       puts "Would you like to search any other museum events?"
         input = gets.strip.downcase
         if input == "yes" || "y"
