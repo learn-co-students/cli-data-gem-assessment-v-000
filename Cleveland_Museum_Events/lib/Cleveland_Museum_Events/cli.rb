@@ -1,7 +1,4 @@
 class ClevelandMuseumEvents::CLI
-  attr_accessor :title, :date, :time, :link
-  attr_reader :title, :date, :time, :link
-
 
     def initialize
       puts "Welcome to your Cleveland Museum's and Garden's event finder!"
@@ -12,9 +9,13 @@ class ClevelandMuseumEvents::CLI
     def start
       puts "Would you like to see the events for the month? (Y/n)"
           date_input = gets.strip.downcase
-            museum if date_input == "y" || "yes"
-            puts "Goodbye." if date_input == "n" || "no"
-            puts "Please enter a valid command: 'Yes/Y/y' or 'No/N,n'" if date_input != "n" || "no" || "y" || "yes"
+            if date_input == "y" || "yes"
+              museum
+            elsif date_input == "n" || "no"
+              puts "Goodbye."
+            else
+              puts "Please enter a valid command: 'Yes/Y/y' or 'No/N/n'" 
+          end
     end
 
     def museum
