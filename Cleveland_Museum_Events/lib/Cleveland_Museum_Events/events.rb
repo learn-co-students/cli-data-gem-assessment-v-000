@@ -25,7 +25,7 @@ def self.description
 end
 
 def self.url
-  url = @@url
+  url = @@url.flatten
   url
 end
 
@@ -63,9 +63,14 @@ end
 
 def self.scrape_url
   doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
-  url = "www.clevelandart.org" + doc.xpath('//*[@id="calendar-today"]/div[3]/div/div[1]/div/div/div/div/div/div/div/div[1]/a/@href').first.value
+  urls = []
+  doc.search("div.field-name-field-card-title a @href").each do |u|
+    weblinks = []
+    weblinks << u.value
+    urls << weblinks
+  end
+  url = urls.flatten
   @@url << url
-  #binding.pry
 end
 
 end

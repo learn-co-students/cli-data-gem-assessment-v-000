@@ -28,13 +28,15 @@ end
 def museum
   ClevelandMuseumEvents::Events.scrape_art
   ClevelandMuseumEvents::Events.scrape_description
-  #binding.pry
+  ClevelandMuseumEvents::Events.scrape_url
   select_event
   #binding.pry
   again?
 end
 
 def select_event
+  puts ""
+  puts ""
   puts "Which event would you like to know more about? (Please choose from the list)"
   input = gets.strip
   puts ""
@@ -42,17 +44,23 @@ def select_event
   @events = ClevelandMuseumEvents::Events.events[input.to_i - 1]
   puts "-----------#{@events}-----------"
   event_description(input)
-  puts " #{@description} "
-  #binding.pry
+  event_url(input)
+  puts "---------------------------------------------------------"
+  puts ""
+  puts ""
+
 end
 
 def event_description(input)
   puts ""
   puts ""
   puts " #{ClevelandMuseumEvents::Events.description[input.to_i - 1]} "
+end
+
+def event_url(input)
+  puts " #{"www.clevelandart.org" + ClevelandMuseumEvents::Events.url[input.to_i - 1]} "
   puts ""
   puts ""
-  #binding.pry
 end
 
 def again?
@@ -62,16 +70,19 @@ def again?
       puts ""
       puts ""
       museum
-    else
+    elsif input == "no" || input == "n"
       puts ""
       puts ""
       puts "Goodbye!"
       puts ""
+    else
+      invalid_entry
     end
 end
 
 def invalid_entry
-  museum
+  puts "Please enter a valid entry (Y/n)"
+  again?
 end
 
 end
