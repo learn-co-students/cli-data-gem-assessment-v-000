@@ -1,35 +1,43 @@
 class ClevelandMuseumEvents::CLI
 
     def initialize
-      puts "Welcome to your Cleveland Museum's and Garden's event finder!"
+      puts "Welcome to Cleveland's Museum's and Garden's event finder!"
+      puts ""
       start
     end
 
 
     def start
-      puts "Would you like to see the events for the month? (Y/n)"
-          date_input = gets.strip.downcase
-            if date_input == "y" || "yes"
+      puts "Would you like to see today's Museum or Garden events? (Y/n)"
+          input = gets.strip.downcase
+            if input == "y" || input == "yes"
+              puts ""
+              puts ""
               museum
-            elsif date_input == "n" || "no"
-              puts "Goodbye."
+            elsif input == "n" || input == "no"
+              puts ""
+              puts ""
+              puts "Goodbye!"
             else
-              puts "Please enter a valid command: 'Yes/Y/y' or 'No/N/n'" 
-          end
+              puts ""
+              puts ""
+              puts "Please enter a valid command: 'Yes/Y/y' or 'No/N/n'"
+            end
     end
 
     def museum
-      puts "What Museum would you like events for? (Art Museum(AM) / Botanical Gardens(BG) / Natural History Museum(NHM) / All)"
+      puts "What Museum would you like events for? (Art Museum(AM) / Botanical Gardens(BG) / Natural History Museum(NHM) / All / Esc (to exit the program)"
+      puts ""
           museum = gets.strip.downcase
-          if museum == "art museum" || "am"
+          if museum == "art museum" || museum == "am"
             ClevelandMuseumEvents::Events.scrape_art
             puts "#{ClevelandMuseumEvents::Events.event}"
             again?
-          elsif museum == "botanical gardens" || "bg"
+          elsif museum == "botanical gardens" || museum == "bg"
             ClevelandMuseumEvents::Events.scrape_botanical
             puts "#{ClevelandMuseumEvents::Events.event}"
             again?
-          elsif museum == "natural history museum" || "nhm"
+          elsif museum == "natural history museum" || museum == "nhm"
             ClevelandMuseumEvents::Events.scrape_naturalhx
             puts "#{ClevelandMuseumEvents::Events.event}"
             again?
@@ -37,7 +45,14 @@ class ClevelandMuseumEvents::CLI
             ClevelandMuseumEvents::Events.scrape_all
             puts "#{ClevelandMuseumEvents::Events.event}"
             again?
-          else puts "Please enter a valid command: 'Art Museum(AM) / Botanical Gardens(BG)  /Natural History Museum(NHM) / All / Esc (to exit the program)'"
+          elsif museum == "esc"
+            puts ""
+            puts ""
+            puts "Goodbye!"
+          else puts "Please enter a valid command. "
+            puts ""
+            puts ""
+            invalid_entry
           end
     end
 
@@ -45,11 +60,20 @@ class ClevelandMuseumEvents::CLI
     def again?
       puts "Would you like to search any other museum events?"
         input = gets.strip.downcase
-        if input == "yes" || "y"
+        if input == "yes" || input == "y"
+          puts ""
+          puts ""
           museum
         else
-          puts "Have a nice day!"
+          puts ""
+          puts ""
+          puts "Goodbye!"
+          puts ""
         end
+    end
+
+    def invalid_entry
+      museum
     end
 
   end

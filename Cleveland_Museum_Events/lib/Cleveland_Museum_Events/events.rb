@@ -13,6 +13,7 @@ def self.event
   title = @@event[0]
   description = @@event[1]
   url = @@event[2]
+  puts " -----------------"
   puts ""
   puts "Title:
   '#{title}'"
@@ -20,8 +21,10 @@ def self.event
   puts "Description:
   #{description}"
   puts ""
-  puts "Website Link:
+  puts "URL:
   #{url}"
+  puts ""
+  puts " -----------------"
 end
 
 def self.scrape_art
