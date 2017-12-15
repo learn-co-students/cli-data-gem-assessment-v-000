@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install Cleveland_Museum_Events
+    $ gem install cli-data-gem-assessment-v-000
 
 ## Usage
 
