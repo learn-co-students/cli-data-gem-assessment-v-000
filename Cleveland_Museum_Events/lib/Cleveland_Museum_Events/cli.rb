@@ -17,7 +17,7 @@ def start
     elsif input == "n" || input == "no"
       puts ""
       puts ""
-      puts "Goodbye!"
+      puts "Bye!"
     else
       puts ""
       puts ""
@@ -37,13 +37,16 @@ end
 def select_event
   puts ""
   puts ""
-  puts "Which event would you like to know more about? (Please choose from the list)"
+  puts "Which event would you like to know more about? (Please choose from the list '1-12')"
   input = gets.strip
   puts ""
   puts ""
   @events = ClevelandMuseumEvents::Events.events[input.to_i - 1]
   puts "-----------#{@events}-----------"
+  puts ""
+  puts "Description:"
   event_description(input)
+  puts "Weblink:"
   event_url(input)
   puts "---------------------------------------------------------"
   puts ""
@@ -52,9 +55,8 @@ def select_event
 end
 
 def event_description(input)
-  puts ""
-  puts ""
   puts " #{ClevelandMuseumEvents::Events.description[input.to_i - 1]} "
+  puts ""
 end
 
 def event_url(input)
@@ -73,7 +75,7 @@ def again?
     elsif input == "no" || input == "n"
       puts ""
       puts ""
-      puts "Goodbye!"
+      puts "Bye!"
       puts ""
     else
       invalid_entry
