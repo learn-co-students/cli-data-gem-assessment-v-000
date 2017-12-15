@@ -34,14 +34,23 @@ def self.scrape_art_title
   event_titles = puts title[0..11]
 
   @@event << event_titles
-  @@event << description
-  @@event << url
+
   #binding.pry
 end
 
-def self.scrape_description_and_url
+def self.scrape_description
+  doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
+  description = doc.search("div.field-card-mobile-description").text
+  @@event << description
+  binding.pry
+end
 
-# self.scrape_naturalhx  
+def self.scrape_url
+  doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
+  url = "www.clevelandart.org" + doc.xpath('//*[@id="calendar-today"]/div[3]/div/div[1]/div/div/div/div/div/div/div/div[1]/a/@href').first.value
+  @@event << url
+end
+# self.scrape_naturalhx
 #  doc = Nokogiri::HTML(open("https://www.cmnh.org/visit/calendar"))
 #  title = doc.search("span.title-of-summary").text
 #  description =
