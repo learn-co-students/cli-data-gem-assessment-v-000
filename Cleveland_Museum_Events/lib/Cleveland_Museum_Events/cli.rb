@@ -24,14 +24,14 @@ class ClevelandMuseumEvents::CLI
       puts "What Museum would you like events for? (Art Museum(AM)/Botanical Gardens(BG)/Natural History Museum(NHM)/All)"
           museum = gets.strip.downcase
           if museum == "art museum" || "am"
-            ClevelandMuseumEvents::Events.self.scrape_art
+            ClevelandMuseumEvents::Events.scrape_art
 
           elsif museum == "botanical gardens" || "bg"
-            ClevelandMuseumEvents::Events.self.scrape_botanical
+            ClevelandMuseumEvents::Events.scrape_botanical
 
 
           elsif museum == "natural history museum" || "nhm"
-            ClevelandMuseumEvents::Events.self.scrape_naturalhx
+            ClevelandMuseumEvents::Events.scrape_naturalhx
 
 
           elsif museum == "all"
