@@ -1,31 +1,39 @@
 class ClevelandMuseumEvents::Events
-  attr_accessor :title, :date, :time, :url
+  attr_accessor :title, :description, :url
 
-def self.month
-  self.scrape_events
-end
+@@event = []
 
-def self.scrape_events
-  events = []
+#def initialize(title = nil, url = nil, description = nil)
+#  @title = title
+#  @url = url
+#  @description = description
+#end
 
-  events << self.scrape_art
-  events << self.scrape_botanical
-  events << self.scrape_naturalhx
-
-  binding.pry
-
-  events
+def self.event
+  title = @@event[0]
+  description = @@event[1]
+  url = @@event[2]
+  puts ""
+  puts "Title:
+  '#{title}'"
+  puts ""
+  puts "Description:
+  #{description}"
+  puts ""
+  puts "Website Link:
+  #{url}"
 end
 
 def self.scrape_art
   doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
-
-  event = self.new
-  event.title = doc.search(div.field-name-field-card-title).attr("href").text
-  event.date = doc.search(div.field-card-mobile-description).text
+  title = doc.search("div.field-name-field-card-title a").first.child.text
+  description = doc.search("div.field-card-mobile-description").first.text
   #event.time =
-  event.url = doc.search(div.field-name-field-card-title).attr("href").url
-  binding.pry
+  url = "www.clevelandart.org" + doc.xpath('//*[@id="calendar-today"]/div[3]/div/div[1]/div/div/div/div/div/div/div/div[1]/a/@href').first.value
+  @@event << title
+  @@event << description
+  @@event << url
+  #binding.pry
 end
 
 def self.scrape_naturalhx
@@ -57,4 +65,5 @@ def self.scrape_all
   self.scrape_naturalhx
 
 end
+
 end
