@@ -1,7 +1,9 @@
-
-require './lib/clip'
+require 'nokogiri'
+require 'open-uri'
 require './lib/version'
+require './lib/clip'
 require './lib/clip_scraper'
+
 #CLI Controller
 class ALSNews::CLI
   attr_accessor :clips

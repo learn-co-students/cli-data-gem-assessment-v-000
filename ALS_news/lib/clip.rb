@@ -34,18 +34,18 @@ class ALSNews::Clip
     @@all
   end
 
-  def self.find_by_month(input)
-    clips_from_month = []
-   self.all.each do |clip|
-     if clip.date.downcase.include?(input.to_s.downcase)
-       clips_from_month << clip
-     end
-   end
-   puts "Following are clips from #{input}:"
-   clips_from_month.each.with_index(1) do |clip, i|
-     puts "#{i}. #{clip.date}: #{clip.title} - #{clip.url}"
-   end
-  end
+  # def self.find_by_month(input)
+  #   clips_from_month = []
+  #  self.all.each do |clip|
+  #    if clip.date.downcase.include?(input.to_s.downcase)
+  #      clips_from_month << clip
+  #    end
+  #  end
+  #  puts "Following are clips from #{input}:"
+  #  clips_from_month.each.with_index(1) do |clip, i|
+  #    puts "#{i}. #{clip.date}: #{clip.title} - #{clip.url}"
+  #  end
+  # end
 
   def self.find_by_keyword(input)
     clips_with_keyword = []
