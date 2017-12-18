@@ -35,9 +35,9 @@ def self.scrape_art
   doc.search("div.field-name-field-card-title a").each do |event|
     event_string = event.to_s.split('>')
     event_title = event_string[1].split('<')[0]
-    block_titles_withdescription = []
-    block_titles_withdescription << event_title
-    titles_withdescription << block_titles_withdescription
+    #block_titles_withdescription = []
+    #block_titles_withdescription << event_title
+    titles_withdescription << event_title #block_titles_withdescription
   end
   titles = titles_withdescription.flatten
   title = titles.map.with_index {|item, index| "#{index +1}. #{item}"}
@@ -51,9 +51,9 @@ def self.scrape_description
   doc.search("div.field-card-mobile-description").each do |d|
     description_string = d.to_s.split('>')
     description = description_string[1].split('<')[0]
-    description_clean_block = []
-    description_clean_block << description
-    description_clean << description_clean_block
+    #description_clean_block = []
+    #description_clean_block << description
+    description_clean << description#description_clean_block
   end
    descriptions = description_clean.flatten
    description = descriptions.map {|item| "#{item}"}

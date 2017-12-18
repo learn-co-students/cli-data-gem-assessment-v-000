@@ -21,7 +21,10 @@ def start
     else
       puts ""
       puts ""
-      puts "Please enter a valid command: 'Yes/Y/y' or 'No/N/n'"
+      puts "Invalid entry.  Please enter a valid command: 'Yes/Y/y' or 'No/N/n'"
+      puts ""
+      puts ""
+      start
     end
 end
 

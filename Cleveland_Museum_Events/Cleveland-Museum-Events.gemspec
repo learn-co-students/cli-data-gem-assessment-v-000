@@ -11,7 +11,11 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Find and view local Cleveland Art Museum events}
   spec.description   = %q{Scrape the art museum website for the next 12 events on the calendar.  View the events in list form and view each events description and url}
+<<<<<<< HEAD
   spec.homepage      = "https://github.com/Ssenkowski/Cleveland_Museum_Events-data-gem-assessment-v-000.git"
+=======
+  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+>>>>>>> b8662a054f28009b9b9e8c8a47e05381b9e2dac5
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
