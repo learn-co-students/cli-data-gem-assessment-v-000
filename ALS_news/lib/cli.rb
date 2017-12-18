@@ -1,3 +1,7 @@
+
+require './lib/clip'
+require './lib/version'
+require './lib/clip_scraper'
 #CLI Controller
 class ALSNews::CLI
   attr_accessor :clips
