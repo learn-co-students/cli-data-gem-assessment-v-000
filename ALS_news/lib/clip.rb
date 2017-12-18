@@ -1,22 +1,23 @@
 class ALSNews::Clip
-  attr_accessor :date, :title, :url, :summary, :entry_number
+  attr_accessor :date, :title, :url, :summary, :content, :entry_number
 
   @@all = []
 
-  def self.new_from_index(index)
-    self.new(
-            index.css("time").text,
-            index.css("h1.entry-title").css("a").text,
-            index.css("h1.entry-title").css("a").attribute("href").value,
-            index.css("div.entry-summary").text
-            )
-  end
+#  def self.new_from_index(index)
+#    self.new(
+#            index.css("time").text,
+#            index.css("h1.entry-title").css("a").text,
+#           index.css("h1.entry-title").css("a").attribute("href").value,
+#           index.css("div.entry-summary").text
+#           )
+# end
 
-  def initialize(date=nil, title=nil, url=nil, summary=nil)
+  def initialize(date = nil, title = nil, url = nil, summary = nil, content = nil)
       @date = date
       @title = title
       @url = url
       @summary = summary
+      @content = content
       @@all << self
   end
 
@@ -24,10 +25,10 @@ class ALSNews::Clip
     self.all.each.with_index(1) {|clip, i| clip.entry_number = i}
   end
 
-  def content
-    doc = Nokogiri::HTML(open(url))
-    doc.css(".pf-content").css("p").text
-  end
+  # def content
+  #   doc = Nokogiri::HTML(open(url))
+  #   doc.css(".pf-content").css("p").text
+  # end
 
   def self.all
     @@all

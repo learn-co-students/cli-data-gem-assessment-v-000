@@ -1,10 +1,4 @@
 #CLI Controller
-require 'pry'
-require './lib/version'
-require './lib/clip'
-require './lib/clip_scraper'
-
-
 class ALSNews::CLI
   attr_accessor :clips
 
