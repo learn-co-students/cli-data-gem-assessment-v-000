@@ -10,6 +10,7 @@ module ClevelandEvents
 
   require_relative './Cleveland_Museum_Events/cli'
   require_relative './Cleveland_Museum_Events/events'
+  require_relative './Cleveland_Museum_Events/scrapers'
   require_relative './Cleveland_Museum_Events/version'
 
 end

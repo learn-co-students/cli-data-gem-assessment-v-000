@@ -2,13 +2,19 @@ class ClevelandMuseumEvents::Events
   attr_accessor :title, :description, :url
 
 @@events = []
-@@description = []
-@@url = []
-#def initialize(title = nil, url = nil, description = nil)
-#  @title = title
-#  @url = url
-#  @description = description
-#end
+#@@description = []
+#@@url = []
+
+def initialize(title = nil, description = nil, url = nil)
+ @title = title
+ @url = url
+ @description = description
+ @@events << self
+end
+
+def self.all
+    @@events
+end
 
 def self.events
   title = @@events[0]

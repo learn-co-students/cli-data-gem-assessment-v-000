@@ -1,6 +1,7 @@
 class ClevelandMuseumEvents::CLI
 
 def initialize
+    ClevelandMuseumEvents::Scrapers.scrape_art
   puts "Welcome to Cleveland's Museum's and Garden's event finder!"
   puts ""
   start
@@ -29,9 +30,9 @@ def start
 end
 
 def museum
-  ClevelandMuseumEvents::Events.scrape_art
-  ClevelandMuseumEvents::Events.scrape_description
-  ClevelandMuseumEvents::Events.scrape_url
+  ClevelandMuseumEvents::Events.all.each.with_index(1) do |event, index|
+    puts "#{index}. #{event.title}"
+  end
   select_event
   #binding.pry
   again?
@@ -44,13 +45,15 @@ def select_event
   input = gets.strip
   puts ""
   puts ""
-  @events = ClevelandMuseumEvents::Events.events[input.to_i - 1]
-  puts "-----------#{@events}-----------"
+  event = ClevelandMuseumEvents::Events.all[input.to_i - 1]
+  puts "-----------#{event.title}-----------"
   puts ""
   puts "Description:"
-  event_description(input)
+  #event_description(input)
+  puts " #{event.description} "
   puts "Weblink:"
-  event_url(input)
+  #event_url(input)
+  puts " #{event.url} "
   puts "---------------------------------------------------------"
   puts ""
   puts ""
@@ -69,7 +72,7 @@ def event_url(input)
 end
 
 def again?
-  puts "Would you like to select a different event?"
+  puts "Would you like to select a different event? (Y/n)"
     input = gets.strip.downcase
     if input == "yes" || input == "y"
       puts ""
