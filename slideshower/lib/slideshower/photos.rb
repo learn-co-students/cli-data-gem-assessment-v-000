@@ -1,13 +1,12 @@
-
+require_relative './photo.rb'
 class Slideshower::Photos
-attr_accessor :photos
+attr_accessor :photos, :subject
 
 
 def self.all
-all_photos = [1, 2, 3, 4, 5]
 
-  puts "Displaying photos of #{subject}"
-  loop do all_photos.each do |i|
+  puts "Displaying photos of #{@subject}"
+  loop do Photo.each do |i|
     puts i
     sleep(5)
       end
