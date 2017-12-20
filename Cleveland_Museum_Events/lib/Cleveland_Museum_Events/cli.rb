@@ -13,18 +13,14 @@ class ClevelandMuseumEvents::CLI
   end
 
   def start
-    puts "Would you like to see the next 12 Cleveland Art Museum events? (Y/n)"
+    puts "Would you like to see today's Cleveland Art Museum events? (Y/n)"
     input = gets.strip.downcase
       if input == "y" || input == "yes"
         dbl_spacing
         museum
       elsif input == "n" || input == "no"
         puts "".upcase
-        puts "                   ---------------------------------                  "
-        puts "                  |                                 |                 "
-        puts "                  |          Au revoir!!!!          |                 "
-        puts "                  |                                 |                 "
-        puts "                   ---------------------------------                  "
+        goodbye
         dbl_spacing
       else
         dbl_spacing
@@ -49,20 +45,24 @@ class ClevelandMuseumEvents::CLI
 
   def select_event
     dbl_spacing
-    puts "Which event would you like to explore? (Please choose from the list '1-12')"
+    puts "Which event would you like to explore? (Please choose from the list '1-15')"
     input = gets.strip
     dbl_spacing
-    @event = ClevelandMuseumEvents::Events.all[input.to_i - 1]
-    puts "-----------#{@event.title}-----------"
-    puts ""
-    puts "Description: #{@event.description}"
-    #event_description(input)
-    puts ""
-    puts "Weblink:  #{@event.url}"
-    #event_url(input)
-    puts ""
-    add_event_bottom_border
-    dbl_spacing
+    if input.to_i.between?(1,15)
+      @event = ClevelandMuseumEvents::Events.all[input.to_i - 1]
+      puts "-----------#{@event.title}-----------"
+      puts ""
+      puts "Description: #{@event.description}"
+      #event_description(input)
+      puts ""
+      puts "Weblink:  #{@event.url}"
+      #event_url(input)
+      puts ""
+      add_event_bottom_border
+      dbl_spacing
+    else
+      invalid_entry_select_event
+    end
   end
 
   def open_in_browser
@@ -84,7 +84,7 @@ class ClevelandMuseumEvents::CLI
 #   more = gets.strip.downcase
 #   if more == "yes" || more == "y"
 #     dbl_spacing
-#     open_in_browser
+#
 #   elsif more == "no" || more == "n"
 #     dbl_spacing
 #     again?
@@ -100,11 +100,7 @@ class ClevelandMuseumEvents::CLI
       dbl_spacing
       museum
     elsif input == "no" || input == "n"
-      puts "                   ---------------------------------                  "
-      puts "                  |                                 |                 "
-      puts "                  |          Au revoir!!!!          |                 "
-      puts "                  |                                 |                 "
-      puts "                   ---------------------------------                  "
+      goodbye
       dbl_spacing
     else
       invalid_entry_again?
@@ -121,6 +117,11 @@ class ClevelandMuseumEvents::CLI
   #   invalid_entry
   #   more?
   # end
+  def invalid_entry_select_event
+    dbl_spacing
+    puts "Please enter a number 1-15"
+    select_event
+  end
 
   def invalid_entry_again?
     dbl_spacing
@@ -136,6 +137,14 @@ class ClevelandMuseumEvents::CLI
   def add_event_bottom_border
     border = "-----------#{@event.title}-----------".length
     puts "-"* border
+  end
+
+  def goodbye
+    puts "                   ---------------------------------                  "
+    puts "                  |                                 |                 "
+    puts "                  |          Au revoir!!!!          |                 "
+    puts "                  |                                 |                 "
+    puts "                   ---------------------------------                  "
   end
 
 end

@@ -4,7 +4,7 @@ class ClevelandMuseumEvents::Scrapers
     @doc = Nokogiri::HTML(open("http://www.clevelandart.org/calendar"))
     titles = self.scrape_values("div.field-name-field-card-title a") #=> []
     descriptions = self.scrape_values("div.field-card-mobile-description") #=> []
-    urls = @doc.search("div.field-name-field-card-title a @href").first(12) #=> []
+    urls = @doc.search("div.field-name-field-card-title a @href").first(15) #=> []
     titles.each.with_index do |title, index|
       ClevelandMuseumEvents::Events.new(title, descriptions[index], urls[index])
     end
@@ -14,6 +14,6 @@ class ClevelandMuseumEvents::Scrapers
     @doc.search(css).map do |event|
       event_string = event.to_s.split('>')
       event_string[1].split('<')[0]
-    end.flatten.first(12)
+    end.flatten.first(15)
   end
 end
