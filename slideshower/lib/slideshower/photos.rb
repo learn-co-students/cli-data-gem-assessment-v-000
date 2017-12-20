@@ -6,9 +6,11 @@ attr_accessor :photos, :subject
 def self.all
 
   puts "Displaying photos of #{@subject}"
-  loop do Photo.each do |i|
-    puts i
-    sleep(5)
+  loop do Photo::all.each do |i|
+    puts i.name
+    puts "http://www.pexels.com#{i.url}"
+    sleep(3)
+
       end
 end
 end

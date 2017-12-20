@@ -26,6 +26,7 @@ def self.print
   Photo.all.each do|x|
 
   end
+
 end
 
 end #of Class
