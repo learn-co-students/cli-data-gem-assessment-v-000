@@ -11,7 +11,7 @@ class ClevelandMuseumEvents::Events
   end
 
   def self.all
-      @@events
+    @@events
   end
 
   def self.events
@@ -19,17 +19,19 @@ class ClevelandMuseumEvents::Events
     title
   end
 
-  def self.index
-    @@events
-  end
+  # def self.index
+  #   @@events
+  # end
 
   def self.description
-    description = @@description.flatten
     description
   end
 
   def self.url
-    url = @@url.flatten
     url
   end
+
+  # def open_in_browser
+  #   system("open '#{url}'")
+  # end
 end
