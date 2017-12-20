@@ -20,10 +20,6 @@ class ClevelandMuseumEvents::Events
     title
   end
 
-  # def self.index
-  #   @@events
-  # end
-
   def self.description
     description
   end
