@@ -79,20 +79,6 @@ class ClevelandMuseumEvents::CLI
     dbl_spacing
   end
 
-# def more?
-#   puts "Would you like to know more about this event? (Y/n)"
-#   more = gets.strip.downcase
-#   if more == "yes" || more == "y"
-#     dbl_spacing
-#
-#   elsif more == "no" || more == "n"
-#     dbl_spacing
-#     again?
-#   else
-#     invalid_entry_more?
-#   end
-# end
-
   def again?
     puts "Would you like to select a different event? (Y/n)"
     input = gets.strip.downcase
@@ -112,11 +98,6 @@ class ClevelandMuseumEvents::CLI
     dbl_spacing
   end
 
-  # def invalid_entry_more?
-  #   dbl_spacing
-  #   invalid_entry
-  #   more?
-  # end
   def invalid_entry_select_event
     dbl_spacing
     puts "Please enter a number 1-15"
@@ -148,3 +129,25 @@ class ClevelandMuseumEvents::CLI
   end
 
 end
+
+
+# Adding more details to the returned event information...
+# def more?
+#   puts "Would you like to know more about this event? (Y/n)"
+#   more = gets.strip.downcase
+#   if more == "yes" || more == "y"
+#     dbl_spacing
+#
+#   elsif more == "no" || more == "n"
+#     dbl_spacing
+#     again?
+#   else
+#     invalid_entry_more?
+#   end
+# end
+
+  # def invalid_entry_more?
+  #   dbl_spacing
+  #   invalid_entry
+  #   more?
+  # end
