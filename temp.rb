@@ -1,3 +1,29 @@
+
+def all_dogs_display
+  DogSearchSession.cls
+  Dog.all.each.with_index(offset = 1) do |dog, index|
+    DogSearchSession.cls
+    puts "Name: #{dog.name}"
+    puts "Gender: #{dog.gender}"
+    puts "Breed: #{dog.breed}"
+    puts "Age: #{dog.age}"
+    puts "Color: #{dog.color}"
+    puts "Size: #{dog.size}"
+    puts "Housebroken: #{dog.housebroken}"
+    puts "Obedience Trained: #{dog.obedience}"
+    puts "Living Situation: #{dog.location}"
+    puts "Good with Kids? #{dog.kids}"
+    puts "Good with Cats? #{dog.cats}"
+    puts "Good with other dogs? #{dog.otherdogs}"
+    puts "MAGSR ID#: #{dog.id}"
+    puts "Image Link: #{dog.image_url}"
+    puts "Description: #{dog.description}"
+    puts "Press Any Key To Continue"
+    gets.strip
+
+  end
+end
+
 def user_input(num_choices)
   puts "Please enter 1 - #{num_choices}"
   input = gets.strip.to_i
