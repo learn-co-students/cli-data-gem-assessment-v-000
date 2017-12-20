@@ -4,11 +4,16 @@ class Slideshower::Search
 attr_accessor :pictures, :name, :url, :picture, :subject
 
   def self.search
+    puts "Welcome to Slideshower! Please type the kind of pictures you would like to see. "
+    sleep(3)
     puts "Pictures of:"
-    @subject = gets.strip
+    @subject = gets.gsub! /\s/, '+'
 @pictures = "https://www.pexels.com/search/#{@subject}"
-puts @pictures
   end
+
+def self.subject
+  @subject
+end
 
 def self.scrape
 doc = Nokogiri::HTML(open("#{@pictures}"))
