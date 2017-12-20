@@ -17,7 +17,7 @@ class ClevelandMuseumEvents::CLI
     input = gets.strip.downcase
       if input == "y" || input == "yes"
         dbl_spacing
-        museum
+        museum_events
       elsif input == "n" || input == "no"
         puts "".upcase
         goodbye
@@ -30,14 +30,8 @@ class ClevelandMuseumEvents::CLI
       end
   end
 
-  def museum
-    puts "---------------------------------------------------------"
-    puts ""
-    ClevelandMuseumEvents::Events.all.each.with_index(1) do |event, index|
-      puts "#{index}. #{event.title}"
-      puts ""
-    end
-    puts "---------------------------------------------------------"
+  def museum_events
+    museum_events_display
     select_event
     # more?
     again?
@@ -49,24 +43,34 @@ class ClevelandMuseumEvents::CLI
     input = gets.strip
     dbl_spacing
     if input.to_i.between?(1,15)
-      @event = ClevelandMuseumEvents::Events.all[input.to_i - 1]
-      puts "-----------#{@event.title}-----------"
-      puts ""
-      puts "Description: #{@event.description}"
-      #event_description(input)
-      puts ""
-      puts "Weblink:  #{@event.url}"
-      #event_url(input)
-      puts ""
-      add_event_bottom_border
-      dbl_spacing
+      event_display(input)
     else
       invalid_entry_select_event
     end
   end
 
-  def open_in_browser
-    events.open_in_browser
+  def museum_events_display
+    puts "---------------------------------------------------------"
+    puts ""
+    ClevelandMuseumEvents::Events.all.each.with_index(1) do |event, index|
+      puts "#{index}. #{event.title}"
+      puts ""
+    end
+    puts "---------------------------------------------------------"
+  end
+
+  def event_display(input)
+    @event = ClevelandMuseumEvents::Events.all[input.to_i - 1]
+    puts "-----------#{@event.title}-----------"
+    puts ""
+    puts "Description: #{@event.description}"
+    #event_description(input)
+    puts ""
+    puts "Weblink:  #{@event.url}"
+    #event_url(input)
+    puts ""
+    add_event_bottom_border
+    dbl_spacing
   end
 
   def event_description(input)
@@ -84,7 +88,7 @@ class ClevelandMuseumEvents::CLI
     input = gets.strip.downcase
     if input == "yes" || input == "y"
       dbl_spacing
-      museum
+      museum_events
     elsif input == "no" || input == "n"
       goodbye
       dbl_spacing
@@ -127,7 +131,6 @@ class ClevelandMuseumEvents::CLI
     puts "                  |                                 |                 "
     puts "                   ---------------------------------                  "
   end
-
 end
 
 
