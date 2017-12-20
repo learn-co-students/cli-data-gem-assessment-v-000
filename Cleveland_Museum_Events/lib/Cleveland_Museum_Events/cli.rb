@@ -1,9 +1,14 @@
 class ClevelandMuseumEvents::CLI
 
   def initialize
-      ClevelandMuseumEvents::Scrapers.scrape_art
-    puts "Welcome to Cleveland's Museum's and Garden's event finder!"
-    puts ""
+    ClevelandMuseumEvents::Scrapers.scrape_art
+    dbl_spacing
+    puts " ------------------------------------------------------------------"
+    puts "|                                                                  |"
+    puts "|   Welcome to Cleveland's Museum's and Garden's event finder!!!   |"
+    puts "|                                                                  |"
+    puts " ------------------------------------------------------------------"
+    dbl_spacing
     start
   end
 
@@ -14,8 +19,13 @@ class ClevelandMuseumEvents::CLI
         dbl_spacing
         museum
       elsif input == "n" || input == "no"
+        puts "".upcase
+        puts "                   ---------------------------------                  "
+        puts "                  |                                 |                 "
+        puts "                  |          Au revoir!!!!          |                 "
+        puts "                  |                                 |                 "
+        puts "                   ---------------------------------                  "
         dbl_spacing
-        puts "Au revoir!".upcase
       else
         dbl_spacing
         puts "Invalid entry.  Please enter a valid command: 'Yes/Y/y' or 'No/N/n'"
@@ -42,16 +52,16 @@ class ClevelandMuseumEvents::CLI
     puts "Which event would you like to explore? (Please choose from the list '1-12')"
     input = gets.strip
     dbl_spacing
-    event = ClevelandMuseumEvents::Events.all[input.to_i - 1]
-    puts "-----------#{event.title}-----------"
+    @event = ClevelandMuseumEvents::Events.all[input.to_i - 1]
+    puts "-----------#{@event.title}-----------"
     puts ""
-    puts "Description: #{event.description}"
+    puts "Description: #{@event.description}"
     #event_description(input)
     puts ""
-    puts "Weblink:  #{event.url}"
+    puts "Weblink:  #{@event.url}"
     #event_url(input)
     puts ""
-    puts "---------------------------------------------------------"
+    add_event_bottom_border
     dbl_spacing
   end
 
@@ -90,9 +100,12 @@ class ClevelandMuseumEvents::CLI
       dbl_spacing
       museum
     elsif input == "no" || input == "n"
+      puts "                   ---------------------------------                  "
+      puts "                  |                                 |                 "
+      puts "                  |          Au revoir!!!!          |                 "
+      puts "                  |                                 |                 "
+      puts "                   ---------------------------------                  "
       dbl_spacing
-      puts "Au revoir!".upcase
-      puts ""
     else
       invalid_entry_again?
     end
@@ -118,6 +131,11 @@ class ClevelandMuseumEvents::CLI
   def dbl_spacing
     puts ""
     puts ""
+  end
+
+  def add_event_bottom_border
+    border = "-----------#{@event.title}-----------".length
+    puts "-"* border
   end
 
 end
