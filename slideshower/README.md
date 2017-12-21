@@ -1,9 +1,5 @@
 # Slideshower
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/slideshower`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-: Delete this and the text above, and describe your gem
-
 Welcome to Slideshower! This gem will ask you for a subject of stock photos you want to view, grabbing photos off of http:/www.pexels.com.
 
 After typing the subject of stock photos you want to see, press enter, and a menu will appear. Pressing 1 will display the photos title and url one by one as a slideshow. Pressing 2 will allow you to view all of the photos at once. Pressing 3 will allow you to select a new subject of stock photos. Pressing 4 will exit the program.
@@ -25,10 +21,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install slideshower
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
