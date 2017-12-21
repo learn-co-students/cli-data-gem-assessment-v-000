@@ -5,3 +5,4 @@ git_source(:github) {|slideshower| "https://github.com/#{slideshower}" }
 
 
 gemspec
+ 
