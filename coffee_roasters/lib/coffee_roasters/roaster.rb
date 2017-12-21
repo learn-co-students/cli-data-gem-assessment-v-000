@@ -2,10 +2,10 @@ class CoffeeRoasters::Roaster
   attr_accessor :name, :location, :bean, :description, :url
 
   def self.all
-    puts <<~HEREDOC
-      1. Blue Bottle
-      2. Camber
-    HEREDOC
+    # puts <<~HEREDOC
+    #   1. Blue Bottle
+    #   2. Camber
+    # HEREDOC
     roaster_1 = self.new
     roaster_1.name = "Blue Bottle"
     roaster_1.location = "SF"
