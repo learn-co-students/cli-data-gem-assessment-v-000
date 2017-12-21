@@ -8,17 +8,20 @@ class CoffeeRoasters::CLI
   end
 
   def list_roasters
+    puts "==============="
     puts "Welcome to The 21 best Coffee Roasters in the US"
     puts <<~HEREDOC
       1. Blue Bottle
       2. Camber
     HEREDOC
+    puts "==============="
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts "Enter the number of the roaster you'd like more info on:"
+      puts "Enter the number of the coffee roaster you'd like more info on:"
+      puts "Or type 'list' to see the list of Coffee Roasters:"
       puts "Or type 'exit':"
 
       input = gets.strip.downcase
@@ -27,11 +30,13 @@ class CoffeeRoasters::CLI
         puts "more info on coffee roaster 1"
       when "2"
         puts "more info on coffee roaster 2"
-      else
+      when "list"
         list_roasters
+      else
+        puts "Invalid input. Enter 'list' or 'exit'"
       end
     end #while
-  end #menu
+  end #def menu
 
   def goodbye
     puts "Thank you for visiting Coffee Roasters CLI"
