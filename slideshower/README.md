@@ -4,8 +4,9 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 : Delete this and the text above, and describe your gem
 
-This gem will allow you to log in to your facebook account, and display your facebook photos for a slideshow.
+Welcome to Slideshower! This gem will ask you for a subject of stock photos you want to view, grabbing photos off of http:/www.pexels.com.
 
+After typing the subject of stock photos you want to see, press enter, and a menu will appear. Pressing 1 will display the photos title and url one by one as a slideshow. Pressing 2 will allow you to view all of the photos at once. Pressing 3 will allow you to select a new subject of stock photos. Pressing 4 will exit the program.
 
 
 

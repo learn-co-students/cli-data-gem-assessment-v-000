@@ -6,4 +6,6 @@ Specs:
 - [x] Pull data from an external source
         - When you input the subject of pictures you want to view, the program pulls photos off of http://www.pexels.com by searching pexels.com/"input", and returns the description and photo URL of each photo.
 
-- [ ] Implement both list and detail views
+- [x] Implement both list and detail views
+        -When you select "1" in the menu, it shows all of the photos individually in a slideshow(detailed view), displaying a new photo every 3 seconds.
+        -When you select "2" in the menu, it displays a list view of all of the photos.
