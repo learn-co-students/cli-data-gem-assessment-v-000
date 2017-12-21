@@ -4,9 +4,6 @@ class Slideshower::Search
 attr_accessor :pictures, :name, :url, :picture, :subject
 
   def self.search
-    puts "Welcome to Slideshower! Please type the kind of pictures you would like to see. "
-    sleep(3)
-    puts "Pictures of:"
     @subject = gets.gsub! /\s/, '+'
 @pictures = "https://www.pexels.com/search/#{@subject}"
   end

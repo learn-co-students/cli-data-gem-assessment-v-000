@@ -3,25 +3,28 @@ class Slideshower::Photos
 attr_accessor :photos, :subject
 
 
-def self.all
+def self.slideshow
 
-  puts "Displaying photos of #{Slideshower::Search.subject}"
+  puts "Displaying Slideshow of #{Slideshower::Search.subject}"
 
-  loop do Photo::all.each do |i|
+  Photo::all.each do |i|
 
     puts i.name
     puts "http://www.pexels.com#{i.url}"
+    puts
     sleep(3)
-
       end
 end
+
+def self.list
+
+   Photo::all.each do |i|
+
+    puts i.name
+    puts "http://www.pexels.com#{i.url}"
+    puts
+      end
 end
-
-
-
-
-
-
 
 
 end #of slideshower
