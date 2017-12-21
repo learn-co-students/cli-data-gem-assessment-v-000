@@ -10,9 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Nolan Byrnes'"]
   spec.email         = ["'nolanehs@gmail.com'"]
 
-  spec.summary       = %q{This gem gets your facebook photos to put into a slideshow.}
-  #spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This gem displays stock photos of your choosing from http:/www.pexels.com}
+    spec.homepage      = "https://github.com/gringobrasiliero/cli-data-gem-assessment-v-000/tree/master/slideshower"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
