@@ -2,7 +2,6 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "slideshower/version"
-require "koala/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "slideshower"
@@ -11,7 +10,6 @@ Gem::Specification.new do |spec|
   spec.email         = ["'nolanehs@gmail.com'"]
 
   spec.summary       = %q{This gem gets your facebook photos to put into a slideshow.}
-  #spec.description   = %q{TODO: Write a longer description or delete this line.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
