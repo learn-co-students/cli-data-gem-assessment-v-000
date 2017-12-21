@@ -10,11 +10,8 @@ class CoffeeRoasters::CLI
   def list_roasters
     puts "==============="
     puts "Welcome to The 21 best Coffee Roasters in the US"
-    puts <<~HEREDOC
-      1. Blue Bottle
-      2. Camber
-    HEREDOC
     puts "==============="
+    @roaster = CoffeeRoasters::Roaster.all
   end
 
   def menu

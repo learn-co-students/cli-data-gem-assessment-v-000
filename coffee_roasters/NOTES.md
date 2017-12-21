@@ -29,3 +29,5 @@ What is a coffee roaster?
 It has a name
 It has a location
 Type of beans used
+It has a url
+description
