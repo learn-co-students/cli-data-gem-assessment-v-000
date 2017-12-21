@@ -5,11 +5,10 @@ def call
   search
   scrape
   menu
-  end #of call
+end #of call
 
 def search
   puts "Welcome to Slideshower! Please type the kind of pictures you would like to see. "
-  sleep(3)
   puts "Pictures of:"
   @search = Slideshower::Search.search
 end
@@ -19,25 +18,28 @@ Slideshower::Search.scrape
 end
 
 def menu
-input = nil
-while input != "exit"
+  input = nil
+  while input != "exit"
   puts "Press 1 to view the photos in a slideshow."
   puts "Press 2 to view all of the photos in a list"
   puts "Press 3 to choose a new photo subject."
+  puts "Type 'exit' to exit the program."
   input = gets.strip
 
-if input.to_i == 1
-    Slideshower::Photos.slideshow
-elsif input.to_i == 2
-  Slideshower::Photos.list
-elsif input.to_i == 3
-  search
+    if input.to_i == 1
+      Slideshower::Photos.slideshow
+    elsif input.to_i == 2
+      Slideshower::Photos.list
+    elsif input.to_i == 3
+      search
+    elsif input == "exit"
+      goodbye
+    end
+  end
 end
+
+def goodbye
+  puts "Have a nice day!"
 end
-end
-
-
-
-
 
 end #of class

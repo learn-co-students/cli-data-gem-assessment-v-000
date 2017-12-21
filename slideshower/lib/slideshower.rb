@@ -8,3 +8,4 @@ require_relative "./slideshower/version"
 require_relative './slideshower/cli'
 require_relative './slideshower/photos'
 require_relative './slideshower/search'
+require_relative './slideshower/photo.rb'
