@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# tells the system that it should use Ruby to execute our code
+
+require './lib/coffee_roasters'
+
+CoffeeRoasters::CLI.new.call
