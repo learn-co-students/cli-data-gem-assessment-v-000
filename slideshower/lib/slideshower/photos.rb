@@ -7,7 +7,12 @@ def self.slideshow
   puts "Displaying Slideshow of #{Slideshower::Search.subject}photos."
 
   Photo::all.each do |i|
+
+if i.name == ""
+  puts "#{Slideshower::Search.subject.capitalize}"
+else
     puts i.name
+end
     puts "http://www.pexels.com#{i.url}"
     puts
     sleep(3)
@@ -17,7 +22,13 @@ end
 def self.list
 puts "Displaying List of #{Slideshower::Search.subject}photos."
    Photo::all.each do |i|
-    puts i.name
+
+     if i.name == ""
+       puts "#{Slideshower::Search.subject.capitalize}"
+     else
+         puts i.name
+     end
+
     puts "http://www.pexels.com#{i.url}"
     puts
       end

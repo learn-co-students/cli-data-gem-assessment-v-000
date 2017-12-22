@@ -23,8 +23,8 @@ def menu
   input = nil
   while input != "exit"
 
-  puts "Press 1 to view the stock photos in a slideshow."
-  puts "Press 2 to view all of the stock photos in a list"
+  puts "Press 1 to view the #{Slideshower::Search.subject}photos in a slideshow."
+  puts "Press 2 to view all of the #{Slideshower::Search.subject}photos in a list"
   puts "Press 3 to choose a new stock photo subject."
 
   puts "Type 'exit' to exit the program."
@@ -44,6 +44,7 @@ end #of menu
 
 def goodbye
   puts "Have a nice day!"
+  exit
 end #of goodbye
 
 end #of class
