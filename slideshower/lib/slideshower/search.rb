@@ -2,6 +2,9 @@
 class Slideshower::Search
 attr_accessor :pictures, :name, :url, :picture, :subject
 
+
+
+
   def self.search
     @subject = gets.gsub! /\s/, '+'
     @pictures = "https://www.pexels.com/search/#{@subject}"

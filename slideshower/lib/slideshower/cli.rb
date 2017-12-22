@@ -10,14 +10,14 @@ end #of call
 def search
 
   puts "Welcome to Slideshower! Please type the kind of stock photos you would like to see. "
-
+puts
   puts "Pictures of:"
   @search = Slideshower::Search.search
-end
+end #of search
 
 def scrape
 Slideshower::Search.scrape
-end
+end #of scrape
 
 def menu
   input = nil
@@ -35,15 +35,15 @@ def menu
     elsif input.to_i == 2
       Slideshower::Photos.list
     elsif input.to_i == 3
-      search
+      call
     elsif input == "exit"
       goodbye
     end
   end
-end
+end #of menu
 
 def goodbye
   puts "Have a nice day!"
-end
+end #of goodbye
 
 end #of class
