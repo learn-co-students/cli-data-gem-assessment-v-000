@@ -9,4 +9,8 @@ Specs:
 - [x] Implement both list and detail views
         -When you select "1" in the menu, it shows all of the photos individually in a slideshow(detailed view), displaying a new photo every 3 seconds.
         -When you select "2" in the menu, it displays a list view of all of the photos.
+<<<<<<< HEAD
  
+=======
+ 
+>>>>>>> bf9edfe6a63b3a4af1557a6659d7a63ba4a25046
