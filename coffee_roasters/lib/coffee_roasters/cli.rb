@@ -10,28 +10,31 @@ class CoffeeRoasters::CLI
   def list_roasters
     puts "==============="
     puts "Welcome to The 21 best Coffee Roasters in the US"
-    puts "==============="
     @roaster = CoffeeRoasters::Roaster.all
+    @roaster.each.with_index(1) do |r, i|
+      puts "#{i}. #{r.name} - #{r.location}"
+    end
+    puts "==============="
   end
 
   def menu
     input = nil
     while input != "exit"
       puts "Enter the number of the coffee roaster you'd like more info on:"
-      puts "Or type 'list' to see the list of Coffee Roasters:"
+      puts "Or type 'list' to see the list of Coffee Roasters again:"
       puts "Or type 'exit':"
 
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "more info on coffee roaster 1"
-      when "2"
-        puts "more info on coffee roaster 2"
-      when "list"
+
+      if input.to_i > 0
+        the_roaster = @roaster[input.to_i-1]
+        puts "#{the_roaster.name} - #{the_roaster.location}"
+        puts "==============="
+      elsif input == "list"
         list_roasters
       else
         puts "Invalid input. Enter 'list' or 'exit'"
-      end
+      end #if
     end #while
   end #def menu
 
