@@ -4,12 +4,13 @@ attr_accessor :photos, :subject
 
 
 def self.slideshow
+x = 0
   puts "Displaying Slideshow of #{Slideshower::Search.subject}photos."
 
   Photo::all.each do |i|
 
 if i.name == ""
-  puts "#{Slideshower::Search.subject.capitalize}"
+  puts "#{Slideshower::Search.subject.capitalize}#{x+=1}"
 else
     puts i.name
 end
@@ -20,11 +21,12 @@ end
 end
 
 def self.list
+x = 0
 puts "Displaying List of #{Slideshower::Search.subject}photos."
    Photo::all.each do |i|
 
      if i.name == ""
-       puts "#{Slideshower::Search.subject.capitalize}"
+       puts "#{Slideshower::Search.subject.capitalize}#{x+=1}"
      else
          puts i.name
      end
