@@ -7,6 +7,7 @@ class Photo
 
   def initialize
     @@all << self
+
   end
 
   def self.all

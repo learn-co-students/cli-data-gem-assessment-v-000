@@ -18,6 +18,7 @@ def self.scrape
   picture = Photo.new
   picture.name = foto.attribute("title").value
   picture.url = foto.attribute("href").value
+#binding.pry
   end
 end
 

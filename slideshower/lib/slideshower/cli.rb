@@ -8,7 +8,6 @@ def call
 end #of call
 
 def search
-
   puts "Welcome to Slideshower! Please type the kind of stock photos you would like to see. "
 puts
   puts "Pictures of:"
