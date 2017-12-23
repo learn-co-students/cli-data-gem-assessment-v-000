@@ -4,7 +4,6 @@ class CoffeeRoasters::CLI
   def call
     list_roasters
     menu
-    goodbye
   end
 
   def list_roasters
@@ -19,7 +18,7 @@ class CoffeeRoasters::CLI
 
   def menu
     input = nil
-    while input != "exit"
+    while input != 'exit'
       puts "Enter the number of the coffee roaster you'd like more info on:"
       puts "Or type 'list' to see the list of Coffee Roasters again:"
       puts "Or type 'exit':"
@@ -29,9 +28,12 @@ class CoffeeRoasters::CLI
       if input.to_i > 0
         the_roaster = @roaster[input.to_i-1]
         puts "#{the_roaster.name} - #{the_roaster.location}"
-        puts "==============="
+        puts "The bean - #{the_roaster.bean}"
+        puts "----------------"
       elsif input == "list"
         list_roasters
+      elsif input == "exit"
+        goodbye
       else
         puts "Invalid input. Enter 'list' or 'exit'"
       end #if
@@ -39,6 +41,6 @@ class CoffeeRoasters::CLI
   end #def menu
 
   def goodbye
-    puts "Thank you for visiting Coffee Roasters CLI"
+    puts "Enjoy your coffee!"
   end
 end
