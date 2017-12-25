@@ -11,6 +11,7 @@ class CoffeeRoasters::CLI
     puts "Welcome to The 21 best Coffee Roasters in the US"
     @roaster = CoffeeRoasters::Roaster.all
     @roaster.each.with_index(1) do |r, i|
+      
       puts "#{i}. #{r.name} - #{r.location}"
     end
     puts "==============="
