@@ -7,11 +7,11 @@ class Photo
 
   def initialize
     @@all << self
-
   end
 
   def self.all
     @@all
+    #binding.pry
   end
 
   def self.reset_all

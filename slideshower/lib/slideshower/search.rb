@@ -16,7 +16,7 @@ def self.scrape
 
   doc.css(".photo-item a").each do |foto|
   picture = Photo.new
-  picture.name = foto.attribute("title").value
+  picture.name = foto.attribute("title")
   picture.url = foto.attribute("href").value
 #binding.pry
   end

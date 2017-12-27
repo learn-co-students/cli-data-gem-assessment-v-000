@@ -1,4 +1,4 @@
-require_relative './photo.rb'
+
 class Slideshower::CLI
 
 def call
@@ -22,6 +22,7 @@ def menu
   input = nil
   while input != "exit"
 
+  puts
   puts "Press 1 to view the #{Slideshower::Search.subject}photos in a slideshow."
   puts "Press 2 to view all of the #{Slideshower::Search.subject}photos in a list."
   puts "Press 3 to choose a new category of photos."
@@ -34,7 +35,8 @@ def menu
     elsif input.to_i == 2
       Slideshower::Photos.list
     elsif input.to_i == 3
-      call
+      Photo::reset_all
+      call.new
     elsif input == "exit"
       goodbye
     end
