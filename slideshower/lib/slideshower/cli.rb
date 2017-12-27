@@ -44,6 +44,7 @@ def menu
 end #of menu
 
 def goodbye
+  puts
   puts "Have a nice day!"
   exit
 end #of goodbye
