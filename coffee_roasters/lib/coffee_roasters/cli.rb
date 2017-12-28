@@ -40,7 +40,7 @@ class CoffeeRoasters::CLI
   def list_roasters(from_number)
     if from_number == 15
       puts ""
-      puts "-------< Coffee Roasters Top #{from_number} - #{from_number+6} >-------"
+      puts "--------------< Coffee Roasters Top #{from_number} - #{from_number+6} >--------------"
       puts ""
       @roaster = CoffeeRoasters::Roaster.all
       @roaster[from_number-1, 7].each.with_index(from_number) do |r, i|
@@ -48,10 +48,10 @@ class CoffeeRoasters::CLI
         puts "#{r.bean}"
         puts ""
       end
-      puts "------------------------------------"
+      puts "--------------------------------------------------"
     else
       puts ""
-      puts "-------< Coffee Roasters Top #{from_number} - #{from_number+4} >-------"
+      puts "--------------< Coffee Roasters Top #{from_number} - #{from_number+4} >--------------"
       puts ""
       @roaster = CoffeeRoasters::Roaster.all
       @roaster[from_number-1, 5].each.with_index(from_number) do |r, i|
@@ -59,7 +59,7 @@ class CoffeeRoasters::CLI
         puts "#{r.bean}"
         puts ""
       end
-      puts "------------------------------------"
+      puts "--------------------------------------------------"
     end
   end
 
@@ -67,7 +67,7 @@ class CoffeeRoasters::CLI
   def roaster_detail(num)
     @roaster = CoffeeRoasters::Roaster.all
     the_roaster = @roaster[num]
-    puts "-------< POSITION: #{the_roaster.name} >-------"
+    puts "--------------< #{num+1}: #{the_roaster.name} >--------------"
     puts ""
     puts "#{the_roaster.name.upcase} - #{the_roaster.location}"
     puts "THE BEAN - #{the_roaster.bean}"
@@ -76,12 +76,12 @@ class CoffeeRoasters::CLI
     puts ""
     puts "URL - #{the_roaster.url}"
     puts ""
-    puts "---------------------------------------------"
+    puts "----------------------------------------------------"
   end
 
 
   def goodbye
     puts "Enjoy your coffee!"
   end
-  
+
 end
