@@ -1,7 +1,7 @@
 class CoffeeRoasters::CLI
 
   def call
-    # puts "==============="
+    puts ""
     puts "<<<<<<< Welcome to The 21 best Coffee Roasters in the US >>>>>>>"
     CoffeeRoasters::Scraper.new.scrape_roasters
     list_roasters(1)
@@ -13,7 +13,7 @@ class CoffeeRoasters::CLI
     input = nil
     while input != 'exit'
       puts "Enter the number of the coffee roaster you'd like more info on:"
-      puts "Or type 'A, B, C or D' for the list of Coffee Roasters - A: 1-5, B: 6-10, C: 10-15, D: 15-21 "
+      puts "Or type 'A', 'B', 'C' or 'D' for the list - A: 1-5, B: 6-10, C: 10-15, D: 15-21 "
       puts "Or type 'exit':"
 
       input = gets.strip.downcase
@@ -40,7 +40,7 @@ class CoffeeRoasters::CLI
   def list_roasters(from_number)
     if from_number == 15
       puts ""
-      puts "--------------< Coffee Roasters Top #{from_number} - #{from_number+6} >--------------"
+      puts "-----------------< Coffee Roasters Top #{from_number} - #{from_number+6} >-----------------"
       puts ""
       @roaster = CoffeeRoasters::Roaster.all
       @roaster[from_number-1, 7].each.with_index(from_number) do |r, i|
@@ -48,10 +48,10 @@ class CoffeeRoasters::CLI
         puts "#{r.bean}"
         puts ""
       end
-      puts "--------------------------------------------------"
+      puts "----------------------------------------------------------"
     else
       puts ""
-      puts "--------------< Coffee Roasters Top #{from_number} - #{from_number+4} >--------------"
+      puts "-----------------< Coffee Roasters Top #{from_number} - #{from_number+4} >-----------------"
       puts ""
       @roaster = CoffeeRoasters::Roaster.all
       @roaster[from_number-1, 5].each.with_index(from_number) do |r, i|
@@ -59,7 +59,7 @@ class CoffeeRoasters::CLI
         puts "#{r.bean}"
         puts ""
       end
-      puts "--------------------------------------------------"
+      puts "-------------------------------------------------------------"
     end
   end
 
@@ -67,16 +67,16 @@ class CoffeeRoasters::CLI
   def roaster_detail(num)
     @roaster = CoffeeRoasters::Roaster.all
     the_roaster = @roaster[num]
-    puts "--------------< #{num+1}: #{the_roaster.name} >--------------"
+    puts "--------------< #{num+1}: #{the_roaster.name.upcase} >--------------"
     puts ""
-    puts "#{the_roaster.name.upcase} - #{the_roaster.location}"
-    puts "THE BEAN - #{the_roaster.bean}"
+    puts "#{the_roaster.name} - #{the_roaster.location}"
+    puts "#{the_roaster.bean}"
     puts ""
-    puts "THE DETAIL - #{the_roaster.details}"
+    puts "The detail: #{the_roaster.details}"
     puts ""
     puts "URL - #{the_roaster.url}"
     puts ""
-    puts "----------------------------------------------------"
+    puts "--------------------------------------------------------------"
   end
 
 
