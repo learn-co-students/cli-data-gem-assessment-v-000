@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Miwa'"]
   spec.email         = ["'paintfx@gmail.com'"]
 
-  spec.summary       = "add later"
-  spec.description   = "add later"
+  spec.summary       = "coffee roasters"
+  spec.description   = "top 21 coffee roasters in the U.S."
   spec.homepage      = "https://github.com/mietone/cli-data-gem-assessment-v-000"
   spec.license       = "MIT"
 

@@ -20,6 +20,13 @@ class CoffeeRoasters::CLI
 
       if input.to_i > 0
         roaster_detail(input.to_i-1)
+        # puts "Would you like to open their website?"
+        # input = gets.strip.downcase
+        # if input == "y" || input == "yes"
+        #   system("open #{CoffeeRoasters::Roaster.all[choice]}")
+        # else
+        #   menu
+        # end
       elsif input == "a"
         list_roasters(1)
       elsif input == "b"
@@ -74,8 +81,18 @@ class CoffeeRoasters::CLI
     puts ""
     puts "The detail: #{the_roaster.details}"
     puts ""
-    puts "URL - #{the_roaster.url}"
-    puts ""
+    puts "Would you like to open their website?"
+    input = gets.strip.downcase
+    if input == "y" || input == "yes"
+      binding.pry
+      system("open the_roaster.url")
+    else
+      menu
+    end
+
+
+    # puts "URL - #{the_roaster.url}"
+    # puts ""
     puts "--------------------------------------------------------------"
   end
 
