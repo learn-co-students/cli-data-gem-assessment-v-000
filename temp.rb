@@ -1,3 +1,5 @@
+#have the search key be an imaginary matching dog object, per chris
+
 
 def all_dogs_display
   DogSearchSession.cls
