@@ -1,4 +1,4 @@
-#have the search key be an imaginary matching dog object, per chris
+#have the search key be an imaginary matching dog object, per chris. need methods to instatiate search dog object, clear, then just run the match in search session
 
 
 def all_dogs_display
