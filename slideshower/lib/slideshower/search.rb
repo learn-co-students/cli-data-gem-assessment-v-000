@@ -1,6 +1,6 @@
 
 class Slideshower::Search
-attr_accessor :pictures, :name, :url, :picture, :subject
+attr_accessor :pictures, :subject
 
   def self.search
     @subject = gets.gsub! /\s/, '+'
@@ -18,13 +18,6 @@ def self.scrape
   picture = Photo.new
   picture.name = foto.attribute("title")
   picture.url = foto.attribute("href").value
-#binding.pry
-  end
-end
-
-def self.print
-  self.scrape
-  Photo.all.each do|x|
   end
 end
 

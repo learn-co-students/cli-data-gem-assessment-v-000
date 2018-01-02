@@ -26,7 +26,7 @@ def menu
   puts "Press 1 to view the #{Slideshower::Search.subject}photos in a slideshow."
   puts "Press 2 to view all of the #{Slideshower::Search.subject}photos in a list."
   puts "Press 3 to choose a new category of photos."
-
+  puts
   puts "Type 'exit' to exit the program."
   input = gets.strip
 

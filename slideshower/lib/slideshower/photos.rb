@@ -1,7 +1,5 @@
 
 class Slideshower::Photos
-attr_accessor :photos, :subject
-
 
 def self.slideshow
 x = 0

@@ -1,7 +1,7 @@
 
 class Photo
 
-  attr_accessor :pictures, :name, :url, :picture
+  attr_accessor  :name, :url
 
   @@all = []
 
@@ -11,10 +11,9 @@ class Photo
 
   def self.all
     @@all
-    #binding.pry
   end
 
   def self.reset_all
     @@all.clear
   end
-end
+end #of class Photo

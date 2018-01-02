@@ -3,4 +3,3 @@ require './lib/slideshower'
 
 
 Slideshower::CLI.new.call
- 
