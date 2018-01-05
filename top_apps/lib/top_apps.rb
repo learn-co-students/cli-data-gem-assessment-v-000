@@ -1,5 +1,2 @@
-require "top_apps/version"
-
-module TopApps
-  # Your code goes here...
-end
+require_relative "./top_apps/version"
+require_relative "./top_apps/cli"
