@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# tells the system that it should use Ruby to execute our code
 
 require "bundler/setup"
 require "coffee_roasters"

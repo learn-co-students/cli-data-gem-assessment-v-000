@@ -11,9 +11,8 @@ class CoffeeRoasters::Roaster
     @@all << self
   end
 
-  def open_in_browser
-    system("open '#{url}'")
-  end
-
-
 end
+
+  # def open_in_browser
+  #   system("open '#{url}'")
+  # end
