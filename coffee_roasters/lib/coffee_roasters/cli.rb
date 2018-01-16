@@ -1,5 +1,7 @@
 class CoffeeRoasters::CLI
 
+@@roaster = CoffeeRoasters::Roaster.all
+
   def call
     puts ""
     puts "<<<<<<< Welcome to The 21 Best Coffee Roasters cli gem! >>>>>>>"
@@ -36,14 +38,13 @@ class CoffeeRoasters::CLI
     end
   end
 
-
   def list_roasters(from_number)
-    @roaster = CoffeeRoasters::Roaster.all
+    @@roaster
     if from_number == 16
       puts ""
       puts "-------------< Coffee Roasters #{from_number} - #{from_number+5} >-------------"
       puts ""
-      @roaster[from_number-1, 6].each.with_index(from_number) do |roaster, index|
+      @@roaster[from_number-1, 6].each.with_index(from_number) do |roaster, index|
         puts "#{index}. #{roaster.name} - #{roaster.location}"
         puts "#{roaster.bean}"
         puts ""
@@ -52,7 +53,7 @@ class CoffeeRoasters::CLI
       puts ""
       puts "-------------< Coffee Roasters #{from_number} - #{from_number+4} >-------------"
       puts ""
-      @roaster[from_number-1, 5].each.with_index(from_number) do |roaster, index|
+      @@roaster[from_number-1, 5].each.with_index(from_number) do |roaster, index|
         puts "#{index}. #{roaster.name} - #{roaster.location}"
         puts "#{roaster.bean}"
         puts ""
@@ -61,8 +62,7 @@ class CoffeeRoasters::CLI
   end
 
   def roaster_detail(num)
-    @roaster = CoffeeRoasters::Roaster.all
-    the_roaster = @roaster[num]
+    the_roaster = @@roaster[num]
     puts "==========={ #{num+1}: #{the_roaster.name.upcase} }==========="
     puts ""
     puts "#{the_roaster.name} - #{the_roaster.location}"
