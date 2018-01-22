@@ -10,11 +10,13 @@ Building a CLI Gem
 
 - A CLI for now playing movies in your zip code, a second layer that has times and details of the movies
 
-User types in now_playing_cli_gem/lib/now_playing_cli_gem/cli.rb
+User types in ./now_playing_cli_gem/lib/now_playing_cli_gem/cli.rb
+
 Shows a list of movies
 
-1. Movie title - Movie time and movie details
-2. Movie title - Movie time and movie detials
-3. etc...
+1. Maze Runner: The Death Cure (2018) - Young hero Thomas embarks on a mission to find a cure for a deadly disease known as the "Flare" - Rosa Salazar, Thomas Brodie-Sangster, Dylan O'Brien, Kaya Scodelario
+2. Hostiles (2017) - In 1892, a legendary Army captain reluctantly agrees to escort a Cheyenne chief and his family through dangerous territory -  Scott Shepherd, Rosamund Pike, Ava Cooper, Stella Cooper
 
 Which movie do you want to learn more about?
+
+1
