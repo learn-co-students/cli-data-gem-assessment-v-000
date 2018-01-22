@@ -3,9 +3,9 @@ class NowPlayingCliGem::CLI
 
   def call
     puts "Movies Now Playing:"
-      list_movies
+    list_movies
   end
-  
+
   def list_movies
     puts <<-DOC
       1. Maze Runner: The Death Cure (2018) - Young hero Thomas embarks on a mission to find a cure for a deadly disease known as the "Flare" - Rosa Salazar, Thomas Brodie-Sangster, Dylan O'Brien, Kaya Scodelario

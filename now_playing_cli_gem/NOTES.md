@@ -10,7 +10,7 @@ Building a CLI Gem
 
 - A CLI for now playing movies in your zip code, a second layer that has times and details of the movies
 
-User types in ./now_playing_cli_gem/lib/now_playing_cli_gem/cli.rb
+User types in ./now_playing_cli_gem/bin/now_playing_cli_gem/cli.rb
 
 Shows a list of movies
 
