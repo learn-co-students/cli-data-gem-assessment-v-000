@@ -16,15 +16,20 @@ class NowPlayingCliGem::CLI
   end
 
   def menu
-    puts "Which movie would you like to learn more about, 1 or 2? Or type exit."
     input = nil
     while input != "exit"
-    input = gets.strip.downcase
-    case input
-    when "1"
-      puts "More info on movie 1..."
-    when "2"
-      puts "More info on movie 2..."
+      puts "Which movie would you like to learn more about, 1 or 2? Type list to see all your options again or type exit."
+      input = gets.strip.downcase
+      case input
+      when "1"
+        puts "More info on movie 1..."
+      when "2"
+        puts "More info on movie 2..."
+      when "list"
+        list_movies
+      else
+        puts "Not sure what your asking for, type list or exit please."
+      end
     end
   end
 
