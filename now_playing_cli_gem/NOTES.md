@@ -1,5 +1,3 @@
-TO RUN THE PROGRAM: ./now_playing_cli_gem/bin/now_playing_cli_gem
-
 Building a CLI Gem
 
 1. Plan it out and think of how you want it to operate
@@ -12,7 +10,7 @@ Building a CLI Gem
 
 - A CLI for now playing movies in your zip code, a second layer that has times and details of the movies
 
-User types in their zip code
+User types in now_playing_cli_gem/lib/now_playing_cli_gem/cli.rb
 Shows a list of movies
 
 1. Movie title - Movie time and movie details
