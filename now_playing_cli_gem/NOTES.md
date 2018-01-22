@@ -1,3 +1,5 @@
+TO RUN THE PROGRAM: ./now_playing_cli_gem/bin/now_playing_cli_gem
+
 Building a CLI Gem
 
 1. Plan it out and think of how you want it to operate
