@@ -2,5 +2,5 @@ source "https://rubygems.org"
 
 git_source(:github) {|cli-data-gem-assessment-v-000| "https://github.com/BlakeBalbirnie/cli-data-gem-assessment-v-000}" }
 
-# Specify your gem's dependencies in now_playing_cli_gem.gemspec
+## Specify your gem's dependencies in now_playing_cli_gem.gemspec
 gemspec
