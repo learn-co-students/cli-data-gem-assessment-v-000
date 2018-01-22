@@ -32,4 +32,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'BlakeBalbirnie'/now_playing_cli_gem.
+Bug reports and pull requests are welcome on GitHub at https://github.com/BlakeBalbirnie/cli-data-gem-assessment-v-000.
