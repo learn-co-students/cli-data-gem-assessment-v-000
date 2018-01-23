@@ -20,3 +20,7 @@ Shows a list of movies
 Which movie would you like to learn more about, 1 or 2?
 
 1
+
+Movie title
+Movie details
+Movie stars
