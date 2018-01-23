@@ -9,18 +9,26 @@ class NowPlayingCliGem::CLI
 
   # Scraped data
   def list_movies
+    puts ""
     puts "Movies Now Playing:"
-    @movies = NowPlayingCliGem::Movie.today
-    @movies.each.with_index(1) do |movie, i|
+    puts ""
+    # @movies = NowPlayingCliGem::Movie.today
+    # @movies.each.with_index(1) do |movie, i|
+    NowPlayingCliGem::Movie.all.each.with_index(1) do |movie, i|
       puts "#{i}. #{movie.title} - #{movie.details} - #{movie.length}"
     end
+    puts ""
   end
 
   # Interface prompts
   def menu
     input = nil
     while input != "exit"
-      puts "Which movie would you like to learn more about, 1 or 2? Type list to see all your options again or type exit."
+      puts ""
+      puts "Which movie would you like to learn more about, 1 or 2?"
+      puts ""
+      puts "Type list to see all your options again or type exit to end the program."
+      puts ""
       input = gets.strip.downcase
 
       if input.to_i > 0
