@@ -1,16 +1,16 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "diceroles/version"
+require "dice_roles/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "diceroles"
-  spec.version       = Diceroles::VERSION
-  spec.authors       = ["<github username>"]
-  spec.email         = ["<github email address>"]
+  spec.name          = "dice_roles"
+  spec.version       = DiceRoles::VERSION
+  spec.authors       = ["stazman"]
+  spec.email         = ["cadistasio@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = "My first original gem"
+  spec.description   = "Provides scraped list of developer jobs from Dice.com in a CLI format"
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 

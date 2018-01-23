@@ -1,4 +1,4 @@
-module Diceroles
+module DiceRoles
   VERSION = "0.1.0"
 end
 

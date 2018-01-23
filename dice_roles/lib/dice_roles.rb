@@ -1,5 +1,5 @@
 require "diceroles/version"
 
-module Diceroles
+module DiceRoles
   # Your code goes here...
 end

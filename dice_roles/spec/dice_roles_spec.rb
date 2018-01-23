@@ -1,4 +1,4 @@
-RSpec.describe Diceroles do
+RSpec.describe DiceRoles do
   it "has a version number" do
     expect(Diceroles::VERSION).not_to be nil
   end
