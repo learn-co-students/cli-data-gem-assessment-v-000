@@ -1,12 +1,13 @@
-# Our CLI Controller
+# CLI Controller
 class NowPlayingCliGem::CLI
 
+# Steps of the program
   def call
     list_movies
     menu
-    goodbye
   end
 
+# Scrapped data
   def list_movies
     puts "Movies Now Playing:"
     puts <<-DOC
@@ -15,6 +16,7 @@ class NowPlayingCliGem::CLI
     DOC
   end
 
+# Interface prompts
   def menu
     input = nil
     while input != "exit"
@@ -27,14 +29,12 @@ class NowPlayingCliGem::CLI
         puts "More info on movie 2..."
       when "list"
         list_movies
+      when "exit"
+        puts "See you next time for more now playing movies!!!"
       else
-        puts "Not sure what your asking for, type list or exit please."
+        puts "Sorry, I'm not sure what your asking for."
       end
     end
-  end
-
-  def goodbye
-    puts "See you next time for more now playing movies!!!"
   end
 
 end
