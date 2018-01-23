@@ -12,7 +12,7 @@ class NowPlayingCliGem::CLI
     puts "Movies Now Playing:"
     @movies = NowPlayingCliGem::Movie.today
     @movies.each.with_index(1) do |movie, i|
-      puts "#{i}. #{movie.title} - #{movie.details} - #{movie.stars}"
+      puts "#{i}. #{movie.title} - #{movie.details} - #{movie.length}"
     end
   end
 
@@ -25,7 +25,7 @@ class NowPlayingCliGem::CLI
 
       if input.to_i > 0
         the_movie = @movies[input.to_i-1]
-        puts "#{the_movie.title} - #{the_movie.details} - #{the_movie.stars}"
+        puts "#{the_movie.title} - #{the_movie.details} - #{the_movie.length}"
       elsif  input == "list"
         list_movies
       elsif  input == "exit"
