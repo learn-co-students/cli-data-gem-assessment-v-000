@@ -1,8 +1,6 @@
-# Diceroles
+Wiki Tech Topics
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/diceroles`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem presents articles from the Computers and Technology section of www.wikihow.com in list form in a cli. The user will be presented with a numbered list of article titles to choose from and be able to access the article's content through typing in the number of the item. Future iterations of this gem may encompass articles collected from a greater number of tech-related sites and be searchable based on specific topic keywords.
 
 ## Installation
 
