@@ -1,6 +1,6 @@
-RSpec.describe DiceRoles do
+RSpec.describe WikihowTechTopics do
   it "has a version number" do
-    expect(Diceroles::VERSION).not_to be nil
+    expect(WikihowTechTopics::VERSION).not_to be nil
   end
 
   it "does something useful" do
