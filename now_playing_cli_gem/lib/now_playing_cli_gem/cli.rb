@@ -42,5 +42,4 @@ class NowPlayingCliGem::CLI
       end
     end
   end
-
 end
