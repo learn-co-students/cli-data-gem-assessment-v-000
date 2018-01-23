@@ -1,5 +1,6 @@
 #!/usr/bin/env  ruby
 
-require "./now_playing_cli_gem/lib/now_playing_cli_gem"
+require "bundler/setup"
+require "now_playing_cli_gem"
 
 NowPlayingCliGem::CLI.new.call

@@ -11,4 +11,4 @@ require "now_playing_cli_gem"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+IRB.start
