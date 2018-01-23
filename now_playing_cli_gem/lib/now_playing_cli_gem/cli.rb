@@ -12,11 +12,10 @@ class NowPlayingCliGem::CLI
     puts ""
     puts "Movies Now Playing:"
     puts ""
-    # @movies = NowPlayingCliGem::Movie.today
-    # @movies.each.with_index(1) do |movie, i|
-    #NowPlayingCliGem::Movie.all.each.with_index(1) do |movie, i|
-    #  puts "#{i}. #{movie.title} - #{movie.details} - #{movie.length}"
-    #end
+    @movies = NowPlayingCliGem::Movie.today
+    @movies.each.with_index(1) do |movie, i|
+      puts "#{i}. #{movie.title} - #{movie.details} - #{movie.length}"
+    end
     puts ""
   end
 
@@ -27,7 +26,7 @@ class NowPlayingCliGem::CLI
       puts ""
       puts "Which movie would you like to learn more about, 1 or 2?"
       puts ""
-      puts "Type list to see all your options again or type exit to end the program."
+      puts "Or you can type list to see all your options again or type exit to end the program."
       puts ""
       input = gets.strip.downcase
 

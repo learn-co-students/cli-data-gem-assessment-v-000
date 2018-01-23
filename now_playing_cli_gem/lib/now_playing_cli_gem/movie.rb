@@ -1,8 +1,8 @@
 class NowPlayingCliGem::Movie
   attr_accessor :title, :details, :length
 
+# Returning scraped data of the movies
   def self.today
-    # Returning scraped data of the movies
     self.scrape_movies
   end
 
@@ -30,7 +30,7 @@ class NowPlayingCliGem::Movie
 
     movie = self.new
     movie.title = doc.search("h1.name").text.strip
-    movie.details = doc.search("plot_summary.summary_text").text.strip
+    movie.details = doc.search("div[itemprop='description']").text.strip
     movie.length = doc.search("subtext.duration").text.strip
     movie
   end
