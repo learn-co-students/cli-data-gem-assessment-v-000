@@ -1,19 +1,19 @@
 # CLI Controller
 class NowPlayingCliGem::CLI
 
-# Steps of the program
+  # Steps of the program
   def call
     list_movies
     menu
   end
 
-# Scrapped data
+  # Scrapped data
   def list_movies
     puts "Movies Now Playing:"
     @movies = NowPlayingCliGem::Movie.today
   end
 
-# Interface prompts
+  # Interface prompts
   def menu
     input = nil
     while input != "exit"
