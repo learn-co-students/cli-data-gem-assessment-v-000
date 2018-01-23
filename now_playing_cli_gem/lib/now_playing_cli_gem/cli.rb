@@ -7,7 +7,7 @@ class NowPlayingCliGem::CLI
     menu
   end
 
-  # Scrapped data
+  # Scraped data
   def list_movies
     puts "Movies Now Playing:"
     @movies = NowPlayingCliGem::Movie.today
