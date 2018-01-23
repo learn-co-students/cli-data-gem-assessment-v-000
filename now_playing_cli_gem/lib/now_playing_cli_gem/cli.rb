@@ -24,7 +24,8 @@ class NowPlayingCliGem::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @movies[input.to_i-1]
+        the_movie = @movies[input.to_i-1]
+        puts "#{the_movie.title} - #{the_movie.details} - #{the_movie.stars}"
       elsif  input == "list"
         list_movies
       elsif  input == "exit"
