@@ -1,13 +1,16 @@
-Wiki Tech Topics
+Wikihow Tech Topics
 
-This gem presents articles from the Computers and Technology section of www.wikihow.com in list form in a cli. The user will be presented with a numbered list of article titles to choose from and be able to access the article's content through typing in the number of the item. Future iterations of this gem may encompass articles collected from a greater number of tech-related sites and be searchable based on specific topic keywords.
+This gem presents articles from the Computers and Technology section of www.wikihow.com in list form in a cli. The user will be presented with a numbered list of article titles to choose from and be able to access the article's content through typing in the number of the item. Future versions of this gem may encompass articles collected from a greater number of tech-related sites and be searchable based on specific topic keywords.
+
+NOTE: Content for this project was scraped directly from the website at https://www.wikihow.com/Category:Computers-and-Electronics. The project complies with Wikihow's Terms of Use, which can be accessed at https://www.wikihow.com/wikiHow:Terms-of-Use.
+
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'diceroles'
+gem 'wikihow_tech_topics'
 ```
 
 And then execute:
@@ -16,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install diceroles
+    $ gem install wikihow_text_topics
 
 ## Usage
 
@@ -30,7 +33,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/diceroles. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/stazman/wikihow_tech_topics. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -38,4 +41,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Diceroles project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/diceroles/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Wikihow Tech Topic project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/diceroles/blob/master/CODE_OF_CONDUCT.md).
