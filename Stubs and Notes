@@ -1,0 +1,5 @@
+1. Checking out any issues with Dice.com TOS for scraping
+2. Create CLI to return list of all available full-time web developer jobs upon web developer search at Dice.com based on basic criteria
+on web developer search term https://www.dice.com/jobs/q-Web_Developer-jtype-Full+Time-sort-relevance-jobs?searchid=1889829035553&stst=
+for 5 attributes title description company location when posted   
+3. Create 
