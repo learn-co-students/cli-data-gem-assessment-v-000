@@ -8,14 +8,12 @@ Building a CLI Gem
 6. Start to remove the hard coded data and then
 7. Use objects and scraping tools tools to program
 
-- A CLI for now playing movies in your zip code, a second layer that has times and details of the movies
-
-User types in ./now_playing_cli_gem/bin/now_playing_cli_gem
+- A CLI for now playing movies, a second layer that has details and length of the movies
 
 Shows a list of movies
 
-1. Maze Runner: The Death Cure (2018) - Young hero Thomas embarks on a mission to find a cure for a deadly disease known as the "Flare" - Rosa Salazar, Thomas Brodie-Sangster, Dylan O'Brien, Kaya Scodelario
-2. Hostiles (2017) - In 1892, a legendary Army captain reluctantly agrees to escort a Cheyenne chief and his family through dangerous territory -  Scott Shepherd, Rosamund Pike, Ava Cooper, Stella Cooper
+1. Maze Runner: The Death Cure (2018) - Young hero Thomas embarks on a mission to find a cure for a deadly disease known as the "Flare" - 2h 22min
+2. Hostiles (2017) - In 1892, a legendary Army captain reluctantly agrees to escort a Cheyenne chief and his family through dangerous territory -  2h 14min
 
 Which movie would you like to learn more about, 1 or 2?
 
@@ -23,4 +21,4 @@ Which movie would you like to learn more about, 1 or 2?
 
 Movie title
 Movie details
-Movie stars
+Movie length

@@ -19,9 +19,9 @@ class NowPlayingCliGem::Movie
     doc = Nokogiri::HTML(open("http://www.imdb.com/title/tt4500922/?ref_=inth_ov_tt"))
 
     movie = self.new
-    movie.title = doc.search(h1.name).text.strip
-    movie.details = doc.search(div[itemprop='description']).text.strip
-    movie.length = doc.search(subtext.duration).text.strip
+    movie.title = doc.search("h1.name").text.strip
+    movie.details = doc.search("div[itemprop='description']").text.strip
+    movie.length = doc.search("subtext.duration").text.strip
     movie
   end
 
@@ -29,9 +29,9 @@ class NowPlayingCliGem::Movie
     doc = Nokogiri::HTML(open("http://www.imdb.com/title/tt5478478/?ref_=inth_ov_tt"))
 
     movie = self.new
-    movie.title = doc.search(h1.name).text.strip
-    movie.details = doc.search(plot_summary.summary_text).text.strip
-    movie.length = doc.search(subtext.duration).text.strip
+    movie.title = doc.search("h1.name").text.strip
+    movie.details = doc.search("plot_summary.summary_text").text.strip
+    movie.length = doc.search("subtext.duration").text.strip
     movie
   end
 
