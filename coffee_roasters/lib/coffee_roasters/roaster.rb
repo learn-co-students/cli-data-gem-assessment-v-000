@@ -3,12 +3,17 @@ class CoffeeRoasters::Roaster
 
   @@all = []
 
-  def self.all
-    @@all
+  def initialize(name, location, bean, details, url)
+    @name = name
+    @location = location
+    @bean = bean
+    @details = details
+    @url = url
+    @@all << self
   end
 
-  def save
-    @@all << self
+  def self.all
+    @@all
   end
 
 end

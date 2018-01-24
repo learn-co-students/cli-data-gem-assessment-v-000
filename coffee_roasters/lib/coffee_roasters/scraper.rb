@@ -5,16 +5,14 @@ class CoffeeRoasters::Scraper
 
     section = doc.css("section.save-venue")
     section.each do |data|
-# binding.pry
-      roaster = CoffeeRoasters::Roaster.new
 
-      roaster.name = data.css("h1 a.save-venue__link").text
-      roaster.location = data.css("h2.save-venue__neighborhood").text
-      roaster.bean = data.css("p.save-venue__description").text.split("\n")[0]
-      roaster.details = data.css("p.save-venue__description").text.split("\n")[2]
-      roaster.url = data.css("a.save-venue__link").attr("href").value
+      name = data.css("h1 a.save-venue__link").text
+      location = data.css("h2.save-venue__neighborhood").text
+      bean = data.css("p.save-venue__description").text.split("\n")[0]
+      details = data.css("p.save-venue__description").text.split("\n")[2]
+      url = data.css("a.save-venue__link").attr("href").value
 
-      roaster.save
+      CoffeeRoasters::Roaster.new(name, location, bean, details, url)
     end
 
   end
