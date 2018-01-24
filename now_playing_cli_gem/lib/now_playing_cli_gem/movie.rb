@@ -24,7 +24,7 @@ class NowPlayingCliGem::Movie
 
 # Scraping summary data
   def summary
-    @summary ||= plot_summary_doc.search("p.plotsummary").text.strip
+    @summary ||= plot_summary_doc.search("div[itemprop='description']").text.strip
   end
 
 # Scraping stars data
@@ -41,10 +41,10 @@ class NowPlayingCliGem::Movie
     end
 
     def plot_summary_doc
-      @plot_summary_doc ||= Nokogiri::HTML(open("#{self.url}plotsummary"))
+      @plot_summary_doc ||= Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
     end
 
     def doc
-      @doc ||= Nokogiri::HTML(open(self.url))
+      @doc ||= Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
     end
   end
