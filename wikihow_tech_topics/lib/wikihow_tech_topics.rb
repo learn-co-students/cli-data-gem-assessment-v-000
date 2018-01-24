@@ -1,4 +1,4 @@
-require "wikihow_tech_topics/version"
+# require "./lib/wikihow_tech_topics/version"
 
 module WikihowTechTopics
   
