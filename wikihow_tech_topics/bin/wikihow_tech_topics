@@ -2,4 +2,13 @@
 
 require_relative '../lib/wikihow_tech_topics'
 
-WikihowTechTopics.new.call
+# WikihowTechTopics.new.call
+
+def call
+    puts "Welcome to Wikihow Tech Topics"
+    puts ""
+    puts "Type the number of the article you wish to read."
+end
+
+call
+
