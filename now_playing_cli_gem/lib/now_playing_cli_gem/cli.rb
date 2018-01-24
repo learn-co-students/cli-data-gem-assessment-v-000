@@ -12,8 +12,8 @@ class NowPlayingCliGem::CLI
     puts ""
     puts "Movies Now Playing:"
     puts ""
-    @movies = NowPlayingCliGem::Movie.today
-    @movies.each.with_index(1) do |movie, i|
+    @movies = NowPlayingCliGem::Movie
+    @movies.all.each.with_index(1) do |movie, i|
       puts "#{i}. #{movie.title} - #{movie.details} - #{movie.length}"
     end
     puts ""
