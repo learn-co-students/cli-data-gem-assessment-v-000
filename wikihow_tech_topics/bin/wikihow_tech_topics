@@ -8,6 +8,24 @@ def call
     puts "Welcome to Wikihow Tech Topics"
     puts ""
     puts "Type the number of the article you wish to read."
+
+    program gets user input about which number of story to read
+
+    article_number = gets.strip
+
+    article number is index of article scraped from scraper
+
+    articles_arr = []
+
+    articles_arr << scraped_articles 
+    
+    articles_arr.each_with_index {|article, index| 
+        "#{index}. #{article}"
+    
+    if article_number = index
+        
+
+
 end
 
 call
