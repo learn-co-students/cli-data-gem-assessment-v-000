@@ -1,4 +1,4 @@
-# require "./lib/wikihow_tech_topics/version"
+require './config/environment.rb'
 
 module WikihowTechTopics
 end
