@@ -24,7 +24,6 @@ class NowPlayingCliGem::CLI
     puts ""
 
     puts "Starring: #{movie.stars}"
-    puts ""
   end
 
 # Interface prompts
