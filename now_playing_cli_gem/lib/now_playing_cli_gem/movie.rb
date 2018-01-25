@@ -21,14 +21,14 @@ class NowPlayingCliGem::Movie
   def self.summary
     doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
     summary = doc.search("div[itemprop='description']").text.strip
-    #summary.collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
+    #summary.collect{|e| new(e.text.strip, "")}
   end
 
 # Scraping stars data
   def self.stars
     doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
     stars = doc.search("span[itemprop='actors'] span[itemprop='name']").collect{|e| e.text.strip}.join(", ")
-    #stars.collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
+    #stars.collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").last.strip}")}
   end
 
 # Scraping name data
