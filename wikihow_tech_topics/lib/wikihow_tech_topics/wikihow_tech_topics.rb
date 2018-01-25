@@ -12,9 +12,22 @@ need to be able to create a new object from the attributes in hash and access th
 how to access hash from Scraper to instantiate here?
 
 
-    def initialize(title, content)
-        @title = title
-        @content = content  
+    def initialize(scraped_hash)
+        scraped_hash = Scraper.new 
+        @@all << scraped_hash    
+    end
+        
+    def get_attributes
+        @@all.each do |attribute, value|
+            if attribute == :title, 
+                
+                contact_details_hash.each do |attribute, data|
+              if attribute == :favorite_ice_cream_flavors
+        
+
+            def initialize(student_hash)
+            @@all << self
+          end
         @@all << self
     end
 
@@ -41,3 +54,5 @@ how to access hash from Scraper to instantiate here?
         @@all
     end
 end
+
+            # student_hash.each {|key, value| self.send("#{key}=", value)}

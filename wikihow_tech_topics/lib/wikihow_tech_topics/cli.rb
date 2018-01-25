@@ -16,11 +16,12 @@ class CLI
         title_array
     end
 
-    def self.create_article
-        new_article = Scraper.new
-        new_article.each do |a
-    
+    def self.create_article(scraped_hash)
+        scraped_hash = Scraper.new 
+        scraped_hash.scrape_home_page_for_title_and_content
+
     end
+        
 
     def self.title_list
         
@@ -41,7 +42,3 @@ class CLI
     end
 end
 
-        # contacts.each do |person, contact_details_hash|
-        #     contact_details_hash.each do |attribute, data|
-        #       if attribute == :favorite_ice_cream_flavors
-        
