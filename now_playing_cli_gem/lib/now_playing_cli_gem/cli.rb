@@ -32,7 +32,7 @@ class NowPlayingCliGem::CLI
     input = nil
     while input != "exit"
       puts ""
-      puts "What movie would you more information on? Please type in the name of the movie or the corresponding number."
+      puts "What movie would you like more information on? Please type in the corresponding number."
       puts ""
       puts "Enter list to see a list of the movies again."
       puts ""
@@ -41,10 +41,6 @@ class NowPlayingCliGem::CLI
       input = gets.strip
       if input == "list"
         list
-      elsif input.to_i == 0
-        if movie = NowPlayingCliGem::Movie.find_by_name(input)
-          print_movie(movie)
-        end
       elsif input.to_i > 0
         if movie = NowPlayingCliGem::Movie.find(input.to_i)
           print_movie(movie)
