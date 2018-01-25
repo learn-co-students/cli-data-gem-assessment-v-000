@@ -23,6 +23,7 @@ def call
         "#{index}. #{article}"
     
     if article_number = index
+        put article
         
 
 
