@@ -1,6 +1,6 @@
-require 'pry'
-require 'nokogiri'
-require 'openurl'
+# require 'pry'
+# # require 'nokogiri'
+# require 'openurl'
 
 # require_relative '../lib/wikihow_tech_topics/scraper'
 # require_relative '../lib/wikihow_tech_topics/wikihow_tech_topics'

@@ -3,8 +3,7 @@ require 'nokogiri'
 require 'pry'
 
 class Scraper
-    binding.pry
-
+binding.pry
 
     # need to set up array or hash for scraped info
 
