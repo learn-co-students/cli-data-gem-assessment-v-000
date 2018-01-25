@@ -3,7 +3,6 @@
 require 'pry'
 
 class WikihowTechTopics
-    binding.pry
 
     attr_accessor :title, :content
 
@@ -17,6 +16,14 @@ how to access hash from Scraper to instantiate here?
         @title = title
         @content = content  
         @@all << self
+    end
+
+    def self.get_scraped_info_for_exec
+        @article_hash.each_with_index {|attribute, index|
+            
+
+
+        }
     end
 
     def self.get_scraped_info

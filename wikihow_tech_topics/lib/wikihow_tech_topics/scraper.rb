@@ -2,6 +2,8 @@ require 'open-url'
 require 'nokogiri'
 require 'pry'
 
+require_relative 'scraper'
+
 class Scraper
 binding.pry
     @article_hash = {}

@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/wikihow_tech_topics'
+require_relative '../lib/scraper'
+
 
 # WikihowTechTopics.new.call
 
@@ -9,21 +11,21 @@ def call
     puts ""
     puts "Type the number of the article you wish to read."
 
-    program gets user input about which number of story to read
+    # program gets user input about which number of story to read
 
-    article_number = gets.strip
+    # article_number = gets.strip
 
-    article number is index of article scraped from scraper
+    # article number is index of article scraped from scraper
 
-    articles_arr = []
+    # articles_arr = []
 
-    articles_arr << scraped_articles 
+    # articles_arr << scraped_articles 
     
-    articles_arr.each_with_index {|article, index| 
-        "#{index}. #{article}"
+    # articles_arr.each_with_index {|article, index| 
+    #     "#{index}. #{article}"
     
-    if article_number = index
-        put article
+    # if article_number = index
+    #     put article
         
 
 
