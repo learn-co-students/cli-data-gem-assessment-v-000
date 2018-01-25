@@ -8,19 +8,23 @@ Building a CLI Gem
 6. Start to remove the hard coded data and then
 7. Use objects and scraping tools tools to program
 
-- A CLI for now playing movies, a second layer that has details of the movies such as a summary and stars
+- A CLI for now playing movies, a second layer that has the summary of the movies
 
-Shows a list of movies
+Shows a list of movies:
 
-1. Maze Runner: The Death Cure (2018) - Young hero Thomas embarks on a mission to find a cure for a deadly disease known as the "Flare" - Dylan O'Brien, Ki Hong Lee, Kaya Scodelario, Thomas Brodie-Sangster
-2. Hostiles (2017) - In 1892, a legendary Army captain reluctantly agrees to escort a Cheyenne chief and his family through dangerous territory -  Scott Shepherd, Rosamund Pike, Ava Cooper, Stella Cooper
-3. etc.
-4. etc.
+1. Maze Runner: The Death Cure (2018)
+2. Hostiles (2017)
 
 Which movie would you like to learn more about, 1 or 2?
 
 1
 
-Movie title
-Movie details
-Movie stars
+Maze Runner: The Death Cure (2018):
+
+Summary: Young hero Thomas embarks on a mission to find a cure for a deadly disease known as the "Flare"
+
+2
+
+Hostiles (2017):
+
+Summary: In 1892, a legendary Army captain reluctantly agrees to escort a Cheyenne chief and his family through dangerous territory

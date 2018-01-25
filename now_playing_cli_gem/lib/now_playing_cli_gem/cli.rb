@@ -22,15 +22,12 @@ class NowPlayingCliGem::CLI
 
     puts ""
     puts "Summary: #{movie.summary}"
-    puts ""
-
-    puts "Starring: #{movie.stars}"
   end
 
 # Prompts that are regenerated if a user enters an unrecognized number or word
   def prompts
     puts ""
-    puts "What movie would you like more information on? Please type in the corresponding number."
+    puts "What movie would you like to see a summary of? Please type in the corresponding number."
     puts ""
     puts "Enter list to see a list of the movies again."
     puts ""

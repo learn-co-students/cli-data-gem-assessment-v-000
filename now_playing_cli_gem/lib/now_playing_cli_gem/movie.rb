@@ -1,5 +1,5 @@
 class NowPlayingCliGem::Movie
-  attr_accessor :name, :summary, :stars
+  attr_accessor :name, :summary
 
   def initialize(name = nil, url = nil)
     @name = name
@@ -19,12 +19,6 @@ class NowPlayingCliGem::Movie
   def summary
     doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
     summary = doc.search("div[itemprop='description']").collect{|e| e.text.strip}.join(" | ")
-  end
-
-# Scraping stars data
-  def stars
-    doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
-    stars = doc.search("span[itemprop='actors'] span[itemprop='name']").collect{|e| e.text.strip}.join(", ")
   end
 
 # Scraping name data
