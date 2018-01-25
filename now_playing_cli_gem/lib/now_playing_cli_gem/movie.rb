@@ -18,7 +18,7 @@ class NowPlayingCliGem::Movie
 # Scraping summary data
   def summary
     doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
-    summary = doc.search("div[itemprop='description']").collect{|e| e.text.strip}.join(", ")
+    summary = doc.search("div[itemprop='description']").collect{|e| e.text.strip}.join(" | ")
   end
 
 # Scraping stars data
