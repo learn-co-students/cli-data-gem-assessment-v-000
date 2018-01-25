@@ -20,8 +20,16 @@ how to access hash from Scraper to instantiate here?
 
     def self.get_scraped_info_for_exec
         @article_hash.each_with_index {|attribute, index|
-            
 
+         I want to grab each attribute and value from scraped hash from Scraper and associate it with an index
+         Then I want to represent that index and the attribute of title to be accessed in exec file
+         The user will get hte index number and that will trigger the content
+
+         number_selected = content.index
+        
+         number_selected = gets.strip
+
+         
 
         }
     end

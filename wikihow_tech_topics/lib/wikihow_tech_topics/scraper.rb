@@ -20,10 +20,11 @@ binding.pry
         <div id="bodycontents">
 
 
-        home_page.css('div').each do |article|
+        home_page.css(<div class="thumbnail").each do |article|
     
         articles = {
             :title => article.css('p.span').text
+            :content_url => article.css( <a href="//www.wikihow.com/Change-Alexa%27s-Name">).text
         }
 
         @article_hash << articles
