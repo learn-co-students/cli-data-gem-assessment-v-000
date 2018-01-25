@@ -2,25 +2,14 @@ require 'open-url'
 require 'nokogiri'
 require 'pry'
 
-require_relative 'scraper'
-
 class Scraper
-binding.pry
+
     @article_hash = {}
 
-    def self.scrape_home_page_for_title
+    def self.scrape_home_page_for_title_and_content
         home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
-
-        # <div class="text"><p>How to <br><span>Change Alexa's Name</span></p></div>
-
-        do on same page for later
-
-        # <div class="thumbnail d-height d-width">
-        # <a href="//www.wikihow.com/Change-Alexa%27s-Name">
-        # <div id="bodycontents">
-    def self.scrape_linked_page_for_content
         
-        home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
+        congtent_url = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
 
         home_page.css(<div class="thumbnail").each do |article|
     
@@ -32,3 +21,10 @@ binding.pry
         @article_hash << articles
     end    
 end
+
+        # <div class="text"><p>How to <br><span>Change Alexa's Name</span></p></div>
+
+        # <div class="thumbnail d-height d-width">
+        # <a href="//www.wikihow.com/Change-Alexa%27s-Name">
+        # <div id="bodycontents">
+

@@ -3,10 +3,5 @@
 require_relative '../lib/wikihow_tech_topics'
 require_relative '../lib/scraper'
 
-
-# WikihowTechTopics.new.call
-
-
-
 CLI.new.call
 
