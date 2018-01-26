@@ -6,13 +6,26 @@ def call
     puts "Welcome to Wikihow Tech Topics"
     puts ""
     puts "Type the number of the article you wish to read."
-    # puts "#{title.index}. #{self.create_article}"
     run
 end
 
 def run
 end
 
+def scraped_site_title
+    iterate over array
+    pull out title
+        # puts "#{title.index}. #{self.create_article}"
+end
+
+def scraped_site_content
+    input = gets.strip
+    iterate over array
+    pull out content
+    if input == content.index
+        puts "#{content}"
+end
+    
 call
 
 
