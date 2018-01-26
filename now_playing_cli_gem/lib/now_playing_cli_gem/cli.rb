@@ -21,13 +21,13 @@ class NowPlayingCliGem::CLI
     puts "#{movie.name}:"
 
     puts ""
-    puts "Summary: #{movie.summary}"
+    puts "Director: #{movie.director}"
   end
 
 # Prompts that are regenerated if a user enters an unrecognized number or word
   def prompts
     puts ""
-    puts "What movie would you like to see a summary of? Please type in the corresponding number."
+    puts "What movie would you like to know the director of? Please type in the corresponding number."
     puts ""
     puts "Enter list to see a list of the movies again."
     puts ""
@@ -38,7 +38,7 @@ class NowPlayingCliGem::CLI
 # Prompt that is generated once the user types exit
   def goodbye
     puts ""
-    puts "See you next time for more now playing movies!"
+    puts "See you next time for more movies and their directors!"
     puts ""
   end
 
