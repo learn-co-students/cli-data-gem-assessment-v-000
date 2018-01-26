@@ -1,7 +1,20 @@
 #!/usr/bin/env ruby
+require 'pry'
+# require_relative '../lib/scraper'
 
-require_relative '../lib/wikihow_tech_topics'
-require_relative '../lib/scraper'
+def call
+    puts "Welcome to Wikihow Tech Topics"
+    puts ""
+    puts "Type the number of the article you wish to read."
+    # puts "#{title.index}. #{self.create_article}"
+    run
+end
 
-CLI.new.call
+def run
+    Scraper.new(article_hash)
+end
+
+call
+
+
 
