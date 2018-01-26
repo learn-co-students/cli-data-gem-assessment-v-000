@@ -2,9 +2,13 @@ require 'open-url'
 require 'nokogiri'
 require 'pry'
 
+
+test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]
+
 class Scraper
 
-    article_hash = {}
+    article_array = []
+    
 
     def self.scraped_title_and_content(article_hash)
         home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
