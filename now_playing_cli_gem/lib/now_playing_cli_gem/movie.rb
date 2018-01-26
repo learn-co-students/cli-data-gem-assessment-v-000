@@ -1,16 +1,15 @@
 class NowPlayingCliGem::Movie
-  attr_accessor :name, :director
+  attr_accessor :name, :link
 
-  def initialize(name = nil, director = nil, url = nil)
+  def initialize(name = nil, link = nil, url = nil)
     @name = name
-    @director = director
+    @link = link
     @url = url
   end
 
 # Returning scraped data of the movies piece by piece
   def self.all
     @@all ||= name
-    @@all ||= director
   end
 
   def self.find(id)
@@ -24,8 +23,8 @@ class NowPlayingCliGem::Movie
       names = doc.search("h4[itemprop='name'] a[itemprop='url']").collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
     end
 
-    def self.director
+    def self.link
       doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
-      director = doc.search("span[itemprop='director'] a[itemprop='url']").collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
+      link = doc.search("a[itemprop='url']").collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
     end
   end
