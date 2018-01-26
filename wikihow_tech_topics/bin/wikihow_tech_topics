@@ -2,6 +2,13 @@
 require 'pry'
 # require_relative '../lib/scraper'
 
+# def go(name)
+#     name = joe
+#     puts name
+# end
+
+# go
+
 def call
     puts "Welcome to Wikihow Tech Topics"
     puts ""
@@ -13,9 +20,11 @@ def run
 end
 
 def scraped_site_title
-    iterate over array
-    pull out title
-        # puts "#{title.index}. #{self.create_article}"
+    test_array = [{'title' => 'how to text', 'content' => 'just do it'}, {'title' => 'how to email', 'content' => 'just do it, too'}]
+    test_array.collect do |hash|
+        hash.each_with_index {|title, index|
+        puts "#{index}. #{title}"}
+    end
 end
 
 def scraped_site_content
@@ -29,4 +38,5 @@ end
 call
 
 
-
+# contacts.each do |person, contact_details_hash|
+#     contact_details_hash.each do |attribute, data|
