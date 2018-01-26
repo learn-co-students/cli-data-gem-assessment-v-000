@@ -5,9 +5,7 @@ require 'pry'
 
 # test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]
 
-class Scraper
-
-
+class WikihowTechTopics::Scraper
     
     def self.scraped_title
         title_array = []

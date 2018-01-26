@@ -22,25 +22,23 @@ def run
 end
 
 def scraped_site_title
-    test_array1 = [{'title' => 'how to text'}, {'title' => 'how to email'}]
-    test_array1.collect do |title_hash|
-        title_hash.each_with_index {|title, index|
-        puts "#{index}. #{title[1]}"}
-    end
-    scraped_site_content
+    test_array1 = ['how to text', 'how to email']
+    test_array1.each.with_index {|title, index|
+        puts "#{index+1}. #{title}" 
+}
 end
 
-def scraped_site_content
-    test_array2 = [{'content' => 'just do it'}, {'content' => 'just do it, too'}]
-        test_array2.collect do |content_hash|
-            content_hash.each_with_index {|content, index|
-        input = gets.strip
-            if input == index
-                puts "#{content}" 
-            end 
-        }
-        end
-end
+# def scraped_site_content
+#     test_array2 = [{'content' => 'just do it'}, {'content' => 'just do it, too'}]
+#         test_array2.collect do |content_hash|
+#             content_hash.each.with_index {|content, index|
+#             input = gets.strip
+#             if input == index
+#                 puts "#{content}" 
+#             end 
+#         }
+#         end
+# end
     
 call
 
