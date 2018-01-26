@@ -12,11 +12,13 @@ class WikihowTechTopics::Scraper
 
         home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
         
+
         home_page.css(<div class="thumbnail").each do |title|
     
         article_title = {
             :title => title.css('p.span').text
         }
+        
         end
         title_array << article_title    
     end
@@ -25,7 +27,6 @@ class WikihowTechTopics::Scraper
     def self.scraped_content
         content_array = []
 
-        content_url = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
 
         content_url.css(<div class="thumbnail").each do |article|
     
