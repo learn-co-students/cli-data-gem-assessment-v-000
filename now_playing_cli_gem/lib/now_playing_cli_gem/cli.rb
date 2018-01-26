@@ -60,3 +60,5 @@ class NowPlayingCliGem::CLI
     goodbye
   end
 end
+
+#PROGRAM IS WORKING AND COMPLETE

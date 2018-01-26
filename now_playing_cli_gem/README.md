@@ -6,7 +6,7 @@ In order to use this program please run the following code in the terminal:
 
 <strong> ./now_playing_cli_gem/bin/now_playing_cli_gem </strong>
 
-Continue to follow the CLI prompts on the program
+Continue to follow the CLI prompts on the program.
 
 ## Contributing
 

@@ -8,7 +8,7 @@ Building a CLI Gem
 6. Start to remove the hard coded data and then
 7. Use objects and scraping tools tools to program
 
-- A CLI for now playing movies, a second layer that has a link to IMDB's site for that particular movie
+- A CLI for now playing movies, a second layer that has a link to IMDB's site for that particular movie.
 
 Shows a list of movies:
 

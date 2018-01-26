@@ -28,3 +28,5 @@ class NowPlayingCliGem::Movie
       link = doc.search("a[itemprop='url']").collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
     end
   end
+
+#PROGRAM IS WORKING AND COMPLETE
