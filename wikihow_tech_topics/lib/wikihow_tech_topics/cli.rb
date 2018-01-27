@@ -2,10 +2,13 @@
 class WikihowTechTopics::CLI
 
     def call
+        start
+    end
+
+    def start
         puts "Welcome to Wikihow Tech Topics"
         puts ""
         puts "Type the number of the article you wish to read."
-        run
     end
 
     def run
