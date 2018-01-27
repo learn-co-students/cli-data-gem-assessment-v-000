@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/cli.rb'
+require_relative '../lib/wikihow_tech_topics/cli.rb'
 
 # DO I NEED TO LOAD OTHER FILES?
 
