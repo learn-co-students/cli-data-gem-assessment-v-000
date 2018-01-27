@@ -8,13 +8,17 @@ require 'pry'
 class WikihowTechTopics::Scraper
     
     def self.scraped_title
-        title_array = []
+        @title_array = []
 
-
-        home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
         
 
-        home_page.css(<div class="thumbnail").each do |title|
+        @home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
+        binding.pry
+
+        home_page = @home_page.css(<div class="thumbnail")
+        
+        home_page.collect do |title|
+            
     
         article_title = {
             :title => title.css('p.span').text
