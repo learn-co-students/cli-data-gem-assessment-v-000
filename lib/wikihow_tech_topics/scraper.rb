@@ -10,6 +10,7 @@ class WikihowTechTopics::Scraper
     def self.scraped_title
         title_array = []
 
+
         home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
         
 
