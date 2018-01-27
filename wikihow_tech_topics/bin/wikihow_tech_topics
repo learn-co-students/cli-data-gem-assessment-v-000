@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
 
-# require_relative '../lib/scraper'
+require_relative '../lib/cli.rb'
+
+# DO I NEED TO LOAD OTHER FILES?
+
+# DO I NEED TO NAMESPACE THE MODULE HERE?
+
+# IS CONVENTION SINGULAR OR PLURAL FOR MODULE? OTHER PLACES IN GEM?
+
+WikihowTechTopics::CLI.new.call
 
