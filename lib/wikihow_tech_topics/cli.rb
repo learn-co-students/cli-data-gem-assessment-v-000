@@ -1,5 +1,8 @@
-
 class WikihowTechTopics::CLI
+
+    def initialize
+        @wikihow_site = WikihowTechTopics::Scraper.new
+    end
 
     def call
         start
