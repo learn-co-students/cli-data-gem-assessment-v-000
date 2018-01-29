@@ -1,4 +1,3 @@
-require 'openurl'
 require 'pry'
 require 'nokogiri'
 

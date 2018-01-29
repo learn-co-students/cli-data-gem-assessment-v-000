@@ -1,7 +1,12 @@
 class WikihowTechTopics::CLI
 
     def initialize
-        @wikihow_site = WikihowTechTopics::Scraper.new
+        WikihowTechTopics::Scraper.new
+        
+        # creates a new instance of scraper 
+        # that instance should include title from a hash 
+        # that instance should include content from a hash
+
     end
 
     def call
@@ -13,9 +18,14 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Type the number of the article you wish to read."
         puts ""
-        WikihowTechTopics::WikiTechTopicModel.all.each.with_index {|title, i|
-            puts '#{i}. {wikihow_tech_topic_model.name}'
+        WikihowTechTopics::WikihowTechTopicModel.all.each.with_index {|title, i|
+            puts '#{i}. {wikihow_tech_topic_model.title}'
         }
+
+        # this should include all of the instances of title (scraped from index page)
+
+
+
     end
 end
 

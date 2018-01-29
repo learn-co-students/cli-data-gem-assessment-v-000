@@ -2,15 +2,16 @@ require 'pry'
 
 class WikihowTechTopics::WikihowTechTopicModel
 
-    attr_accessor :name, :title, :content
+    attr_accessor :title, :content
 
     @@all = []
     
-    def initialize(name)
-        @name = name
+    def initialize(title=nil, content=nil)
+        @title = title
+        @content = content
         @@all << self
     end
-        
+              
     def self.all
         @@all
     end

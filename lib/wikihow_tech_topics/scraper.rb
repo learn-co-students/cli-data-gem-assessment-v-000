@@ -1,32 +1,32 @@
-require 'openurl'
 require 'nokogiri'
 require 'pry'
+require 'open-uri'
 
 
 # test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]
 
 class WikihowTechTopics::Scraper
     
-    def self.scraped_title
-        
-        title_hash = {}
+    @@title_hash = {}
+
+    def self.scraped_home_page
 
         @home_page = Nokogiri::HTML(open('https://www.wikihow.com/Category:Computers-and-Electronics'))
 
         home_page = @home_page.css('div')
-        
+        binding.pry
         home_page.collect do |title|
-            
-        article_title = {
-            :title => title.css('p.span').text
-        }
         
+            article_title = {
+                :title => title.css('p.span').text
+            }
         end
-        title_hash << article_title    
     end
 end
 
-    # def self.scraped_content
+
+
+# def self.scraped_content
     #     content_array = []
 
 
