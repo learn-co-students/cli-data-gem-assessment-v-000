@@ -1,16 +1,16 @@
-1. Checking out any issues with TOS for scraping
-2. Start Readme
+1. Checking out any issues with TOS for scraping DONE
+2. Start Readme DONE
 
-3. Create CLI to return numbered list of articles 
+3. Create CLI to return numbered list of articles DONE
 
 User will be able to choose from numbered list of article titles to see content
 
-4.  Build out Scraper to scrape this page for attributes
-5.  Build out module
-6.  Make sure CLI works
+4.  Build out Scraper to scrape this page for attributes 
+5.  Build out module DONE
+6.  Make sure CLI works IN PROCESS
 7.  Finish/proof Readme
 8.  Finish pushing gem to rubygems
-9.  Blog (all along)
+9.  Blog (all along) IN PROCESS
 10. Make sure all steps in lab are finished
 11. Submit project
 
