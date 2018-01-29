@@ -13,6 +13,7 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Type the number of the article you wish to read."
     end
+end
 
     # def run
     #     scraped_site_title
@@ -42,7 +43,6 @@ class WikihowTechTopics::CLI
     #         end
     # end
 
-end
 
 
 

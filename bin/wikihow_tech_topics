@@ -2,10 +2,4 @@
 
 require_relative '../lib/wikihow_tech_topics'
 
-# DO I NEED TO LOAD OTHER FILES?
-
-# DO I NEED TO NAMESPACE THE MODULE HERE?
-
-# IS CONVENTION SINGULAR OR PLURAL FOR MODULE? OTHER PLACES IN GEM?
-
 WikihowTechTopics::CLI.new.call

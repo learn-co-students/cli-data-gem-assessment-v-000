@@ -9,7 +9,12 @@ class WikihowTechTopics::WikihowTechTopicModel
         @name = name
         @@all << self
     end
-    
+        
+    def self.all
+        @@all
+    end
+end
+
     # def self.create_from_collection(students_array)
     #     students_array.each do |student_hash| 
     #     Student.new(student_hash)
@@ -20,8 +25,3 @@ class WikihowTechTopics::WikihowTechTopicModel
     #     attributes_hash.each {|key, value| self.send("#{key}=", value)}
     #     @@all << self
     # end
-    
-    def self.all
-        @@all
-    end
-end
