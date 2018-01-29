@@ -1,10 +1,11 @@
+require 'pry'
+
 class WikihowTechTopics::WikihowTechTopicModel
 
     attr_accessor :name, :title, :content
 
     @@all = []
     
-  
     def initialize(name)
         @name = name
         @@all << self

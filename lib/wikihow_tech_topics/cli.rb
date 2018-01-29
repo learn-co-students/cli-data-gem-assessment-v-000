@@ -12,6 +12,10 @@ class WikihowTechTopics::CLI
         puts "Welcome to Wikihow Tech Topics"
         puts ""
         puts "Type the number of the article you wish to read."
+        puts ""
+        WikihowTechTopics::WikiTechTopicModel.all.each.with_index {|title, i|
+            puts '#{i}. {wikihow_tech_topic_model.name}'
+        }
     end
 end
 
