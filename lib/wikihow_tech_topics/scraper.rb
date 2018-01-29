@@ -8,9 +8,10 @@ require 'pry'
 class WikihowTechTopics::Scraper
     
     def self.scraped_title
+        
         title_hash = {}
 
-        @home_page = Nokogiri::HTML(open(https://www.wikihow.com/Category:Computers-and-Electronics))
+        @home_page = Nokogiri::HTML(open('https://www.wikihow.com/Category:Computers-and-Electronics'))
 
         home_page = @home_page.css('div')
         
@@ -23,7 +24,7 @@ class WikihowTechTopics::Scraper
         end
         title_hash << article_title    
     end
-
+end
 
     # def self.scraped_content
     #     content_array = []
