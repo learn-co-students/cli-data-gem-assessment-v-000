@@ -1,4 +1,4 @@
-class WikihowTechTopics::WikihowTechTopic
+class WikihowTechTopics::WikihowTechTopicModel
 
     attr_accessor :name, :title, :content
 
