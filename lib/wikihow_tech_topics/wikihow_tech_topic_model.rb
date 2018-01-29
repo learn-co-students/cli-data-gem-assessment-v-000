@@ -11,7 +11,7 @@ class WikihowTechTopics::WikihowTechTopicModel
         @content = content
         @@all << self
     end
-              
+
     def self.all
         @@all
     end

@@ -1,11 +1,16 @@
 class WikihowTechTopics::CLI
 
     def initialize
-        WikihowTechTopics::Scraper.new
+        newly_scraped_page = WikihowTechTopics::Scraper.new
+        newly_scraped_page.scraped_home_page.collect do |title|
+            
+
         
-        # creates a new instance of scraper 
-        # that instance should include title from a hash 
-        # that instance should include content from a hash
+        creates a new instance of scraper
+        I need to access an instance of the scraped title
+
+        that instance should include title from a hash 
+        that instance should include content from a hash
 
     end
 
@@ -22,7 +27,8 @@ class WikihowTechTopics::CLI
             puts '#{i}. {wikihow_tech_topic_model.title}'
         }
 
-        # this should include all of the instances of title (scraped from index page)
+        
+        this should include all of the instances of title (scraped from index page)
 
 
 

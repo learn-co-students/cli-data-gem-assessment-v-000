@@ -7,19 +7,21 @@ require 'open-uri'
 
 class WikihowTechTopics::Scraper
     
-    @@title_hash = {}
+    # @@title_hash = {}
 
     def self.scraped_home_page
 
         @home_page = Nokogiri::HTML(open('https://www.wikihow.com/Category:Computers-and-Electronics'))
 
         home_page = @home_page.css('div')
-        binding.pry
+
         home_page.collect do |title|
         
-            article_title = {
-                :title => title.css('p.span').text
-            }
+            title.css('p.span').text
+
+            # article_title = {
+            #     :title => title.css('p.span').text
+            # }
         end
     end
 end
