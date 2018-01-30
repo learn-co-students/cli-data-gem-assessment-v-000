@@ -28,25 +28,21 @@ class WikihowTechTopics::Scraper
     end
 
     def self.scraped_content_array(url)
-binding.pry
+
         url = "https://www.wikihow.com/Category:Computers-and-Electronics"
 
         @content_page = Nokogiri::HTML(open(url))
-            
-        # @home_page.css('.text').each do |title|
-        #     title.css('span').text
+        
+        @content_page.css(".thumbnail").each do |content|
+            content.css("a").attribute("href").text
 
-        # @title_ary << title.css('span').text
-        # end
-        # @title_ary
+            @content_array << content.css("a").attribute("href").text
+        end
+        @content_array
     end
 end
 #         content_url.css(<div class="thumbnail").each do |article|
 
-#             :content_url => article.css( <a href="//www.wikihow.com/Change-Alexa%27s-Name">).text
-#         }
-#         end
-#         content_array << article_content
 #     end
 # end
 
