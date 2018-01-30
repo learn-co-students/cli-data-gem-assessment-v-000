@@ -9,11 +9,11 @@ class WikihowTechTopics::CLI
         newly_scraped.each.with_index(1) do |title, i|
             puts "#{i}. #{title}"
            
-        title_input = gets.strip
+        # title_input = gets.strip
 
-        if title_input == i
-            run_content# then get related content
-        end
+        # if title_input == i
+        #     run_content# then get related content
+        # end
     end
     end
     # binding.pry

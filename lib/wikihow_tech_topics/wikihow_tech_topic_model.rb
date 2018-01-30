@@ -17,15 +17,14 @@ class WikihowTechTopics::WikihowTechTopicModel
     def self.create_from_title_array
         new_title = WikihowTechTopics::Scraper.get_title_ary
         new_title.each do |title|
-        @@all << self.new(title)
+            WikihowTechTopics::WikihowTechTopicModel.new(title)
+            @@all << self
         end
     end
-    binding.pry
 
     def self.all
         @@all
     end
-
 end
 
     # def self.create_from_collection(students_array)
