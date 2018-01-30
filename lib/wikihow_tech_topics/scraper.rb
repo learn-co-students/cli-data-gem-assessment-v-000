@@ -36,14 +36,19 @@ class WikihowTechTopics::Scraper
         home_page.css(".thumbnail").each do |content|
             content.css("a").attribute("href").text
 
+            @content_url = content.css("a").attribute("href")
+
+            @content_url_ary << @content_url
+
+            @content_url.css("div.bodycontents").text
+            
+            @content_array << @content_url.css("div.bodycontents").text
+        @content_array
         end
-
-
-        # @content_url.css("div.bodycontents").text
-        #     @content_array << @content_url.css("div.bodycontents").text
     end
-    @content_array
     binding.pry
+
+    @content_array
 end
 #         content_url.css(<div class="thumbnail").each do |article|
 
