@@ -14,14 +14,13 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all << self
     end
 
-    def self.create_from_title_array()
-    #   new Scraper instance
-    #   call get_title_ary
-    #   iterate over get_title_ary to make new instances of title
-    #   pass title through new instance of wikihow_tech_topic_model to instantiate new title
-    #   insert titles into self
-    #     end
-    # end
+    def self.create_from_title_array(new_title)
+        binding.pry
+        new_title = WikihowTechTopics::Scraper.new.get_title_ary
+        new_title.collect do |title|
+        @@all << self.new(title)
+        end
+    end
 
     def self.all
         @@all
