@@ -1,5 +1,7 @@
 require 'pry'
 
+# Need to use this class to store instances of title and content as scraped by scraper
+
 class WikihowTechTopics::WikihowTechTopicModel
 
     attr_accessor :title, :content
@@ -12,15 +14,14 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all << self
     end
 
-    def instantiate_title
-
-        new_title.each do |title|
-            @title = title 
-
-        end
-        binding.pry
-
-    end
+    def self.create_from_title_array()
+    #   new Scraper instance
+    #   call get_title_ary
+    #   iterate over get_title_ary to make new instances of title
+    #   pass title through new instance of wikihow_tech_topic_model to instantiate new title
+    #   insert titles into self
+    #     end
+    # end
 
     def self.all
         @@all
