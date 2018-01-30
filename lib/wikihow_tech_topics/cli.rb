@@ -34,7 +34,9 @@ class WikihowTechTopics::CLI
         # get related content
     end
 
-
+    def to_make_pry_happy
+        WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+    end
     # def scraped_site_title
     #     test_array1 = ['how to text', 'how to email']
     #     test_array1.each.with_index {|title, index|
