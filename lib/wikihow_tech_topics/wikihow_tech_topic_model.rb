@@ -12,6 +12,16 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all << self
     end
 
+    def instantiate_title
+
+        new_title.each do |title|
+            @title = title 
+
+        end
+        binding.pry
+
+    end
+
     def self.all
         @@all
     end

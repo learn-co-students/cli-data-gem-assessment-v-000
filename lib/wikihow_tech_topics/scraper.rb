@@ -7,14 +7,22 @@ require 'open-uri'
 
 class WikihowTechTopics::Scraper
 
-    def self.get_title_ary
-        @title_ary = []
+    @title_ary = []
+
+    def self.get_title_ary(title_url)
         
-        home_page = Nokogiri::HTML(open('https://www.wikihow.com/Category:Computers-and-Electronics'))
+        title_url = 'https://www.wikihow.com/Category:Computers-and-Electronics'
         
-        @title_ary << home_page.css('.text').text
+        home_page = Nokogiri::HTML(open(title_url))
+        
+        home_page.css('.text').text.each do |title|
+            
+        @title_ary << title
+        end
     end
-  end
+    binding.pry
+
+end
 
 
 

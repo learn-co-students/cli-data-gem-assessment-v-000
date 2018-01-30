@@ -1,19 +1,19 @@
+require 'pry'
+
 class WikihowTechTopics::CLI
 
-    def initialize
-        WikihowTechTopics::Scraper.new
-        # newly_scraped_page = WikihowTechTopics::Scraper.new
-        # newly_scraped_page.scraped_home_page.collect do |title|
-            
+    def new_scraper
+        newly_scraped = WikihowTechTopics::Scraper.get_title_ary
+        newly_scraped.each.with_index(1) do |title, i|
+            puts "#{i}. #{title}"
+        end
+    end
 
-        
         # creates a new instance of scraper
         # I need to access an instance of the scraped title
 
         # that instance should include title from a hash 
         # that instance should include content from a hash
-
-    end
 
     def call
         start
@@ -24,18 +24,13 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Type the number of the article you wish to read."
         puts ""
-        WikihowTechTopics::WikihowTechTopicModel.all.each.with_index {|title, i|
-            puts '#{i}. {wikihow_tech_topic_model.title}'
-        }
-
-        
         # this should include all of the instances of title (scraped from index page)
 
 
 
+        new_scraper
     end
 end
-
     # def run
     #     scraped_site_title
     #     # scraped_site_content
