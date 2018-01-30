@@ -27,24 +27,25 @@ class WikihowTechTopics::Scraper
         @title_ary
     end
 
-    # def self.scraped_content_array(url)
+    def self.scraped_content_array(content_url)
 
+        
         url = "https://www.wikihow.com/Category:Computers-and-Electronics"
 
         home_page = Nokogiri::HTML(open(url))
 
 
-        @content_url = home_page.css(".thumbnail").each do |content|
+        content_url = home_page.css(".thumbnail").each do |content|
             content.css("a").attribute("href").text
 
-            binding.pry
 
-            
+        end
+
+
         @content_url.css("div.bodycontents").text
             @content_array << @content_url.css("div.bodycontents").text
-        end
         @content_array
-    # end
+    end
 end
 #         content_url.css(<div class="thumbnail").each do |article|
 
