@@ -39,7 +39,8 @@ class WikihowTechTopics::CLI
     end
 
     def to_make_pry_even_happier
-        WikihowTechTopics::Scraper.scraped_content_array
+        WikihowTechTopics::Scraper.scraped_content_array(pry)
+        pry = 2
     end
     # def scraped_site_title
     #     test_array1 = ['how to text', 'how to email']
