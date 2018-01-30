@@ -9,18 +9,22 @@ class WikihowTechTopics::Scraper
 
     @title_ary = []
 
-    # def self.get_title_ary(title_url)
+    def initialize(url = "https://www.wikihow.com/Category:Computers-and-Electronics")
+        @url = url
+    end
 
-        title_url = 'https://www.wikihow.com/Category:Computers-and-Electronics'
+    def self.get_title_ary
+        # (title_url)
+
+        # @title_url = 'https://www.wikihow.com/Category:Computers-and-Electronics'
         
-        home_page = Nokogiri::HTML(open(title_url))
+        @home_page = Nokogiri::HTML(open(@url))
         
-        home_page.css('.text').each do |title|
+        @home_page.css('.text').each do |title|
             title.css('span').text
 
         @title_ary << title.css('span').text
-binding.pry
-        # end
+        end
     end
 end
 

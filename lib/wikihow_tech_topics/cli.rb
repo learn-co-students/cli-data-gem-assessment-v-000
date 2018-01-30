@@ -4,10 +4,13 @@ class WikihowTechTopics::CLI
 
     def new_scraper
         newly_scraped = WikihowTechTopics::Scraper.get_title_ary
+
         newly_scraped.each.with_index(1) do |title, i|
             puts "#{i}. #{title}"
         end
     end
+    # binding.pry
+
 
         # creates a new instance of scraper
         # I need to access an instance of the scraped title
