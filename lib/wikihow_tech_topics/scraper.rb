@@ -13,7 +13,7 @@ class WikihowTechTopics::Scraper
         @url = url
     end
 
-    def self.get_title_ary
+    def self.scraped_title_ary
         
         @home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Computers-and-Electronics"))
         
@@ -24,19 +24,30 @@ class WikihowTechTopics::Scraper
         end
         @title_ary
     end
-end
 
-# def self.scraped_content
+    def self.scraped_content_array
+  
+        @home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Computers-and-Electronics"))
+            
+        @home_page.css('.text').each do |title|
+            title.css('span').text
+
+        @title_ary << title.css('span').text
+        end
+        @title_ary
+    end
+end
 #     content_array = []
 
 
-#     content_url.css(<div class="thumbnail").each do |article|
+#         content_url.css(<div class="thumbnail").each do |article|
 
-#     article_content = {
-#         :content_url => article.css( <a href="//www.wikihow.com/Change-Alexa%27s-Name">).text
-#     }
+#         article_content = {
+#             :content_url => article.css( <a href="//www.wikihow.com/Change-Alexa%27s-Name">).text
+#         }
+#         end
+#         content_array << article_content
 #     end
-#     content_array << article_content
 # end
 
         # <div class="text"><p>How to <br><span>Change Alexa's Name</span></p></div>

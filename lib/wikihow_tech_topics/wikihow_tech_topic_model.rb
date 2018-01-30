@@ -15,7 +15,7 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_title_array
-        new_title = WikihowTechTopics::Scraper.get_title_ary
+        new_title = WikihowTechTopics::Scraper.scraped_title_ary
         new_title.each do |title|
             WikihowTechTopics::WikihowTechTopicModel.new(title)
             @@all << self

@@ -4,7 +4,7 @@ require 'pry'
 class WikihowTechTopics::CLI
 
     def scraped_titles
-        newly_scraped = WikihowTechTopics::Scraper.get_title_ary
+        newly_scraped = WikihowTechTopics::Scraper.scraped_title_ary
 
         newly_scraped.each.with_index(1) do |title, i|
             puts "#{i}. #{title}"
