@@ -12,9 +12,9 @@ class WikihowTechTopics::CLI
         title_input = gets.strip
 
         if title_input == i
-
-
+            run_content# then get related content
         end
+    end
     end
     # binding.pry
 
@@ -31,7 +31,7 @@ class WikihowTechTopics::CLI
     end
 
     def run_content
-        
+        # get related content
     end
 
 
