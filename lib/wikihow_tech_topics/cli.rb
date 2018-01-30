@@ -1,3 +1,4 @@
+require_relative 'scraper'
 require 'pry'
 
 class WikihowTechTopics::CLI
