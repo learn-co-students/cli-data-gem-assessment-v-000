@@ -49,7 +49,6 @@ class WikihowTechTopics::Scraper
 
         content_page.css('div.steps').each do |full_content|
             full_content.css("b").text
-
             @content_array << full_content.css("b").text
                 end
             end

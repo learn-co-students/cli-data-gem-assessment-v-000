@@ -35,8 +35,8 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 end
 
-WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+# WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+# WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
 
 
     # def self.create_from_collection(students_array)

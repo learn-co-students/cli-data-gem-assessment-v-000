@@ -1,8 +1,8 @@
 require_relative 'scraper'
+require_relative 'wikihow_tech_topic_model'
 require 'pry'
 
 class WikihowTechTopics::CLI
-
     
     def call
         start
@@ -22,8 +22,9 @@ class WikihowTechTopics::CLI
             unless title == ""
                 puts "#{i}. #{title}"
             end      
+             WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+
         end
-        puts ""
         puts ""
     end
     
