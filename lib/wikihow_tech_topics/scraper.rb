@@ -45,45 +45,12 @@ class WikihowTechTopics::Scraper
         scraped_content_ary.each do |complete_content_url|
             content_page = Nokogiri::HTML(open(complete_content_url))
 
-        content_page.css('["id=steps"]').each do |full_content|
-            # work out children
-            full_content.css(".steps").text
+        content_page.css('div.steps').each do |full_content|
+            full_content.css("b").text
 
-            link = profile_page.css("div.social-icon-container").children.css("a").map { |sm| sm.attribute("href").text }
-    
-            # specific_info = full_content.css("p")
-            binding.pry
-
-            # specific_info.each do |step|
-            #     step.css(".whb").text
-
-
-            # @content_array << step.css(".whb").text
-
-
-            
-
-
-
-        #     @content_url.css("div.bodycontents").text
-            
-        #     @content_array << @content_url.css("div.bodycontents").text
-        # @content_array
-        end
+            @content_array << full_content.css("b").text
+            end
         end
     end
-    end
-
     @content_array
 end
-#         content_url.css(<div class="thumbnail").each do |article|
-
-#     end
-# end
-
-        # <div class="text"><p>How to <br><span>Change Alexa's Name</span></p></div>
-
-        # <div class="thumbnail d-height d-width">
-        # <a href="//www.wikihow.com/Change-Alexa%27s-Name">
-        # <div id="bodycontents">
-
