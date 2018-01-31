@@ -9,12 +9,12 @@ class WikihowTechTopics::CLI
         newly_scraped_for_titles.each.with_index(1) do |title, i|
             puts "#{i}. #{title}"
            
-        # title_input = gets.strip
+        title_input = gets.strip
 
-        # if title_input == i
-        #     run_content# then get related content
-        # end
-    end
+            if title_input == i
+                run_content
+            end
+        end
     end
     # binding.pry
 
@@ -31,50 +31,12 @@ class WikihowTechTopics::CLI
     end
 
     def self.run_content
-
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
 
         newly_scraped_for_content.each do |content_steps|
             puts "#{content_steps}"
         end
     end
-# run_content
-
-
-
-
-
-    def to_make_pry_happy
-        WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-    end
-
-    # def to_make_pry_even_happier(hey)
-    #     hey = 2
-    #     WikihowTechTopics::Scraper.scraped_content_array(2)
-    # end
-
-    # WikihowTechTopics::Scraper.scraped_content_array(2)
-
-
-    # def scraped_site_title
-    #     test_array1 = ['how to text', 'how to email']
-    #     test_array1.each.with_index {|title, index|
-    #         puts "#{index+1}. #{title}" 
-    # }
-    # end
-
-    # def scraped_site_content
-    #     test_array2 = [{'content' => 'just do it'}, {'content' => 'just do it, too'}]
-    #         test_array2.collect do |content_hash|
-    #             content_hash.each.with_index {|content, index|
-    #             input = gets.strip
-    #             if input == index
-    #                 puts "#{content}" 
-    #             end 
-    #         }
-    #         end
-    # end
-
 end
 
 

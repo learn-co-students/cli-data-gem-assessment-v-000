@@ -19,8 +19,6 @@ class WikihowTechTopics::WikihowTechTopicModel
         new_title.each do |title|
             WikihowTechTopics::WikihowTechTopicModel.new(title)
             @@all << self
-            binding.pry
-
         end
     end
 
