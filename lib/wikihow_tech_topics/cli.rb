@@ -33,23 +33,20 @@ class WikihowTechTopics::CLI
     def self.run_content
 
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
-        binding.pry 
 
         newly_scraped_for_content.each do |content_steps|
             puts "#{content_steps}"
         end
     end
-
-    run_content
-
+# run_content
 
 
 
 
 
-    # def to_make_pry_happy
-    #     WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-    # end
+    def to_make_pry_happy
+        WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+    end
 
     # def to_make_pry_even_happier(hey)
     #     hey = 2

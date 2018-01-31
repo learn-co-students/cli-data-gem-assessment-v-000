@@ -19,8 +19,19 @@ class WikihowTechTopics::WikihowTechTopicModel
         new_title.each do |title|
             WikihowTechTopics::WikihowTechTopicModel.new(title)
             @@all << self
+            binding.pry
+
         end
     end
+
+    def self.create_from_title_content
+        new_content = WikihowTechTopics::Scraper.scraped_content_ary
+        new_content.each do |content|
+            WikihowTechTopics::WikihowTechTopicModel.new(content)
+            @@all << self
+        end
+    end
+
 
     def self.all
         @@all
