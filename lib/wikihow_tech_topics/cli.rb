@@ -16,7 +16,7 @@ class WikihowTechTopics::CLI
     end
 
     def self.scraped_titles
-        newly_scraped_for_titles = WikihowTechTopics::Scraper.scraped_title_ary
+        newly_scraped_for_titles = WikihowTechTopics::Scraper.scraped_title_array
 
         newly_scraped_for_titles.each.with_index(1) do |title, i|
             unless title == ""

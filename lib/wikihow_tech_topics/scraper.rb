@@ -15,7 +15,7 @@ class WikihowTechTopics::Scraper
         @url = url
     end
 
-    def self.scraped_title_ary
+    def self.scraped_title_array
         
         @home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Computers-and-Electronics"))
         
@@ -54,8 +54,11 @@ class WikihowTechTopics::Scraper
                 end
             end
         end
+        @content_array
     end
 end
+
+
 
 # 1. Get more than just first article to be viewable by user
 # 2. Finish out model and cli files for content

@@ -15,14 +15,14 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_title_array
-        new_title = WikihowTechTopics::Scraper.scraped_title_ary
+        new_title = WikihowTechTopics::Scraper.scraped_title_array
         new_title.each do |title|
             WikihowTechTopics::WikihowTechTopicModel.new(title)
             @@all << self
         end
     end
 
-    def self.create_from_title_content
+    def self.create_from_content_array
         new_content = WikihowTechTopics::Scraper.scraped_content_array
         new_content.each do |content|
             WikihowTechTopics::WikihowTechTopicModel.new(content)
@@ -36,7 +36,7 @@ class WikihowTechTopics::WikihowTechTopicModel
 end
 
 WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-WikihowTechTopics::WikihowTechTopicModel.create_from_title_content
+WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
 
 
     # def self.create_from_collection(students_array)
