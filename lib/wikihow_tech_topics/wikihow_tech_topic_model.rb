@@ -27,14 +27,18 @@ class WikihowTechTopics::WikihowTechTopicModel
         new_content.each do |content|
             WikihowTechTopics::WikihowTechTopicModel.new(content)
             @@all << self
+            binding.pry
         end
     end
-
 
     def self.all
         @@all
     end
 end
+
+WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+WikihowTechTopics::WikihowTechTopicModel.create_from_title_content
+
 
     # def self.create_from_collection(students_array)
     #     students_array.each do |student_hash| 

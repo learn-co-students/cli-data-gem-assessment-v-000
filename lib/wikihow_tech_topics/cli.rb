@@ -8,8 +8,6 @@ class WikihowTechTopics::CLI
         start
     end
 
-
-
     def start
         puts "Welcome to Wikihow Tech Topics!"
         puts ""
@@ -22,7 +20,7 @@ class WikihowTechTopics::CLI
 
         newly_scraped_for_titles.each.with_index(1) do |title, i|
             unless title == ""
-                puts "#{i}. #{title}"      
+                puts "#{i}. #{title}"
             end      
         end
         puts ""
@@ -38,7 +36,7 @@ class WikihowTechTopics::CLI
         newly_scraped_for_content.each do |content_steps|
             puts "#{content_steps}"
         end
-    end
+    end    
 end
 
 
