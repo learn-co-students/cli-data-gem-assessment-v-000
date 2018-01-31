@@ -45,12 +45,21 @@ class WikihowTechTopics::Scraper
         scraped_content_ary.each do |complete_content_url|
             content_page = Nokogiri::HTML(open(complete_content_url))
 
-        content_page.css(".step").each do |full_content|
+        content_page.css('["id=steps"]').each do |full_content|
             # work out children
-            full_content.css(".whb").text
-            @content_array << full_content.css(".step").text
+            full_content.css(".steps").text
 
+            link = profile_page.css("div.social-icon-container").children.css("a").map { |sm| sm.attribute("href").text }
+    
+            # specific_info = full_content.css("p")
             binding.pry
+
+            # specific_info.each do |step|
+            #     step.css(".whb").text
+
+
+            # @content_array << step.css(".whb").text
+
 
             
 
