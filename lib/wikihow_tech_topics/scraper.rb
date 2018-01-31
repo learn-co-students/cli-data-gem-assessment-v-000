@@ -33,30 +33,30 @@ class WikihowTechTopics::Scraper
 
         home_page = Nokogiri::HTML(open(url))
 
-        home_page.css(".thumbnail").each do |content|
-            content.css("a").attribute("href").text
+        home_page.css(".thumbnail").each do |content_url|
+            content_url.css("a").attribute("href").text
 
         scraped_content_ary = []
        
-        scraped_content_url = content.css("a").attribute("href").text
+        scraped_content_url = content_url.css("a").attribute("href").text
       
-        scraped_content_ary << scraped_content_url
+        scraped_content_ary << "https:" + scraped_content_url
         
-        scraped_content_ary.each do |content_url|
+        scraped_content_ary.each do |complete_content_url|
+            content_page = Nokogiri::HTML(open(complete_content_url))
 
-        content_page = Nokogiri::HTML(open(content_url)
+        content_page.css("div.bodycontents").each do |full_content|
+            @content_array << full_content
 
-        
-            
-        
         binding.pry
 
-
-            @content_url.css("div.bodycontents").text
+        #     @content_url.css("div.bodycontents").text
             
-            @content_array << @content_url.css("div.bodycontents").text
-        @content_array
+        #     @content_array << @content_url.css("div.bodycontents").text
+        # @content_array
         end
+        end
+    end
     end
 
     @content_array
