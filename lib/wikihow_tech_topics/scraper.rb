@@ -54,3 +54,9 @@ class WikihowTechTopics::Scraper
     end
     @content_array
 end
+
+1. Get more than just first article to be viewable by user
+2. Finish out model and cli files for content
+3. Parse/code steps from content to be user friendly
+4. Make sure whole CLI works
+
