@@ -45,10 +45,14 @@ class WikihowTechTopics::Scraper
         scraped_content_ary.each do |complete_content_url|
             content_page = Nokogiri::HTML(open(complete_content_url))
 
-        content_page.css("div.bodycontents").each do |full_content|
-            @content_array << full_content
+        content_page.css("p").each do |full_content|
+            work out children
+            full_content.css("p").text
+            @content_array << full_content.css("p").text
 
-        binding.pry
+            binding.pry
+
+
 
         #     @content_url.css("div.bodycontents").text
             
