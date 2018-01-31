@@ -23,11 +23,10 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_title_content
-        new_content = WikihowTechTopics::Scraper.scraped_content_ary
+        new_content = WikihowTechTopics::Scraper.scraped_content_array
         new_content.each do |content|
             WikihowTechTopics::WikihowTechTopicModel.new(content)
             @@all << self
-            binding.pry
         end
     end
 

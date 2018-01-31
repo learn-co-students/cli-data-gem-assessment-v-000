@@ -55,7 +55,6 @@ class WikihowTechTopics::Scraper
             end
         end
     end
-    # @content_array
 end
 
 # 1. Get more than just first article to be viewable by user
