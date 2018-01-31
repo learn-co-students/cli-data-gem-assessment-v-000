@@ -15,7 +15,6 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
-        end
     end
 
     def self.scraped_titles
@@ -23,11 +22,7 @@ class WikihowTechTopics::CLI
 
         newly_scraped_for_titles.each.with_index(1) do |title, i|
             unless title == ""
-                puts "#{i}. #{title}"
-                title_input = gets.strip
-                if title_input == i
-                    run_content
-        
+                puts "#{i}. #{title}"      
             end      
         end
         puts ""
@@ -37,9 +32,6 @@ class WikihowTechTopics::CLI
     scraped_titles
 
     def run_content
-        
-
-
         
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
 
