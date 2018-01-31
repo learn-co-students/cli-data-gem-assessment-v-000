@@ -29,6 +29,8 @@ class WikihowTechTopics::Scraper
 
     def self.scraped_content_array(content_url)
 
+        @content_url = content_url
+        
         url = "https://www.wikihow.com/Category:Computers-and-Electronics"
 
         home_page = Nokogiri::HTML(open(url))

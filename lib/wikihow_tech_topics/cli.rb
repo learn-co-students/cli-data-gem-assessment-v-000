@@ -3,7 +3,7 @@ require 'pry'
 
 class WikihowTechTopics::CLI
 
-    def scraped_titles
+    def self.scraped_titles
         newly_scraped_for_titles = WikihowTechTopics::Scraper.scraped_title_ary
 
         newly_scraped_for_titles.each.with_index(1) do |title, i|
@@ -30,16 +30,17 @@ class WikihowTechTopics::CLI
         scraped_titles
     end
 
-    def run_content
-        
+    def self.run_content
+
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        binding.pry 
 
         newly_scraped_for_content.each do |content_steps|
             puts "#{content_steps}"
         end
     end
 
-binding.pry 
+    self.run_content
 
 
 
@@ -47,16 +48,16 @@ binding.pry
 
 
 
-    def to_make_pry_happy
-        WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-    end
+    # def to_make_pry_happy
+    #     WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+    # end
 
-    def to_make_pry_even_happier(hey)
-        hey = 2
-        WikihowTechTopics::Scraper.scraped_content_array(2)
-    end
+    # def to_make_pry_even_happier(hey)
+    #     hey = 2
+    #     WikihowTechTopics::Scraper.scraped_content_array(2)
+    # end
 
-    WikihowTechTopics::Scraper.scraped_content_array(2)
+    # WikihowTechTopics::Scraper.scraped_content_array(2)
 
 
     # def scraped_site_title
