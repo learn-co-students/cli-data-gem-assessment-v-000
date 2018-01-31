@@ -3,9 +3,11 @@ require 'pry'
 
 class WikihowTechTopics::CLI
 
+    
     def call
         start
     end
+
 
     # binding.pry
 
@@ -16,9 +18,9 @@ class WikihowTechTopics::CLI
     # end
 
     def start
-        puts "Welcome to Wikihow Tech Topics"
+        puts "Welcome to Wikihow Tech Topics!"
         puts ""
-        puts "Type the number of the article you wish to read."
+        puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
     end
     
@@ -26,10 +28,17 @@ class WikihowTechTopics::CLI
         newly_scraped_for_titles = WikihowTechTopics::Scraper.scraped_title_ary
 
         newly_scraped_for_titles.each.with_index(1) do |title, i|
+            unless title == ""
             puts "#{i}. #{title}"
+            end      
         end
+        puts ""
+        puts ""
     end
+    
     scraped_titles
+
+
 
 
     def self.run_content
