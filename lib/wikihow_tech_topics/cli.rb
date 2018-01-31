@@ -16,14 +16,11 @@ class WikihowTechTopics::CLI
     end
 
     def self.scraped_titles
-        newly_scraped_for_titles = WikihowTechTopics::Scraper.scraped_title_array
-
+        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
         newly_scraped_for_titles.each.with_index(1) do |title, i|
             unless title == ""
                 puts "#{i}. #{title}"
             end      
-             WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-
         end
         puts ""
     end
@@ -32,7 +29,7 @@ class WikihowTechTopics::CLI
 
     def run_content
         
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
 
         newly_scraped_for_content.each do |content_steps|
             puts "#{content_steps}"
