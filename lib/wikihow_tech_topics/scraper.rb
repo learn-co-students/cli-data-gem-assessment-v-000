@@ -11,8 +11,6 @@ class WikihowTechTopics::Scraper
 
     @title_ary = []
 
-    @content_array = []
-
     def initialize(url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer")
         @url = url
     end
@@ -34,6 +32,8 @@ class WikihowTechTopics::Scraper
 
     def self.scraped_content_array(url)
 
+        content_hash = {}
+
         # @content_url = content_url
 
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
@@ -49,16 +49,17 @@ class WikihowTechTopics::Scraper
         http_added.map do |complete_content_url| 
             content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
         
-        @content_array = content_pages_to_scrape.css('div.steps').map { |full_content|
+        final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
         
-        @content_array
-
+        final_scraped_content.each do |content|
+            content_hash[:content] = steps
         end
+        content_hash
     end
 end
 
-
+#putting into hash
 
 # 1. Get more than just first article to be viewable by user
 # 2. Finish out model and cli files for content
