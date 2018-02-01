@@ -1,7 +1,9 @@
 
 For current commit message:  
 
-getting CLI to output from title hash in Scraper
+debug #scraped_title_hash for Fixnum error
+
+Testing out model methods
 
 1. Checking out any issues with TOS for scraping DONE
 2. Start Readme DONE
