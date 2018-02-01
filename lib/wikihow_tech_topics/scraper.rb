@@ -3,50 +3,36 @@ require 'pry'
 require 'open-uri'
 require_relative 'wikihow_tech_topic_model'
 
-
-
-# test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]
-
 class WikihowTechTopics::Scraper
 
-    
-    # @title_hash = {}
-
-    # def initialize(url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer")
-    #     @url = url
-    # end
-
-    def self.scraped_title_array
+    def self.scraped_title_hash
         
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
-        
-        home_page.css('.text').each do |title|
-            title.css('span').text
+
+        home_page.css('.text').each do |title_info|
 
         title_hash = {
-                :title => title.css('span').text
+                :title => title_info.css('span').text
         }
-        end
-        title_hash
+        
         binding.pry
+
+        end
+        # title_hash
     end
 
-    def self.scraped_content_array(url)
+    def self.scraped_content_hash
 
         content_hash = {}
-
-        # @content_url = content_url
 
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
 
         home_page = Nokogiri::HTML(open(url))
-
-        # link = profile_page.css("div.social-icon-container").children.css("a").map { |sm| sm.attribute("href").text }
-    
+   
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
         
         http_added = content_urls.map { |content_url| "https:" + content_url }
-        # css('div.steps')
+
         http_added.map do |complete_content_url| 
             content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
         
@@ -61,6 +47,9 @@ class WikihowTechTopics::Scraper
     end
 end
 
+WikihowTechTopics::Scraper.scraped_title_hash
+WikihowTechTopics::Scraper.scraped_content_hash
+
 #putting into hash
 
 # 1. Get more than just first article to be viewable by user
@@ -69,6 +58,9 @@ end
 # 4. Make sure whole CLI works
 
 # Question: Why did a below not need an argument of url but the current way does? (is the differenc each and map)? And was using each the reason I only got one link and a time and not all of the links scraped?)
+
+# test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]
+
 
 # home_page.css(".thumbnail").each do |content_url|
 #     content_url.css("a").attribute("href").text
