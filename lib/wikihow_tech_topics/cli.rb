@@ -10,6 +10,7 @@ class WikihowTechTopics::CLI
         newly_scraped_for_content.each.with_index(1) do |content_steps, i|
             puts "#{i}. #{content_steps}"
         end
+        scraped_content
     end    
 
     def call
@@ -21,6 +22,13 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
+        scraped_content
+
+        
+        title_number_input = gets.strip
+
+        title_array = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+        # if title_number_input = 
     end
 
     def self.scraped_titles
