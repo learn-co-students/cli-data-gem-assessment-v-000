@@ -31,7 +31,7 @@ class WikihowTechTopics::Scraper
 
     def self.scraped_content_array
 
-        @content_url = content_url
+        # @content_url = content_url
 
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
 
@@ -52,7 +52,8 @@ class WikihowTechTopics::Scraper
         content_page.css('div.steps').each do |full_content|
             full_content.css("b").text
             @content_array << full_content.css("b").text
-            # binding.pry
+            @content_array.last
+            binding.pry
 
                 end
             end

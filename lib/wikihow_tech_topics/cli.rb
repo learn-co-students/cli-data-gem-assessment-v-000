@@ -27,7 +27,7 @@ class WikihowTechTopics::CLI
         end
     end    
 
-    # scraped_content
+    scraped_content
 
     def self.scraped_titles
         newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array

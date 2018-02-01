@@ -24,11 +24,7 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_content_array
-        # binding.pry
-
         new_content = WikihowTechTopics::Scraper.scraped_content_array
-        # binding.pry
-
         new_content.each do |content|
             WikihowTechTopics::WikihowTechTopicModel.new(content)
             @@all << self
