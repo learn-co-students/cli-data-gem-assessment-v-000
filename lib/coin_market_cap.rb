@@ -1,5 +1,5 @@
 require 'pry'
-require 'nogokiri'
+require 'nokogiri'
 require 'open-uri'
 require_relative './coin_market_cap/version'
 require_relative './coin_market_cap/cli'
