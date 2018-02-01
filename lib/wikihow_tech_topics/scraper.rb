@@ -13,13 +13,13 @@ class WikihowTechTopics::Scraper
 
     @content_array = []
 
-    def initialize(url = "https://www.wikihow.com/Category:Computers-and-Electronics")
+    def initialize(url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer")
         @url = url
     end
 
     def self.scraped_title_array
         
-        @home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Computers-and-Electronics"))
+        @home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
         
         @home_page.css('.text').each do |title|
             title.css('span').text
@@ -31,9 +31,9 @@ class WikihowTechTopics::Scraper
 
     def self.scraped_content_array
 
-        # @content_url = content_url
+        @content_url = content_url
 
-        url = "https://www.wikihow.com/Category:Computers-and-Electronics"
+        url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
 
         home_page = Nokogiri::HTML(open(url))
 
@@ -52,10 +52,11 @@ class WikihowTechTopics::Scraper
         content_page.css('div.steps').each do |full_content|
             full_content.css("b").text
             @content_array << full_content.css("b").text
+            # binding.pry
+
                 end
             end
         end
-        @content_array
     end
 end
 
