@@ -43,16 +43,18 @@ class WikihowTechTopics::Scraper
         # link = profile_page.css("div.social-icon-container").children.css("a").map { |sm| sm.attribute("href").text }
     
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
-        # css('div.steps')
-        content_urls.map do |complete_content_url| 
-            content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))}
         
-        @content_array = content_pages_to_scrape.css('div.steps').map {|full_content|
-                full_content.css("b").text
+        http_added = content_urls.map { |content_url| "https:" + content_url }
+        # css('div.steps')
+        http_added.map do |complete_content_url| 
+            content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
+        
+        @content_array = content_pages_to_scrape.css('div.steps').map { |full_content|
+                full_content.css("b").text }
         
         @content_array
-        
-            binding.pry
+
+        end
     end
 end
 
