@@ -6,7 +6,9 @@ require_relative 'wikihow_tech_topic_model'
 class WikihowTechTopics::Scraper
 
     def self.scraped_title_hash
-        
+
+        # title_hash_array = []
+
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
 
         home_page.css('.text').each do |title_info|
@@ -14,7 +16,14 @@ class WikihowTechTopics::Scraper
         title_hash = {
                 :title => title_info.css('span').text
         }     
+        
+        # figure out why the return value of #scraped_title_hash is a Fixnum (0)
+        # play with metaprogramming in Scraper
+        # get control over understanding of what model is doing and get it to work
+        # get the cli to output from model instances
+
         end
+        # title_hash_array
     end
 
     # def self.scraped_content_hash

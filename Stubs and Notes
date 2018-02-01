@@ -1,3 +1,8 @@
+
+For current commit message:  
+
+getting CLI to output from title hash in Scraper
+
 1. Checking out any issues with TOS for scraping DONE
 2. Start Readme DONE
 
@@ -5,7 +10,7 @@
 
 User will be able to choose from numbered list of article titles to see content
 
-4.  Build out Scraper to scrape this page for attributes 
+4.  Build out Scraper to scrape this page for attributes IN PROCESS
 5.  Build out module DONE
 6.  Make sure CLI works IN PROCESS
 7.  Finish/proof Readme
@@ -13,5 +18,11 @@ User will be able to choose from numbered list of article titles to see content
 9.  Blog (all along) IN PROCESS
 10. Make sure all steps in lab are finished
 11. Submit project
+
+
+Refactoring:
+
+#use input methods with now-playing to make sure input is an integer
+#consdier using @@all ||= scraped info like now playing
 
 
