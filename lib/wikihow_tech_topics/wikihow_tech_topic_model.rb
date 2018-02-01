@@ -24,7 +24,7 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_content_array
-        new_content = WikihowTechTopics::Scraper.scraped_content_array
+        new_content = WikihowTechTopics::Scraper.scraped_content_array("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer")
         new_content.each do |content|
             WikihowTechTopics::WikihowTechTopicModel.new(content)
             @@all << self

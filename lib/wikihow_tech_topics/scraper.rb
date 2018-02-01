@@ -37,7 +37,9 @@ class WikihowTechTopics::Scraper
 
         home_page = Nokogiri::HTML(open(url))
 
-        home_page.css(".thumbnail").each do |content_url|
+        # link = profile_page.css("div.social-icon-container").children.css("a").map { |sm| sm.attribute("href").text }
+    
+        link = home_page.css(".thumbnail").each do |content_url|
             content_url.css("a").attribute("href").text
 
         scraped_content_ary = []
@@ -52,7 +54,6 @@ class WikihowTechTopics::Scraper
         content_page.css('div.steps').each do |full_content|
             full_content.css("b").text
             @content_array << full_content.css("b").text
-            @content_array.last
             binding.pry
 
                 end
@@ -68,3 +69,19 @@ end
 # 3. Parse/code steps from content to be user friendly
 # 4. Make sure whole CLI works
 
+# home_page.css(".thumbnail").each do |content_url|
+#     content_url.css("a").attribute("href").text
+
+# scraped_content_ary = []
+
+# scraped_content_url = content_url.css("a").attribute("href").text
+
+# scraped_content_ary << "https:" + scraped_content_url
+
+# scraped_content_ary.each do |complete_content_url|
+#     content_page = Nokogiri::HTML(open(complete_content_url))
+
+# content_page.css('div.steps').each do |full_content|
+#     full_content.css("b").text
+#     @content_array << full_content.css("b").text
+#     binding.pry
