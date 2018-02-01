@@ -1,10 +1,14 @@
 require 'nokogiri'
 require 'pry'
+# binding.pry
 require 'open-uri'
 require_relative 'wikihow_tech_topic_model'
 
 class WikihowTechTopics::Scraper
 
+    def initialize
+    end
+    
     @title_hash_array = []
 
     def self.scraped_title_hash
@@ -26,8 +30,6 @@ class WikihowTechTopics::Scraper
         end
         @title_hash_array
     end
-
-    binding.pry
 
     self.scraped_title_hash
 end
