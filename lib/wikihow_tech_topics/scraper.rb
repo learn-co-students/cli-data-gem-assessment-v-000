@@ -13,12 +13,8 @@ class WikihowTechTopics::Scraper
 
         title_hash = {
                 :title => title_info.css('span').text
-        }
-        
-        binding.pry
-
+        }     
         end
-        # title_hash
     end
 
     def self.scraped_content_hash
