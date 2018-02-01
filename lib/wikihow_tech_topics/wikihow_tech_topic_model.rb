@@ -2,9 +2,6 @@ require 'pry'
 require_relative 'scraper'
 require_relative 'cli'
 
-
-# Need to use this class to store instances of title and content as scraped by scraper
-
 class WikihowTechTopics::WikihowTechTopicModel
 
     attr_accessor :title, :content

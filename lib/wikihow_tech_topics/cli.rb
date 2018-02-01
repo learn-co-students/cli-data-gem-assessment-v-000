@@ -13,11 +13,7 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
-    
-        # title_number_input = gets.strip
-
-        # title_array = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-        # if title_number_input = 
+        
     end
 end
 
