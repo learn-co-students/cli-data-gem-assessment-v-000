@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = WikihowTechTopics::VERSION
   spec.authors       = ["stazman"]
   spec.email         = ["cadistasio@gmail.com"]
+  # spec.executables   = ["wikihow_tech_topics"]
 
   spec.summary       = "My first original gem"
   spec.description   = "Provides scraped list of articles from Wikihow.com in a CLI format"

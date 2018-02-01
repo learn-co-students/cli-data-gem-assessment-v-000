@@ -42,6 +42,6 @@ class WikihowTechTopics::CLI
     scraped_titles
 end
 
-
+#use input methods with now-playing to make sure input is an integer
 
 
