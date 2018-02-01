@@ -1,6 +1,8 @@
 require 'nokogiri'
 require 'pry'
 require 'open-uri'
+require_relative 'wikihow_tech_topic_model'
+
 
 
 # test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]

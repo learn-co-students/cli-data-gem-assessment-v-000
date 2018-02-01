@@ -1,4 +1,5 @@
 require 'pry'
+require_relative 'scraper'
 
 # Need to use this class to store instances of title and content as scraped by scraper
 
@@ -23,7 +24,11 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_content_array
+        # binding.pry
+
         new_content = WikihowTechTopics::Scraper.scraped_content_array
+        # binding.pry
+
         new_content.each do |content|
             WikihowTechTopics::WikihowTechTopicModel.new(content)
             @@all << self

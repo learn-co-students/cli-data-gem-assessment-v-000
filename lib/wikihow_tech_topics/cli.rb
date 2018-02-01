@@ -4,15 +4,6 @@ require 'pry'
 
 class WikihowTechTopics::CLI
 
-    def self.scraped_content
-        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
-
-        newly_scraped_for_content.each.with_index(1) do |content_steps, i|
-            puts "#{i}. #{content_steps}"
-        end
-        scraped_content
-    end    
-
     def call
         start
     end
@@ -22,23 +13,28 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
-        scraped_content
+       
+        # title_number_input = gets.strip
 
-        
-        title_number_input = gets.strip
-
-        title_array = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+        # title_array = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
         # if title_number_input = 
     end
+
+    def self.scraped_content
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+        newly_scraped_for_content.each.with_index(1) do |content_steps, i|
+            puts "#{i}. #{content_steps}"
+        end
+        scraped_content
+    end    
 
     def self.scraped_titles
         newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
         newly_scraped_for_titles.each.with_index(1) do |title, i|
             unless title == ""
                 puts "#{i}. #{title}"
-            end      
-        end
-        puts ""
+            end
+        end      
     end  
     scraped_titles
 end
