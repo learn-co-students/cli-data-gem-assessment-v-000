@@ -9,6 +9,24 @@ require_relative 'wikihow_tech_topic_model'
 
 class WikihowTechTopics::Scraper
 
+    def initialize(student_hash)
+        student_hash.each {|key, value| self.send("#{key}=", value)}
+        @@all << self
+      end
+    
+      def self.create_from_collection(students_array)
+        students_array.each do |student_hash| 
+          Student.new(student_hash)
+        end
+      end
+    
+      def add_student_attributes(attributes_hash)
+        attributes_hash.each {|key, value| self.send("#{key}=", value)}
+        @@all << self
+      end
+    
+      def self.all
+        @@all
     @title_ary = []
 
     def initialize(url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer")
@@ -26,9 +44,6 @@ class WikihowTechTopics::Scraper
         end
         @title_ary
     end
-
-
-
 
     def self.scraped_content_array(url)
 
@@ -52,8 +67,9 @@ class WikihowTechTopics::Scraper
         final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
         
-        final_scraped_content.each do |content|
+        final_scraped_content.each do |steps|
             content_hash[:content] = steps
+            end
         end
         content_hash
     end

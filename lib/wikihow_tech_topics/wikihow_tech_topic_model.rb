@@ -18,8 +18,9 @@ class WikihowTechTopics::WikihowTechTopicModel
     def self.create_from_title_array
         new_title = WikihowTechTopics::Scraper.scraped_title_array
         new_title.each do |title|
-            WikihowTechTopics::WikihowTechTopicModel.new(title)
-            @@all << self
+            new_saved_title = WikihowTechTopics::WikihowTechTopicModel.new(title)
+            @@all << new_saved_title
+            binding.pry
         end
     end
 
