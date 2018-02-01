@@ -29,7 +29,10 @@ class WikihowTechTopics::Scraper
         @title_ary
     end
 
-    def self.scraped_content_array
+
+
+
+    def self.scraped_content_array(url)
 
         # @content_url = content_url
 
@@ -39,25 +42,14 @@ class WikihowTechTopics::Scraper
 
         # link = profile_page.css("div.social-icon-container").children.css("a").map { |sm| sm.attribute("href").text }
     
-        link = home_page.css(".thumbnail").each do |content_url|
-            content_url.css("a").attribute("href").text
-
-        scraped_content_ary = []
-       
-        scraped_content_url = content_url.css("a").attribute("href").text
-      
-        scraped_content_ary << "https:" + scraped_content_url
-        
-        scraped_content_ary.each do |complete_content_url|
-            content_page = Nokogiri::HTML(open(complete_content_url))
-
-        content_page.css('div.steps').each do |full_content|
+        link = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+        # css('div.steps')
+        link..each do |full_content|
             full_content.css("b").text
             @content_array << full_content.css("b").text
             binding.pry
 
-                end
-            end
+                # end
         end
     end
 end
@@ -68,6 +60,8 @@ end
 # 2. Finish out model and cli files for content
 # 3. Parse/code steps from content to be user friendly
 # 4. Make sure whole CLI works
+
+# Question: Why did a below not need an argument of url but the current way does? (is the differenc each and map)? And was using each the reason I only got one link and a time and not all of the links scraped?)
 
 # home_page.css(".thumbnail").each do |content_url|
 #     content_url.css("a").attribute("href").text
