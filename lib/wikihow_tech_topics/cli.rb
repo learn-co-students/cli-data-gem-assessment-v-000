@@ -3,7 +3,15 @@ require_relative 'wikihow_tech_topic_model'
 require 'pry'
 
 class WikihowTechTopics::CLI
-  
+
+    def self.scraped_content
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+
+        newly_scraped_for_content.each.with_index(1) do |content_steps, i|
+            puts "#{i}. #{content_steps}"
+        end
+    end    
+
     def call
         start
     end
@@ -23,17 +31,8 @@ class WikihowTechTopics::CLI
             end      
         end
         puts ""
-    end
-    
+    end  
     scraped_titles
-
-    def self.scraped_content
-        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
-
-        newly_scraped_for_content.each.with_index(1) do |content_steps, i|
-            puts "#{i}. #{content_steps}"
-        end
-    end    
 end
 
 
