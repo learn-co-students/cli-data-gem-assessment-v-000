@@ -9,40 +9,26 @@ require_relative 'wikihow_tech_topic_model'
 
 class WikihowTechTopics::Scraper
 
-    def initialize(student_hash)
-        student_hash.each {|key, value| self.send("#{key}=", value)}
-        @@all << self
-      end
     
-      def self.create_from_collection(students_array)
-        students_array.each do |student_hash| 
-          Student.new(student_hash)
-        end
-      end
-    
-      def add_student_attributes(attributes_hash)
-        attributes_hash.each {|key, value| self.send("#{key}=", value)}
-        @@all << self
-      end
-    
-      def self.all
-        @@all
-    @title_ary = []
+    # @title_hash = {}
 
-    def initialize(url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer")
-        @url = url
-    end
+    # def initialize(url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer")
+    #     @url = url
+    # end
 
     def self.scraped_title_array
         
-        @home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+        home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
         
-        @home_page.css('.text').each do |title|
+        home_page.css('.text').each do |title|
             title.css('span').text
 
-        @title_ary << title.css('span').text
+        title_hash = {
+                :title => title.css('span').text
+        }
         end
-        @title_ary
+        title_hash
+        binding.pry
     end
 
     def self.scraped_content_array(url)

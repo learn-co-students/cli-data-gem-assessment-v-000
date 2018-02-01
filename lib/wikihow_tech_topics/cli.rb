@@ -43,5 +43,6 @@ class WikihowTechTopics::CLI
 end
 
 #use input methods with now-playing to make sure input is an integer
+#consdier using @@all ||= scraped info like now playing
 
 
