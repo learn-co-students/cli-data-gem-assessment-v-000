@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Denis Atkesone'"]
   spec.email         = ["'denis.atkesone@gmail.com'"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{List top 10 cryptocurrencies.}
+  spec.description   = %q{CLI to list and view detailed information of the top 10 cryptocurrencies.}
   spec.homepage      = "http://deniscodes.com/"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
