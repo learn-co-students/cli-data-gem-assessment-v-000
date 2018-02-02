@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-fixing unintialized constant error for Scraper methods called in model
+fixed unintialized constant error for Scraper methods called in model
 
 
 Steps for later:
@@ -28,6 +28,7 @@ User will be able to choose from numbered list of article titles to see content
 
 Refactoring:
 
+#pull titles from hash directly rather than from an array of hash/es
 #use input methods with now-playing to make sure input is an integer
 #consdier using @@all ||= scraped info like now playing
 
