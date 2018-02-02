@@ -6,10 +6,9 @@ require_relative 'wikihow_tech_topic_model'
 
 class WikihowTechTopics::Scraper
 
-    def initialize
-    end
-    
-    @title_hash_array = []
+    # def initialize
+    #     @title_hash_array = []
+    # end
 
     def self.scraped_title_hash
         
@@ -31,7 +30,7 @@ class WikihowTechTopics::Scraper
         @title_hash_array
     end
 
-    self.scraped_title_hash
+    # self.scraped_title_hash
 end
 
     # def self.scraped_content_hash

@@ -1,7 +1,10 @@
 
 For current commit message:  
 
-test to see model method for title is working
+fixing unintialized constant error for Scraper methods called in model
+
+
+Steps for later:
 
 
 Testing out model methods
