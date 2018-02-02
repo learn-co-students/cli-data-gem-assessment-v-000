@@ -21,14 +21,12 @@ class CoinMarketCap::Scraper
 
     # add attribute to the coin object
     attributes = {
-      :volume = "$#{@doc.search(".container .coin-summary-item:nth-child(2) .coin-summary-item-detail span:first-child span:first-child").text.strip}",
-      :cir_supply = @doc.search(".container .coin-summary-item:nth-child(4) .coin-summary-item-detail").text.strip.gsub(/\s/, ""),
-      :max_supply = @doc.search(".container .coin-summary-item:nth-child(5) .coin-summary-item-detail").text.strip.gsub(/\s/, ""),
-      :website = "www",
-      :explorer = "explorer",
-      :source = "source" }
+      :volume => "$#{@doc.search(".container .coin-summary-item:nth-child(2) .coin-summary-item-detail span:first-child span:first-child").text.strip}",
+      :cir_supply => @doc.search(".container .coin-summary-item:nth-child(4) .coin-summary-item-detail").text.strip.gsub(/\s/, ""),
+      :max_supply => @doc.search(".container .coin-summary-item:nth-child(5) .coin-summary-item-detail").text.strip.gsub(/\s/, ""),
+      :website => @doc.search("ul.list-unstyled li:first-child a").attr("href") }
 
-    CoinMarketCap::Coin.add_attributes(coin, attibrutes)
+    CoinMarketCap::Coin.add_attributes(coin, attributes)
   end
 
 end

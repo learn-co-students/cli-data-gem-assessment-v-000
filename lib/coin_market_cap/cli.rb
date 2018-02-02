@@ -1,15 +1,20 @@
 class CoinMarketCap::CLI
 
-  def call
-    puts "Welcome to the CoinMarketCap list gem"
+  def initialize
+    puts "Welcome to the CoinMarketCap list gem!"
     list_top10
     user_input
   end
 
   def list_top10
-    puts "List of the top 10 cryptocurrencies"
+    puts "\nList of the TOP10 cryptocurrencies:"
     @top10 = CoinMarketCap::Scraper.list
-    @top10.each.with_index(1) { |coin, i| puts "#{i}. #{coin.name} / #{coin.price}$ / #{coin.mcap}$ / #{coin.change}" }
+    @top10.each.with_index(1) do |coin, i|
+      coin_change = coin.change.gsub("%","").to_f
+      coin_change = (coin_change < 0) ? coin_change.colorize(:light_blue) : coin_change.colorize(:green)
+      puts coin_change
+      puts "#{i}. #{coin.name} / #{coin.price}$ / #{coin.mcap}$ / #{coin.change}"
+    end
   end
 
   def user_input
@@ -22,7 +27,7 @@ class CoinMarketCap::CLI
       if input == "list"
         list_top10
       elsif input == "exit"
-        puts "Bye bye, see you next time!"
+        puts "\nBye bye, see you next time!"
         break
       elsif input.to_i.between?(1,10)
         coin = @top10[input.to_i - 1]

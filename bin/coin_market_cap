@@ -2,4 +2,4 @@
 
 require_relative "../lib/coin_market_cap"
 
-CoinMarketCap::CLI.new.call
+CoinMarketCap::CLI.new

@@ -1,5 +1,5 @@
 class CoinMarketCap::Coin
-  attr_accessor :name, :mcap, :price, :change, :url, :volume, :cir_supply, :max_supply, :website, :explorer, :source
+  attr_accessor :name, :mcap, :price, :change, :url, :volume, :cir_supply, :max_supply, :website
 
   def initialize(name, mcap, price, change, url)
     @name = name
@@ -14,8 +14,6 @@ class CoinMarketCap::Coin
     coin.cir_supply = attributes[:cir_supply]
     coin.max_supply = attributes[:max_supply]
     coin.website = attributes[:website]
-    coin.explorer = attributes[:explorer]
-    coin.source = attributes[:source]
     coin
   end
 end
