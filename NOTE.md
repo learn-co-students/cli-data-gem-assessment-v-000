@@ -7,11 +7,11 @@ CLI :
 
 Scraper :
   1. scrape list of coin return object
-    - symbole
     - name
-  2. scrape single page info
     - market cap
-    - current price
+    - price
+    - 24h change
+  2. scrape single page info
     - 24h evolution
     - circulating supply
     - max supply
