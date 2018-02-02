@@ -9,19 +9,14 @@ class CoinMarketCap::CLI
   def list_top10
     puts "\nList of the TOP10 cryptocurrencies:"
     @top10 = CoinMarketCap::Scraper.list
-    @top10.each.with_index(1) do |coin, i|
-      coin_change = coin.change.gsub("%","").to_f
-      coin_change = (coin_change < 0) ? coin_change.colorize(:light_blue) : coin_change.colorize(:green)
-      puts coin_change
-      puts "#{i}. #{coin.name} / #{coin.price}$ / #{coin.mcap}$ / #{coin.change}"
-    end
+    @top10.each.with_index(1) { |coin, i| puts "#{i}. #{coin.name} / #{coin.price}$ / #{coin.mcap}$ / #{coin.change}" }
   end
 
   def user_input
     input = nil
 
     while input != "exit"
-      puts "\nPlease choose a coin or exit:"
+      puts "\nPlease choose a coin, display the list or exit:"
       input = gets.strip.downcase
 
       if input == "list"
@@ -32,15 +27,13 @@ class CoinMarketCap::CLI
       elsif input.to_i.between?(1,10)
         coin = @top10[input.to_i - 1]
 
-        #add the attibrutes to the object? and then display it
         if coin.website.nil?
           coin = CoinMarketCap::Scraper.get_coin(coin)
         end
 
         display_detail(coin)
-
       else
-        puts "Please type a number, list or exit."
+        puts "Please type a number, list or exit. Try again!"
       end
     end
   end
@@ -55,7 +48,5 @@ class CoinMarketCap::CLI
     puts "Circulating Supply: #{coin.cir_supply}"
     puts "Total Supply: #{coin.max_supply}"
     puts "Website: #{coin.website}"
-    puts "Explorer: #{coin.explorer}"
-    puts "Source: #{coin.source}"
   end
 end
