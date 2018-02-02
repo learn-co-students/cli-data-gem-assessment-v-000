@@ -9,10 +9,10 @@ class WikihowTechTopics::Scraper
     # def initialize
     #     @title_hash_array = []
     # end
+    @@title_hash_array = []
 
     def self.scraped_title_hash
         
-        # title_hash_array = []
 
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
 
@@ -25,9 +25,9 @@ class WikihowTechTopics::Scraper
         # play with metaprogramming in Scraper
         # get control over understanding of what model is doing and get it to work
         # get the cli to output from model instances
-        @title_hash_array << title_hash
+        @@title_hash_array << title_hash
         end
-        @title_hash_array
+        @@title_hash_array
     end
 
     # self.scraped_title_hash
