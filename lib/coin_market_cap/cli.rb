@@ -9,7 +9,7 @@ class CoinMarketCap::CLI
   def list_top10
     puts "List of the top 10 cryptocurrencies"
     @top10 = CoinMarketCap::Scraper.list
-    @top10.each.with_index(1) { |coin, i| puts "#{i}. #{coin.name} - #{coin.price}$ - #{coin.mcap}$ - #{coin.change}%" }
+    @top10.each.with_index(1) { |coin, i| puts "#{i}. #{coin.name} - #{coin.price}$ - #{coin.mcap}$ - #{coin.change}" }
   end
 
   def user_input
@@ -28,9 +28,9 @@ class CoinMarketCap::CLI
         coin = @top10[input.to_i - 1]
 
         #add the attibrutes to the object? and then display it
-        #if coin.website.nil?
+        if coin.website.nil?
           coin = CoinMarketCap::Scraper.get_coin(coin)
-      #  end
+        end
 
         puts "Volume: #{coin.volume}"
         puts "Circulating Supply: #{coin.cir_supply}"
