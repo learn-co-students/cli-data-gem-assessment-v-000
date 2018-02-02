@@ -27,14 +27,18 @@ class WikihowTechTopics::WikihowTechTopicModel
         # new_title_array = [{key1 => value1}, {key2 => value2} ]
 
         new_title_array = WikihowTechTopics::Scraper.scraped_title_array
-        binding.pry
+        
 
         # new_scraper = WikihowTechTopics::Scraper.new
         # new_title_array = new_scraper.scraped_title_hash
 
         new_title_array.each do |title_hash|
             self.new(title_hash)
+
+
             @@all << self
+            binding.pry
+
         end
     end
 

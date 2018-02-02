@@ -14,7 +14,7 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
-        scraped_title_hash = WikihowTechTopics::Scraper.scraped_title_hash
+        scraped_title_hash = WikihowTechTopics::Scraper.scraped_title_array
         scraped_title_hash.collect do |key, title|
         puts "#{title}"
         end
