@@ -26,6 +26,7 @@ class WikihowTechTopics::Scraper
         @title_hash_array << title_hash
         end
         @title_hash_array
+        # binding.pry
     end
 
     # self.scraped_title_hash

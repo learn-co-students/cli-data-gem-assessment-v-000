@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-getting 
+fixed problem of model iterating through Scraper#scraped_title_array only returning first key/value pair  
 
 
 Steps for later:

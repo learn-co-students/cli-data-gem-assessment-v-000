@@ -32,14 +32,9 @@ class WikihowTechTopics::WikihowTechTopicModel
         # new_scraper = WikihowTechTopics::Scraper.new
         # new_title_array = new_scraper.scraped_title_hash
 
-        new_title_array.each do |title_hash|
-            self.new(title_hash)
-
-
-            @@all << self
+        @@all << new_title_array
             binding.pry
 
-        end
     end
 
     # def self.create_from_content_hash
