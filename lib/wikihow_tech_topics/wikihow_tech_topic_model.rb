@@ -28,12 +28,11 @@ class WikihowTechTopics::WikihowTechTopicModel
 
         new_title_array = WikihowTechTopics::Scraper.scraped_title_array
         
-
+        @title = 
         # new_scraper = WikihowTechTopics::Scraper.new
         # new_title_array = new_scraper.scraped_title_hash
 
         @@all << new_title_array
-            binding.pry
 
     end
 

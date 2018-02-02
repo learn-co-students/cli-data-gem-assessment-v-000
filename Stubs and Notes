@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-fixed problem of model iterating through Scraper#scraped_title_array only returning first key/value pair  
+Making sure instance of title are being created in the model and are available to the cli  
 
 
 Steps for later:

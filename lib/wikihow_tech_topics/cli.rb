@@ -1,6 +1,7 @@
 require_relative 'scraper'
 require_relative 'wikihow_tech_topic_model'
 require 'pry'
+# binding.pry
 
 class WikihowTechTopics::CLI
 
@@ -14,11 +15,18 @@ class WikihowTechTopics::CLI
         puts ""
         puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
-        scraped_title_hash = WikihowTechTopics::Scraper.scraped_title_array
-        scraped_title_hash.collect do |key, title|
-        puts "#{title}"
-        end
+        # scraped_title_hash = WikihowTechTopics::Scraper.scraped_title_array
+        # scraped_title_hash.collect do |key, title|
+        # puts "#{title}"
+        # end
     end
+
+    def make_title
+        make_title_from_array = WikihowTechTopics::WikihowTechTopicModel.all
+binding.pry
+
+    end
+
 end
 
     # def self.scraped_content
