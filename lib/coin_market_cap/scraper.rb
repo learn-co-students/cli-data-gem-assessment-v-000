@@ -20,14 +20,15 @@ class CoinMarketCap::Scraper
     @doc = Nokogiri::HTML(open(coin.url))
 
     # add attribute to the coin object
-    coin.volume = "$#{@doc.search(".container .coin-summary-item:nth-child(2) .coin-summary-item-detail span:first-child span:first-child").text.strip}"
-    coin.cir_supply = @doc.search(".container .coin-summary-item:nth-child(4) .coin-summary-item-detail").text.strip.gsub("\n", "")
-    coin.max_supply = @doc.search(".container .coin-summary-item:nth-child(5) .coin-summary-item-detail").text.strip.gsub("\n", "")
-    coin.website = "www"
-    coin.explorer = "explorer"
-    coin.source = "source"
+    attributes = {
+      :volume = "$#{@doc.search(".container .coin-summary-item:nth-child(2) .coin-summary-item-detail span:first-child span:first-child").text.strip}",
+      :cir_supply = @doc.search(".container .coin-summary-item:nth-child(4) .coin-summary-item-detail").text.strip.gsub(/\s/, ""),
+      :max_supply = @doc.search(".container .coin-summary-item:nth-child(5) .coin-summary-item-detail").text.strip.gsub(/\s/, ""),
+      :website = "www",
+      :explorer = "explorer",
+      :source = "source" }
 
-    coin
+    CoinMarketCap::Coin.add_attributes(coin, attibrutes)
   end
 
 end
