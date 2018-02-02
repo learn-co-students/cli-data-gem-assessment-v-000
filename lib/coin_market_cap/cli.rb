@@ -9,7 +9,9 @@ class CoinMarketCap::CLI
   def list_top10
     puts "\nList of the TOP10 cryptocurrencies:"
     @top10 = CoinMarketCap::Scraper.list
-    @top10.each.with_index(1) { |coin, i| puts "#{i}. #{coin.name} / #{coin.price}$ / #{coin.mcap}$ / #{coin.change}" }
+    @top10.each.with_index(1) { |coin, i|
+      puts "#{i}. #{coin.name.upcase.colorize(:light_blue)} / #{coin.price}$ / #{coin.mcap}$ / #{color_change(coin.change)}"
+    }
   end
 
   def user_input
@@ -40,13 +42,18 @@ class CoinMarketCap::CLI
 
   def display_detail(coin)
     puts "\n"
-    puts "Coin: #{coin.name}"
+    puts "#{coin.name.upcase.colorize(:light_blue)}"
     puts "Price: #{coin.price}"
     puts "Volume: #{coin.volume}"
     puts "Market Cap: #{coin.mcap}"
-    puts "24H Change: #{coin.change}"
+    puts "24H Change: #{color_change(coin.change)}"
     puts "Circulating Supply: #{coin.cir_supply}"
     puts "Total Supply: #{coin.max_supply}"
     puts "Website: #{coin.website}"
+  end
+
+  def color_change(number)
+    number = number.gsub("%", "").to_f
+    (number < 0) ? "#{number.to_s}%".colorize(:red) : "#{number.to_s}%".colorize(:green)
   end
 end
