@@ -6,6 +6,7 @@ class WikihowTechTopics::CLI
 
     def call
         start
+        WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
     end
 
     def start
@@ -17,10 +18,7 @@ class WikihowTechTopics::CLI
         scraped_title_hash.collect do |key, title|
         puts "#{title}"
         end
-
     end
-
-
 end
 
     # def self.scraped_content

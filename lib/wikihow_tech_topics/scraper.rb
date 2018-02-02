@@ -1,8 +1,6 @@
 require 'nokogiri'
-require 'pry'
 # binding.pry
 require 'open-uri'
-require_relative 'wikihow_tech_topic_model'
 
 class WikihowTechTopics::Scraper
 
