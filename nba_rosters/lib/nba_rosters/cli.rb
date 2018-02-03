@@ -1,7 +1,7 @@
 class NbaRosters::CLI
 
   def call
-    teams
+    teams_roster
     list_teams
     list_roster
   end
@@ -9,7 +9,7 @@ class NbaRosters::CLI
 
 ## teams should ask what team you want to see a roster of and print that teams roster out!
 
-  def teams
+  def teams_roster
     input = nil
     while input != "exit"
       puts "Enter the number of team you'd like to see the roster of:"
@@ -21,16 +21,10 @@ class NbaRosters::CLI
       else
         puts "Please select a number from 1-32, or type exit"
       end
-
-
-      #case input
-    #  when "1"
-    #    list_roster
-    #when "2"
-      #  list_roster
-      #end
     end
   end
+
+#prints out list of teams
 
   def list_teams
     @team_list = NbaRosters::Team.list
