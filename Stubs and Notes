@@ -4,7 +4,14 @@ For current commit message:
 fixed problem of only one value being instantiated from array of hashes of titles scraped in Scraper; got values from hashes as an array of strings
 
 
-Steps for later:
+Steps for next time:
+
+1. include content as well as title for model objects
+2. get content as well as title from model objects for the CLI
+3. get CLI to work for user input for title and content
+4. parse cli to make information more user friendly
+5. finish main steps below
+
 
 
 Testing out model methods
@@ -28,8 +35,10 @@ User will be able to choose from numbered list of article titles to see content
 
 Refactoring:
 
-#pull titles from hash directly rather than from an array of hash/es
-#use input methods with now-playing to make sure input is an integer
-#consdier using @@all ||= scraped info like now playing
+pull titles from hash directly rather than from an array of hash/es
 
+use input methods with now-playing to make sure input is an integer
 
+consdier using @@all ||= scraped info like now playing
+
+make it easy for any new page from wikihow to be scraped, not just the one currently in the project

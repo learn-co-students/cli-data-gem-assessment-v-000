@@ -18,8 +18,8 @@ class WikihowTechTopics::WikihowTechTopicModel
     def self.create_from_title_array
         new_title_array = WikihowTechTopics::Scraper.scraped_title_array
         values_in_array = new_title_array.map {|hash| hash[:title]}
-        values_in_array.each do |v|
-            new_title = self.new(v)
+        values_in_array.each do |title|
+            new_title = self.new(title)
         end
     end
 
