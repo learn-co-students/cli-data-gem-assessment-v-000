@@ -14,6 +14,7 @@ class WikihowTechTopics::WikihowTechTopicModel
         @title = title
         @content = content
         @@all << self
+
     end
 
 
@@ -27,15 +28,13 @@ class WikihowTechTopics::WikihowTechTopicModel
         # new_title_array = [{key1 => value1}, {key2 => value2} ]
 
         new_title_array = WikihowTechTopics::Scraper.scraped_title_array
-        new_title_array.each do |title|
-        inst_title = self.new(title)
-        # new_scraper = WikihowTechTopics::Scraper.new
-        # new_title_array = new_scraper.scraped_title_hash
-
-        @@all << inst_title
-        # binding.pry
+        new_title_array.collect do |title|
+            title.collect do |k, v|
+        ex = self.new(v)                
+        binding.pry
+        # @@all << title
+            end
         end
-
     end
 
     # def self.create_from_content_hash

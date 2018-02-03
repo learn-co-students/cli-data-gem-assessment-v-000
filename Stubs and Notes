@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-Making sure instances of title are being created in the model and are available to the cli through model #all 
+recoding Scraper to get make more than one key/value pair for title available, through metaprogramming in the model
 
 
 Steps for later:

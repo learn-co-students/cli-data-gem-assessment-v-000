@@ -24,7 +24,6 @@ class WikihowTechTopics::CLI
 
     def make_title
         make_title_from_array = WikihowTechTopics::WikihowTechTopicModel.all
-        # binding.pry
 
     end
 
