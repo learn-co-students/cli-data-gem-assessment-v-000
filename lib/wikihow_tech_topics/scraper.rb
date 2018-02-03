@@ -4,47 +4,15 @@ require 'open-uri'
 
 class WikihowTechTopics::Scraper
 
-    # def initialize
-    #     @title_hash_array = []
-    # end
-    # @title_array = []
-
     def self.scraped_title_array
-        
-    #     students = []
-    #     index_page.css("div.roster-cards-container").each do |card|
-    #       card.css(".student-card a").each do |student|
-    #         student_profile_link = "./fixtures/student-site/#{student.attr('href')}"
-    #         student_location = student.css('.student-location').text
-    #         student_name = student.css('.student-name').text
-    #         students << {name: student_name, location: student_location, profile_url: student_profile_link}
-    #       end
-    #     end
-    #     students
-    #   end
-
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
-
         title_array = []
-
         home_page.css('.text').each do |title_info|
-
-        title_info_for_hash = title_info.css('span').text
-
-        title_array << {title: title_info_for_hash} 
-        # }     
-
-
-        # play with metaprogramming in Scraper
-        # get control over understanding of what model is doing and get it to work
-        # get the cli to output from model instances
-        # @title_array << title_hash
+            title_info_for_hash = title_info.css('span').text
+            title_array << {title: title_info_for_hash} 
         end
-        # @title_array
         title_array
     end
-
-    # self.scraped_title_hash
 end
 
     # def self.scraped_content_hash
@@ -103,3 +71,21 @@ end
 #     full_content.css("b").text
 #     @content_array << full_content.css("b").text
 #     binding.pry
+
+    # def initialize
+    #     @title_hash_array = []
+    # end
+    # @title_array = []
+
+    #     students = []
+    #     index_page.css("div.roster-cards-container").each do |card|
+    #       card.css(".student-card a").each do |student|
+    #         student_profile_link = "./fixtures/student-site/#{student.attr('href')}"
+    #         student_location = student.css('.student-location').text
+    #         student_name = student.css('.student-name').text
+    #         students << {name: student_name, location: student_location, profile_url: student_profile_link}
+    #       end
+    #     end
+    #     students
+    #   end
+

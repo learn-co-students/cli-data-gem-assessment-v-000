@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-fixing problem of only one value being instantiated from array of hashes of titles scraped in Scraper; got values from hashes as an array of strings
+fixed problem of only one value being instantiated from array of hashes of titles scraped in Scraper; got values from hashes as an array of strings
 
 
 Steps for later:

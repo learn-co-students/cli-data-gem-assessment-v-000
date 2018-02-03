@@ -15,10 +15,6 @@ class WikihowTechTopics::CLI
         puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
         puts ""
         run
-        # scraped_title_hash = WikihowTechTopics::Scraper.scraped_title_array
-        # scraped_title_hash.collect do |key, title|
-        # puts "#{title}"
-        # end
     end
 
     def run
@@ -27,10 +23,7 @@ class WikihowTechTopics::CLI
 
     def list_titles
         puts WikihowTechTopics::WikihowTechTopicModel.all
-        binding.pry
-
     end
-
 end
 
 WikihowTechTopics::WikihowTechTopicModel.create_from_title_array

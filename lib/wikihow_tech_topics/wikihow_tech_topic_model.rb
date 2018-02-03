@@ -16,17 +16,10 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_title_array
-        # new_title_array = [{key1 => value1}, {key2 => value2} ]
-
         new_title_array = WikihowTechTopics::Scraper.scraped_title_array
-
         values_in_array = new_title_array.map {|hash| hash[:title]}
-
         values_in_array.each do |v|
-
-        new_title = self.new(v)
-        binding.pry
-
+            new_title = self.new(v)
         end
     end
 
@@ -35,6 +28,7 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 end
 
+        # new_title_array = [{key1 => value1}, {key2 => value2} ]
 
     # def self.create_from_collection(students_array)
     #     students_array.each do |student_hash| 
