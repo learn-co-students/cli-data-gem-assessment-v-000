@@ -10,12 +10,30 @@ class WikihowTechTopics::WikihowTechTopicModel
     @@all = []
 
     def initialize(title=nil, content=nil)
-        # @@all << []
         @title = title
         @content = content
         @@all << self
-
     end
+
+    def self.create_from_title_array
+        # new_title_array = [{key1 => value1}, {key2 => value2} ]
+
+        new_title_array = WikihowTechTopics::Scraper.scraped_title_array
+
+        values_in_array = new_title_array.map {|hash| hash[:title]}
+
+        values_in_array.each do |v|
+
+        new_title = self.new(v)
+        binding.pry
+
+        end
+    end
+
+    def self.all
+        @@all
+    end
+end
 
 
     # def self.create_from_collection(students_array)
@@ -24,23 +42,6 @@ class WikihowTechTopics::WikihowTechTopicModel
     #     end
     # end
     
-    def self.create_from_title_array
-        # new_title_array = [{key1 => value1}, {key2 => value2} ]
-
-        new_title_array = WikihowTechTopics::Scraper.scraped_title_array
-
-        values_in_array = new_title_array.map {|hash| hash[:title]}
-        
-
-       
-            
-            # .collect do |k, v|
-        # ex = self.new(v)     
-        # ex           
-
-        binding.pry
-
-    end
 
     # def self.create_from_content_hash
     #     new_content = WikihowTechTopics::Scraper.scraped_content_hash
@@ -48,10 +49,6 @@ class WikihowTechTopics::WikihowTechTopicModel
     #         @@all << self
     # end
 
-    def self.all
-        @@all
-    end
-end
 
 # WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
 
