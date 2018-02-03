@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-recoding Scraper to get make more than one key/value pair for title available, through metaprogramming in the model
+fixing problem of only one value being instantiated from array of hashes of titles scraped in Scraper
 
 
 Steps for later:
