@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
+require './lib/nba_rosters'
+
 Nba_Rosters::CLI.new.call

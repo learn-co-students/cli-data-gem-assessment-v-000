@@ -1,5 +1,2 @@
-require "nba_rosters/version"
-
-module NbaRosters
-  # Your code goes here...
-end
+require_relative "nba_rosters/version"
+require_relative './nba_rosters/cli'
