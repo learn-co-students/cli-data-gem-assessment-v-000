@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "nba/rosters/version"
+require "nba_rosters/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "nba-rosters"
-  spec.version       = Nba::Rosters::VERSION
+  spec.name          = "nba_rosters"
+  spec.version       = NbaRosters::VERSION
   spec.authors       = ["'Michael Pope'"]
   spec.email         = ["'popemray1986@gmail.com'"]
 
