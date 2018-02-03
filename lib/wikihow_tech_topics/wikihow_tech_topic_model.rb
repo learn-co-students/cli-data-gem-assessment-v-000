@@ -29,17 +29,17 @@ class WikihowTechTopics::WikihowTechTopicModel
 
         new_title_array = WikihowTechTopics::Scraper.scraped_title_array
 
-        new_title_array.collect do |title|
-            title.collect do |k, v|
-        ex = self.new(v)     
-        ex           
+        values_in_array = new_title_array.map {|hash| hash[:title]}
+        
 
-        @@all << ex
+       
+            
+            # .collect do |k, v|
+        # ex = self.new(v)     
+        # ex           
+
         binding.pry
 
-            end
-            # end
-        end
     end
 
     # def self.create_from_content_hash
