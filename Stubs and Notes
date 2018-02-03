@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-Making sure instance of title are being created in the model and are available to the cli  
+Making sure instances of title are being created in the model and are available to the cli through model #all 
 
 
 Steps for later:

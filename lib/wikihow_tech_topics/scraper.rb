@@ -7,7 +7,7 @@ class WikihowTechTopics::Scraper
     # def initialize
     #     @title_hash_array = []
     # end
-    @title_hash_array = []
+    @title_array = []
 
     def self.scraped_title_array
         
@@ -19,14 +19,15 @@ class WikihowTechTopics::Scraper
         title_hash = {
                 :title => title_info.css('span').text
         }     
-        # figure out why the return value of #scraped_title_hash is a Fixnum (0)
+
+
         # play with metaprogramming in Scraper
         # get control over understanding of what model is doing and get it to work
         # get the cli to output from model instances
-        @title_hash_array << title_hash
+        @title_array << title_hash
         end
-        @title_hash_array
-        # binding.pry
+        @title_array
+        binding.pry
     end
 
     # self.scraped_title_hash
