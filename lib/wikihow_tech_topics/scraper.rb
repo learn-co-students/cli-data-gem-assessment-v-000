@@ -10,9 +10,11 @@ class WikihowTechTopics::Scraper
         title_array = []
         binding.pry
 
-        home_page.css('div#bodycontents').children('.thumbnail').each do |title_info|
+        home_page.css('div#bodycontents').each  do  |i| 
+            binding.pry
+
+        # .children('thumbnail').each do |title_info|
             title_info_for_hash = title_info.css('span').text
-binding.pry
             title_array << {title: title_info_for_hash} 
             # home_page.css('.text').each do |title_info|
             #     title_info_for_hash = title_info.css('span').text
