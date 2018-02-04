@@ -19,7 +19,12 @@ class WikihowTechTopics::Scraper
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
         content_array = []
-        content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+        content_urls = home_page.css(".thumbnail").children.css("a").map { 
+            |content_link| content_link.attribute("href").text 
+                unless content_urls.include 
+        }
+
+        # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
 
         http_added = content_urls.map { |content_url| "https:" + content_url }
 
