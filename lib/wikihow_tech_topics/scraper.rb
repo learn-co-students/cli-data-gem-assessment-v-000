@@ -16,11 +16,11 @@ class WikihowTechTopics::Scraper
     end
 
     def self.scraped_content_array
-        binding.pry
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
         content_array = []
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+
         http_added = content_urls.map { |content_url| "https:" + content_url }
 
         http_added.map do |complete_content_url| 
@@ -29,6 +29,8 @@ class WikihowTechTopics::Scraper
         final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
         
+                binding.pry
+
         content_array << final_scraped_content
         # final_scraped_content.each do |steps|
         #     content_hash[:content] = steps
