@@ -36,8 +36,14 @@ class WikihowTechTopics::CLI
     end  
 
     def connect_title_with_content
-        user_input = gets.strip
-        get the 
+        user_input = gets.to_i
+        @scraped_titles_array.each.with_index(1) do |i, title|
+            if user_input.to_i == i.to_i
+                puts title
+
+        # get the title that the user chooses and show it
+            end
+        end
     end
 end
 
