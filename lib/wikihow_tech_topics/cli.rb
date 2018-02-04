@@ -20,26 +20,16 @@ class WikihowTechTopics::CLI
     def run
         list_titles
         get_title_for_user
-        # get_content_for_user
+        get_content_for_user
     end
 
     def list_titles
         scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-<<<<<<< HEAD
         @scraped_titles_array = []
         remove_sidebar_articles = scraped_for_titles.pop(5)
         scraped_for_titles.each.with_index(1) do |title, i|
             @scraped_titles_array << title
             puts "#{i}. #{title}"
-=======
-        removed_sidebar_articles_array = scraped_for_titles.pop(5)
-        scraped_for_titles.each.with_index(1) do |title, i|  removed_sidebar_articles_array.each do |removed_title|  
-            unless title.include?(removed_title)
-                puts "#{i}. #{title}"
-                
-            end
-        end
->>>>>>> refs/remotes/origin/master
         end
         puts ""
         puts ""
@@ -66,10 +56,10 @@ class WikihowTechTopics::CLI
         puts ""
         puts ""
 
-        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
-        newly_scraped_for_titles.each.with_index(1) do |content, i|
-            case
-                when get_title_for_user == i
+        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        # WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+        newly_scraped_for_content.each.with_index(1) do |content, i|
+            when get_title_for_user == i.to_i
                     puts ""
                     puts ""
                     puts content
@@ -77,12 +67,10 @@ class WikihowTechTopics::CLI
                     puts ""
                 end
             end       
-            binding.pry
         puts ""
         puts ""
+        end
     end
-
-
 end
 
 

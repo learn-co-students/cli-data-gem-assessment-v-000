@@ -25,9 +25,9 @@ class WikihowTechTopics::WikihowTechTopicModel
 
     def self.create_from_content_array
         new_content_array = WikihowTechTopics::Scraper.scraped_content_array
-        new_content_array do |content|
-            new_content = self.new(content)
-        end
+        # new_content_array do |content|
+        #     new_content = self.new(content)
+        # end
     end
 
     def self.all
