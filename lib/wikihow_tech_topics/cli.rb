@@ -24,15 +24,12 @@ class WikihowTechTopics::CLI
     end
 
     def list_titles
-        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-        remove_sidebar_articles = newly_scraped_for_titles.pop(5)
+        scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
         @scraped_titles_array = []
-        newly_scraped_for_titles.each.with_index(1) do |title, i| remove_sidebar_articles.each do |t| t 
-            unless title == t
-                @scraped_titles_array << title
-                puts "#{i}. #{title}"
-            end
-        end
+        remove_sidebar_articles = scraped_for_titles.pop(5)
+        scraped_for_titles.each.with_index(1) do |title, i|
+            @scraped_titles_array << title
+            puts "#{i}. #{title}"
         end
         puts ""
         puts ""
