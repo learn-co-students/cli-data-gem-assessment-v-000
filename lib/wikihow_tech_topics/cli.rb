@@ -20,7 +20,7 @@ class WikihowTechTopics::CLI
     def run
         list_titles
         get_title_for_user
-        get_content_for_user
+        # get_content_for_user
     end
 
     def list_titles
@@ -48,23 +48,30 @@ class WikihowTechTopics::CLI
                     puts ""
             end
         end
+        get_content_for_user
     end
 
-    binding.pry
     def get_content_for_user
-        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
-        newly_scraped_for_titles.each.with_index(1) do |content, i|
-            case
-                when get_title_for_user == i
-                    puts ""
-                    puts ""
-                    puts content
-                    puts ""
-                    puts ""
-                end
-            end       
+
+        puts "Here is your article:"
         puts ""
         puts ""
+
+        # newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+        # binding.pry
+        # newly_scraped_for_titles.each.with_index(1) do |content, i|
+        #     case
+        #         when get_title_for_user == i
+        #             puts ""
+        #             puts ""
+        #             puts content
+        #             puts ""
+        #             puts ""
+        #         end
+        #     end       
+        #     binding.pry
+        # puts ""
+        # puts ""
     end
 
 
