@@ -29,8 +29,6 @@ class WikihowTechTopics::WikihowTechTopicModel
         # # values_in_array = new_title_array.map {|hash| hash[:title]}
         new_title_array do |content|
             new_content = self.new(content)
-            binding.pry
-
         end
         new_title_array
     end
