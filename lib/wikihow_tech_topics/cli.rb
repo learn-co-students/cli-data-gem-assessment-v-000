@@ -19,7 +19,8 @@ class WikihowTechTopics::CLI
 
     def run
         list_titles
-        connect_title_with_content
+        get_title_for_user
+        get_content_for_user
     end
 
     def list_titles
@@ -35,11 +36,11 @@ class WikihowTechTopics::CLI
         puts ""
     end  
 
-    def connect_title_with_content
+    def get_title_for_user
         user_input = gets.to_i
         @scraped_titles_array.each.with_index(1) do |title, i|
             case
-                when user_input == i.to_i
+                when user_input == i
                     puts ""
                     puts ""
                     puts title
@@ -48,6 +49,25 @@ class WikihowTechTopics::CLI
             end
         end
     end
+
+    binding.pry
+    def get_content_for_user
+        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+        newly_scraped_for_titles.each.with_index(1) do |content, i|
+            case
+                when get_title_for_user == i
+                    puts ""
+                    puts ""
+                    puts content
+                    puts ""
+                    puts ""
+                end
+            end       
+        puts ""
+        puts ""
+    end
+
+
 end
 
 
