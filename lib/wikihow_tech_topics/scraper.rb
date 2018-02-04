@@ -15,13 +15,6 @@ class WikihowTechTopics::Scraper
         title_array
     end
 
-    # def leaving_out_featured_articles
-    #     home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
-    #     left_out_articles_array = []
-    #     div#side-featured-articles
-
-    # end
-
     def self.scraped_content_array
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
@@ -31,18 +24,29 @@ class WikihowTechTopics::Scraper
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
 
         http_added = content_urls.map { |content_url| "https:" + content_url }
+        
+        url_array_sidebar_articles_removed = http_added.pop(4)
 
         http_added.map do |complete_content_url| 
             content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
         
         final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
-        
+
+                binding.pry
+
         content_array << final_scraped_content
             end
         content_array
     end
 end
+
+    # def leaving_out_featured_articles
+    #     home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+    #     left_out_articles_array = []
+    #     div#side-featured-articles
+
+    # end
 
 
 # Question: Why did a below not need an argument of url but the current way does? (is the differenc each and map)? And was using each the reason I only got one link and a time and not all of the links scraped?)

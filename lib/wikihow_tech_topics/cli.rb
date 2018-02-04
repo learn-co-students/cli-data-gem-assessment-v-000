@@ -57,19 +57,19 @@ class WikihowTechTopics::CLI
         puts ""
 
         newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
-        # newly_scraped_for_titles.each.with_index(1) do |content, i|
-        #     case
-        #         when get_title_for_user == i
-        #             puts ""
-        #             puts ""
-        #             puts content
-        #             puts ""
-        #             puts ""
-        #         end
-        #     end       
-        #     binding.pry
-        # puts ""
-        # puts ""
+        newly_scraped_for_titles.each.with_index(1) do |content, i|
+            case
+                when get_title_for_user == i
+                    puts ""
+                    puts ""
+                    puts content
+                    puts ""
+                    puts ""
+                end
+            end       
+            binding.pry
+        puts ""
+        puts ""
     end
 
 
