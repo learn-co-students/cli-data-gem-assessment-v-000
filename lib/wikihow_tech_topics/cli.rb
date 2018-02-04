@@ -57,8 +57,8 @@ class WikihowTechTopics::CLI
         puts ""
         puts ""
 
-        # newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
-        # binding.pry
+        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+        binding.pry
         # newly_scraped_for_titles.each.with_index(1) do |content, i|
         #     case
         #         when get_title_for_user == i
