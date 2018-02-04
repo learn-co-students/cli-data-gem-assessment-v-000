@@ -8,21 +8,23 @@ class WikihowTechTopics::Scraper
     def self.scraped_title_array
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
         title_array = []
-        binding.pry
-
-        home_page.css('div#bodycontents').each  do  |i| 
-            binding.pry
-
-        # .children('thumbnail').each do |title_info|
+        home_page.css('.text').each do |title_info|
             title_info_for_hash = title_info.css('span').text
             title_array << {title: title_info_for_hash} 
-            # home_page.css('.text').each do |title_info|
-            #     title_info_for_hash = title_info.css('span').text
-            #     title_array << {title: title_info_for_hash} 
-    
+            #         home_page.css('.text').each do |title_info|
+            # title_info_for_hash = title_info.css('span').text
+            # title_array << {title: title_info_for_hash} 
+
         end
         title_array
     end
+
+    # def leaving_out_featured_articles
+    #     home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+    #     left_out_articles_array = []
+    #     div#side-featured-articles
+
+    # end
 
     def self.scraped_content_array
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
