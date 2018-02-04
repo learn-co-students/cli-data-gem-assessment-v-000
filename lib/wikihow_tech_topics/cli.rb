@@ -25,10 +25,12 @@ class WikihowTechTopics::CLI
 
     def list_titles
         newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+        remove_sidebar_articles = newly_scraped_for_titles.select {|i| if }
         @scraped_titles_array = []
-        newly_scraped_for_titles..each.with_index(1) do |title, i|
+        newly_scraped_for_titles.each.with_index(1) do |title, i|
             unless title == ""
                 @scraped_titles_array << title
+                @scraped_titles_array.select {|}
                 puts "#{i}. #{title}"
             end
         end
