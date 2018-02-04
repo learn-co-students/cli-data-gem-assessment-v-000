@@ -12,19 +12,33 @@ class WikihowTechTopics::CLI
     def start
         puts "Welcome to Wikihow Tech Topics!"
         puts ""
-        puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
+        puts "Review the list of articles below then \ntype the number of the article above \nthat you wish to read."
         puts ""
         run
     end
 
     def run
         list_titles
+        connect_title_with_content
     end
 
     def list_titles
-        WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+        newly_scraped_for_titles.each.with_index(1) do |title, i|
+            unless title == ""
+                puts "#{i}. #{title}"
+            end
+        end
+        puts ""
+        puts ""
+    end  
+
+    def connect_title_with_content
+        
     end
 end
+
+
 
 WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
 
