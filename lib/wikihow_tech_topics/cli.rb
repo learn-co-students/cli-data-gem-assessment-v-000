@@ -22,7 +22,7 @@ class WikihowTechTopics::CLI
     end
 
     def list_titles
-        puts 'hi'
+        WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
     end
 end
 

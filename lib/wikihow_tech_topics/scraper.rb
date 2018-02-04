@@ -29,11 +29,7 @@ class WikihowTechTopics::Scraper
         final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
         
-                binding.pry
-
         content_array << final_scraped_content
-        # final_scraped_content.each do |steps|
-        #     content_hash[:content] = steps
             end
         content_array
     end
@@ -79,3 +75,5 @@ end
     #     students
     #   end
 
+        # final_scraped_content.each do |steps|
+        #     content_hash[:content] = steps
