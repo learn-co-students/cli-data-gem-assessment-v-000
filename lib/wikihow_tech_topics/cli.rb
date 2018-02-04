@@ -19,36 +19,37 @@ class WikihowTechTopics::CLI
 
     def run
         list_titles
-        get_title_for_user
+        # get_title_for_user
         # get_content_for_user
     end
 
     def list_titles
-        newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-        @scraped_titles_array = []
-        newly_scraped_for_titles.each.with_index(1) do |title, i|
-            unless title == ""
-                @scraped_titles_array << title
-                puts "#{i}. #{title}"
-            end
-        end
-        puts ""
-        puts ""
+        puts 'ok'
+        # newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+        # @scraped_titles_array = []
+        # newly_scraped_for_titles.each.with_index(1) do |title, i|
+        #     unless title == ""
+        #         @scraped_titles_array << title
+        #         puts "#{i}. #{title}"
+        #     end
+        # end
+        # puts ""
+        # puts ""
     end  
 
     def get_title_for_user
-        user_input = gets.to_i
-        @scraped_titles_array.each.with_index(1) do |title, i|
-            case
-                when user_input == i
-                    puts ""
-                    puts ""
-                    puts title
-                    puts ""
-                    puts ""
-            end
-        end
-        get_content_for_user
+        # user_input = gets.to_i
+        # @scraped_titles_array.each.with_index(1) do |title, i|
+        #     case
+        #         when user_input == i
+        #             puts ""
+        #             puts ""
+        #             puts title
+        #             puts ""
+        #             puts ""
+        #     end
+        # end
+        # get_content_for_user
     end
 
     def get_content_for_user
