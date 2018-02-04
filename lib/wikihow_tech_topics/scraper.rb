@@ -14,42 +14,29 @@ class WikihowTechTopics::Scraper
         end
         title_array
     end
-end
 
-    def self.scraped_content_hash
+    def self.scraped_content_array
+        binding.pry
+        url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+        home_page = Nokogiri::HTML(open(url))
+        content_array = []
+        content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+        http_added = content_urls.map { |content_url| "https:" + content_url }
+
+        http_added.map do |complete_content_url| 
+            content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
         
-        content_hash = {}
-
-
-        # url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
-
-        # home_page = Nokogiri::HTML(open(url))
-   
-        # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+        final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
+                full_content.css("b").text }
         
-        # http_added = content_urls.map { |content_url| "https:" + content_url }
-
-        # http_added.map do |complete_content_url| 
-        #     content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
-        
-        # final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
-        #         full_content.css("b").text }
-        
+        content_array << final_scraped_content
         # final_scraped_content.each do |steps|
         #     content_hash[:content] = steps
-        #     end
-        # end
-        # content_hash
+            end
+        content_array
     end
+end
 
-# WikihowTechTopics::Scraper.scraped_title_hash
-
-#putting into hash
-
-# 1. Get more than just first article to be viewable by user
-# 2. Finish out model and cli files for content
-# 3. Parse/code steps from content to be user friendly
-# 4. Make sure whole CLI works
 
 # Question: Why did a below not need an argument of url but the current way does? (is the differenc each and map)? And was using each the reason I only got one link and a time and not all of the links scraped?)
 
