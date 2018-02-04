@@ -25,7 +25,7 @@ class WikihowTechTopics::WikihowTechTopicModel
 
     def self.create_from_content_array
         WikihowTechTopics::Scraper.scraped_content_array
-        binding.pry
+        # binding.pry
         # # values_in_array = new_title_array.map {|hash| hash[:title]}
         # new_title_array do |content|
         #     new_content = self.new(content)
