@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "coin_market_cap/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "coin_market_cap"
+  spec.name          = "da_coin_market_cap"
   spec.version       = CoinMarketCap::VERSION
   spec.authors       = ["'Denis Atkesone'"]
   spec.email         = ["'denis.atkesone@gmail.com'"]
 
   spec.summary       = %q{List top 10 cryptocurrencies.}
-  spec.description   = %q{CLI to list and view detailed information of the top 10 cryptocurrencies.}
+  spec.description   = %q{List and view detailed information of the top 10 cryptocurrencies.}
   spec.homepage      = "http://deniscodes.com/"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

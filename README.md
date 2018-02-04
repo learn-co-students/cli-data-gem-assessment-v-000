@@ -12,7 +12,7 @@ Use `exit` to exit the CLI.
 To install the gem type:
 
 ```
-gem install coin-market-cap
+gem install da_coin_market_cap
 ```
 
 ## Authors
