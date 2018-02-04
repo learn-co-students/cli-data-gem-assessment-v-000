@@ -33,6 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry"
 
-  spec.add_runtime_dependency "nokogiri"
-  spec.add_runtime_dependency "colorize"
+  spec.add_runtime_dependency "nokogiri", "~> 1.8.1"
+  spec.add_runtime_dependency "colorize", "~> 0.8.1"
 end
