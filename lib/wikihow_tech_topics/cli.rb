@@ -24,8 +24,10 @@ class WikihowTechTopics::CLI
 
     def list_titles
         newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+        @scraped_titles_array = []
         newly_scraped_for_titles.each.with_index(1) do |title, i|
             unless title == ""
+                @scraped_titles_array << title
                 puts "#{i}. #{title}"
             end
         end
@@ -34,7 +36,8 @@ class WikihowTechTopics::CLI
     end  
 
     def connect_title_with_content
-        
+        user_input = gets.strip
+        get the 
     end
 end
 
