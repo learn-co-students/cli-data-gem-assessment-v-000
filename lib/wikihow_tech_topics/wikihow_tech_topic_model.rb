@@ -24,19 +24,19 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 
     def self.create_from_content_array
-        WikihowTechTopics::Scraper.scraped_content_array
-        # binding.pry
-        # # values_in_array = new_title_array.map {|hash| hash[:title]}
-        # new_title_array do |content|
-        #     new_content = self.new(content)
-        # end
-        # new_title_array
+        new_content_array = WikihowTechTopics::Scraper.scraped_content_array
+        new_content_array do |content|
+            new_content = self.new(content)
+        end
     end
 
     def self.all
         @@all
     end
 end
+
+
+        # values_in_array = new_title_array.map {|hash| hash[:title]}
 
 # WikihowTechTopics::Scraper.scraped_content_hash
 
