@@ -8,17 +8,19 @@ class WikihowTechTopics::Scraper
     def self.scraped_title_array
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
         title_array = []
-        home_page.css('div#bodycontents').each do |title_info|
-            title_info.css('span').each do
-            title_info_for_hash.each do |indiv_title|
-                title_array << {title: indiv_title} 
-            binding.pry
+        try = home_page.css('div#bodycontents').each {|title_info| title_info.css('.text').each do |s| x = s.css('span').text x end 
+    binding.pry  }
+        
+
+            # .each do |t|
+
+            #     t.css('span').each do
+            # t.each do |indiv_title|
+            #     title_array << {title: indiv_title} 
 
             #         home_page.css('.text').each do |title_info|
             # title_info_for_hash = title_info.css('span').text
             # title_array << {title: title_info_for_hash} 
-        end
-    end
         title_array
     end
 
