@@ -6,8 +6,8 @@ require "coin_market_cap/version"
 Gem::Specification.new do |spec|
   spec.name          = "da_coin_market_cap"
   spec.version       = CoinMarketCap::VERSION
-  spec.authors       = ["'Denis Atkesone'"]
-  spec.email         = ["'denis.atkesone@gmail.com'"]
+  spec.authors       = ["Denis Atkesone"]
+  spec.email         = ["denis.atkesone@gmail.com"]
 
   spec.summary       = %q{List top 10 cryptocurrencies.}
   spec.description   = %q{List and view detailed information of the top 10 cryptocurrencies.}
