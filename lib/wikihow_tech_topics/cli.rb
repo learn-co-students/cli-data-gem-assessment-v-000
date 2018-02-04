@@ -26,11 +26,10 @@ class WikihowTechTopics::CLI
     def list_titles
         scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
         removed_sidebar_articles_array = scraped_for_titles.pop(5)
-        @scraped_titles_array = []
-        scraped_for_titles.each.with_index(1) do |title, i| removed_sidebar_articles_array.each do |removed_title| removed_title 
-            unless title == removed_title
-                @scraped_titles_array << title
+        scraped_for_titles.each.with_index(1) do |title, i|  removed_sidebar_articles_array.each do |removed_title|  
+            unless title.include?(removed_title)
                 puts "#{i}. #{title}"
+                
             end
         end
         end
