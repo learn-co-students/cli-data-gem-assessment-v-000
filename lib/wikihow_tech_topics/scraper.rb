@@ -34,6 +34,7 @@ class WikihowTechTopics::Scraper
                 full_content.css("b").text }
 
         content_array << final_scraped_content
+        binding.pry
 
             end
         content_array
