@@ -22,7 +22,7 @@ class WikihowTechTopics::CLI
     end
 
     def list_titles
-        puts WikihowTechTopics::WikihowTechTopicModel.all
+        puts 'hi'
     end
 end
 

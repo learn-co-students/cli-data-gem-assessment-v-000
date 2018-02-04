@@ -28,6 +28,9 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 end
 
+# WikihowTechTopics::Scraper.scraped_content_hash
+
+
         # new_title_array = [{key1 => value1}, {key2 => value2} ]
 
     # def self.create_from_collection(students_array)

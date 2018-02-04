@@ -1,6 +1,7 @@
 require 'nokogiri'
 # binding.pry
 require 'open-uri'
+require 'pry'
 
 class WikihowTechTopics::Scraper
 
@@ -15,33 +16,33 @@ class WikihowTechTopics::Scraper
     end
 end
 
-    # def self.scraped_content_hash
+    def self.scraped_content_hash
+        
+        content_hash = {}
 
-    #     content_hash = {}
 
-    #     url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+        # url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
 
-    #     home_page = Nokogiri::HTML(open(url))
+        # home_page = Nokogiri::HTML(open(url))
    
-    #     content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+        # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
         
-    #     http_added = content_urls.map { |content_url| "https:" + content_url }
+        # http_added = content_urls.map { |content_url| "https:" + content_url }
 
-    #     http_added.map do |complete_content_url| 
-    #         content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
+        # http_added.map do |complete_content_url| 
+        #     content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
         
-    #     final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
-    #             full_content.css("b").text }
+        # final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
+        #         full_content.css("b").text }
         
-    #     final_scraped_content.each do |steps|
-    #         content_hash[:content] = steps
-    #         end
-    #     end
-    #     content_hash
-    # end
+        # final_scraped_content.each do |steps|
+        #     content_hash[:content] = steps
+        #     end
+        # end
+        # content_hash
+    end
 
 # WikihowTechTopics::Scraper.scraped_title_hash
-# WikihowTechTopics::Scraper.scraped_content_hash
 
 #putting into hash
 
