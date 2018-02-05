@@ -43,9 +43,9 @@ class WikihowTechTopics::CLI
                     puts title
                     puts ""
                     puts ""
-                    get_content_for_user
             end
         end
+        get_content_for_user
     end
 
     def get_content_for_user
