@@ -36,7 +36,7 @@ class WikihowTechTopics::CLI
     end  
 
     def get_title_for_user
-        user_input = gets.to_i
+        @user_input = gets.to_i
         @scraped_titles_array.each.with_index(1) do |title, i|
             case
                 when user_input == i
@@ -56,20 +56,21 @@ class WikihowTechTopics::CLI
         puts ""
         puts ""
 
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array.flatten
         # WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
         newly_scraped_for_content.each.with_index(1) do |content, i|
-            when get_title_for_user == i.to_i
-                    puts ""
-                    puts ""
-                    puts content
-                    puts ""
-                    puts ""
-                end
-            end       
-        puts ""
-        puts ""
-        end
+            if @user_input == i
+                puts "#{i}. #{content}"
+
+            
+        # if get_title_for_user == i
+        #         puts ""
+        #         puts ""
+        #         puts content
+        #         puts ""
+        #         puts ""
+            end
+        end       
     end
 end
 
