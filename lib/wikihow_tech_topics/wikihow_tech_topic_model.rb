@@ -5,7 +5,7 @@ require_relative 'cli'
 
 class WikihowTechTopics::WikihowTechTopicModel
 
-    attr_accessor :title, :content
+    attr_accessor :content
     attr_reader :home_page, :title_array, :content_array
    
     @@all = []
@@ -16,13 +16,35 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all << self
     end
     
+    # def self.titles_from_title_array
+    #     title_array = WikihowTechTopics::Scraper.scraped_title_array
+    #     title_array.each do |title|
+    #         self.new(title)
+    #     end
+    # end
+
+    def self.add_content_from_content_array
+        content_array = WikihowTechTopics::Scraper.scraped_content_array
+
+        content_array.each do |content|
+            self.new(content)
+            binding.pry
+
+        end
+    end
+
     def self.all
         @@all
     end
+
+    # basic_computers_page = WikihowTechTopics::WikihowTechTopicModel.new
+    # basic_computers_page.title = self.titles_from_title_array.each {|title| title}
+
+
+
 end
 
-# WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
-
+WikihowTechTopics::Scraper.scraped_content_array
 # def self.create_from_title_array
 #     # title_array.each do |title| 
 #         WikihowTechTopics::WikihowTechTopicModel.new(title)

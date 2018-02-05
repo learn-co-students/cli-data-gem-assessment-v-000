@@ -44,7 +44,7 @@ class WikihowTechTopics::Scraper
         final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
 
-        final_scraped_content.flatten
+        final_scraped_content
         end
     end
 
@@ -57,7 +57,6 @@ class WikihowTechTopics::Scraper
     basic_computers_page.title_array = self.scraped_title_array
     basic_computers_page.content_array = self.scraped_content_array
 
-        binding.pry
 end
 
     # def leaving_out_featured_articles

@@ -67,6 +67,10 @@ class WikihowTechTopics::CLI
         end       
     end
 end
+
+# WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
+
     # def content_parser(content)
     #     content.each.with_index(1) do |method, i|
     #         puts "Method #{i}. #{method}"

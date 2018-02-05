@@ -4,10 +4,10 @@ For current commit message:
 parsing content in cli
 
 
-Goals:
+GOALS to include in ReadMe:
 
 1. Make cli user friendly
-2. Make model able to store different urls to scrape ... attracessor from Scraper?
+DONE 2. Make model able to store different urls to scrape ... attracessor from Scraper?
 3. Make model able to store article titles and content but don't necessarily connect it to specific scraped titles and contents
 
  Steps for next time:
@@ -40,10 +40,19 @@ User will be able to choose from numbered list of article titles to see content
 
 Refactoring:
 
+use a find method to match home page title and title on content page in case there's a problem with the source code
+
 pull titles from hash directly rather than from an array of hash/es
 
 use input methods with now-playing to make sure input is an integer
 
 consdier using @@all ||= scraped info like now playing
 
-make it easy for any new page from wikihow to be scraped, not just the one currently in the project
+make sure it's easy for any new page from wikihow to be scraped, not just the one currently in the project
+
+add titles to specific numbered methods from the related content site
+
+For blogging later:
+
+I found that you need to use both the literal and the abstract. You can "think abstractly" but only to a point. You need to use literal examples, plugging in real instances, objects, and methods, to make sure the abstract works (and not to cause a nervous breakdown on your quest to become the most amazing coder in history in a few months time :) )
+
