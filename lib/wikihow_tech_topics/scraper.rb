@@ -5,6 +5,12 @@ require 'pry'
 
 class WikihowTechTopics::Scraper
 
+    attr_accessor :title, :content, :home_page
+
+    def initialize(title=nil, content=nil, home_page=nil)
+        @home_page = home_page
+    end
+
     def self.scraped_title_array
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
         title_array = []

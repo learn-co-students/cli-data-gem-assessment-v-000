@@ -52,29 +52,28 @@ class WikihowTechTopics::CLI
 
     def get_content_for_user
 
-        puts "Here is your article:"
+        puts "Here's your article:"
         puts ""
         puts ""
 
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
-            parsed_content = content_parser(final_content)
-            while @user_input.to_a.last == i
-                parsed_content
+            # parsed_content = content_parser(final_content)
+            @user_input == i
+                puts final_content
                 # puts "#{parsed_content}"
                 # binding.pry
 
-            end
         end       
     end
-
-    def content_parser(content)
-        content.each.with_index(1) do |method, i|
-            puts "Method #{i}. #{method}"
-                unless i < 2
-                end
-            end
-    end
+end
+    # def content_parser(content)
+    #     content.each.with_index(1) do |method, i|
+    #         puts "Method #{i}. #{method}"
+    #             unless i < 2
+    #             end
+    #         end
+    # end
 
     #             def 
     #     content.each.with_index(1) do |method, i|
@@ -84,11 +83,6 @@ class WikihowTechTopics::CLI
     #     end
     #     end
     # end
-end
-
-
-
-WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
 
     # def self.scraped_content
     #     newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_hash

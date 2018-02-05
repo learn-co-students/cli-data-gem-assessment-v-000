@@ -5,39 +5,78 @@ require_relative 'cli'
 
 class WikihowTechTopics::WikihowTechTopicModel
 
-    attr_accessor :title, :content
+    attr_accessor :title, :content, :home_page
    
     @@all = []
 
-    def initialize(title=nil, content=nil)
-        @title = title
-        @content = content
+    def initialize(title_array)
+        title_array.each {|title| self.send(title)}
+            @@all << self
+    end
+    
+    def self.create_from_collection(title_array)
+        title_array.each do |title| 
+            WikihowTechTopics::WikihowTechTopicModel.new(title_array)
         @@all << self
+        end
     end
-
-    def self.create_from_title_array
-        # new_title_array = WikihowTechTopics::Scraper.scraped_title_array
-        # values_in_array = new_title_array.map {|hash| hash[:title]}
-        # values_in_array.each do |title_from_array|
-        #     title = self.new(title_from_array)
-        #     @@all << title
-        # end
-    end
-
-    def self.create_from_content_array
-        # new_content_array = WikihowTechTopics::Scraper.scraped_content_array
-        # new_content_array.each do |content_from_array|
-        #     content = self.new(content_from_array)
-        #     @@all << content
-        #     binding.pry
-
-        # end
+    
+    def add_content(content_array)
+        content_array.each do |content| 
+            WikihowTechTopics::WikihowTechTopicModel.new(title_array)
+        @@all << self
+        end
     end
 
     def self.all
         @@all
     end
 end
+
+
+# def initialize(title=nil, content=nil)
+#     @title = title
+#     @content = content
+#     @@all << self
+# end
+
+# def bob
+#     binding.pry
+
+#     bob = WikihowTechTopics::WikihowTechTopicModel.new
+
+#     bob.title = boss
+# end
+
+
+
+
+# #     def initialize(title=nil, content=nil)
+# #         @title = title
+# #         @content = content
+# #         @@all << self
+# #     end
+
+# #     def self.create_from_title_array
+# #         title = WikihowTechTopics::WikihowTechTopicModel.new
+# #         # new_title_array = 
+# #         # WikihowTechTopics::Scraper.scraped_title_array.each do |title_from_array|
+# #         # title = self.new(title_from_array)
+# #         # title_from_array = self.title
+# #         binding.pry
+
+# #     end
+
+# #     def self.create_from_content_array
+# #         new_content_array = WikihowTechTopics::Scraper.scraped_content_array
+# #         new_content_array.each do |content_from_array|
+#         self.    content = self.new(content_from_array)
+#             @@all << content
+#             binding.pry
+
+#         end
+#     end
+
 
 
         # values_in_array = new_title_array.map {|hash| hash[:title]}
