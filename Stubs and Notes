@@ -1,11 +1,7 @@
 
 For current commit message:  
 
-<<<<<<< HEAD
-getting CLI, model, and Scraper to work together for content
-=======
-fixing duplication of titles
->>>>>>> refs/remotes/origin/master
+Getting CLI to work with model for content
 
 Steps for next time:
 

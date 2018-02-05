@@ -39,7 +39,7 @@ class WikihowTechTopics::CLI
         @user_input = gets.to_i
         @scraped_titles_array.each.with_index(1) do |title, i|
             case
-                when user_input == i
+                when @user_input == i
                     puts ""
                     puts ""
                     puts title
@@ -56,7 +56,7 @@ class WikihowTechTopics::CLI
         puts ""
         puts ""
 
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array.flatten
+        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         # WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
         newly_scraped_for_content.each.with_index(1) do |content, i|
             if @user_input == i
