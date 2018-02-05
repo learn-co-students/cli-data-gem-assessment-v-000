@@ -4,22 +4,21 @@ require 'pry'
 
 class WikihowTechTopics::CLI
 
-    
     def call
+        list_titles
         start
     end
 
-
     def start
-        list_titles
         puts "Welcome to Wikihow Tech Topics!"
         puts ""
-        puts "Review the list of articles above then \ntype the number of the article above \nthat you wish to read."
+        puts "Review the list of articles below then \ntype the number of the article above \nthat you wish to read."
         puts ""
         run
     end
 
     def run
+        list_titles
         get_title_for_user
         get_content_for_user
     end
