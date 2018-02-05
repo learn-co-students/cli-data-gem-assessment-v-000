@@ -24,7 +24,7 @@ class WikihowTechTopics::CLI
     end
 
     def list_titles
-        scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+        scraped_for_titles = WikihowTechTopics::Scraper.scraped_title_array
         @scraped_titles_array = []
         remove_sidebar_articles = scraped_for_titles.pop(5)
         scraped_for_titles.each.with_index(1) do |title, i|
@@ -56,20 +56,17 @@ class WikihowTechTopics::CLI
         puts ""
         puts ""
 
-        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
-        newly_scraped_for_content.each.with_index(1) do |content, i|
+        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content.each.with_index(1) do |final_content, i|
+            parsed_content = content_parser(final_content)
             if @user_input == i
-                puts "#{i}. #{content}"
-
-            
-        # if get_title_for_user == i
-        #         puts ""
-        #         puts ""
-        #         puts content
-        #         puts ""
-        #         puts ""
+                puts "#{i}. #{parsed_content}"
             end
         end       
+    end
+
+    def content_parser(content)
+        content.each do 
     end
 end
 
