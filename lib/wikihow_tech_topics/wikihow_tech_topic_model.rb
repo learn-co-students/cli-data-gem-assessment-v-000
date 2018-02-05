@@ -16,26 +16,28 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all << self
     end
     
-    def self.create_from_title_array(title_array)
-        title_array.each do |title| 
-            WikihowTechTopics::WikihowTechTopicModel.new(title)
-        @@all << self
-        end
-    end
-    
-    def add_content_from_content_array(content_array)
-        content_array.each do |content| 
-            WikihowTechTopics::WikihowTechTopicModel.new(title_array)
-        @@all << self        
-        end
-    end
-
     def self.all
         @@all
     end
 end
 
-WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+# WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
+
+# def self.create_from_title_array
+#     # title_array.each do |title| 
+#         WikihowTechTopics::WikihowTechTopicModel.new(title)
+#     @@all << self
+#     end
+# end
+
+# def add_content_from_content_array(content_array)
+#     content_array.each do |content| 
+#         WikihowTechTopics::WikihowTechTopicModel.new(title_array)
+#     @@all << self        
+#     end
+# end
+
+
 # def initialize(title=nil, content=nil)
 #     @title = title
 #     @content = content

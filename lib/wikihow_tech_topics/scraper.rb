@@ -46,11 +46,18 @@ class WikihowTechTopics::Scraper
 
         final_scraped_content.flatten
         end
-
-        def self.all
-            @@all
-        end
     end
+
+    def self.all
+        @@all
+    end
+
+    basic_computers_page = WikihowTechTopics::Scraper.new
+    basic_computers_page.home_page = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+    basic_computers_page.title_array = self.scraped_title_array
+    basic_computers_page.content_array = self.scraped_content_array
+
+        binding.pry
 end
 
     # def leaving_out_featured_articles
