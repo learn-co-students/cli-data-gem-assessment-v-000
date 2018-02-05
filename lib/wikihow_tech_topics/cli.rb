@@ -61,6 +61,8 @@ class WikihowTechTopics::CLI
             parsed_content = content_parser(final_content)
             if @user_input == i
                 puts "#{parsed_content}"
+                # binding.pry
+
             end
         end       
     end
@@ -70,11 +72,14 @@ class WikihowTechTopics::CLI
             puts "Method #{i}"
                 unless i < 2
                 end
-        end
+
+                def 
         content.each.with_index(1) do |method, i|
             method.split(".").each.with_index do |step, step_num|
                 puts  "#{step_num}. #{step}."
             end
+        end
+        end
     end
 end
 
