@@ -33,7 +33,7 @@ class WikihowTechTopics::Scraper
         final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
 
-        final_scraped_content
+        final_scraped_content.flatten
         end
     end
 end

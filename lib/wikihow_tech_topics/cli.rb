@@ -56,8 +56,7 @@ class WikihowTechTopics::CLI
         puts ""
         puts ""
 
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
-        # WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
         newly_scraped_for_content.each.with_index(1) do |content, i|
             if @user_input == i
                 puts "#{i}. #{content}"

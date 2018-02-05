@@ -18,15 +18,19 @@ class WikihowTechTopics::WikihowTechTopicModel
     def self.create_from_title_array
         new_title_array = WikihowTechTopics::Scraper.scraped_title_array
         values_in_array = new_title_array.map {|hash| hash[:title]}
-        values_in_array.each do |title|
-            new_title = self.new(title)
+        values_in_array.each do |title_from_array|
+            title = self.new(title_from_array)
+            @@all << title
         end
     end
 
     def self.create_from_content_array
-        new_content_array = WikihowTechTopics::Scraper.scraped_content_array.flatten
-        new_content_array do |content|
-            new_content = self.new(content)
+        new_content_array = WikihowTechTopics::Scraper.scraped_content_array
+        new_content_array.each do |content_from_array|
+            content = self.new(content_from_array)
+            @@all << content
+            binding.pry
+
         end
     end
 
