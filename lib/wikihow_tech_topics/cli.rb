@@ -60,19 +60,20 @@ class WikihowTechTopics::CLI
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             parsed_content = content_parser(final_content)
             if @user_input == i
-                puts "#{i}. #{parsed_content}"
+                puts "#{parsed_content}"
             end
         end       
     end
 
     def content_parser(content)
         content.each.with_index(1) do |method, i|
+            puts "Method #{i}"
+                unless i < 2
+                end
+        end
+        content.each.with_index(1) do |method, i|
             method.split(".").each.with_index do |step, step_num|
                 puts  "#{step_num}. #{step}."
-                puts "Method #{i}"
-                    unless i < 2
-                    end
-                end
             end
     end
 end
