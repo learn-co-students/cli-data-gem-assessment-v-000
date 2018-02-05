@@ -1,5 +1,4 @@
 require 'pry'
-# binding.pry
 require_relative 'scraper'
 require_relative 'cli'
 

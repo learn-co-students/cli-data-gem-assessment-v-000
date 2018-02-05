@@ -1,7 +1,6 @@
 require_relative 'scraper'
 require_relative 'wikihow_tech_topic_model'
 require 'pry'
-# binding.pry
 
 class WikihowTechTopics::CLI
 
@@ -67,7 +66,10 @@ class WikihowTechTopics::CLI
     end
 end
 
-WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+
+
+
+# WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
 # WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
 
     # def content_parser(content)

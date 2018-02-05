@@ -1,5 +1,4 @@
 require 'nokogiri'
-# binding.pry
 require 'open-uri'
 require 'pry'
 
@@ -30,7 +29,6 @@ class WikihowTechTopics::Scraper
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
         content_array = []
-        # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
 
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
 
@@ -58,6 +56,9 @@ class WikihowTechTopics::Scraper
     basic_computers_page.content_array = self.scraped_content_array
 
 end
+
+        # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+
 
     # def leaving_out_featured_articles
     #     home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
