@@ -5,11 +5,16 @@ require_relative 'cli'
 
 class WikihowTechTopics::WikihowTechTopicModel
 
-    attr_accessor :title, :content, :home_page
+    attr_accessor :title, :content, 
+    attr_reader :home_page, :title_array, :content_array
    
     @@all = []
 
-    def initialize(title_array)
+    def initialize(title = nil, content = nil, title_array = nil, content_array = nil)
+        @title = title
+        @content = content
+        @title_array = title_array
+        @content_array = content_array
         title_array.each {|title| self.send(title)}
             @@all << self
     end

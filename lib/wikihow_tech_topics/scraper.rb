@@ -5,9 +5,11 @@ require 'pry'
 
 class WikihowTechTopics::Scraper
 
-    attr_accessor :title, :content, :home_page
+    attr_accessor :home_page
 
-    def initialize(title=nil, content=nil, home_page=nil)
+    def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
+        @title_array = title_array
+        @content_array = content_array
         @home_page = home_page
     end
 
