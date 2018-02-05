@@ -8,7 +8,7 @@ Building a CLI Gem
 6. Start to remove the hard coded data and then
 7. Use objects and scraping tools tools to program
 
-- A CLI for now playing movies, a second layer that has a link to IMDB's site for that particular movie.
+- A CLI for now playing movies, a second layer that has a information such as summary and director.
 
 Shows a list of movies:
 
@@ -21,10 +21,14 @@ Which movie would you like to know the director of, 1 or 2?
 
 Maze Runner: The Death Cure (2018):
 
-IMDB Link: http://imdb.com/title/tt4500922/
+Summary: Young hero Thomas embarks on a mission to find a cure for a deadly disease known as the "Flare".
+
+Director: Wes Ball
 
 2
 
 Hostiles (2017):
 
-IMDB Link: http://imdb.com/title/tt5478478/
+Summary: In 1892, a legendary Army captain reluctantly agrees to escort a Cheyenne chief and his family through dangerous territory.
+
+Director: Scott Cooper

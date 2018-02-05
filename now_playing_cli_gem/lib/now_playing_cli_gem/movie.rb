@@ -1,46 +1,45 @@
 class NowPlayingCliGem::Movie
 
-# Automatically sets up getter and setter methods for the instance variables
-  attr_accessor :name, :link
-  attr_reader :url
+  # Automatically sets up getter and setter methods for the instance variables
+  attr_accessor :title, :details, :director
 
-  # def name
-  #   @name
-  # end
-
-  # def name=(name)
-  #   @name = name
-  # end
-
-# Instance variables - making them accessible to other outside methods
-  def initialize(name = nil, link = nil, url = nil)
-    @name = name
-    @link = link
-    @url = url
+  # Returning scraped data of the movies
+  def self.today
+    self.scrape_movies
   end
 
-# Returning scraped data of the movies piece by piece when prompted by the user
-# Need help with what exactly this peiece of code does
-  def self.all
-    @@all ||= name
+  # Creating arrays of scraped data
+  def self.scrape_movies
+    movies = []
+
+    movies << self.scrape_mazerunner
+    movies << self.scrape_hostiles
+
+    movies
   end
 
-  def self.find(id)
-    self.all[id-1]
+  # Scraping data for Maze Runner movie
+  def self.scrape_mazerunner
+    doc = Nokogiri::HTML(open("http://www.imdb.com/title/tt4500922/?ref_=inth_ov_tt"))
+
+    movie = self.new
+    movie.title = doc.search("h1[itemprop='name']").text.strip
+    movie.details = doc.search("div[class='summary_text']").text.strip
+    movie.director = doc.search("[itemprop='director'] [itemprop='name']").text.strip
+    movie
   end
 
-# Scraping data
-  private
-    def self.name
-      doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
-      names = doc.search("h4[itemprop='name'] a[itemprop='url']").collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
-    end
+# Scraping data for Hostiles movie
+  def self.scrape_hostiles
+    doc = Nokogiri::HTML(open("http://www.imdb.com/title/tt5478478/?ref_=inth_ov_tt"))
 
-    def self.link
-      doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
-      binding.pry
-      link = doc.search("a[itemprop='url']").collect{|e| new(e.text.strip, "http://imdb.com#{e.attr("href").split("?").first.strip}")}
-    end
+    movie = self.new
+    movie.title = doc.search("h1[itemprop='name']").text.strip
+    movie.details = doc.search("div[class='summary_text']").text.strip
+    movie.director = doc.search("[itemprop='director'] [itemprop='name']").text.strip
+    movie
+  end
+
 end
 
 #PROGRAM IS WORKING AND COMPLETE

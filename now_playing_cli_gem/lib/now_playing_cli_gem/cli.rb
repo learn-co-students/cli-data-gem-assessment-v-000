@@ -1,64 +1,68 @@
+# CLI Controller
 class NowPlayingCliGem::CLI
 
-# The program itself
+  # The program itself
   def call
     menu
   end
 
-# Scraped list of now playing movies that is generated when a user run the program or when they type list
-  def list
+  # Scraped data
+  def list_movies
     puts ""
-    puts "Movies now playing in theaters:"
+    puts "Movies Now Playing:"
     puts ""
-    NowPlayingCliGem::Movie.all.each.with_index(1) do |movie, i|
-      puts "#{i}. #{movie.name}"
+    @movies = NowPlayingCliGem::Movie.today
+    @movies.each.with_index(1) do |movie, i|
+      puts "#{i}. #{movie.title}"
     end
   end
 
-# Scraped data that is returned when a user enters a number
-  def print_movie(movie)
-    puts ""
-    puts "#{movie.name}:"
-
-    puts ""
-    puts "IMDB Link: #{movie.link}"
-  end
-
-# Prompts that are regenerated if a user enters an unrecognized number or word
   def prompts
     puts ""
-    puts "What movie would you like a link for? Please type in the corresponding number."
+    puts "Which movie would you like to learn more about, 1 or 2?"
     puts ""
-    puts "Enter list to see a list of the movies again."
-    puts ""
-    puts "Enter exit to end the program."
+    puts "Or you can type list to see all your options again or type exit to end the program."
     puts ""
   end
 
-# Prompt that is generated once the user types exit
-  def goodbye
+  def unrecognized
     puts ""
-    puts "See you next time for more now playing movies!"
+    puts "Sorry, I'm not sure what your asking for."
+  end
+
+  def exit_program
+    puts ""
+    puts "See you next time for more now playing movies!!!"
     puts ""
   end
 
-# Interface prompts
+  # Interface prompts
   def menu
-    list
+    list_movies
+    # initializing the input
     input = nil
     while input != "exit"
       prompts
-        input = gets.strip
-        if input == "list"
-          list
-        elsif input.to_i > 0
-          if movie = NowPlayingCliGem::Movie.find(input.to_i)
-            print_movie(movie)
-          end
+      # Run the input only once rather than forever
+      input = gets.strip
+        if input.to_i > 0
+          movie = @movies[input.to_i-1]
+          puts ""
+          puts "#{movie.title}:"
+          puts ""
+          puts "Summary: #{movie.details}"
+          puts ""
+          puts "Director: #{movie.director}"
+        elsif  input == "list"
+          list_movies
+        elsif  input == "exit"
+          exit_program
+        else
+          unrecognized
         end
       end
-    goodbye
-  end
+    end
+
 end
 
 #PROGRAM IS WORKING AND COMPLETE
