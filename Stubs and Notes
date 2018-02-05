@@ -3,7 +3,14 @@ For current commit message:
 
 parsing content in cli
 
-Steps for next time:
+
+Goals:
+
+1. Make cli user friendly
+2. Make model able to store different urls to scrape ... attracessor from Scraper?
+3. Make model able to store article titles and content but don't necessarily connect it to specific scraped titles and contents
+
+ Steps for next time:
 
 1. Finish parsing cli to make information more user friendly
 2. Finish making model workable for instantiating title and content and connect from cli, not scraper?
