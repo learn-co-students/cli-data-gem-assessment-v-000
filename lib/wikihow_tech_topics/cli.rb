@@ -11,7 +11,7 @@ class WikihowTechTopics::CLI
     def start
         puts "Welcome to Wikihow Tech Topics!"
         puts ""
-        puts "Review the list of articles below then \ntype the number of the article above \nthat you wish to read."
+        puts "Review the list of articles,\ntype the number of the article above\nthat you wish to read, and hit return."
         puts ""
         run
     end
@@ -45,7 +45,7 @@ class WikihowTechTopics::CLI
                     puts ""
             end
         end
-        get_content_for_user
+        # get_content_for_user
     end
 
     def get_content_for_user
@@ -57,11 +57,12 @@ class WikihowTechTopics::CLI
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             # parsed_content = content_parser(final_content)
-            @user_input == i
-                puts final_content
+            case
+                when @user_input == i
+                    puts final_content
                 # puts "#{parsed_content}"
                 # binding.pry
-
+                end
         end       
     end
 end
