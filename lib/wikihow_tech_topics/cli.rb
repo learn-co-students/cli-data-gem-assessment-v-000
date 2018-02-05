@@ -5,7 +5,6 @@ require 'pry'
 class WikihowTechTopics::CLI
 
     def call
-        list_titles
         start
     end
 
@@ -29,6 +28,7 @@ class WikihowTechTopics::CLI
         WikihowTechTopics::WikihowTechTopicModel.all.each.with_index(1) do |title, i|
             @scraped_titles_array << title.title
             puts "#{i}. #{title.title}"
+            binding.pry
         end
         puts ""
         puts ""
