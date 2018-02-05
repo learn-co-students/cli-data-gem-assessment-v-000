@@ -59,7 +59,7 @@ class WikihowTechTopics::CLI
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             parsed_content = content_parser(final_content)
-            while @user_input == i
+            while @user_input.to_a.last == i
                 parsed_content
                 # puts "#{parsed_content}"
                 # binding.pry

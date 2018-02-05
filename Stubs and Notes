@@ -5,11 +5,10 @@ parsing content in cli
 
 Steps for next time:
 
-1. include content as well as title for model objects
-2. get content as well as title from model objects for the CLI
-3. get CLI to work for user input for title and content
-4. parse cli to make information more user friendly
-5. finish main steps below
+1. Finish parsing cli to make information more user friendly
+2. Finish making model workable for instantiating title and content and connect from cli, not scraper?
+    practice metaprogramming
+3. finish main steps below
 
 
 
