@@ -5,31 +5,28 @@ require_relative 'cli'
 
 class WikihowTechTopics::WikihowTechTopicModel
 
-    attr_accessor :title, :content, 
+    attr_accessor :title, :content
     attr_reader :home_page, :title_array, :content_array
    
     @@all = []
 
-    def initialize(title = nil, content = nil, title_array = nil, content_array = nil)
+    def initialize(title = nil, content = nil)
         @title = title
         @content = content
-        @title_array = title_array
-        @content_array = content_array
-        title_array.each {|title| self.send(title)}
-            @@all << self
+        @@all << self
     end
     
-    def self.create_from_collection(title_array)
+    def self.create_from_title_array(title_array)
         title_array.each do |title| 
-            WikihowTechTopics::WikihowTechTopicModel.new(title_array)
+            WikihowTechTopics::WikihowTechTopicModel.new(title)
         @@all << self
         end
     end
     
-    def add_content(content_array)
+    def add_content_from_content_array(content_array)
         content_array.each do |content| 
             WikihowTechTopics::WikihowTechTopicModel.new(title_array)
-        @@all << self
+        @@all << self        
         end
     end
 
@@ -38,7 +35,7 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 end
 
-
+WikihowTechTopics::WikihowTechTopicModel.create_from_title_array
 # def initialize(title=nil, content=nil)
 #     @title = title
 #     @content = content

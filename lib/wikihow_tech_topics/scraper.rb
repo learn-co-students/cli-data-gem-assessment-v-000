@@ -5,12 +5,15 @@ require 'pry'
 
 class WikihowTechTopics::Scraper
 
-    attr_accessor :home_page
+    attr_accessor :home_page, :title_array, :content_array
+
+    @@all = []
 
     def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
         @title_array = title_array
         @content_array = content_array
         @home_page = home_page
+        @@all << self
     end
 
     def self.scraped_title_array
@@ -18,7 +21,7 @@ class WikihowTechTopics::Scraper
         title_array = []
         home_page.css('.text').each do |title_info|
         info_for_title_array = title_info.css('span').text
-        title_array << info_for_title_array 
+        title_array << info_for_title_array
         end
         title_array
     end
@@ -42,6 +45,10 @@ class WikihowTechTopics::Scraper
                 full_content.css("b").text }
 
         final_scraped_content.flatten
+        end
+
+        def self.all
+            @@all
         end
     end
 end
