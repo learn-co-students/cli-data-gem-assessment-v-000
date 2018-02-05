@@ -1,7 +1,8 @@
 
 For current commit message:  
 
-parsing content in cli
+'finished model and got cli to pull title instances from model#all rather than from Scraper'
+
 
 
 GOALS to include in ReadMe:
@@ -40,6 +41,8 @@ User will be able to choose from numbered list of article titles to see content
 
 Refactoring:
 
+intantiate content as well as titles in model
+
 use a find method to match home page title and title on content page in case there's a problem with the source code
 
 pull titles from hash directly rather than from an array of hash/es
@@ -51,6 +54,8 @@ consdier using @@all ||= scraped info like now playing
 make sure it's easy for any new page from wikihow to be scraped, not just the one currently in the project
 
 add titles to specific numbered methods from the related content site
+
+
 
 For blogging later:
 

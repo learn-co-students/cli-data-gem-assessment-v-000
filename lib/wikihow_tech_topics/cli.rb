@@ -24,12 +24,11 @@ class WikihowTechTopics::CLI
     end
 
     def list_titles
-        scraped_for_titles = WikihowTechTopics::Scraper.scraped_title_array
         @scraped_titles_array = []
-        remove_sidebar_articles = scraped_for_titles.pop(5)
-        scraped_for_titles.each.with_index(1) do |title, i|
-            @scraped_titles_array << title
-            puts "#{i}. #{title}"
+        WikihowTechTopics::WikihowTechTopicModel.all.pop(5)
+        WikihowTechTopics::WikihowTechTopicModel.all.each.with_index(1) do |title, i|
+            @scraped_titles_array << title.title
+            puts "#{i}. #{title.title}"
         end
         puts ""
         puts ""
@@ -68,8 +67,8 @@ class WikihowTechTopics::CLI
     end
 end
 
-# WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
-WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
+WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+# WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
 
     # def content_parser(content)
     #     content.each.with_index(1) do |method, i|

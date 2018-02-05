@@ -5,46 +5,35 @@ require_relative 'cli'
 
 class WikihowTechTopics::WikihowTechTopicModel
 
-    attr_accessor :content
+    attr_accessor :title
     attr_reader :home_page, :title_array, :content_array
    
     @@all = []
 
-    def initialize(title = nil, content = nil)
+    def initialize(title = nil)
         @title = title
-        @content = content
         @@all << self
     end
     
-    # def self.titles_from_title_array
-    #     title_array = WikihowTechTopics::Scraper.scraped_title_array
-    #     title_array.each do |title|
-    #         self.new(title)
-    #     end
-    # end
-
-    def self.add_content_from_content_array
-        content_array = WikihowTechTopics::Scraper.scraped_content_array
-
-        content_array.each do |content|
-            self.new(content)
-            binding.pry
-
+    def self.titles_from_title_array
+        title_array = WikihowTechTopics::Scraper.scraped_title_array
+        title_array.each do |title|
+            self.new(title)
         end
     end
 
     def self.all
         @@all
     end
+end
 
+# WikihowTechTopics::Scraper.scraped_content_array
     # basic_computers_page = WikihowTechTopics::WikihowTechTopicModel.new
     # basic_computers_page.title = self.titles_from_title_array.each {|title| title}
 
 
 
-end
 
-WikihowTechTopics::Scraper.scraped_content_array
 # def self.create_from_title_array
 #     # title_array.each do |title| 
 #         WikihowTechTopics::WikihowTechTopicModel.new(title)
