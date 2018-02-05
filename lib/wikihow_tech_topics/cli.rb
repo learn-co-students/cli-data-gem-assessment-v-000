@@ -66,7 +66,14 @@ class WikihowTechTopics::CLI
     end
 
     def content_parser(content)
-        content.each do 
+        content.each.with_index(1) do |method, i|
+            method.split(".").each.with_index do |step, step_num|
+                puts  "#{step_num}. #{step}."
+                puts "Method #{i}"
+                    unless i < 2
+                    end
+                end
+            end
     end
 end
 
