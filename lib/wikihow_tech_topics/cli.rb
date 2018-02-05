@@ -28,7 +28,6 @@ class WikihowTechTopics::CLI
         WikihowTechTopics::WikihowTechTopicModel.all.each.with_index(1) do |title, i|
             @scraped_titles_array << title.title
             puts "#{i}. #{title.title}"
-            binding.pry
         end
         puts ""
         puts ""
@@ -70,7 +69,8 @@ end
 
 
 
-# WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+WikihowTechTopics::WikihowTechTopicModel.all
 # WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
 
     # def content_parser(content)
