@@ -56,15 +56,15 @@ class WikihowTechTopics::CLI
 
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
-                numbered_steps = final_content
+                
                 # final content.each.with_index do |method, num|
                 #     puts "Method #{num}. #{method}" unless num < 2
                     # parsed_content = content_parser(final_content)
             case
                 when @user_input == i
                     # puts final_content
-                    parsed_content = content_parser(final_content)git a
-                    puts "#{parsed_content}"
+                    parsed_content = content_parser(final_content)
+                    # puts "#{parsed_content[0]}"
                 # binding.pry
                 end
         end       
