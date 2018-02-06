@@ -26,6 +26,7 @@ class WikihowTechTopics::WikihowTechTopicModel
     end
 end
 
+
 # WikihowTechTopics::Scraper.scraped_content_array
     # basic_computers_page = WikihowTechTopics::WikihowTechTopicModel.new
     # basic_computers_page.title = self.titles_from_title_array.each {|title| title}

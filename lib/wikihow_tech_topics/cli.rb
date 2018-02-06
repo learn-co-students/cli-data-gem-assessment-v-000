@@ -45,7 +45,6 @@ class WikihowTechTopics::CLI
                     puts ""
             end
         end
-        # get_content_for_user
     end
 
     def get_content_for_user
@@ -56,23 +55,31 @@ class WikihowTechTopics::CLI
 
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
-                # binding.pry
-                # final content.each.with_index do |method, num|
-                #     puts "Method #{num}. #{method}" unless num < 2
-                    # parsed_content = content_parser(final_content)
-            case
-                when @user_input == i
-                    if final_content.size >= 2
-                        # puts final_content
-                        content_parser_multiple_methods(final_content)
-                    end
+            if final_content.size >= 2 && @user_input == i
+                content_parser_multiple_methods(final_content)
+            elsif final_content.size == 1 && @user_input == i
+                content_parser_single_method(final_content)
+                binding.pry
+
+
+                # puts final_content
+            #     content_parser_multiple_methods(final_content)
+            #     # binding.pry
+            #     # final content.each.with_index do |method, num|
+            #     #     puts "Method #{num}. #{method}" unless num < 2
+            #         # parsed_content = content_parser(final_content)
+            # case
+            #     when @user_input == i
+                    
+            #             binding.pry
+
+            #         end
         
-                when @user_input == i 
-                    if final_content.size ==1
-                        content_parser_single_method(final_content)
-                    end
+            #     when @user_input == i 
+            #         if final_content.size == 1
+            #             content_parser_single_method(final_content)
+            #         end
                     # puts "#{parsed_content[0]}"
-                # binding.pry
                 end
             end
             puts ""
@@ -105,6 +112,7 @@ class WikihowTechTopics::CLI
 end
 
 
+# WikihowTechTopics::CLI.get_content_for_user
 
 
 WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
