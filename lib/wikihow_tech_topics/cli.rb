@@ -21,7 +21,6 @@ class WikihowTechTopics::CLI
         get_title_for_user
         get_content_for_user_multiple_methods
         get_content_for_user_single_method
-        option
     end
 
     def list_titles
@@ -58,6 +57,7 @@ class WikihowTechTopics::CLI
             case
             when @user_input == i && final_content.size >= 2
                     content_parser_multiple_methods(final_content)
+                    option
             end
         end
     end
@@ -68,6 +68,7 @@ class WikihowTechTopics::CLI
             case
             when @user_input == i && final_content.size == 1
                 puts final_content
+                option
             end
         end
     end
