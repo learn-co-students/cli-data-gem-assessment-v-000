@@ -21,6 +21,7 @@ class WikihowTechTopics::CLI
         get_title_for_user
         get_content_for_user_multiple_methods
         get_content_for_user_single_method
+        option
     end
 
     def list_titles
@@ -44,40 +45,56 @@ class WikihowTechTopics::CLI
                     puts title
                     puts ""
                     puts ""
+                    puts "Your article ... "
+                    puts ""
+                    puts ""            
             end
         end
     end
 
     def get_content_for_user_multiple_methods
-
-        puts "Your article ... "
-        puts ""
-        puts ""
-
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
-                when @user_input == i
-                    case
-                        when final_content.size >= 2
-                            content_parser_multiple_methods(final_content)
-                        end
-                    end
-                    end
-                end
+            when @user_input == i && final_content.size >= 2
+                    content_parser_multiple_methods(final_content)
+            end
+        end
+    end
             
-        def get_content_for_user_single_method
-
-                    puts "Your article ... "
-                    puts ""
-                    puts ""
-            
-
+    def get_content_for_user_single_method
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
-                when @user_input == i && final_content.size == 1
-                    puts final_content
+            when @user_input == i && final_content.size == 1
+                puts final_content
+            end
+        end
+    end
+
+    def content_parser_multiple_methods(content)
+        content.each.with_index(1) do |method, method_num|
+            puts "Method/Part #{method_num}. #{method}"
+        end
+    end
+    
+    def option
+
+        puts ""
+        puts ""
+        puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
+        read_again_input = gets.strip
+            if read_again_input == "y" 
+                start
+            else 
+                puts ""
+                puts ""
+                puts "Goodbye for now!"
+                puts ""
+                puts ""
+            end
+    end
+end
 
 
             # elsif final_content.size == 1 
@@ -103,33 +120,7 @@ class WikihowTechTopics::CLI
             #         end
                     # puts "#{parsed_content[0]}"
               
-            end
-            end
-        end
 
-def option
-
-            puts ""
-            puts ""
-            puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
-            read_again_input = gets.strip
-            if read_again_input == "y" 
-                start
-            else 
-                puts ""
-                puts ""
-                puts "Goodbye for now!"
-                puts ""
-                puts ""
-            end
-    end
-
-    def content_parser_multiple_methods(content)
-        content.each.with_index(1) do |method, method_num|
-            puts "Method/Part #{method_num}. #{method}"
-        end
-    end
-end
 
 
 # WikihowTechTopics::CLI.get_content_for_user
