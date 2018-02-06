@@ -1,12 +1,12 @@
 # CLI Controller
 class NowPlayingCliGem::CLI
 
-  # The program itself
+  # Steps of the program
   def call
     menu
   end
 
-  # Scraped data
+  # Scraped list of now playing movies that is generated when a user run the program or when they type list
   def list_movies
     puts ""
     puts "Movies Now Playing:"
@@ -25,11 +25,13 @@ class NowPlayingCliGem::CLI
     puts ""
   end
 
+  # Prompts that are regenerated if a user enters an unrecognized number or word
   def unrecognized
     puts ""
     puts "Sorry, I'm not sure what your asking for."
   end
 
+  # Prompt that is generated once the user types exit
   def exit_program
     puts ""
     puts "See you next time for more now playing movies!!!"
@@ -46,6 +48,7 @@ class NowPlayingCliGem::CLI
       # Run the input only once rather than forever
       input = gets.strip
         if input.to_i > 0
+          # Scraped data that is returned when a user enters a number
           movie = @movies[input.to_i-1]
           puts ""
           puts "#{movie.title}:"
