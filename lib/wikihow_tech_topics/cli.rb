@@ -84,10 +84,8 @@ class WikihowTechTopics::CLI
     end
 
     def content_parser(content)
-        content.each.with_index(1) do |method, i|
-            if i >= 2
-                puts "Method #{i}. #{method}"
-            end
+        method_number content.each.with_index(1) do |method, method_num|
+            puts "Method #{method_num}. #{method}" unless method_num < 2 end
         end
     end
 end
