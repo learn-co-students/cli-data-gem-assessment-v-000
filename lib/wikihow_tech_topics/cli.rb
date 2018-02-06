@@ -61,11 +61,13 @@ class WikihowTechTopics::CLI
                 #     puts "Method #{num}. #{method}" unless num < 2
                     # parsed_content = content_parser(final_content)
             case
-                when @user_input == i && final_content.size > 1
+                when @user_input == i 
+                    if final_content.size == 1
+                        final_content
+                    elsif final_content.size > 1
                     # puts final_content
-                    parsed_content = content_parser(final_content)
-                elsif final_content.size == 1
-                    parsed_content
+                    content_parser(final_content)
+                    end
                     # puts "#{parsed_content[0]}"
                 # binding.pry
                 end
