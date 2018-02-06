@@ -1,21 +1,20 @@
 
 For current commit message:  
 
-'making cli more user friendly/various edits'
+'debugging output problems/checked Stubs and Notes'
 
 
 
 GOALS to include in ReadMe:
 
-1. Make cli user friendly
+IN PROCESS 1. Make cli user friendly
 DONE 2. Make model able to store different urls to scrape ... attracessor from Scraper?
-3. Make model able to store article titles and content but don't necessarily connect it to specific scraped titles and contents
+DONE 3. Make model able to store article titles and content but don't necessarily connect it to specific scraped titles and contents
 
  Steps for next time:
 
-1. Finish parsing cli to make information more user friendly
-2. Finish making model workable for instantiating title and content and connect from cli, not scraper?
-    practice metaprogramming
+IN PROCESS 1. Finish parsing cli to make information more user friendly
+DONE 2. Finish making model workable for instantiating title and content and connect from cli, not scraper?
 3. finish main steps below
 
 
@@ -29,11 +28,11 @@ Testing out model methods
 
 User will be able to choose from numbered list of article titles to see content
 
-4.  Build out Scraper to scrape this page for attributes IN PROCESS
+4.  Build out Scraper to scrape this page for attributes DONE
 5.  Build out module DONE
-6.  Make sure CLI works IN PROCESS
+6.  Make sure CLI works DONE
 7.  Finish/proof Readme
-8.  Finish pushing gem to rubygems
+8.  Finish pushing gem to rubygems FOR AFTER SUBMITTING
 9.  Blog (all along) IN PROCESS
 10. Make sure all steps in lab are finished
 11. Submit project
