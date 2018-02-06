@@ -31,28 +31,28 @@ User will be able to choose from numbered list of article titles to see content
 4.  Build out Scraper to scrape this page for attributes DONE
 5.  Build out module DONE
 6.  Make sure CLI works DONE
-7.  Finish/proof Readme 
+7.  Finish/proof Readme DONE
 8.  Finish pushing gem to rubygems FOR AFTER SUBMITTING
 9.  Blog (all along) IN PROCESS
-10. Make sure all steps in lab are finished
-11. Submit project
+10. Make sure all steps in lab are finished IN PROCESS
+11. Look over code for points of elegance and clarity such as indenting and descriptive naming IN PROCESS
+12. Submit project
 
 
-Refactoring:
+Refactoring possibiilties for after submitting the project:
 
-intantiate content as well as titles in model
+find a way to intantiate content as well as titles in model
 
-use a find method to match home page title and title on content page in case there's a problem with the source code
+consider using @@all ||= scraped info like in now playing
 
-pull titles from hash directly rather than from an array of hash/es
+consider including and instantiating further categories of information such as the full content associated with steps included in this project
 
-use input methods with now-playing to make sure input is an integer
+make sure it's easy for any new index page from wikihow to be scraped, not just the one currently scraped in the project
 
-consdier using @@all ||= scraped info like now playing
+add heading information not included in this project in specific numbered methods and parts for any articles from the related content site that are sectioned this way
 
-make sure it's easy for any new page from wikihow to be scraped, not just the one currently in the project
+number individual steps for each article and put them in column form
 
-add titles to specific numbered methods from the related content site
 
 
 
