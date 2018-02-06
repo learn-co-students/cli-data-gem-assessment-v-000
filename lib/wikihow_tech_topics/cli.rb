@@ -60,14 +60,13 @@ class WikihowTechTopics::CLI
                 # final content.each.with_index do |method, num|
                 #     puts "Method #{num}. #{method}" unless num < 2
                     # parsed_content = content_parser(final_content)
-            # case
-                if @user_input == i 
-                    if final_content.size == 1
-                        puts content_parser_single_method(final_content)
-                    elsif final_content.size >= 2
-                    # puts final_content
-                        puts content_parser_multiple_methods(final_content)
-                    end
+            case
+                when @user_input == i && final_content.size >= 2
+                        # puts final_content
+                             content_parser_multiple_methods(final_content)
+        
+                    when @user_input == i && final_content.size == 1
+                         content_parser_single_method(final_content)
                     # puts "#{parsed_content[0]}"
                 # binding.pry
                 end
@@ -93,7 +92,8 @@ class WikihowTechTopics::CLI
 
     def content_parser_multiple_methods(content)
         content.each.with_index(1) do |method, method_num|
-            puts "Method #{method_num}. #{method}\n"
+            puts "Method #{method_num}. #{method}"
+            puts ""
         end
     end
 end
