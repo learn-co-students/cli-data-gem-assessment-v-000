@@ -67,7 +67,18 @@ class WikihowTechTopics::CLI
                     # puts "#{parsed_content[0]}"
                 # binding.pry
                 end
-        end       
+            end
+            puts ""
+            puts ""
+            puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
+            read_again_input = gets.strip
+            if read_again_input == "y" 
+                
+            else 
+                puts ""
+                puts ""
+                puts "Goodbye"
+            end
     end
 
     def content_parser(content)
@@ -77,7 +88,6 @@ class WikihowTechTopics::CLI
             end
         end
     end
-
 end
 
 
