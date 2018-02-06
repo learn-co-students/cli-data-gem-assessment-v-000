@@ -24,7 +24,7 @@ class WikihowTechTopics::CLI
 
     def list_titles
         @scraped_titles_array = []
-        WikihowTechTopics::WikihowTechTopicModel.all.pop(5)
+        WikihowTechTopics::WikihowTechTopicModel.all
         WikihowTechTopics::WikihowTechTopicModel.all.each.with_index(1) do |title, i|
             @scraped_titles_array << title.title
             puts "#{i}. #{title.title}"

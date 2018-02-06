@@ -28,7 +28,6 @@ class WikihowTechTopics::Scraper
     def self.scraped_content_array
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
-        content_array = []
 
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
 
@@ -43,6 +42,7 @@ class WikihowTechTopics::Scraper
                 full_content.css("b").text }
 
         final_scraped_content
+        binding.pry
         end
     end
 
