@@ -50,7 +50,7 @@ class WikihowTechTopics::CLI
 
     def get_content_for_user
 
-        puts "Here's your article:"
+        puts "Here's your article!"
         puts ""
         puts ""
 
@@ -77,14 +77,16 @@ class WikihowTechTopics::CLI
             else 
                 puts ""
                 puts ""
-                puts "Goodbye"
+                puts "Goodbye for now!"
+                puts ""
+                puts ""
             end
     end
 
     def content_parser(content)
         content.each.with_index(1) do |method, i|
-        puts "Method #{i}. #{method}"
-            unless i < 2
+            if i >= 2
+                puts "Method #{i}. #{method}"
             end
         end
     end
