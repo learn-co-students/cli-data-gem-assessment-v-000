@@ -1,5 +1,4 @@
 class NowPlayingCliGem::Movie
-  attr_accessor :title, :details, :length
 
   # Automatically sets up getter and setter methods for the instance variables
   attr_accessor :title, :details, :director
