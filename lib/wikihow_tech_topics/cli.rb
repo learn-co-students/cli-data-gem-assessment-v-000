@@ -55,11 +55,15 @@ class WikihowTechTopics::CLI
 
         newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
-            if final_content.size >= 2 && @user_input == i
-                content_parser_multiple_methods(final_content)
-            elsif final_content.size == 1 && @user_input == i
-                content_parser_single_method(final_content)
-                binding.pry
+            case
+                when @user_input == i
+                    case
+                        when final_content.size == 3
+                            content_parser_multiple_methods(final_content)
+
+
+            # elsif final_content.size == 1 
+            #     final_content
 
 
                 # puts final_content
@@ -82,6 +86,7 @@ class WikihowTechTopics::CLI
                     # puts "#{parsed_content[0]}"
                 end
             end
+            end
             puts ""
             puts ""
             puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
@@ -97,16 +102,9 @@ class WikihowTechTopics::CLI
             end
     end
 
-    def content_parser_single_method(content)
-        content.each.with_index(1) do |method, method_num|
-            puts ""
-        end
-
-    end
-
     def content_parser_multiple_methods(content)
         content.each.with_index(1) do |method, method_num|
-            puts "Method #{method_num}. #{method}"
+            puts "Method/Part #{method_num}. #{method}"
         end
     end
 end
