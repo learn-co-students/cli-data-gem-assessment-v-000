@@ -63,10 +63,10 @@ class WikihowTechTopics::CLI
             case
                 when @user_input == i 
                     if final_content.size == 1
-                        final_content
+                        puts final_content
                     elsif final_content.size > 1
                     # puts final_content
-                    content_parser(final_content)
+                        puts content_parser(final_content)
                     end
                     # puts "#{parsed_content[0]}"
                 # binding.pry
