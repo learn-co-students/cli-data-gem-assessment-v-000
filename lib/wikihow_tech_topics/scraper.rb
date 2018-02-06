@@ -22,6 +22,7 @@ class WikihowTechTopics::Scraper
         info_for_title_array = title_info.css('span').text
         title_array << info_for_title_array
         end
+        title_array.pop(5)
         title_array
     end
 
@@ -42,7 +43,6 @@ class WikihowTechTopics::Scraper
                 full_content.css("b").text }
 
         final_scraped_content
-        binding.pry
         end
     end
 

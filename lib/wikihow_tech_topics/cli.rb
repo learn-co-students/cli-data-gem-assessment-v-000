@@ -73,7 +73,7 @@ class WikihowTechTopics::CLI
             puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
             read_again_input = gets.strip
             if read_again_input == "y" 
-                
+                start
             else 
                 puts ""
                 puts ""
