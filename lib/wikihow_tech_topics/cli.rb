@@ -19,7 +19,8 @@ class WikihowTechTopics::CLI
     def run
         list_titles
         get_title_for_user
-        get_content_for_user
+        get_content_for_user_multiple_methods
+        get_content_for_user_single_method
     end
 
     def list_titles
@@ -47,7 +48,7 @@ class WikihowTechTopics::CLI
         end
     end
 
-    def get_content_for_user
+    def get_content_for_user_multiple_methods
 
         puts "Your article ... "
         puts ""
@@ -58,8 +59,25 @@ class WikihowTechTopics::CLI
             case
                 when @user_input == i
                     case
-                        when final_content.size == 3
+                        when final_content.size >= 2
                             content_parser_multiple_methods(final_content)
+                        end
+                    end
+                    end
+                end
+            
+        def get_content_for_user_single_method
+
+                    puts "Your article ... "
+                    puts ""
+                    puts ""
+            
+
+        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content.each.with_index(1) do |final_content, i|
+            case
+                when @user_input == i && final_content.size == 1
+                    puts final_content
 
 
             # elsif final_content.size == 1 
@@ -84,9 +102,13 @@ class WikihowTechTopics::CLI
             #             content_parser_single_method(final_content)
             #         end
                     # puts "#{parsed_content[0]}"
-                end
+              
             end
             end
+        end
+
+def option
+
             puts ""
             puts ""
             puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
