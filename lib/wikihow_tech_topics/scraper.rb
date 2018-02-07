@@ -57,6 +57,8 @@ class WikihowTechTopics::Scraper
 
 end
 
+
+
         # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
 
 

@@ -15,7 +15,7 @@ DONE 3. Make model able to store article titles and content but don't necessaril
 
 DONE 1. Finish parsing cli to make information more user friendly
 DONE 2. Finish making model workable for instantiating title and content and connect from cli, not scraper?
-3. finish main steps below
+DONE 3. finish main steps below
 
 
 
@@ -36,7 +36,7 @@ User will be able to choose from numbered list of article titles to see content
 9.  Blog (all along) IN PROCESS
 10. Make sure all steps in lab are finished IN PROCESS
 11. Look over code for points of elegance and clarity such as indenting and descriptive naming IN PROCESS
-12. Submit project
+12. Submit project 
 
 
 Refactoring possibiilties for after submitting the project:
