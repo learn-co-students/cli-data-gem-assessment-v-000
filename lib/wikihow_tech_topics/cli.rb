@@ -11,7 +11,7 @@ class WikihowTechTopics::CLI
     def start
         puts "Welcome to Wikihow Tech Topics!"
         puts ""
-        puts "Review the list of articles,\ntype the number of the article above\nthat you wish to read, and hit return."
+        puts "Review the list of articles below,\ntype the number of the article\nthat you wish to read, and hit return."
         puts ""
         run
     end
@@ -56,8 +56,8 @@ class WikihowTechTopics::CLI
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
             when @user_input == i && final_content.size >= 2
-                content_parser_multiple_methods(final_content)
-                option
+                    content_parser_multiple_methods(final_content)
+                    option
             end
         end
     end
@@ -80,6 +80,7 @@ class WikihowTechTopics::CLI
     end
     
     def option
+
         puts ""
         puts ""
         puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
@@ -95,9 +96,6 @@ class WikihowTechTopics::CLI
             end
     end
 end
-
-# WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
-# WikihowTechTopics::WikihowTechTopicModel.all
 
 
             # elsif final_content.size == 1 
@@ -129,6 +127,8 @@ end
 # WikihowTechTopics::CLI.get_content_for_user
 
 
+WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+WikihowTechTopics::WikihowTechTopicModel.all
 # WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
 
     # def content_parser(content)
