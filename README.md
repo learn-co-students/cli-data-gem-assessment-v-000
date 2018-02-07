@@ -3,22 +3,6 @@
 This is a tool to allow users to find the top 3 bestsellers in each Amazon Category.
 More features to be added soon including a review generator.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'amazon_tool'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install amazon_tool
-
 ## Usage
 
 TODO: Write usage instructions here
