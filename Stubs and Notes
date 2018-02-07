@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-'debugging output problems/checked Stubs and Notes'
+'edited/added to refactoring possibilities/did finaly check of goals and tasks in Stubs and Notes'
 
 
 
@@ -33,23 +33,26 @@ User will be able to choose from numbered list of article titles to see content
 6.  Make sure CLI works DONE
 7.  Finish/proof Readme DONE
 8.  Finish pushing gem to rubygems FOR AFTER SUBMITTING
-9.  Blog (all along) IN PROCESS
-10. Make sure all steps in lab are finished IN PROCESS
-11. Look over code for points of elegance and clarity such as indenting and descriptive naming IN PROCESS
-12. Submit project 
+9.  Blog (all along) DONE
+10. Make sure all steps in lab are finished DONE
+11. Look over code for points of elegance and clarity such as indenting and descriptive naming DONE
+12. Submit project DONE
 
 
 Refactoring possibiilties for after submitting the project:
 
+find a way to make the retrieval of article content faster
+
+because the information given to the user often requires more explanation for a step to be useful, 
+scraping the full content associated with steps included in this project
+
 find a way to intantiate content as well as titles in model
 
-consider using @@all ||= scraped info like in now playing
-
-consider including and instantiating further categories of information such as the full content associated with steps included in this project
+consider using @@all ||= scraped info as now playing does
 
 make sure it's easy for any new index page from wikihow to be scraped, not just the one currently scraped in the project
 
-add heading information not included in this project in specific numbered methods and parts for any articles from the related content site that are sectioned this way
+add heading information not included in this project that follows specific numbered methods and parts for articles organized this way ("Method/Part" was added through code rather than scraping) 
 
 number individual steps for each article and put them in column form
 
