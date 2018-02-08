@@ -97,6 +97,10 @@ class WikihowTechTopics::CLI
     end
 end
 
+WikihowTechTopics::Scraper.scraped_title_array
+
+WikihowTechTopics::Scraper.scraped_content_array
+
 
             # elsif final_content.size == 1 
             #     final_content
