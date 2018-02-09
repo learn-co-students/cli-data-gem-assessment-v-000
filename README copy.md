@@ -1,12 +1,12 @@
-Wikihow Tech Topics
+Wikihow Tech Topics ("When all you need is the step")
 
-This gem presents the current articles from the Selecting and Buying a Computer page of the Computers and Technology section of www.wikihow.com in list form in a command line interface (CLI). 
+This gem presents just the steps from the current articles from the Selecting and Buying a Computer page of the Computers and Technology section of www.wikihow.com in list form in a command line interface (CLI). 
 
 ## Instructions
 
 The user will be presented with a numbered list of article titles to choose from and be able to access the article's basic steps, some in clearly numbered, multiple methods or parts, through typing in the number of the relevant number. 
 
-To execute the progrm once it is loaded, type this into your commnad line or terminal:
+To execute the program once it is loaded, type this into your commnad line or terminal:
 
 bin/wikihow_tech_topics
 

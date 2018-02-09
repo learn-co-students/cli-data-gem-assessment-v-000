@@ -10,9 +10,9 @@ class WikihowTechTopics::CLI
 
     def start
         list_titles
-        puts "Welcome to Wikihow Tech Topics!"
+        puts "Welcome to Wikihow Tech Topics (\"When all you want is the steps\")!"
         puts ""
-        puts "Review the list of articles above,\ntype the number of the article steps\nthat you wish to read, and hit return."
+        puts "Review the list of articles above,\ntype the number of the article\nthat you wish to read the steps of, and hit return."
         puts ""
         run
     end

@@ -1,7 +1,7 @@
 
 For current commit message:  
 
-'edited/added to refactoring possibilities/did finaly check of goals and tasks in Stubs and Notes'
+'made changes to make project about steps rather than full content of wikihow articles: made cli changes, proofread/edited readme'
 
 
 
@@ -43,10 +43,7 @@ Refactoring possibiilties for after submitting the project:
 
 find a way to make the retrieval of article content faster
 
-because the information given to the user often requires more explanation for a step to be useful, 
-scraping the full content associated with steps included in this project
-
-find a way to intantiate content as well as titles in model
+DONE find a way to intantiate content as well as titles in model
 
 consider using @@all ||= scraped info as now playing does
 
