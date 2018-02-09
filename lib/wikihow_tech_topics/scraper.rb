@@ -10,27 +10,29 @@ class WikihowTechTopics::Scraper
     #     @home_page = home_page
     #     @@all << self
     # end
-    def self.get_titles_from_home_page
-        home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
-        title_array = []
-        home_page.css('.text').each do |title_info|
-            info_for_title_array = title_info.css('span').text
-            title_array << info_for_title_array
-            title_array.pop(5)
-            title_array
-            binding.pry
-        end
-    end
-
     def self.get_content_urls
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
         content_url_array = []
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
-        http_added = content_urls.map { |content_url| "https:" + content_url }
-        http_added.pop(4)
-        http_added
+        http_added_to_content_urls = content_urls.map { |content_url| "https:" + content_url }
+        http_added_to_content_urls.pop(4)
+        http_added_to_content_urls
     end
+
+    def self.get_titles_from_content_urls
+        http_added_to_content_urls.each do |content_url|
+            content_urls = Nokogiri::HTML(open(content_url))
+            content_urls.css('.text').each do |title_info|
+            info_for_title_array = title_info.css('span').text
+            title_array << info_for_title_array
+            title_array
+            binding.pry
+            end
+
+        end
+    end
+
 
     def self.make_titles_from_content_urls
         puts 'ok'
