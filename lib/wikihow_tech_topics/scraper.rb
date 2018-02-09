@@ -4,16 +4,14 @@ require 'pry'
 
 class WikihowTechTopics::Scraper
 
-    attr_accessor :home_page, :title_array, :content_array
+    attr_accessor :url
 
-    @@all = []
-
-    def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
-        @title_array = title_array
-        @content_array = content_array
-        @home_page = home_page
-        @@all << self
-    end
+    # def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
+    #     @title_array = title_array
+    #     @content_array = content_array
+    #     @home_page = home_page
+    #     @@all << self
+    # end
 
     def self.scraped_title_array
         home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
