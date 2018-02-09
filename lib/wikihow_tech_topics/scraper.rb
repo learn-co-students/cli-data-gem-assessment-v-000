@@ -21,15 +21,14 @@ class WikihowTechTopics::Scraper
     end
 
     def self.get_titles_from_content_urls
-        http_added_to_content_urls.each do |content_url|
+        title_array = []
+        self.get_content_urls.each do |content_url|
             content_urls = Nokogiri::HTML(open(content_url))
             content_urls.css('.text').each do |title_info|
             info_for_title_array = title_info.css('span').text
             title_array << info_for_title_array
             title_array
-            binding.pry
             end
-
         end
     end
 
