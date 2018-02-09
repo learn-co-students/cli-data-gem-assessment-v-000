@@ -4,14 +4,15 @@ require_relative 'cli'
 
 class WikihowTechTopics::WikihowTechTopicModel
 
-    attr_accessor :title, :content
-    attr_reader :home_page, :title_array, :content_array
+    attr_accessor :title, :content, :url
+    # attr_reader :home_page, :title_array, :content_array
    
     @@all = []
 
-    def initialize(title = nil, content = nil)
+    def initialize(title = nil, content = nil, url = nil)
         @title = title
         @content = content
+        @url = url
         @@all << self
     end
     
@@ -32,8 +33,6 @@ class WikihowTechTopics::WikihowTechTopicModel
     
     def self.all
         @@all
-        binding.pry
-
     end
 end
 # WikihowTechTopics::Scraper.scraped_title_array

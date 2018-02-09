@@ -52,7 +52,7 @@ class WikihowTechTopics::CLI
     end
 
     def get_content_for_user_multiple_methods
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.content_from_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
             when @user_input == i && final_content.size >= 2
@@ -64,6 +64,7 @@ class WikihowTechTopics::CLI
             
     def get_content_for_user_single_method
         newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.content_from_content_array
+        # binding.pry
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
             when @user_input == i && final_content.size == newly_scraped_for_content
