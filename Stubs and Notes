@@ -32,7 +32,7 @@ User will be able to choose from numbered list of article titles to see content
 5.  Build out module DONE
 6.  Make sure CLI works DONE
 7.  Finish/proof Readme DONE
-8.  Finish pushing gem to rubygems FOR AFTER SUBMITTING
+8.  Finish pushing gem to rubygems DONE
 9.  Blog (all along) DONE
 10. Make sure all steps in lab are finished DONE
 11. Look over code for points of elegance and clarity such as indenting and descriptive naming DONE
@@ -41,9 +41,11 @@ User will be able to choose from numbered list of article titles to see content
 
 Refactoring possibiilties for after submitting the project:
 
-find a way to make the retrieval of article content faster
-
 DONE find a way to intantiate content as well as titles in model
+
+IN PROGRESS make Scraper depend on the model rather than the model depend on Scraper
+
+find a way to make the retrieval of article content faster
 
 consider using @@all ||= scraped info as now playing does
 
