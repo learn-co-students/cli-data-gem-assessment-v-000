@@ -10,16 +10,17 @@ class WikihowTechTopics::Scraper
     #     @home_page = home_page
     #     @@all << self
     # end
+    def get_home_page
+        Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+    end
 
-    def self.scraped_title_array
-        home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
-        title_array = []
-        home_page.css('.text').each do |title_info|
-        info_for_title_array = title_info.css('span').text
-        title_array << info_for_title_array
-        end
+    def get_titles_from_home_page
+        self.get_home_page.css('.text').each do |title_info|
+            info_for_title_array = title_info.css('span').text
+            title_array << info_for_title_array
+            end
         title_array.pop(5)
-        title_array
+        # binding.pry
     end
 
     def self.scraped_content_array
@@ -41,17 +42,12 @@ class WikihowTechTopics::Scraper
         final_scraped_content
         end
     end
-
-    def self.all
-        @@all
-    end
-
-    basic_computers_page = WikihowTechTopics::Scraper.new
-    basic_computers_page.home_page = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
-    basic_computers_page.title_array = self.scraped_title_array
-    basic_computers_page.content_array = self.scraped_content_array
-
 end
+
+    # basic_computers_page = WikihowTechTopics::Scraper.new
+    # basic_computers_page.home_page = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+    # basic_computers_page.title_array = self.scraped_title_array
+    # basic_computers_page.content_array = self.scraped_content_array
 
 # make url instances and put them in @@all
 # url instances are connected to urls scraped from website
