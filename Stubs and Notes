@@ -57,9 +57,272 @@ add heading information not included in this project that follows specific numbe
 number individual steps for each article and put them in column form
 
 
+Unused Code:
 
 
-For blogging later:
 
-I found that you need to use both the literal and the abstract. You can "think abstractly" but only to a point. You need to use literal examples, plugging in real instances, objects, and methods, to make sure the abstract works (and not to cause a nervous breakdown on your quest to become the most amazing coder in history in a few months time :) )
+            # elsif final_content.size == 1 
+            #     final_content
+
+
+                # puts final_content
+            #     content_parser_multiple_methods(final_content)
+            #     # binding.pry
+            #     # final content.each.with_index do |method, num|
+            #     #     puts "Method #{num}. #{method}" unless num < 2
+            #         # parsed_content = content_parser(final_content)
+            # case
+            #     when @user_input == i
+                    
+            #             binding.pry
+
+            #         end
+        
+            #     when @user_input == i 
+            #         if final_content.size == 1
+            #             content_parser_single_method(final_content)
+            #         end
+                    # puts "#{parsed_content[0]}"
+              
+
+
+
+# WikihowTechTopics::CLI.get_content_for_user
+
+
+WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+WikihowTechTopics::WikihowTechTopicModel.content_from_content_array
+# WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
+
+    # def content_parser(content)
+    #     content.each.with_index(1) do |method, i|
+    #         puts "Method #{i}. #{method}"
+    #             unless i < 2
+    #             end
+    #         end
+    # end
+
+    #             def 
+    #     content.each.with_index(1) do |method, i|
+    #         method.split(".").each.with_index do |step, step_num|
+    #             puts  "#{step_num}. #{step}."
+    #         end
+    #     end
+    #     end
+    # end
+
+    # def self.scraped_content
+    #     newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_hash
+    #     newly_scraped_for_content.each.with_index(1) do |content_steps, i|
+    #         puts "#{i}. #{content_steps}"
+    #     end
+    # end    
+
+    # scraped_content
+
+    # def self.scraped_titles
+    #     newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_hash
+    #     newly_scraped_for_titles.each.with_index(1) do |title, i|
+    #         unless title == ""
+    #             puts "#{i}. #{title}"
+    #         end
+    #     end
+    #     puts ""
+    #     puts ""
+    # end  
+    # scraped_titles
+
+
+
+
+
+# def self.create_from_title_array
+#     # title_array.each do |title| 
+#         WikihowTechTopics::WikihowTechTopicModel.new(title)
+#     @@all << self
+#     end
+# end
+
+# def add_content_from_content_array(content_array)
+#     content_array.each do |content| 
+#         WikihowTechTopics::WikihowTechTopicModel.new(title_array)
+#     @@all << self        
+#     end
+# end
+# 
+
+# def initialize(title=nil, content=nil)
+#     @title = title
+#     @content = content
+#     @@all << self
+# end
+
+# def bob
+#     binding.pry
+
+#     bob = WikihowTechTopics::WikihowTechTopicModel.new
+
+#     bob.title = boss
+# end
+
+
+
+
+# #     def initialize(title=nil, content=nil)
+# #         @title = title
+# #         @content = content
+# #         @@all << self
+# #     end
+
+# #     def self.create_from_title_array
+# #         title = WikihowTechTopics::WikihowTechTopicModel.new
+# #         # new_title_array = 
+# #         # WikihowTechTopics::Scraper.scraped_title_array.each do |title_from_array|
+# #         # title = self.new(title_from_array)
+# #         # title_from_array = self.title
+# #         binding.pry
+
+# #     end
+
+# #     def self.create_from_content_array
+# #         new_content_array = WikihowTechTopics::Scraper.scraped_content_array
+# #         new_content_array.each do |content_from_array|
+#         self.    content = self.new(content_from_array)
+#             @@all << content
+#             binding.pry
+
+#         end
+#     end
+
+
+
+        # values_in_array = new_title_array.map {|hash| hash[:title]}
+
+# WikihowTechTopics::Scraper.scraped_content_hash
+
+
+        # new_title_array = [{key1 => value1}, {key2 => value2} ]
+
+    # def self.create_from_collection(students_array)
+    #     students_array.each do |student_hash| 
+    #       Student.new(student_hash)
+    #     end
+    # end
+    
+
+    # def self.create_from_content_hash
+    #     new_content = WikihowTechTopics::Scraper.scraped_content_hash
+    #     new_content.each {|key, value| self.send("#{key}=", value)}
+    #         @@all << self
+    # end
+
+
+# WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+
+
+    # def self.create_from_collection(students_array)
+    #     students_array.each do |student_hash| 
+    #     Student.new(student_hash)
+    #     end
+    # end
+    
+    # def add_student_attributes(attributes_hash)
+    #     attributes_hash.each {|key, value| self.send("#{key}=", value)}
+    #     @@all << self
+    # end
+    # def initialize(student_hash)
+    #     student_hash.each {|key, value| self.send("#{key}=", value)}
+    #     @@all << self
+    #   end
+    
+    #   def self.create_from_collection(students_array)
+    #     students_array.each do |student_hash| 
+    #       Student.new(student_hash)
+    #     end
+    #   end
+    
+    #   def add_student_attributes(attributes_hash)
+    #     attributes_hash.each {|key, value| self.send("#{key}=", value)}
+    #     @@all << self
+    #   end
+    
+    #   def self.all
+    #     @@all@@all = []
+
+
+
+
+
+
+        # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+
+
+    # def leaving_out_featured_articles
+    #     home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+    #     left_out_articles_array = []
+    #     div#side-featured-articles
+
+    # end
+
+
+# Question: Why did a below not need an argument of url but the current way does? (is the differenc each and map)? And was using each the reason I only got one link and a time and not all of the links scraped?)
+
+# test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]
+
+
+# home_page.css(".thumbnail").each do |content_url|
+#     content_url.css("a").attribute("href").text
+
+# scraped_content_ary = []
+
+# scraped_content_url = content_url.css("a").attribute("href").text
+
+# scraped_content_ary << "https:" + scraped_content_url
+
+# scraped_content_ary.each do |complete_content_url|
+#     content_page = Nokogiri::HTML(open(complete_content_url))
+
+# content_page.css('div.steps').each do |full_content|
+#     full_content.css("b").text
+#     @content_array << full_content.css("b").text
+#     binding.pry
+
+    # def initialize
+    #     @title_hash_array = []
+    # end
+    # @title_array = []
+
+    #     students = []
+    #     index_page.css("div.roster-cards-container").each do |card|
+    #       card.css(".student-card a").each do |student|
+    #         student_profile_link = "./fixtures/student-site/#{student.attr('href')}"
+    #         student_location = student.css('.student-location').text
+    #         student_name = student.css('.student-name').text
+    #         students << {name: student_name, location: student_location, profile_url: student_profile_link}
+    #       end
+    #     end
+    #     students
+    #   end
+
+        # final_scraped_content.each do |steps|
+        #     content_hash[:content] = steps
+    #     try = home_page.css('div#bodycontents').each {|title_info| title_info.css('.text').each do |s| x = s.css('span').text x end 
+    # binding.pry  }
+        
+
+            # .each do |t|
+
+            #     t.css('span').each do
+            # t.each do |indiv_title|
+            #     title_array << {title: indiv_title} 
+
+            #         home_page.css('.text').each do |title_info|
+            # title_info_for_hash = title_info.css('span').text
+            # title_array << {title: title_info_for_hash} 
+
+            # home_page.css('div#bodycontents text').each do |title_info|
+            # binding.pry
+            # title_info_for_hash = title_info.css('span').text
+            # title_array << {title: title_info_for_hash} 
+
 
