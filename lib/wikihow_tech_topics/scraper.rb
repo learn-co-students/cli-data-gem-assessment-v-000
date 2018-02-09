@@ -10,34 +10,35 @@ class WikihowTechTopics::Scraper
     #     @home_page = home_page
     #     @@all << self
     # end
-    def get_home_page
-        Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
-    end
-
-    def get_titles_from_home_page
-        self.get_home_page.css('.text').each do |title_info|
+    def self.get_titles_from_home_page
+        home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+        title_array = []
+        home_page.css('.text').each do |title_info|
             info_for_title_array = title_info.css('span').text
             title_array << info_for_title_array
-            end
-        title_array.pop(5)
-        # binding.pry
+            title_array.pop(5)
+            title_array
+            binding.pry
+        end
     end
 
-    def get_content_urls
+    def self.get_content_urls
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
         content_url_array = []
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
         http_added = content_urls.map { |content_url| "https:" + content_url }
-        content_url_array << http_added.pop(4)
-        content_url_array
-        binding.pry
+        http_added.pop(4)
+        http_added
     end
 
-    def make_titles_from_content_urls
-        self.get_content_urls.each do |title|
-        WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
-        end
+    def self.make_titles_from_content_urls
+        puts 'ok'
+
+        # self.get_content_urls.each do |title|
+        # WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
+
+        # end
     end
 
 

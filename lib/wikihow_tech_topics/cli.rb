@@ -98,5 +98,4 @@ class WikihowTechTopics::CLI
     end
 end
 
-# WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
 
