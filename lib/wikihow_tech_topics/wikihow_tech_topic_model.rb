@@ -24,17 +24,22 @@ class WikihowTechTopics::WikihowTechTopicModel
 
     def self.content_from_content_array
         content_array = WikihowTechTopics::Scraper.scraped_content_array
-        content_array.each.with_index do |content, index|
+
+        content_array.each_with_index do |content, index|
             @@all[index].content = content
-            binding.pry
-            # self.new(title)
         end
     end
     
     def self.all
         @@all
+        binding.pry
+
     end
 end
+# WikihowTechTopics::Scraper.scraped_title_array
+
+# WikihowTechTopics::Scraper.scraped_content_array
+
 
 
 # /////////////////////////////////////////////////WikihowTechTopics::Scraper.scraped_content_array
@@ -57,7 +62,7 @@ end
 #     @@all << self        
 #     end
 # end
-
+# 
 
 # def initialize(title=nil, content=nil)
 #     @title = title

@@ -63,10 +63,10 @@ class WikihowTechTopics::CLI
     end
             
     def get_content_for_user_single_method
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.content_from_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
-            when @user_input == i && final_content.size == 1
+            when @user_input == i && final_content.size == newly_scraped_for_content
                 puts final_content
                 option
             end
@@ -96,10 +96,6 @@ class WikihowTechTopics::CLI
             end
     end
 end
-
-WikihowTechTopics::Scraper.scraped_title_array
-
-WikihowTechTopics::Scraper.scraped_content_array
 
 
             # elsif final_content.size == 1 
@@ -132,7 +128,7 @@ WikihowTechTopics::Scraper.scraped_content_array
 
 
 WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
-WikihowTechTopics::WikihowTechTopicModel.all
+WikihowTechTopics::WikihowTechTopicModel.content_from_content_array
 # WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
 
     # def content_parser(content)
