@@ -33,8 +33,9 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all << self
     end
     
-    def save_titles(title)
-        
+    def titles_from_content_urls(title)
+        self.new(title)
+        # binding.pry
     end
     # def self.titles_from_title_array
     #     title_array = WikihowTechTopics::Scraper.scraped_title_array

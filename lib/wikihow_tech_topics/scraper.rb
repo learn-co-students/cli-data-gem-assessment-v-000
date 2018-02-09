@@ -23,30 +23,35 @@ class WikihowTechTopics::Scraper
         # binding.pry
     end
 
-    def make_titles_from_content_urls
-        self.get_titles_from_home_page.each do |title|
-        WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array(title)
-    end
-
-    def self.scraped_content_array
+    def get_content_urls
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
-
+        content_url_array = []
         content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
-
         http_added = content_urls.map { |content_url| "https:" + content_url }
-        
-        url_array_sidebar_articles_removed = http_added.pop(4)
+        content_url_array << http_added.pop(4)
+        content_url_array
+        binding.pry
+    end
 
-        http_added.map do |complete_content_url| 
-            content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
-        
-        final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
-                full_content.css("b").text }
-
-        final_scraped_content
+    def make_titles_from_content_urls
+        self.get_content_urls.each do |title|
+        WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
         end
     end
+
+
+    # def self.scraped_content_array
+
+    #     http_added.map do |complete_content_url| 
+    #         content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
+        
+    #     final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
+    #             full_content.css("b").text }
+
+    #     final_scraped_content
+    #     end
+    # end
 end
 
     # basic_computers_page = WikihowTechTopics::Scraper.new
