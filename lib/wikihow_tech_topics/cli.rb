@@ -9,15 +9,15 @@ class WikihowTechTopics::CLI
     end
 
     def start
+        list_titles
         puts "Welcome to Wikihow Tech Topics!"
         puts ""
-        puts "Review the list of articles below,\ntype the number of the article\nthat you wish to read, and hit return."
+        puts "Review the list of articles above,\ntype the number of the article steps\nthat you wish to read, and hit return."
         puts ""
         run
     end
 
     def run
-        list_titles
         get_title_for_user
         get_content_for_user_multiple_methods
         get_content_for_user_single_method
@@ -44,7 +44,7 @@ class WikihowTechTopics::CLI
                     puts title
                     puts ""
                     puts ""
-                    puts "Your article ... "
+                    puts "Here are your article steps ... "
                     puts ""
                     puts ""            
             end
