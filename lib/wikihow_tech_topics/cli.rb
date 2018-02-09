@@ -67,7 +67,7 @@ class WikihowTechTopics::CLI
         # binding.pry
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
-            when @user_input == i && final_content.size == newly_scraped_for_content
+            when @user_input == i && final_content.size == 1
                 puts final_content
                 option
             end
