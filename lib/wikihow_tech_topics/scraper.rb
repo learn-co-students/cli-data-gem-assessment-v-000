@@ -56,3 +56,10 @@ class WikihowTechTopics::Scraper
     basic_computers_page.content_array = self.scraped_content_array
 
 end
+
+# make url instances and put them in @@all
+# url instances are connected to urls scraped from website
+#     title urls
+#     content urls
+
+# can the instances be shoveled into model.all?

@@ -31,6 +31,14 @@ class WikihowTechTopics::WikihowTechTopicModel
         end
     end
     
+    def self.content_urls
+        content_array = WikihowTechTopics::Scraper.scraped_content_array
+
+        content_array.each_with_index do |content, index|
+            @@all[index].content = content
+        end
+    end
+
     def self.all
         @@all
     end
