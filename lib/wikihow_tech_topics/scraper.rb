@@ -23,6 +23,11 @@ class WikihowTechTopics::Scraper
         # binding.pry
     end
 
+    def make_titles_from_content_urls
+        self.get_titles_from_home_page.each do |title|
+        WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array(title)
+    end
+
     def self.scraped_content_array
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))

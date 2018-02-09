@@ -33,12 +33,15 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all << self
     end
     
-    def self.titles_from_title_array
-        title_array = WikihowTechTopics::Scraper.scraped_title_array
-        title_array.each do |title|
-            self.new(title)
-        end
+    def save_titles(title)
+        
     end
+    # def self.titles_from_title_array
+    #     title_array = WikihowTechTopics::Scraper.scraped_title_array
+    #     title_array.each do |title|
+    #         self.new(title)
+    #     end
+    # end
 
     def self.content_from_content_array
         content_array = WikihowTechTopics::Scraper.scraped_content_array
