@@ -4,8 +4,6 @@ require 'pry'
 
 class WikihowTechTopics::Scraper
 
-    attr_accessor :url
-
     # def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
     #     @title_array = title_array
     #     @content_array = content_array
