@@ -1,4 +1,5 @@
-require_relative "../lib/portal_scraper.rb"
+require_relative "../lib/scraper.rb"
+require_relative "../lib/facts_scraper.rb"
 require_relative "../lib/random.rb"
 require_relative "../config.rb"
 RSpec.configure do |config|
