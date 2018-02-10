@@ -36,21 +36,7 @@ class WikihowTechTopics::WikihowTechTopicModel
         end
     end
 
-    # def self.every_nth
-
-    #     self.all.map do |element|
-    #         element.inspect
-    #         binding.pry
-    #     end
-    # end 
-
     def self.all
         @@all
     end
 end
-
-
-WikihowTechTopics::Scraper.get_content_urls
-WikihowTechTopics::Scraper.get_titles_from_content_urls
-# WikihowTechTopics::Scraper.get_titles_from_home_page
-
