@@ -20,19 +20,28 @@ class WikihowTechTopics::Scraper
         http_added_to_content_urls = content_urls.map { |content_url| "https:" + content_url }
         http_added_to_content_urls.pop(4)
         http_added_to_content_urls
-        binding.pry
 
     end
 
     def self.get_titles_from_content_urls
+        url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+        home_page = Nokogiri::HTML(open(url))
         title_array = []
-        self.get_content_urls.each do |content_url|
-            content_urls = Nokogiri::HTML(open(content_url))
-            content_urls.css('.text').each do |title_info|
-            info_for_title_array = title_info.css('span').text
-            title_array << info_for_title_array
-            title_array
-            end
+        titles_from_content_arrays = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.text }
+        titles_from_content_arrays.collect do |raw_title| 
+            raw_title.split("")
+            title_array << raw_title.split
+            title_array.pop(5)
+            binding.pry
+
+        
+        # self.get_content_urls.each do |content_url|
+        #     content_urls = Nokogiri::HTML(open(content_url))
+        #     content_urls.css('.text').each do |title_info|
+        #     info_for_title_array = title_info.css('span').text
+        #     title_array << info_for_title_array
+        #     title_array
+            # end
         end
     end
 
