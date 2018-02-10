@@ -34,7 +34,6 @@ class WikihowTechTopics::WikihowTechTopicModel
         content_array.each_with_index do |url, index|
             @@all[index].url = url
             binding.pry
-
         end
     end
 
