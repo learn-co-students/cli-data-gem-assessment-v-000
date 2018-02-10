@@ -1,9 +1,7 @@
 
 For current commit message:  
 
-'rebuilding cli'
-
-
+'in Stubs and Notes indicated met refactoring goals since project first submitted'
 
 GOALS to include in ReadMe:
 
@@ -43,7 +41,13 @@ Refactoring possibiilties for after submitting the project:
 
 DONE find a way to intantiate content as well as titles in model
 
-IN PROGRESS make Scraper depend on the model rather than the model depend on Scraper
+DONE instantiate urls used in Scraper as well as titles and content
+
+DONE take responsibility of instantiation of urls away from Scraper and make it the model's
+
+DONE cli consistently pulls from Scraper, all instances from Scraper are instantiated in model, and all methods in model pull from Scraper
+
+DONE popping of unneeded side articles more consistent, all in Scraper and done closer to the origin of scraped info 
 
 find a way to make the retrieval of article content faster
 
