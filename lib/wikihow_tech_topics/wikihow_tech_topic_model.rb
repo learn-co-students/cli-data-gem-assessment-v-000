@@ -19,11 +19,10 @@ class WikihowTechTopics::WikihowTechTopicModel
         title_array = WikihowTechTopics::Scraper.get_titles_from_content_urls
         title_array.each do |title|
             self.new(title)
-            binding.pry
         end
     end
 
-    def self.content_from_content_array
+    def self.scraped_content_array
         content_array = WikihowTechTopics::Scraper.scraped_content_array
         content_array.each_with_index do |content, index|
             @@all[index].content = content
@@ -34,6 +33,8 @@ class WikihowTechTopics::WikihowTechTopicModel
         content_array = WikihowTechTopics::Scraper.get_content_urls
         content_array.each_with_index do |url, index|
             @@all[index].url = url
+            binding.pry
+
         end
     end
 
@@ -41,6 +42,7 @@ class WikihowTechTopics::WikihowTechTopicModel
         @@all
     end
 end
+
 
 WikihowTechTopics::Scraper.get_content_urls
 WikihowTechTopics::Scraper.get_titles_from_content_urls

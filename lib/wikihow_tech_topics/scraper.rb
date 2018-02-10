@@ -4,12 +4,6 @@ require 'pry'
 
 class WikihowTechTopics::Scraper
 
-    # def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
-    #     @title_array = title_array
-    #     @content_array = content_array
-    #     @home_page = home_page
-    #     @@all << self
-    # end
     def self.get_content_urls
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
@@ -49,7 +43,6 @@ class WikihowTechTopics::Scraper
         final_scraped_content
         end
     end
-
 end
 
     # def self.make_titles
@@ -86,3 +79,10 @@ end
         #     title_array << info_for_title_array
         #     title_array
             # end
+
+                # def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
+    #     @title_array = title_array
+    #     @content_array = content_array
+    #     @home_page = home_page
+    #     @@all << self
+    # end
