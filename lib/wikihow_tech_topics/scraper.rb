@@ -47,14 +47,16 @@ class WikihowTechTopics::Scraper
 
 
     def self.make_titles
-        get_titles_from_content_urls
+        get_titles_from_content_urls.each do |title|
+        WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
+
         binding.pry
         # puts 'ok'
 
         # self.get_content_urls.each do |title|
         # WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
 
-        # end
+        end
     end
 
 
