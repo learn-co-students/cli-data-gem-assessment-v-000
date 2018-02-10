@@ -26,12 +26,13 @@ class WikihowTechTopics::Scraper
     def self.get_titles_from_content_urls
         url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
         home_page = Nokogiri::HTML(open(url))
-        title_array = []
         titles_from_content_arrays = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.text }
-        titles_from_content_arrays.collect do |raw_title| 
-            raw_title.split("")
-            title_array << raw_title.split
-            title_array.pop(5)
+        popped_titles = titles_from_content_arrays.pop(5)
+        popped_titles.collect do |raw_title| 
+            sliced_title = raw_title.slice!(0, 53)
+            raw_title
+            resliced_title = raw_title[0...-1]
+            resliced_title
             binding.pry
 
         
