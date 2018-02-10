@@ -32,7 +32,7 @@ class WikihowTechTopics::WikihowTechTopicModel
         @url = url
         @@all << self
     end
-    WikihowTechTopics::Scraper.make_titles_from_content_urls
+    WikihowTechTopics::Scraper.make_titles
     WikihowTechTopics::Scraper.get_titles_from_content_urls
     # WikihowTechTopics::Scraper.get_titles_from_home_page
 
