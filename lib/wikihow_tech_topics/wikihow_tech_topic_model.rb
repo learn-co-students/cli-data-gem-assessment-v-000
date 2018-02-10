@@ -33,9 +33,16 @@ class WikihowTechTopics::WikihowTechTopicModel
         content_array = WikihowTechTopics::Scraper.get_content_urls
         content_array.each_with_index do |url, index|
             @@all[index].url = url
-            binding.pry
         end
     end
+
+    # def self.every_nth
+
+    #     self.all.map do |element|
+    #         element.inspect
+    #         binding.pry
+    #     end
+    # end 
 
     def self.all
         @@all
