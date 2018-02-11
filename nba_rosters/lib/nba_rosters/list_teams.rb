@@ -2,7 +2,7 @@ class NbaRosters::Team
 
   def self.list
     #prints out list of all nba teams
-    team_names []
+    team_names = []
 
     team_names << self.scrape_teams
 
