@@ -1,5 +1,5 @@
-require 'nokogiri'
 require 'open-uri'
+require 'nokogiri'
 require 'pry'
 
 require_relative "nba_rosters/version"
