@@ -10,20 +10,30 @@ class Scraper
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences")
     doc = Nokogiri::HTML(html)
     
-    binding.pry
+    
     #doc.css("h2 big").first.text
-    allmaintopics = ""
-    
-    allportals = doc.css(".student-card")
-    allstudents.each{ |item| 
-      student_hash = {}
-      student_hash[:name] = item.css(".student-name").text
-      student_hash[:location] = item.css(".student-location").text
-      student_hash[:profile_url] = item.css("a").attribute("href").value
-      @@all << student_hash
+    #doc.css("h2 .mw-headline big a").first <<< checking if big has an image
+    allmaintopics = doc.css("h2 .mw-headline big")
+    firsttopic = doc.css("h2 .mw-headline big a")
+    allmaintopics.each{|i|
+      topics = []
+      if i.css("a.image") != nil
+        topics << i.text
+      end
+      @@all << topics
     }
+    binding.pry
     
-    @@all
+    # allportals = doc.css(".student-card")
+    # allstudents.each{ |item| 
+    #   student_hash = {}
+    #   student_hash[:name] = item.css(".student-name").text
+    #   student_hash[:location] = item.css(".student-location").text
+    #   student_hash[:profile_url] = item.css("a").attribute("href").value
+    #   @@all << student_hash
+    # }
+    
+    # @@all
     
   end
   
