@@ -8,6 +8,6 @@ class NbaRosters::Team
   end
 
   def self.scrape_teams
-    html = open('http://www.nba.com/teams')
+    doc = Nokogiri::HTML(open('http://www.nba.com/teams'))
   end
 end
