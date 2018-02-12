@@ -11,32 +11,41 @@ class Scraper
     doc = Nokogiri::HTML(html)
     
     @all_content = doc.css("#mw-content-text div table table div") #use .children to retrieve all children
-    # doc.css("#mw-content-text div table table div").children.css("h2 .mw-headline big").first
+    # doc.css("#mw-content-text div table table div").children.first.css("h2 .mw-headline big").next_element
     
     
     @all_content.each{|node|
       #FIRST FIND ALL MAIN TOPICS
       #find the first main topic title
-      #then find the first sub topic that occur before the next main topic title
+      #main_topic_div.next_element: then find the first sub topic that occur before the next main topic title
       #then find the base portal links under that subtopic that occurs before the next sub topic
       
-      
       allmaintopics = node.children.css("h2 .mw-headline big")
-      topics = {}
-      if allmaintopics.index(i) > 2
-        copy = i.text.chomp("(see in all page types)").strip
-        copy.slice!(-3..-1)
-        topics[:main_topic] = copy
-        #topics << copy
-        @@all << topics
-      end
-      
-      node.children.css("div p b a").first.text
-      each{|topic| 
+      allmaintopics.each{|i|
+        @topics = {}
+        if allmaintopics.index(i) > 2
+          copy = i.text.chomp("(see in all page types)").strip
+          copy.slice!(-3..-1)
+          @topics[:main_topic] = copy
+          sub_portals = i.parent.parent.parent.next.next.css("p b a")
+          sub_portals.each{|item|
+            #doc.css("h2 .mw-headline big")[3].parent.parent.parent.next.next.css("p b a").text
+            @sub_portals = {}
+            if item.attribute("href").value.include?("/wiki/Portal:")
+              @sub_portals[:portal_name] = item.text
+              @sub_portals[:portal_url] = item.attribute("href").value.prepend("https://en.wikipedia.org")
+              @topics 
+              @@all_sub_portals << @sub_portals
+            end
+          }
+          @@all << @topics
+        end
+      }
+      # node.children.css("div p b a").first.text
+      # each{|topic| 
       
         
       }
-    }
     
     # doc.css("div.mw-parser-output table tbody tr td table tbody tr td div").children
     # doc.css("#mw-content-text div table tbody tr td table tbody tr td div")
