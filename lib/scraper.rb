@@ -27,22 +27,18 @@ class Scraper
           copy = i.text.chomp("(see in all page types)").strip
           copy.slice!(-3..-1)
           @topics[:main_topic] = copy
-          sub_portals = i.parent.parent.parent.next.next.css("p b a")
+          sub_portals = i.parent.parent.parent.next.next
+          @portals = {}
+          @topics[:portals] = @portals
           sub_portals.each{|item|
-            @portals = {}
+            sub_topics = .css("p b a")
+            .css("dl dd a")
             #doc.css("h2 .mw-headline big")[3].parent.parent.parent.next.next.css("p b a").text
             if item.attribute("href").value.include?("/wiki/Portal:")
               @portals[:portal_name] = item.text
               @sub_portals[:portal_url] = item.attribute("href").value.prepend("https://en.wikipedia.org")
             end
           }
-          base_portals = doc.css("dl dd a")
-          @portals = {}
-              @portals[:portal_name] = item.text
-              @portals[:portal_url] = item.attribute("href").value.prepend("https://en.wikipedia.org")
-              @topics 
-              @@all_sub_portals << @sub_portals
-          
           @@all << @topics
         end
       }
