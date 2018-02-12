@@ -17,7 +17,9 @@ class Scraper
     allmaintopics.each{|i|
       topics = []
       if allmaintopics.index(i) > 2
-        topics << i.text
+        copy = i.text.chomp("(see in all page types)").strip
+        copy.slice!(-3..-1)
+        topics << copy
         @@all << topics
       end
     }
