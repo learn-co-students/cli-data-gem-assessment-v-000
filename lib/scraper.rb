@@ -14,14 +14,22 @@ class Scraper
     #doc.css("h2 big").first.text
     #doc.css("h2 .mw-headline big a").first <<< checking if big has an image
     allmaintopics = doc.css("h2 .mw-headline big")
-    firsttopic = doc.css("h2 .mw-headline big a")
     allmaintopics.each{|i|
       topics = []
-      if i.css("a.image") != nil
+      if allmaintopics.index(i) > 2
         topics << i.text
+        @@all << topics
       end
-      @@all << topics
     }
+    
+    #@@all[0][0].chomp!("(see in all page types)").strip!
+    
+    #start search for main titles here: doc.css("h2 .mw-headline big")[3].text
+    #last main title topic: doc.css("h2 .mw-headline big").last.text
+    #expect the main titles array to contain 11 items
+    
+    #first remove: @@all[0][0].chomp("(see in all page types)")
+    #then remove all the unrelated charters: firstitem.slice!(-3..-1)
     binding.pry
     
     # allportals = doc.css(".student-card")
