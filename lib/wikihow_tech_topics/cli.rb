@@ -25,7 +25,8 @@ class WikihowTechTopics::CLI
 
     def list_titles
         @scraped_titles_array = []
-        scraped_titles = WikihowTechTopics::Scraper.get_titles_from_content_urls
+        scraped_titles = WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+        # WikihowTechTopics::Scraper.get_titles_from_content_urls
         scraped_titles.each.with_index(1) do |title, i|
             @scraped_titles_array << title
             puts "#{i}. #{title}"
@@ -52,7 +53,7 @@ class WikihowTechTopics::CLI
     end
 
     def get_content_for_user_multiple_methods
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
             when @user_input == i && final_content.size >= 2
@@ -63,7 +64,7 @@ class WikihowTechTopics::CLI
     end
             
     def get_content_for_user_single_method
-        newly_scraped_for_content = WikihowTechTopics::Scraper.scraped_content_array
+        newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.scraped_content_array
         newly_scraped_for_content.each.with_index(1) do |final_content, i|
             case
             when @user_input == i && final_content.size == 1
