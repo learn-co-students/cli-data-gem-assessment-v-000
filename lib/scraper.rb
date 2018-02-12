@@ -15,11 +15,12 @@ class Scraper
     #doc.css("h2 .mw-headline big a").first <<< checking if big has an image
     allmaintopics = doc.css("h2 .mw-headline big")
     allmaintopics.each{|i|
-      topics = []
+      topics = {}
       if allmaintopics.index(i) > 2
         copy = i.text.chomp("(see in all page types)").strip
         copy.slice!(-3..-1)
-        topics << copy
+        topics[:main_topic] = copy
+        #topics << copy
         @@all << topics
       end
     }
@@ -32,7 +33,6 @@ class Scraper
     
     #first remove: @@all[0][0].chomp("(see in all page types)")
     #then remove all the unrelated charters: firstitem.slice!(-3..-1)
-    binding.pry
     
     # allportals = doc.css(".student-card")
     # allstudents.each{ |item| 
