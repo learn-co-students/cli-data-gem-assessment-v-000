@@ -15,30 +15,36 @@ class Scraper
     #SETTING ALL CLASSES FOR ELEMENTS
     doc.search("h2 .mw-headline big").each{|anchor|
       anchor['class']="headlines"
-      anchor.ancestors("div").first["class"]="title_container"
+      anchor.ancestors("div").first['class'] = "title_container"
+    }
+    
+    doc.search(".headlines").each{|anchor|
+      anchor.parent = anchor.ancestors(".title_container").first
     }
     
     doc.search("p b a").each{|anchor|
       if anchor.attribute("href").value.include?("/wiki/Portal:")
         anchor['class']="portals"
-        anchor.parent = anchor.ancestors("div").first
       end
+    }
+    
+    doc.search(".portals").each{|anchor|
+      anchor.parent = anchor.ancestors(".title_container").first
     }
     
     doc.search("dl dd a").each{|anchor|
       anchor['class']="portals"
-      #anchor.ancestors("div").first["class"]="links_container"
+      anchor.parent = anchor.ancestors(".title_container").first
+          }
+    
+    binding.pry
+    
+    #anchor.ancestors("div").first["class"]="links_container"
       #anchor.ancestors("div").first.add_class("links_container")
       #anchor.add_class("portals")
-      anchor.parent = anchor.ancestors("div").first
-      #parentnode = anchor.ancestors("div").first
-      #parentnode.add_class("links_container")
-      binding.pry
-      
-    }
     
     all_content = doc.css("#mw-content-text div table table:nth-child(1) div")
-    binding.pry
+    all_sections = doc.css(".")
     
     all_content.each{|i|
     #all_content.css(".portals").first
