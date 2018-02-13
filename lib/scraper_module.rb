@@ -6,6 +6,7 @@ module ScraperModule
 
   class Scraper
     @@all = {}
+    
     # all_portals_url = "https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences"
     def self.scrape_portals_page
       html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences")
@@ -89,7 +90,7 @@ module ScraperModule
      end
      
      def self.all
-       @@all
+       scrape_portals_page
      end
     
   end

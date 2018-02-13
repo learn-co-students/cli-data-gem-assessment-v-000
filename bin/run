@@ -1,6 +1,4 @@
+require_relative "../lib/command_line_interface.rb"
 
-puts "Welcome to Did You Know!"
-puts "Please select a topic to learn some cool facts:"
-CommandLineInterface.display_facts
-puts "Select a number to explore facts from that topic"
-choice = input.gets
+
+CommandLineInterface.new.run
