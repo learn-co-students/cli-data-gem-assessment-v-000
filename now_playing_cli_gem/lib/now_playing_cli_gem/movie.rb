@@ -2,7 +2,7 @@ class NowPlayingCliGem::Movie
 
   # Automatically sets up getter and setter methods for the instance variables
   attr_accessor :title, :details, :director
-
+  
   # Returning scraped data of the movies
   def self.today
     self.scrape_movies

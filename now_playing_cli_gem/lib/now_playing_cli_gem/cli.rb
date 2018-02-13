@@ -47,7 +47,7 @@ class NowPlayingCliGem::CLI
       prompts
       # Run the input only once rather than forever
       input = gets.strip
-        if input.to_i > 0
+        if input.to_i == 1 || input.to_i == 2
           # Scraped data that is returned when a user enters a number
           movie = @movies[input.to_i-1]
           puts ""
@@ -60,6 +60,8 @@ class NowPlayingCliGem::CLI
           list_movies
         elsif  input == "exit"
           exit_program
+        elsif input.to_i > 2
+          unrecognized
         else
           unrecognized
         end
