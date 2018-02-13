@@ -54,7 +54,7 @@ class Scraper
       }
       @@all[key.to_sym] = links
     }
-    binding.pry
+    #binding.pry
     @@all
     
    end
@@ -79,12 +79,12 @@ class Scraper
         end
       }
       @facts_by_category[key] = all_facts
-      binding.pry
+      #binding.pry
       #@@all[key] = all_facts
       #doc.search(#Did_you_know... h2 div div).parent.parent.parent
      }
      
-     @@all
+     @facts_by_category
    end
   
 end
