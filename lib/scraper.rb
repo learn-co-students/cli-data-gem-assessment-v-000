@@ -21,18 +21,18 @@ class Scraper
     doc.search("p b a").each{|anchor|
       if anchor.attribute("href").value.include?("/wiki/Portal:")
         anchor['class']="portals"
+        anchor.parent = anchor.ancestors("div").first
       end
     }
     
     doc.search("dl dd a").each{|anchor|
-      #anchor['class']="portals"
+      anchor['class']="portals"
       #anchor.ancestors("div").first["class"]="links_container"
       #anchor.ancestors("div").first.add_class("links_container")
-      
       #anchor.add_class("portals")
-      
-      parentnode = anchor.ancestors("div").first
-      parentnode.add_class("links_container")
+      anchor.parent = anchor.ancestors("div").first
+      #parentnode = anchor.ancestors("div").first
+      #parentnode.add_class("links_container")
       binding.pry
       
     }
