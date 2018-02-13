@@ -4,7 +4,7 @@ require 'pry'
 
 
 class Scraper
-  @@all = []
+  @@all = {}
   # all_portals_url = "https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences"
   def self.scrape_portals_page
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences")
@@ -13,14 +13,28 @@ class Scraper
     end
     
     #SETTING ALL CLASSES FOR ELEMENTS
+    doc.search("#mw-content-text div table table div").each{|anchor|
+      if anchor['style'] == "position: relative;border: 0px solid #A3BFB1;background: #CEF2E0;color: black;padding: .1em;text-align: center;font-weight: bold;font-size: 100%;margin-bottom: 0px;border-top: 1px solid #A3BFB1;border-bottom: 1px solid #A3BFB1;"
+        
+        anchor['class'] = "title_container" unless anchor.text.include?("General reference")
+      end
+    }
+
+    
     doc.search("h2 .mw-headline big").each{|anchor|
-      anchor['class']="headlines"
-      anchor.ancestors("div").first['class'] = "title_container"
+      anchor['class'] = "headlines" unless anchor.text == "Wikipedia's contents: Portals" || anchor.text == "Wikipedia's contents: Portals" || anchor.text.include?("General reference")
     }
     
-    doc.search(".headlines").each{|anchor|
-      anchor.parent = anchor.ancestors(".title_container").first
+    doc.search(".title_container").each{|anchor|
+      anchor.next.remove
+      listcontent = anchor.next
+      listcontent['class'] = "portal_container"
     }
+    
+    
+    # doc.search(".headlines").each{|anchor|
+    #   anchor.parent = anchor.ancestors(".title_container").first
+    # }
     
     doc.search("p b a").each{|anchor|
       if anchor.attribute("href").value.include?("/wiki/Portal:")
@@ -28,14 +42,50 @@ class Scraper
       end
     }
     
-    doc.search(".portals").each{|anchor|
-      anchor.parent = anchor.ancestors(".title_container").first
-    }
-    
     doc.search("dl dd a").each{|anchor|
       anchor['class']="portals"
-      anchor.parent = anchor.ancestors(".title_container").first
-          }
+    }
+    
+    doc.search(".title_container").each{|anchor|
+      key = anchor.css(".headlines").first.text.chomp("(see in all page types)").strip
+      key.slice!(-3..-1)
+      links = []
+      values = anchor.next.search(".portals")
+      values.each{|item|
+        links << item.attribute("href").value.prepend("https://en.wikipedia.org")
+      }
+      #binding.pry
+      @@all[key.to_sym] = links
+    }
+    binding.pry
+    # doc.search(".portal_container").each_with_index{|portal,indx|
+    #   titles = doc.search(".title_container")
+    #   #titles.each_with_index{|title,indx|
+    #       #.wrap("<div class='parent_container'></div>")
+    #     #while indx < titles.count 
+    #     portal.parent = title[indx]
+    #   #}
+    #   anchor.parent = previous_element
+    #   # doc.search(".headlines").each{|item|
+    #   #   item.parent = anchor
+    #   # }
+    #   #anchor.children = 
+    #   # anchor.css(".portals").each{|item|
+    #   #   item.parent = anchor
+    #   # }
+    # }
+    
+    # doc.each{|anchor|
+    #   anchor.remove unless anchor.css.include?(".headlines") || anchor.css.include?(".headlines") || anchor.css.include?(".title_container")
+    # }
+    
+    binding.pry
+
+    
+          
+    # doc.search(".portals").each{|anchor|
+    #   anchor.parent = anchor.ancestors(".title_container").first
+    # }
     
     binding.pry
     
@@ -43,7 +93,6 @@ class Scraper
       #anchor.ancestors("div").first.add_class("links_container")
       #anchor.add_class("portals")
     
-    all_content = doc.css("#mw-content-text div table table:nth-child(1) div")
     all_sections = doc.css(".")
     
     all_content.each{|i|
