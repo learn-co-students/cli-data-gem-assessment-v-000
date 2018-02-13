@@ -65,12 +65,14 @@ class Scraper
       value.each{|link|
         html = open(link)
         doc = Nokogiri::HTML(html)
-        doc.at_css("#Did_you_know").parent.parent.next.next['class'] = "dyk_container"
-        doc.search(".dyk_container ul li").each{|anchor|
-          @all_facts << anchor.text #slice!(0..7).slice!(-1)
-        }
-        binding.pry
+        if doc.at_css("#Did_you_know") != nil 
+          doc.at_css("#Did_you_know").parent.parent.next.next['class'] = "dyk_container"
+          doc.search(".dyk_container ul li").each{|anchor|
+            @all_facts << anchor.text #slice!(0..7).slice!(-1)
+          }
+        end
       }
+      binding.pry
       #doc.search(#Did_you_know... h2 div div).parent.parent.parent
      }
      
