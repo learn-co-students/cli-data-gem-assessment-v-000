@@ -54,25 +54,33 @@ class Scraper
       }
       @@all[key.to_sym] = links
     }
-    
+    binding.pry
     @@all
     
    end
    
    def self.scrape_portal_dyk
-     @all_facts = []
      @@all.each{|key, value|
+      all_facts = []
+      @facts_by_category = {}
       value.each{|link|
         html = open(link)
         doc = Nokogiri::HTML(html)
         if doc.at_css("#Did_you_know") != nil 
           doc.at_css("#Did_you_know").parent.parent.next.next['class'] = "dyk_container"
           doc.search(".dyk_container ul li").each{|anchor|
-            @all_facts << anchor.text #slice!(0..7).slice!(-1)
+            all_facts << anchor.text #slice!(0..7).slice!(-1)
           }
+        #else
+            # loc = @@all[key].find_index(value)
+            # @@all[key].delete_at(loc)
+            #@@all[key].find_index(link)
+            #Figure out a way to remove the element from the @@all array
         end
       }
+      @facts_by_category[key] = all_facts
       binding.pry
+      #@@all[key] = all_facts
       #doc.search(#Did_you_know... h2 div div).parent.parent.parent
      }
      
