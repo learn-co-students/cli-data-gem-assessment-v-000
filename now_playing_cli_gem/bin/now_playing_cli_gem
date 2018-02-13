@@ -1,3 +1,5 @@
+# Executable file
+
 #!/usr/bin/env  ruby
 
 require "./now_playing_cli_gem/lib/now_playing_cli_gem"
