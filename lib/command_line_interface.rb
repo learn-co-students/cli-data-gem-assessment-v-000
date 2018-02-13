@@ -16,9 +16,9 @@ class CommandLineInterface
   
   def display_all_facts
     colors = [:red, :green, :yellow, :blue, :magenta, :cyan, :white, :red, :green, :yellow, :blue]
-    binding.pry
+    #binding.pry
     DidYouKnow.all_topics.each_with_index{|item, indx|
-      puts "#{indx + 1}. #{item}".colorize(color[indx])
+      puts "#{indx + 1}. #{item}".colorize(colors[indx])
     }
   end
 end
