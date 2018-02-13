@@ -12,35 +12,38 @@ class Scraper
       config.noblanks
     end
     
-    #SETTING ALL CLASSES FOR ELEMENTS
+    #Set div container class .title_container for all parent elements of each .headlines title
     doc.search("#mw-content-text div table table div").each{|anchor|
       if anchor['style'] == "position: relative;border: 0px solid #A3BFB1;background: #CEF2E0;color: black;padding: .1em;text-align: center;font-weight: bold;font-size: 100%;margin-bottom: 0px;border-top: 1px solid #A3BFB1;border-bottom: 1px solid #A3BFB1;"
-        
         anchor['class'] = "title_container" unless anchor.text.include?("General reference")
       end
     }
 
-    
+    #set .headlines class for all section titles
     doc.search("h2 .mw-headline big").each{|anchor|
       anchor['class'] = "headlines" unless anchor.text == "Wikipedia's contents: Portals" || anchor.text == "Wikipedia's contents: Portals" || anchor.text.include?("General reference")
     }
     
+    #removes line break element from doc object #Text('/n')
+    #sets the parent class container .portal_container for each of the .portals
     doc.search(".title_container").each{|anchor|
       anchor.next.remove
       listcontent = anchor.next
       listcontent['class'] = "portal_container"
     }
     
+    
+    #finds all portals and sets .portals class for each
     doc.search("p b a").each{|anchor|
       if anchor.attribute("href").value.include?("/wiki/Portal:")
         anchor['class']="portals"
       end
     }
-    
     doc.search("dl dd a").each{|anchor|
       anchor['class']="portals"
     }
     
+    #populates the @@all hash
     doc.search(".title_container").each{|anchor|
       key = anchor.css(".headlines").first.text.chomp("(see in all page types)").strip
       key.slice!(-3..-1)
@@ -49,22 +52,29 @@ class Scraper
       values.each{|item|
         links << item.attribute("href").value.prepend("https://en.wikipedia.org")
       }
-      #binding.pry
       @@all[key.to_sym] = links
     }
     
-    binding.pry
-
+    @@all
     
    end
    
    def self.scrape_portal_dyk
-     @@all.each{|i|
-      html = open(i)
-      doc = Nokogiri::HTML(html)
-      binding.pry
+     @all_facts = []
+     @@all.each{|key, value|
+      value.each{|link|
+        html = open(link)
+        doc = Nokogiri::HTML(html)
+        doc.at_css("#Did_you_know").parent.parent.next.next['class'] = "dyk_container"
+        doc.search(".dyk_container ul li").each{|anchor|
+          @all_facts << anchor.text #slice!(0..7).slice!(-1)
+        }
+        binding.pry
+      }
       #doc.search(#Did_you_know... h2 div div).parent.parent.parent
      }
+     
+     @@all
    end
   
 end
