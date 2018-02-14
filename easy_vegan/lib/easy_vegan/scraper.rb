@@ -7,14 +7,14 @@ class EasyVegan::Scraper
     3. 5-ingredient Vegan Caramel Sauce
     4. Creamy Avocado Banana Green Smoothie
     HEREDOC
-    self.scrape_index_page
+    self.scrape_categories
   end
 
 
   def self.scrape_index_page
     scraped_recipes = []
     doc = Nokogiri::HTML(open("https://minimalistbaker.com/recipe-index/"))
-    doc.css("article a").each do |category, index|
+    doc.css("article a").each do |category|
         scraped_recipes << {
         :title => category.attr("title"),
         :url => category.attr("href")
@@ -22,6 +22,21 @@ class EasyVegan::Scraper
     end
     scraped_recipes
   end
+
+  def self.scrape_categories
+    scraped_categories = []
+    doc = Nokogiri::HTML(open("https://minimalistbaker.com/recipe-index/"))
+    widget_area = doc.css("div.widget-area.recipes-index")
+    widget = widget_area.css("section.widget.featured-content.featuredpost.featured-recipes")
+    widget.css("h4.widget-title.widgettitle").each do |category_name|
+      binding.pry
+      scraped_categories << {
+        :category => category.text
+      }
+    end
+    scraped_categories
+  end
+
 
 
 
