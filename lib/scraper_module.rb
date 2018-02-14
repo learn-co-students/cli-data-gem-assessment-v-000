@@ -64,22 +64,19 @@ module ScraperModule
       }
       
       #populates the @@all hash
-      doc.search(".title_container").each{|anchor|
-        # key = anchor.css(".headlines").first.text.chomp("(see in all page types)").strip
-        # key.slice!(-3..-1)
-        links = []
-        values = anchor.next.search(".portals")
-        values.each{|item|
-          links << item.attribute("href").value.prepend("https://en.wikipedia.org")
-        }
-        @@all[key.to_sym] = links
-      }
+      # doc.search(".title_container").each{|anchor|
+      #   key = anchor.css(".headlines").first.text.chomp("(see in all page types)").strip
+      #   key.slice!(-3..-1)
+      #   links = []
+      #   values = anchor.next.search(".portals")
+      #   values.each{|item|
+      #     links << item.attribute("href").value.prepend("https://en.wikipedia.org")
+      #   }
+      #   @@all[key.to_sym] = links
+      # }
       binding.pry
-      return @@all
+      return @topic_links
       
-     end
-     
-     def self.get_main_topics
      end
      
      def self.scrape_portal_dyk
@@ -117,8 +114,8 @@ module ScraperModule
        return @@all_facts
      end
      
-     def self.all
-       scrape_portals_page(topic_selection)
+     def self.all_topics
+       @@all_topics
      end
     
   end

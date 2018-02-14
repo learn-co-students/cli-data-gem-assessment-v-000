@@ -5,7 +5,7 @@ require 'pry'
 class DidYouKnow
   extend ScraperModule #::Scraper
 
-  attr_accessor :name, :facts, :all_topics 
+  attr_accessor :name, :facts, :all
   
   @@all_viewed_facts = []
   def initialize
@@ -23,9 +23,9 @@ class DidYouKnow
     return ScraperModule::Scraper.scrape_portal_dyk(topic_selection)
   end
 
-  def self.all_topics
+  def self.all
     #@@all_topics
-    return ScraperModule::Scraper.all.keys
+    return ScraperModule::Scraper.all_topics
   end
   
 end

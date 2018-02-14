@@ -19,7 +19,7 @@ class CommandLineInterface
     colors = [:red, :green, :yellow, :blue, :magenta, :cyan, :red, :green, :yellow, :blue, :magenta]
     @all_choices = []
     #binding.pry
-    DidYouKnow.all_topics.each_with_index{|item, indx|
+    DidYouKnow.all.each_with_index{|item, indx|
       puts "#{indx + 1}. #{item}".colorize(colors[indx])
       lis_item = "#{item}"
       @all_choices << lis_item
