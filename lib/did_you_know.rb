@@ -19,6 +19,7 @@ class DidYouKnow
     # @all_topics.each{|student|
     #   newstudent = self.new(student)
     # }
+    #binding.pry
     return ScraperModule::Scraper.scrape_portal_dyk
   end
 

@@ -27,9 +27,11 @@ class CommandLineInterface
   end
   
   def get_random_fact
-    lookforkey = @all_choices[@choice.to_i - 1].to_sym
+    #lookforkey = @all_choices[@choice.to_i - 1].to_sym
     #binding.pry
-    puts DidYouKnow.facts[lookforkey].sample
+    #puts DidYouKnow.facts[lookforkey].sample
+    #the DidYouKnow.facts is only returning the last item in the facts hash
     #binding.pry
+    puts DidYouKnow.facts[@choice.to_i - 1].values.sample
   end
 end

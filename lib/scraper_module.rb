@@ -6,6 +6,7 @@ module ScraperModule
 
   class Scraper
     @@all = {}
+    @@all_facts = []
     
     # all_portals_url = "https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences"
     def self.scrape_portals_page
@@ -90,15 +91,15 @@ module ScraperModule
               #Figure out a way to remove the element from the @@all array
           end
         }
-        #binding.pry
-        @facts_by_category[key] = all_facts
+        binding.pry
+        @@all_facts << @facts_by_category[key] = all_facts
         #binding.pry
         #@@all[key] = all_facts
         #doc.search(#Did_you_know... h2 div div).parent.parent.parent
        }
-       #binding.pry
+       binding.pry
        
-       return @facts_by_category
+       return @@all_facts
      end
      
      def self.all
