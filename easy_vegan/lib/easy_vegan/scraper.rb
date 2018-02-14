@@ -29,9 +29,9 @@ class EasyVegan::Scraper
     widget_area = doc.css("div.widget-area.recipes-index")
     widget = widget_area.css("section.widget.featured-content.featuredpost.featured-recipes")
     widget.css("h4.widget-title.widgettitle").each do |category_name|
-      binding.pry
+      #binding.pry
       scraped_categories << {
-        :category => category.text
+        :category => category_name.text
       }
     end
     scraped_categories
