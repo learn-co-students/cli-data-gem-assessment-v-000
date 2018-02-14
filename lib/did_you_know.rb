@@ -10,7 +10,7 @@ class DidYouKnow
   @@all_viewed_facts = []
   def initialize
     @scrapepages = ScraperModule::Scraper.scrape_portals_page
-    @scarpedyk = ScraperModule::Scraper.scrape_portal_dyk
+    @scarpedyk = ScraperModule::Scraper.scrape_portal_dyk(topic_selection)
     #@@all_topics = ScraperModule::Scraper.all.keys #maybe self.@@all.keys?
     @@all_viewed_facts << self
   end
@@ -20,7 +20,7 @@ class DidYouKnow
     #   newstudent = self.new(student)
     # }
     #binding.pry
-    return ScraperModule::Scraper.scrape_portal_dyk
+    return ScraperModule::Scraper.scrape_portal_dyk(topic_selection)
   end
 
   def self.all_topics

@@ -9,7 +9,7 @@ describe "Scraper" do
   describe "#scrape_portals_page" do
     it "is a class method that scrapes portal topics ('https://en.wikipedia.org/wiki/Portal:Contents/Portals') and a hash in which each value is an array of portal page links" do
       portals_page = "https://en.wikipedia.org/wiki/Portal:Contents/Portals"
-      scraped_portals = Scraper.scrape_portals_page
+      scraped_portals = Scraper.scrape_portals_page(topic_selection)
       expect(scraped_portals).to be_a(Hash)
       expect(scraped_portals).has_key?(:"Culture and the arts").to eq(true)
       #expect(scraped_portals).has_key?(:"Technology and applied sciences").to eq(true)
