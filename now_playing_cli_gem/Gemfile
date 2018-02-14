@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in now_playing_cli_gem.gemspec
+gemspec
+
+#PROGRAM IS WORKING AND COMPLETE
