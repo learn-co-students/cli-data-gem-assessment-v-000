@@ -51,13 +51,7 @@ DONE popping of unneeded side articles more consistent, all in Scraper and done 
 
 Not done:
 
-find a way to make the retrieval of article content faster
-
-consider using @@all ||= scraped info as now playing does
-
 make sure it's easy for any new index page from wikihow to be scraped, not just the one currently scraped in the project
-
-add heading information not included in this project that follows specific numbered methods and parts for articles organized this way ("Method/Part" was added through code rather than scraping) 
 
 number individual steps for each article and put them in column form
 

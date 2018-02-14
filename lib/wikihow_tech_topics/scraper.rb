@@ -32,14 +32,11 @@ class WikihowTechTopics::Scraper
     end
 
     def self.scraped_content_array
-
         get_content_urls.map do |complete_content_url| 
             content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
-        
-        final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
+            final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
                 full_content.css("b").text }
-
-        final_scraped_content
+                final_scraped_content
         end
     end
 end

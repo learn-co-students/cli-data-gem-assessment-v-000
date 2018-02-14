@@ -19,7 +19,6 @@ class WikihowTechTopics::WikihowTechTopicModel
         title_array = WikihowTechTopics::Scraper.get_titles_from_content_urls
         title_array.each do |title|
             self.new(title)
-            # binding.pry
         end
     end
 
@@ -40,7 +39,5 @@ class WikihowTechTopics::WikihowTechTopicModel
     def self.all
         @@all
     end
-
-    WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
 end
 
