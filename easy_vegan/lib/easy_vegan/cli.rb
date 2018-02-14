@@ -1,4 +1,5 @@
 #our CLI Controller
+require 'pry'
 class EasyVegan::CLI
 
   def call
@@ -38,7 +39,7 @@ class EasyVegan::CLI
   end
 
   def print_recipe_titles(input)
-    @recipe_titles = DailyDeal::Recipe.titles
+    @recipe_titles = EasyVegan::Recipe.titles
     puts "Featured Recipes:"
     @recipe_titles.each_with_index(1) do |i, title|
       puts "#{i}. #{title}"
