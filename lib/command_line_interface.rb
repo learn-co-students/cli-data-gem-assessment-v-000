@@ -11,8 +11,9 @@ class CommandLineInterface
     puts "Please select a topic to learn some cool random facts:"
     display_all_facts
     puts "Select a number to explore facts from that topic"
-    @choice = gets.strip
+    choice = gets.strip
     get_random_fact
+    Topic.new(choice)
   end
   
   def display_all_facts
