@@ -1,7 +1,7 @@
-#require_relative "../lib/scraper.rb"
-require_relative "../lib/did_you_know.rb"
-#require "wikipedia_module"
+require_relative "../lib/facts.rb"
+require_relative "../lib/topic.rb"
 require "colorize"
+
 class CommandLineInterface
   def initialize
     run
@@ -9,7 +9,7 @@ class CommandLineInterface
   def run
     puts "Welcome to Did-You-Know Wikipedia Edition!"
     puts "Please select a topic to learn some cool random facts:"
-    display_all_facts
+    display_all_topics
     puts "Select a number to explore facts from that topic"
     choice = gets.strip
     #create new topic object
@@ -20,11 +20,11 @@ class CommandLineInterface
     get_random_fact
   end
   
-  def display_all_facts
+  def display_all_topics
     colors = [:red, :green, :yellow, :blue, :magenta, :cyan, :red, :green, :yellow, :blue, :magenta]
     #binding.pry
     @all_choices = []
-    Facts.all.each_with_index{|item, indx|
+    Topic.all.each_with_index{|item, indx|
       puts "#{indx + 1}. #{item}".colorize(colors[indx])
       lis_item = "#{item}"
       @all_choices << lis_item

@@ -3,10 +3,10 @@ require_relative "../lib/scraper.rb"
 class Topic
   #has many Portals
   @@all = []
-  attr_accessor :name, :all
+  attr_accessor :name
   def initialize(name)
     @name = name
-    self.random_portal
+    random_portal
     @@all << self
   end
   

@@ -54,8 +54,9 @@ class Scraper
     
     #updating the @@all_topics hash with topic symbols
     doc.search(".headlines").each{|anchor|
-      @@all_topics << anchor.text.chomp("(see in all page types)").strip.slice!(-3..-1).to_sym
-      
+      @@all_topics << anchor.text.chomp("(see in all page types)").strip.slice!(-3..-1)
+    }
+    binding.pry
     return @topic_links
     
    end
