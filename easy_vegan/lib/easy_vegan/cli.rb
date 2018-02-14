@@ -7,7 +7,6 @@ class EasyVegan::CLI
     #stub
     list_categories
     menu
-    goodbye
   end
 
   def list_categories
@@ -21,15 +20,14 @@ class EasyVegan::CLI
   end
 
   def menu
-    list_categories
     input = ""
     puts "Which category of recipes would you like to explore?"
+    puts "You may type a category number to explore, or type exit"
     input = gets.strip
-    while input != "exit"
+    if input.to_i > 0 && input.to_i <= 7
       input = input.to_i
       print_recipe_titles(input)
-    end
-    if input == "exit"
+    elsif input == "exit"
       goodbye
     end
   end
@@ -41,8 +39,8 @@ class EasyVegan::CLI
   def print_recipe_titles(input)
     @recipe_titles = EasyVegan::Recipe.titles(input)
     puts "Featured Recipes:"
-    @recipe_titles.each_with_index(1) do |i, title|
-      puts "#{i}. #{title}"
+    @recipe_titles.each_with_index do |title, index|
+      puts "#{index}. #{title}"
     end
   end
 

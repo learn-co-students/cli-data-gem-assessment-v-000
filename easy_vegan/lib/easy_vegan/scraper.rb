@@ -1,6 +1,6 @@
 class EasyVegan::Scraper
 
-  def titles(category_number)
+  def self.titles(category_number)
     <<-HEREDOC
     1. Vegan Cinnamon Rolls
     2. 5-ingredient vegan Dark Chocolate Bars
