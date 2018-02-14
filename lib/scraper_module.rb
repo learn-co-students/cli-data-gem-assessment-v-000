@@ -8,11 +8,11 @@ module ScraperModule
     @@all = {}
     @@all_facts = []
     
-    @topic_links = []
     @@all_topics = []
     
     # all_portals_url = "https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences"
     def self.scrape_portals_page(topic_selection)
+      @topic_links = []
       html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences")
       doc = Nokogiri::HTML(html) do |config|
         config.noblanks
@@ -24,11 +24,12 @@ module ScraperModule
         if anchor['style'] == "position: relative;border: 0px solid #A3BFB1;background: #CEF2E0;color: black;padding: .1em;text-align: center;font-weight: bold;font-size: 100%;margin-bottom: 0px;border-top: 1px solid #A3BFB1;border-bottom: 1px solid #A3BFB1;"
           anchor['class'] = "title_container" unless anchor.text.include?("General reference")
         end
+        #if anchor.children.css.include?("#selected_topic")
       }
   
       #set .headlines class for the topic_selection
       doc.search("h2 .mw-headline big").each{|anchor|
-        anchor['class'] = "headline" unless anchor.text == "Wikipedia's contents: Portals" || anchor.text == "Wikipedia's contents: Portals" || anchor.text.include?("General reference")
+        anchor['class'] = "headlines" unless anchor.text == "Wikipedia's contents: Portals" || anchor.text == "Wikipedia's contents: Portals" || anchor.text.include?("General reference")
         if anchor.text == topic_selection
           anchor['id'] = "selected_topic"
         end
@@ -45,20 +46,27 @@ module ScraperModule
       }
       
       
-      #finds all portals and sets .portals class for each
-      doc.search("#selected_topic p b a").each{|anchor|
+      #finds all portal links under the selected_topic and adds them to the @topic_links array
+      doc.search("#portal_container p b a").each{|anchor|
         if anchor.attribute("href").value.include?("/wiki/Portal:")
-          anchor['class']="portals"
+          @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+          #anchor['class']="portals"
         end
       }
-      doc.search("#selected_topic dl dd a").each{|anchor|
-        anchor['class']="portals"
+      doc.search("#portal_container dl dd a").each{|anchor|
+        #anchor['class']="portals"
+        @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+      }
+      
+      #updating the @@all_topics hash with topic symbols
+      doc.search(".headlines").each{|anchor|
+        @@all_topics << anchor.text.chomp("(see in all page types)").strip.slice!(-3..-1).to_sym
       }
       
       #populates the @@all hash
       doc.search(".title_container").each{|anchor|
-        key = anchor.css(".headline").first.text.chomp("(see in all page types)").strip
-        key.slice!(-3..-1)
+        # key = anchor.css(".headlines").first.text.chomp("(see in all page types)").strip
+        # key.slice!(-3..-1)
         links = []
         values = anchor.next.search(".portals")
         values.each{|item|
