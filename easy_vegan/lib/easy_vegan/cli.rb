@@ -39,7 +39,7 @@ class EasyVegan::CLI
   end
 
   def print_recipe_titles(input)
-    @recipe_titles = EasyVegan::Recipe.titles
+    @recipe_titles = EasyVegan::Recipe.titles(input)
     puts "Featured Recipes:"
     @recipe_titles.each_with_index(1) do |i, title|
       puts "#{i}. #{title}"
