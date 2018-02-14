@@ -20,24 +20,27 @@ class EasyVegan::CLI
   end
 
   def menu
+    list_categories
     input = ""
     puts "Which category of recipes would you like to explore?"
     input = gets.strip
     while input != "exit"
       input = input.to_i
-      print_cat_recipes(input)
+      print_recipe_titles(input)
     end
-      menu
+    if input == "exit"
+      goodbye
+    end
   end
 
   def goodbye
     puts "Come back soon for more vegan recipes!"
   end
 
-  def print_cat_recipes(input)
-    cat_recipes = Scaper.new(input).scrape_titles
+  def print_recipe_titles(input)
+    @recipe_titles = DailyDeal::Recipe.titles
     puts "Featured Recipes:"
-    cat_recipes.each_with_index(1) do |i, title|
+    @recipe_titles.each_with_index(1) do |i, title|
       puts "#{i}. #{title}"
     end
   end

@@ -9,7 +9,6 @@ class EasyVegan::Scraper
     HEREDOC
 
     puts "#{input}"
-    puts "bla"
   end
 
 end
