@@ -68,10 +68,20 @@ module ScraperModule
         value.each{|link|
           html = open(link)
           doc = Nokogiri::HTML(html)
-          if doc.at_css("#Did_you_know") != nil 
-            doc.at_css("#Did_you_know").parent.parent.next.next['class'] = "dyk_container"
+          #binding.pry
+          if doc.at_css("[id^='Did_you_know']") != nil #doc.at_css("#Did_you_know") != nil #need to fix non-uniform ids
+            #this works: doc.at_css("[id^=Did_you_know]")
+            #this also works: doc.at_css("[id|=Did_you_know]") 
+            #sometimes "#Did_you_know..."" and sometimes "#Did_you_know?"
+            #binding.pry
+            doc.at_css("[id^='Did_you_know']").parent.parent.next.next['class']="dyk_container" unless doc.at_css("[id^='Did_you_know']").parent.parent.next.next == nil
+            #.add_class("dyk_container")
+            #binding.pry
+            #the above code isn't setting the class for this element
+            
             doc.search(".dyk_container ul li").each{|anchor|
               all_facts << anchor.text #slice!(0..7).slice!(-1)
+              #binding.pry
             }
           #else
               # loc = @@all[key].find_index(value)
@@ -80,11 +90,13 @@ module ScraperModule
               #Figure out a way to remove the element from the @@all array
           end
         }
+        #binding.pry
         @facts_by_category[key] = all_facts
         #binding.pry
         #@@all[key] = all_facts
         #doc.search(#Did_you_know... h2 div div).parent.parent.parent
        }
+       #binding.pry
        
        return @facts_by_category
      end

@@ -3,7 +3,7 @@ require_relative "../lib/scraper_module.rb"
 require 'pry'
 
 class DidYouKnow
-  extend ScraperModule
+  extend ScraperModule #::Scraper
 
   attr_accessor :name, :facts, :all_topics 
   
@@ -15,10 +15,11 @@ class DidYouKnow
     @@all_viewed_facts << self
   end
 
-  def self.create_from_collection
-    @all_topics.each{|student|
-      newstudent = self.new(student)
-    }
+  def self.facts
+    # @all_topics.each{|student|
+    #   newstudent = self.new(student)
+    # }
+    return ScraperModule::Scraper.scrape_portal_dyk
   end
 
   def self.all_topics
