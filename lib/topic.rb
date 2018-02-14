@@ -6,7 +6,7 @@ class Topic
   attr_accessor :name, :all
   def initialize(name)
     @name = name
-    portals
+    self.random_portal
     @@all << self
   end
   
@@ -17,14 +17,9 @@ class Topic
     
   # end
   
-  def self.create_by_selection
-    Scraper.scrape_portals_page(@name)
-    #creates an array of all portal links in the chosen topic
-  end
-  
-  def self.portals
+  def self.random_portal
     rand_portal = Scraper.scrape_portals_page(@name).sample
-    Portal.new(rand_portal)
+    return Portal.new(rand_portal)
   end
   
   def self.all

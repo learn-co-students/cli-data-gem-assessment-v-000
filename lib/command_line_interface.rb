@@ -16,8 +16,8 @@ class CommandLineInterface
     #which creates a portal object that belongs_to Topic and returns a random portal
     #the Portal class the sends the random portal object to the DidYouKnow class
     #the DidYouKnow class scrapes the seleted portal object
-    get_random_fact
     Topic.new(choice)
+    get_random_fact
   end
   
   def display_all_facts
@@ -37,6 +37,6 @@ class CommandLineInterface
     #puts DidYouKnow.facts[lookforkey].sample
     #the DidYouKnow.facts is only returning the last item in the facts hash
     #binding.pry
-    puts Facts.facts[@choice.to_i - 1].values.sample
+    puts Facts.random[@choice.to_i - 1].values.sample
   end
 end
