@@ -1,6 +1,8 @@
 require_relative "../lib/scraper.rb"
 
 class Portal
+  #belongs_to topic
+  #has_many DidYouKnow
   attr_accessor :random_portal
   @@all = []
   def initialize(random_portal)

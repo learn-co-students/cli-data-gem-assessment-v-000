@@ -2,9 +2,9 @@
 require_relative "../lib/scraper.rb"
 require 'pry'
 
-class DidYouKnow
-  #extend ScraperModule #::Scraper
-
+class Facts
+  #belongs_to Portal
+  #returns facts
   attr_accessor :name, :facts, :all
   
   @@all_viewed_facts = []
@@ -25,7 +25,6 @@ class DidYouKnow
 
   def self.all
     #@@all_topics
-    return Scraper.all_topics
   end
   
 end

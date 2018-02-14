@@ -12,6 +12,10 @@ class CommandLineInterface
     display_all_facts
     puts "Select a number to explore facts from that topic"
     choice = gets.strip
+    #create new topic object
+    #which creates a portal object that belongs_to Topic and returns a random portal
+    #the Portal class the sends the random portal object to the DidYouKnow class
+    #the DidYouKnow class scrapes the seleted portal object
     get_random_fact
     Topic.new(choice)
   end
@@ -19,7 +23,8 @@ class CommandLineInterface
   def display_all_facts
     colors = [:red, :green, :yellow, :blue, :magenta, :cyan, :red, :green, :yellow, :blue, :magenta]
     #binding.pry
-    DidYouKnow.all.each_with_index{|item, indx|
+    @all_choices = []
+    Facts.all.each_with_index{|item, indx|
       puts "#{indx + 1}. #{item}".colorize(colors[indx])
       lis_item = "#{item}"
       @all_choices << lis_item
@@ -32,6 +37,6 @@ class CommandLineInterface
     #puts DidYouKnow.facts[lookforkey].sample
     #the DidYouKnow.facts is only returning the last item in the facts hash
     #binding.pry
-    puts DidYouKnow.facts[@choice.to_i - 1].values.sample
+    puts Facts.facts[@choice.to_i - 1].values.sample
   end
 end
