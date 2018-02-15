@@ -7,7 +7,7 @@ class EasyVegan::Scraper
     3. 5-ingredient Vegan Caramel Sauce
     4. Creamy Avocado Banana Green Smoothie
     HEREDOC
-    self.scrape_categories
+    self.scrape_recipe_page(category_number)
   end
 
 
@@ -37,7 +37,14 @@ class EasyVegan::Scraper
     scraped_categories
   end
 
-
+#:total_time, :cuisine_category, :serving_size
+  def self.scrape_recipe_page(url)
+    recipe_profile = Nokogiri::HTML(open("https://minimalistbaker.com/caramel-apple-cheesecake-tart/"))
+    recipe_details = {}
+    binding.pry
+    recipe_profile.css("div.ERSTimeItem")
+    recipe_profile.css("div.ERSTimeItem div.totalTime")
+  end
 
 
 end
