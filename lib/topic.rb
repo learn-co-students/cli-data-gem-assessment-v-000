@@ -7,7 +7,7 @@ class Topic
   @@all = []
   attr_accessor :name, :portals, :all
   def initialize(name)
-    @name = name
+    find_or_create_by_name(name)
     @portals = []
     add_portal
     @@all << self
@@ -47,5 +47,14 @@ class Topic
   
   def self.all
     @@all
+  end
+  
+  def self.find_or_create_by_name(name)
+    @name = name
+    if @@all.detect{|item| item.name == @name}
+      @@all.detect{|item| item.name == @name}
+    else
+      
+    end
   end
 end
