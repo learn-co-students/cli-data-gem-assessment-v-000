@@ -7,17 +7,19 @@ class EasyVegan::Scraper
     3. 5-ingredient Vegan Caramel Sauce
     4. Creamy Avocado Banana Green Smoothie
     HEREDOC
-    self.scrape_recipe_page(category_number)
+
   end
 
 
   def self.scrape_index_page
     scraped_recipes = []
     doc = Nokogiri::HTML(open("https://minimalistbaker.com/recipe-index/"))
-    doc.css("article a").each do |category|
+    doc.css("article").each do |category|
+      #binding.pry
         scraped_recipes << {
-        :title => category.attr("title"),
-        :url => category.attr("href")
+          :title => category.css("h2.entry-title").text,
+          #:title => category.attr("title")
+          :url => category.css("h2.entry-title a").attr("href").value
       }
     end
     scraped_recipes
@@ -30,9 +32,7 @@ class EasyVegan::Scraper
     widget = widget_area.css("section.widget.featured-content.featuredpost.featured-recipes")
     widget.css("h4.widget-title.widgettitle").each do |category_name|
       #binding.pry
-      scraped_categories << {
-        :category => category_name.text
-      }
+      scraped_categories << category_name.text
     end
     scraped_categories
   end
@@ -45,30 +45,14 @@ class EasyVegan::Scraper
     #a = recipe_profile.css("div.ERSTime.ESRTimeRight").text
     #div.[itemprop="totalTime"]").text
   #  a.css("div.totalTime").text
+
   #Grab the Cuisine type (ex- vegan, gluten-free)
-  #recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
+  #recipe_details[:cuisine_category] = recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
+
   #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
-  #recipe_profile.css("div.ERSServes span").text
+  #recipe_details[:serving_size] = recipe_profile.css("div.ERSServes span").text
   end
 
 
 end
-    #there are twelve recipe titles per category
-      #title = doc.css("article a").attr("title").value
-      #url = doc.css("article a").attr("href").value
-      #
-      # if index.between? (0, 12)
-      #   :category => "All Recipes",
-      # elsif index.between? (13, 24)
-      #   :category => "Sweets",
-      # elsif index.between? (25, 36)
-      #   :category => "Entrees",
-      # elsif index.between? (37, 48)
-      #   :category => "Breakfast",
-      # elsif index.between? (49, 60)
-      #   :category => "Snack",
-      # elsif index.between? (61, 72)
-      #   :category => "Sides",
-      # elsif index.between? (73, 84)
-      #   :category => "Beverages",
-      # end
+    

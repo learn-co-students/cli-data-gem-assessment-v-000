@@ -10,13 +10,10 @@ class EasyVegan::CLI
   end
 
   def list_categories
-    puts "1. All recipes"
-    puts "2. Sweets"
-    puts "3. Entrees"
-    puts "4. Breakfast"
-    puts "5. Snack"
-    puts "6. Sides"
-    puts "7. Beverages"
+    categories = EasyVegan::Scraper.scrape_categories
+    categories.each_with_index do |cat, index|
+      puts "#{index+1}. #{cat}"
+    end
   end
 
   def menu
@@ -24,9 +21,9 @@ class EasyVegan::CLI
     puts "Which category of recipes would you like to explore?"
     puts "You may type a category number to explore, or type exit"
     input = gets.strip
-    if input.to_i > 0 && input.to_i <= 7
+    if input.to_i > 0 && input.to_i <= 11
       input = input.to_i
-      print_recipe_titles(input)
+      print_recipe_titles
     elsif input == "exit"
       goodbye
     end
@@ -36,11 +33,11 @@ class EasyVegan::CLI
     puts "Come back soon for more vegan recipes!"
   end
 
-  def print_recipe_titles(input)
-    @recipe_titles = EasyVegan::Recipe.titles(input)
+  def print_recipe_titles
+    @recipe_titles = EasyVegan::Scraper.scrape_index_page
     puts "Featured Recipes:"
-    @recipe_titles.each_with_index do |title, index|
-      puts "#{index}. #{title}"
+    @recipe_titles.each_with_index do |recipe, index|
+      puts "#{index+1}. #{recipe[:title]}"
     end
   end
 
