@@ -53,7 +53,7 @@ class Scraper
     return @topic_links
    end
 ######################
-   def self.scrape_main_topics
+   def self.all_topics
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals#Technology_and_applied_sciences")
     doc = Nokogiri::HTML(html) do |config|
       config.noblanks
@@ -92,7 +92,7 @@ class Scraper
    end
    
   # def self.all_topics
-  #   @@all_topics
+  #   self.scrape_main_topics
   # end
   
 end
