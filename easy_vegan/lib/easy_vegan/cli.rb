@@ -24,8 +24,7 @@ class EasyVegan::CLI
         input = input.to_i
         #refactor below code to accept an argument of input
       print_recipe_titles
-      url = nil
-      EasyVegan::Scraper.scrape_recipe_page(url)
+      make_recipe_objects
     elsif input == "exit"
       goodbye
     end
@@ -41,6 +40,19 @@ class EasyVegan::CLI
     puts "Featured Recipes:"
     @recipe_titles.each_with_index do |recipe, index|
       puts "#{index+1}. #{recipe[:title]}"
+    end
+  end
+
+  def make_recipe_objects
+    recipe_objects = EasyVegan::Scraper.scrape_index_page
+    EasyVegan::Recipe.create_from_collection(recipe_objects)
+    binding.pry
+  end
+
+  def add_attributes_to_students
+    Recipe.all.each do |recipe|
+      attributes = Scraper.scrape_recipe_page(url)
+      recipe.add_recipe_attributes(attributes)
     end
   end
 
