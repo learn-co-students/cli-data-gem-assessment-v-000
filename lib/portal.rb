@@ -3,16 +3,16 @@ require_relative "../lib/scraper.rb"
 class Portal
   #belongs_to topic
   #has_many Facts
-  attr_accessor :random_portal, :all_portals, :topic
+  #selects a random portal url
+  attr_accessor :name, :all_portals, :topic
   @@all = []
-  def initialize(random_portal)
-    @random_portal = random_portal
+  def initialize(portal_url) #is given a random portal url
+    @portal_url = portal_url
     @@all << self
     #receives the portal urls array from topic class
   end
   
   def self.random_fact
-    binding.pry
     return Scraper.scrape_portal_dyk(@random_portal).sample
   end
   
@@ -20,4 +20,14 @@ class Portal
     @@all
   end
   
+  def topic_name
+    self.topic.name
+  end
+  
+  def self.find_or_create_by_url(url)
+    @url = url
+    if @@all.detect{|item| @url.name}
+    else
+    end
+  end
 end

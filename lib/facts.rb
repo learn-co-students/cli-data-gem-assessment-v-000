@@ -4,7 +4,9 @@ require 'pry'
 
 class Fact
   #belongs_to Portal
+  #finds a random fact
   #returns facts
+  #need to add a mechanism to keep the same fact from being returned again
   attr_accessor :name, :facts, :all, :portal
   
   @@all_viewed_facts = []
@@ -20,6 +22,10 @@ class Fact
   def self.all
     #@@all_topics
     @@all_viewed_facts
+  end
+  
+  def self.find_or_create_by_name
+    self.random
   end
   
 end
