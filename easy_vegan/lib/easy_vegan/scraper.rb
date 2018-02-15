@@ -42,8 +42,13 @@ class EasyVegan::Scraper
     recipe_profile = Nokogiri::HTML(open("https://minimalistbaker.com/caramel-apple-cheesecake-tart/"))
     recipe_details = {}
     binding.pry
-    recipe_profile.css("div.ERSTimeItem")
-    recipe_profile.css("div.ERSTimeItem div.totalTime")
+    #a = recipe_profile.css("div.ERSTime.ESRTimeRight").text
+    #div.[itemprop="totalTime"]").text
+  #  a.css("div.totalTime").text
+  #Grab the Cuisine type (ex- vegan, gluten-free)
+  #recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
+  #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
+  #recipe_profile.css("div.ERSServes span").text
   end
 
 
