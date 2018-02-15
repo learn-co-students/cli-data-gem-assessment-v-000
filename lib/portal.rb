@@ -16,11 +16,8 @@ class Portal
     return Scraper.scrape_portal_dyk(@random_portal).sample
   end
   
-  def self.all_portals
+  def self.all
     @@all
-  end
-  
-  def self.topic
   end
   
 end

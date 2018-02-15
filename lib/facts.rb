@@ -2,7 +2,7 @@
 require_relative "../lib/scraper.rb"
 require 'pry'
 
-class Facts
+class Fact
   #belongs_to Portal
   #returns facts
   attr_accessor :name, :facts, :all, :portal
