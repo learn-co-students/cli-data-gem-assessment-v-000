@@ -1,7 +1,3 @@
-require 'pry'
-require_relative 'scraper'
-require_relative 'cli'
-
 class WikihowTechTopics::WikihowTechTopicModel
 
     attr_accessor :title, :content, :url

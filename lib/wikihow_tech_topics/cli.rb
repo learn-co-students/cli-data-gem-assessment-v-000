@@ -1,7 +1,3 @@
-require_relative 'scraper'
-require_relative 'wikihow_tech_topic_model'
-require 'pry'
-
 class WikihowTechTopics::CLI
 
     def call

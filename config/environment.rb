@@ -1,5 +1,6 @@
 require 'pry'
 require 'nokogiri'
+require 'open-uri'
 
 require_relative "../lib/wikihow_tech_topics/cli"
 require_relative "../lib/wikihow_tech_topics/version"
