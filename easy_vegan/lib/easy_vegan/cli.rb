@@ -18,11 +18,11 @@ class EasyVegan::CLI
 
   def menu
     input = ""
-    puts "Which category of recipes would you like to explore?"
-    puts "You may type a category number to explore, or type exit"
+    puts "Which category of recipes would you like to explore? You may type a category number to explore, or type exit"
     input = gets.strip
-    if input.to_i > 0 && input.to_i <= 11
-      input = input.to_i
+    if input.to_i > 0 && input.to_i <= EasyVegan::Scraper.scrape_categories.size
+        input = input.to_i
+        #refactor below code to accept an argument of input
       print_recipe_titles
     elsif input == "exit"
       goodbye
@@ -33,6 +33,7 @@ class EasyVegan::CLI
     puts "Come back soon for more vegan recipes!"
   end
 
+#we need to refactor print such that it only prints recipes with category = input
   def print_recipe_titles
     @recipe_titles = EasyVegan::Scraper.scrape_index_page
     puts "Featured Recipes:"

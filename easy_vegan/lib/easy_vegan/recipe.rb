@@ -8,11 +8,6 @@ attr_accessor :category, :total_time, :cuisine_category, :serving_size, :url, :t
   end
 
 
-  def self.titles(category_number)
-    @titles = []
-    @titles << EasyVegan::Scraper.titles(category_number)
-  end
-
   def self.all
     @@all
   end
