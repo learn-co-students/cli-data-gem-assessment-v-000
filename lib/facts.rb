@@ -5,7 +5,7 @@ require 'pry'
 class Facts
   #belongs_to Portal
   #returns facts
-  attr_accessor :name, :facts, :all, :portal_url
+  attr_accessor :name, :facts, :all, :portal
   
   @@all_viewed_facts = []
   def initialize(portal_url)
