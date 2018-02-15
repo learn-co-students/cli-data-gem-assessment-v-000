@@ -3,8 +3,19 @@ attr_accessor :category, :total_time, :cuisine_category, :serving_size, :url, :t
 
 @@all = []
 
-  def initialize
-    @@all = []
+  def initialize(first_recipe_hash)
+    first_recipe_hash.each {|key, value| self.send(("#{key}="), value)}
+    @@all << self
+  end
+
+  def self.create_from_collection(return_value_of_scrape_index)
+    return_value_of_scrape_index.each do |hashie|
+      Student.new(hashie)
+    end
+  end
+
+  def add_student_attributes(return_value_of_scraped_recipe_page)
+    return_value_of_scraped_recipe_page.each {|key, value| self.send(("#{key}="), value)}
   end
 
 

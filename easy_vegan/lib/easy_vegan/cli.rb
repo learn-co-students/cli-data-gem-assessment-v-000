@@ -24,6 +24,8 @@ class EasyVegan::CLI
         input = input.to_i
         #refactor below code to accept an argument of input
       print_recipe_titles
+      url = nil
+      EasyVegan::Scraper.scrape_recipe_page(url)
     elsif input == "exit"
       goodbye
     end
@@ -41,6 +43,8 @@ class EasyVegan::CLI
       puts "#{index+1}. #{recipe[:title]}"
     end
   end
+
+
 
 
 

@@ -4,7 +4,6 @@ class EasyVegan::Scraper
     scraped_recipes = []
     doc = Nokogiri::HTML(open("https://minimalistbaker.com/recipe-index/"))
     doc.css("article").each do |category|
-      #binding.pry
         scraped_recipes << {
           :title => category.css("h2.entry-title").text,
           #:title => category.attr("title")
@@ -30,17 +29,18 @@ class EasyVegan::Scraper
   def self.scrape_recipe_page(url)
     recipe_profile = Nokogiri::HTML(open("https://minimalistbaker.com/caramel-apple-cheesecake-tart/"))
     recipe_details = {}
-    binding.pry
-    #a = recipe_profile.css("div.ERSTime.ESRTimeRight").text
-    #div.[itemprop="totalTime"]").text
-  #  a.css("div.totalTime").text
+    #recipe_profile.css("div.ERSTimes div.ERSTime.ERSTimeRight div.ERSTimeItem time").text
 
-  #Grab the Cuisine type (ex- vegan, gluten-free)
-  #recipe_details[:cuisine_category] = recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
+    #Grab the Cuisine type (ex- vegan, gluten-free)
+    recipe_details[:cuisine_category] = recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
 
-  #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
-  #recipe_details[:serving_size] = recipe_profile.css("div.ERSServes span").text
+    #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
+    recipe_details[:serving_size] = recipe_profile.css("div.ERSServes span").text
+
+    #grab the category of recipe(aka desser, snack etc. )
+    recipe_details[:category] = recipe_profile.css("div.ERSCategory").text.gsub("Recipe type: ", "")
+
+  recipe_details
   end
-
 
 end
