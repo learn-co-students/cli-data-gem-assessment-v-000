@@ -5,7 +5,10 @@ class EasyVegan::CLI
   def call
     puts "Recipe Categories:"
     #stub
+
     list_categories
+    #remove line below after you find cuisine_category bug
+    EasyVegan::Scraper.scrape_recipe_page("https://minimalistbaker.com/raw-oreos/")
     menu
   end
 
@@ -24,6 +27,7 @@ class EasyVegan::CLI
         input = input.to_i
       #convert integer input and assign it to the correct category.
       convert_input_to_category(input)
+      EasyVegan::Scraper.scrape_recipe_page(url)
 
       #create all recipe objects
       EasyVegan::Recipe.create_from_collection(EasyVegan::Scraper.scrape_index_page)
@@ -55,7 +59,7 @@ class EasyVegan::CLI
     #binding.pry
     recipe_objects = EasyVegan::Recipe.all
       recipe_objects.collect do |recipe|
-        recipe[:catgory].include?("#{category_wanted}")
+        recipe[:category].include?("#{category_wanted}")
       end
     end
 
