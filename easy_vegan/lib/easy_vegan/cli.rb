@@ -24,7 +24,7 @@ class EasyVegan::CLI
         input = input.to_i
         #refactor below code to accept an argument of input
       print_recipe_titles
-      make_recipe_objects
+      EasyVegan::Scraper.read_each_recipe_page
     elsif input == "exit"
       goodbye
     end

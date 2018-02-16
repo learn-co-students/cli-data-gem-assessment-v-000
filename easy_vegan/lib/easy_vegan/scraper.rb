@@ -12,6 +12,27 @@ class EasyVegan::Scraper
     end
     scraped_recipes
   end
+#we need a method that will collect all the urls from scraped_recipes. The collected URLS will be used as an
+#within another method.
+
+  def self.collect_urls
+    scraped_recipes = self.scrape_index_page
+    urls = []
+      scraped_recipes.each do |recipe_obj|
+        urls << recipe_obj[:url]
+      end
+    urls
+  end
+
+  #we need a method that will iterate through all the urls, and use each as an argument for scrape_recipe_page
+  def self.read_each_recipe_page
+    urls = self.collect_urls
+    urls.each do |url|
+      self.scrape_recipe_page(url)
+    end
+  end
+
+
 
   def self.scrape_categories
     scraped_categories = []
@@ -27,7 +48,7 @@ class EasyVegan::Scraper
 
 #:total_time, :cuisine_category, :serving_size
   def self.scrape_recipe_page(url)
-    recipe_profile = Nokogiri::HTML(open("https://minimalistbaker.com/caramel-apple-cheesecake-tart/"))
+    recipe_profile = Nokogiri::HTML(open(url))
     recipe_details = {}
     #recipe_profile.css("div.ERSTimes div.ERSTime.ERSTimeRight div.ERSTimeItem time").text
 
