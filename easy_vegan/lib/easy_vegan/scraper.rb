@@ -29,7 +29,8 @@ class EasyVegan::Scraper
   def self.read_each_recipe_page
     urls = self.collect_urls
     urls.each do |url|
-      self.scrape_recipe_page(url)
+      EasyVegan::Recipe.add_recipe_attributes(self.scrape_recipe_page(url))
+      binding.pry
     end
   end
 

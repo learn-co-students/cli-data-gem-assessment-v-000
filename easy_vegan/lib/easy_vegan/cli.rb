@@ -18,17 +18,53 @@ class EasyVegan::CLI
 
   def menu
     input = ""
-    puts "Which category of recipes would you like to explore? You may type a category number to explore, or type exit"
+    puts "Which category of recipes would you like to explore? You may type a category to explore, or type exit"
     input = gets.strip
     if input.to_i > 0 && input.to_i <= EasyVegan::Scraper.scrape_categories.size
         input = input.to_i
-        #refactor below code to accept an argument of input
-      print_recipe_titles(input)
+      #convert integer input and assign it to the correct category.
+      convert_input_to_category(input)
+
+      #create all recipe objects
+      EasyVegan::Recipe.create_from_collection(EasyVegan::Scraper.scrape_index_page)
+
+      #collect urls, send every url to be scraped. read_each_recipe_page automates the scraping of all individual recipe pages and adds all recipe attributes to recipe objects
       EasyVegan::Scraper.read_each_recipe_page
+
+      #search by category (cli.search_by_category)
+      search_by_category(input)
+
+      #print by category (cli. print_recipe_titles)
+
+
+      print_recipe_titles(input)
+
     elsif input == "exit"
       goodbye
     end
   end
+
+  def convert_input_to_category(input)
+    categories = EasyVegan::Scraper.scrape_categories
+    input = input - 1
+    categories[input]
+  end
+
+  def search_by_category(input)
+    category_wanted = convert_input_to_category(input)
+    #binding.pry
+    recipe_objects = EasyVegan::Recipe.all
+      recipe_objects.collect do |recipe|
+        recipe[:catgory].include?("#{category_wanted}")
+      end
+    end
+
+
+
+
+
+
+
 
   def goodbye
     puts "Come back soon for more vegan recipes!"
@@ -42,7 +78,7 @@ class EasyVegan::CLI
     @recipe_titles = EasyVegan::Scraper.scrape_index_page
     puts "Featured Recipes:"
     @recipe_titles.each_with_index do |recipe, index|
-      binding.pry
+      #binding.pry
       if @recipe_titles[:category].includes?(input)
         puts "#{index+1}. #{recipe[:title]}"
       else
