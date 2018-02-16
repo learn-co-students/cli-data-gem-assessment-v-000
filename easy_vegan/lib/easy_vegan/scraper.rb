@@ -54,14 +54,14 @@ class EasyVegan::Scraper
     recipe_details = {}
     #recipe_profile.css("div.ERSTimes div.ERSTime.ERSTimeRight div.ERSTimeItem time").text
 
-    #Grab the Cuisine type (ex- vegan, gluten-free)
-    recipe_details[:cuisine_category] = recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
-
     #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
     recipe_details[:serving_size] = recipe_profile.css("div.ERSServes span").text
 
     #grab the category of recipe(aka desser, snack etc. )
     recipe_details[:category] = recipe_profile.css("div.ERSCategory").text.gsub("Recipe type: ", "")
+
+    #Grab the Cuisine type (ex- vegan, gluten-free)
+    recipe_details[:cuisine_category] = recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
 
   recipe_details
   end

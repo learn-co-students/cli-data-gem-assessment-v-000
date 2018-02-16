@@ -1,14 +1,14 @@
 #our CLI Controller
+require_relative "recipe.rb"
+require_relative "scraper.rb"
 require 'pry'
 class EasyVegan::CLI
 
   def call
     puts "Recipe Categories:"
-    #stub
-
     list_categories
     #remove line below after you find cuisine_category bug
-    EasyVegan::Scraper.scrape_recipe_page("https://minimalistbaker.com/raw-oreos/")
+    #EasyVegan::Scraper.scrape_recipe_page("https://minimalistbaker.com/raw-oreos/")
     menu
   end
 
@@ -27,19 +27,20 @@ class EasyVegan::CLI
         input = input.to_i
       #convert integer input and assign it to the correct category.
       convert_input_to_category(input)
-      EasyVegan::Scraper.scrape_recipe_page(url)
+      #EasyVegan::Scraper.scrape_recipe_page(url)
 
       #create all recipe objects
-      EasyVegan::Recipe.create_from_collection(EasyVegan::Scraper.scrape_index_page)
+      make_recipe_objects
+      #EasyVegan::Recipe.create_from_collection(EasyVegan::Scraper.scrape_index_page)
 
       #collect urls, send every url to be scraped. read_each_recipe_page automates the scraping of all individual recipe pages and adds all recipe attributes to recipe objects
-      EasyVegan::Scraper.read_each_recipe_page
+      add_attributes_to_recipes
+      #EasyVegan::Scraper.read_each_recipe_page
 
       #search by category (cli.search_by_category)
       search_by_category(input)
 
       #print by category (cli. print_recipe_titles)
-
 
       print_recipe_titles(input)
 
@@ -62,12 +63,6 @@ class EasyVegan::CLI
         recipe[:category].include?("#{category_wanted}")
       end
     end
-
-
-
-
-
-
 
 
   def goodbye
@@ -94,21 +89,15 @@ class EasyVegan::CLI
   def make_recipe_objects
     recipe_objects = EasyVegan::Scraper.scrape_index_page
     EasyVegan::Recipe.create_from_collection(recipe_objects)
-    binding.pry
+
   end
 
-  def add_attributes_to_students
-    Recipe.all.each do |recipe|
-      attributes = Scraper.scrape_recipe_page(url)
-      recipe.add_recipe_attributes(attributes)
+  def add_attributes_to_recipes
+    EasyVegan::Recipe.all.each do |recipe|
+      attributes = EasyVegan::Scraper.read_each_recipe_page
+      binding.pry
+      EasyVegan::Recipe.add_recipe_attributes(attributes)
     end
   end
-
-
-
-
-
-
-
 
 end
