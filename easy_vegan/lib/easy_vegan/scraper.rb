@@ -12,9 +12,10 @@ class EasyVegan::Scraper
     end
     scraped_recipes
   end
+
+
 #we need a method that will collect all the urls from scraped_recipes. The collected URLS will be used as an
 #within another method.
-
   def self.collect_urls
     scraped_recipes = self.scrape_index_page
     urls = []

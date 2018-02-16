@@ -23,7 +23,7 @@ class EasyVegan::CLI
     if input.to_i > 0 && input.to_i <= EasyVegan::Scraper.scrape_categories.size
         input = input.to_i
         #refactor below code to accept an argument of input
-      print_recipe_titles
+      print_recipe_titles(input)
       EasyVegan::Scraper.read_each_recipe_page
     elsif input == "exit"
       goodbye
@@ -35,11 +35,19 @@ class EasyVegan::CLI
   end
 
 #we need to refactor print such that it only prints recipes with category = input
-  def print_recipe_titles
+#the recipe objects will not have a category attribute until add_attributes is run successfully. we need to carefully choose order of menu and call
+
+
+  def print_recipe_titles(input)
     @recipe_titles = EasyVegan::Scraper.scrape_index_page
     puts "Featured Recipes:"
     @recipe_titles.each_with_index do |recipe, index|
-      puts "#{index+1}. #{recipe[:title]}"
+      binding.pry
+      if @recipe_titles[:category].includes?(input)
+        puts "#{index+1}. #{recipe[:title]}"
+      else
+        puts "We can not find any recipes in the category you specified"
+      end
     end
   end
 
