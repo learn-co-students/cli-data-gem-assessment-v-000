@@ -1,3 +1,4 @@
+require_relative "./recipe.rb"
 class EasyVegan::Scraper
 
   def self.scrape_index_page

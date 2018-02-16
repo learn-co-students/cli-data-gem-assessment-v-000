@@ -6,4 +6,5 @@ require './lib/easy_vegan'
 
 
 
+
 EasyVegan::CLI.new.call
