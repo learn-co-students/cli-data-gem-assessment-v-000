@@ -1,6 +1,6 @@
 #our CLI Controller
-require_relative "recipe.rb"
-require_relative "scraper.rb"
+require_relative "./recipe.rb"
+require_relative "./scraper.rb"
 require 'pry'
 class EasyVegan::CLI
 

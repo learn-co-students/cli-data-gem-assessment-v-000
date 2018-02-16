@@ -1,4 +1,5 @@
 require_relative "./recipe.rb"
+require_relative "./cli.rb"
 class EasyVegan::Scraper
 
   def self.scrape_index_page
@@ -14,6 +15,38 @@ class EasyVegan::Scraper
     scraped_recipes
   end
 
+  def self.scrape_recipe_page(url)
+    recipe_profile = Nokogiri::HTML(open(url))
+    recipe_details = []
+    #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
+    recipe_details << {
+      :serving_size => recipe_profile.css("div.ERSServes span").text,
+
+      #grab the category of recipe(aka desser, snack etc. )
+      :category => recipe_profile.css("div.ERSCategory").text.gsub("Recipe type: ", ""),
+
+      #Grab the Cuisine type (ex- vegan, gluten-free)
+      :cuisine_category => recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
+  }
+  recipe_details
+  end
+end
+
+#   def self.scrape_recipe_page(url)
+#     recipe_profile = Nokogiri::HTML(open(url))
+#     recipe_details = {}
+#     #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
+#     recipe_details[:serving_size] = recipe_profile.css("div.ERSServes span").text
+#
+#     #grab the category of recipe(aka desser, snack etc. )
+#     recipe_details[:category] = recipe_profile.css("div.ERSCategory").text.gsub("Recipe type: ", "")
+#
+#     #Grab the Cuisine type (ex- vegan, gluten-free)
+#     recipe_details[:cuisine_category] = recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
+#
+#   recipe_details
+#   end
+# end
 
 #we need a method that will collect all the urls from scraped_recipes. The collected URLS will be used as an
 #within another method.
@@ -47,24 +80,7 @@ class EasyVegan::Scraper
       scraped_categories << category_name.text
     end
     scraped_categories
+    binding.pry
   end
 
 #:total_time, :cuisine_category, :serving_size
-  def self.scrape_recipe_page(url)
-    recipe_profile = Nokogiri::HTML(open(url))
-    recipe_details = {}
-    #recipe_profile.css("div.ERSTimes div.ERSTime.ERSTimeRight div.ERSTimeItem time").text
-
-    #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
-    recipe_details[:serving_size] = recipe_profile.css("div.ERSServes span").text
-
-    #grab the category of recipe(aka desser, snack etc. )
-    recipe_details[:category] = recipe_profile.css("div.ERSCategory").text.gsub("Recipe type: ", "")
-
-    #Grab the Cuisine type (ex- vegan, gluten-free)
-    recipe_details[:cuisine_category] = recipe_profile.css("div.ERSCuisine").text.gsub("Cuisine: ", "")
-
-  recipe_details
-  end
-
-end
