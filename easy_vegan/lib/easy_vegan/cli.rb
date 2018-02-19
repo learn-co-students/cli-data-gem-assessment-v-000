@@ -96,7 +96,7 @@ class EasyVegan::CLI
     EasyVegan::Recipe.all.each do |recipe|
       attributes = EasyVegan::Scraper.read_each_recipe_page
 
-      EasyVegan::Recipe.add_recipe_attributes(attributes)
+      recipe.add_recipe_attributes(attributes)
     end
   end
 
