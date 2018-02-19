@@ -64,8 +64,9 @@ class EasyVegan::Scraper
     urls = self.collect_urls
     urls.each do |url|
       #pull out recipe instances before running add_recipe_attributes
-      EasyVegan::Recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(url))
-      binding.pry
+      EasyVegan::Recipe.all.each do |recipe|
+        recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(url))
+      end
     end
   end
 
