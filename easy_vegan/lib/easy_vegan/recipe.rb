@@ -15,6 +15,7 @@ attr_accessor :category, :total_time, :cuisine_category, :serving_size, :url, :t
   end
 
   def add_recipe_attributes(return_value_of_scraped_recipe_page)
+    binding.pry
     return_value_of_scraped_recipe_page.each {|key, value| self.send(("#{key}="), value)}
   end
 
