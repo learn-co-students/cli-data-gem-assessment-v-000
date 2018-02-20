@@ -25,10 +25,9 @@ class EasyVegan::CLI
     input = gets.strip
     if input.to_i > 0 && input.to_i <= EasyVegan::Scraper.scrape_categories.size
         input = input.to_i
-      #convert integer input and assign it to the correct category.
-      convert_input_to_category(input)
-      #EasyVegan::Scraper.scrape_recipe_page(url)
 
+      #EasyVegan::Scraper.scrape_recipe_page(url)
+      #binding.pry
       #create all recipe objects
       make_recipe_objects
       #EasyVegan::Recipe.create_from_collection(EasyVegan::Scraper.scrape_index_page)
@@ -37,12 +36,16 @@ class EasyVegan::CLI
       add_attributes_to_recipes
       #EasyVegan::Scraper.read_each_recipe_page
 
+      #convert integer input and assign it to the correct category.
+      convert_input_to_category(input)
+
       #search by category (cli.search_by_category)
       search_by_category(input)
 
       #print by category (cli. print_recipe_titles)
 
       print_recipe_titles(input)
+
 
     elsif input == "exit"
       goodbye
@@ -57,8 +60,8 @@ class EasyVegan::CLI
 
   def search_by_category(input)
     category_wanted = convert_input_to_category(input)
-    #binding.pry
     recipe_objects = EasyVegan::Recipe.all
+    #binding.pry
       recipe_objects.collect do |recipe|
         recipe[:category].include?("#{category_wanted}")
       end
@@ -77,7 +80,6 @@ class EasyVegan::CLI
     @recipe_titles = EasyVegan::Scraper.scrape_index_page
     puts "Featured Recipes:"
     @recipe_titles.each_with_index do |recipe, index|
-      #binding.pry
       if @recipe_titles[:category].includes?(input)
         puts "#{index+1}. #{recipe[:title]}"
       else
@@ -93,9 +95,11 @@ class EasyVegan::CLI
   end
 
   def add_attributes_to_recipes
+    attributes = EasyVegan::Scraper.read_each_recipe_page
+    binding.pry
     EasyVegan::Recipe.all.each do |recipe|
-      attributes = EasyVegan::Scraper.read_each_recipe_page
       recipe.add_recipe_attributes(attributes)
+      #binding.pry
     end
   end
 

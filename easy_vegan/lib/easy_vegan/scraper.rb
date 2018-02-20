@@ -33,10 +33,12 @@ class EasyVegan::Scraper
   # end
 
   def self.scrape_recipe_page(url)
+
     recipe_profile = Nokogiri::HTML(open(url))
     recipe_details = {}
     #Grab the serving serving_size (ex "8") --- should I convert this to an integer?
     recipe_details[:serving_size] = recipe_profile.css("div.ERSServes span").text
+
 
     #grab the category of recipe(aka desser, snack etc. )
     recipe_details[:category] = recipe_profile.css("div.ERSCategory").text.gsub("Recipe type: ", "")
@@ -60,15 +62,26 @@ class EasyVegan::Scraper
   end
 
   #we need a method that will iterate through all the urls, and use each as an argument for scrape_recipe_page
+  # def self.read_each_recipe_page
+  #   urls = self.collect_urls
+  #   urls.each do |url|
+  #     binding.pry
+  #     #pull out recipe instances before running add_recipe_attributes
+  #     EasyVegan::Recipe.all.each do |recipe|
+  #       recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(url))
+  #     end
+  #   end
+  # end
+
+#new method that reverses which enumerable occurs first
   def self.read_each_recipe_page
-    urls = self.collect_urls
-    urls.each do |url|
       #pull out recipe instances before running add_recipe_attributes
       EasyVegan::Recipe.all.each do |recipe|
-        recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(url))
+          recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(recipe.url))
+          #binding.pry
       end
-    end
   end
+
 
 #isolate recipe objects (instances)
 
