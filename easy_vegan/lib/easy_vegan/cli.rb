@@ -40,12 +40,7 @@ class EasyVegan::CLI
       convert_input_to_category(input)
 
       #search by category (cli.search_by_category)
-      search_by_category(input)
-
-      #print by category (cli. print_recipe_titles)
-
-      print_recipe_titles(input)
-
+      search_and_print_by_category(input)
 
     elsif input == "exit"
       goodbye
@@ -58,14 +53,16 @@ class EasyVegan::CLI
     categories[input]
   end
 
-  def search_by_category(input)
+  def search_and_print_by_category(input)
     category_wanted = convert_input_to_category(input)
     recipe_objects = EasyVegan::Recipe.all
     #binding.pry
-      recipe_objects.collect do |recipe|
-        recipe[:category].include?("#{category_wanted}")
+    recipe_objects.each_with_index do |recipe, index|
+      if recipe.category.include?("#{category_wanted}")
+        puts "#{index+1}. #{recipe[:title]}"
       end
     end
+  end
 
 
   def goodbye
@@ -80,7 +77,8 @@ class EasyVegan::CLI
     @recipe_titles = EasyVegan::Scraper.scrape_index_page
     puts "Featured Recipes:"
     @recipe_titles.each_with_index do |recipe, index|
-      if @recipe_titles[:category].includes?(input)
+      if @recipe_titles.category.includes?(input)
+        binding.pry
         puts "#{index+1}. #{recipe[:title]}"
       else
         puts "We can not find any recipes in the category you specified"
@@ -94,10 +92,22 @@ class EasyVegan::CLI
 
   end
 
+  # def add_attributes_to_recipes
+  #   attributes = EasyVegan::Scraper.read_each_recipe_page
+  #   #binding.pry
+  #   EasyVegan::Recipe.all.each do |recipe|
+  #     recipe.add_recipe_attributes(attributes)
+  #     binding.pry
+  #     #binding.pry
+  #   end
+  # end
+
+
+#we need to only add the attributes of one recipe at time. at this point, attirbutes is holding everything
+
   def add_attributes_to_recipes
-    attributes = EasyVegan::Scraper.read_each_recipe_page
     EasyVegan::Recipe.all.each do |recipe|
-      recipe.add_recipe_attributes(attributes)
+      recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(recipe.url))
       #binding.pry
     end
   end
