@@ -37,7 +37,6 @@ class EasyVegan::CLI
       #EasyVegan::Scraper.read_each_recipe_page
 
       #convert integer input and assign it to the correct category.
-      convert_input_to_category(input)
 
       #search by category (cli.search_by_category)
       search_and_print_by_category(input)
@@ -48,19 +47,47 @@ class EasyVegan::CLI
   end
 
   def convert_input_to_category(input)
-    categories = EasyVegan::Scraper.scrape_categories
-    input = input - 1
-    categories[input]
+    case input
+      when "1"
+        @cat = print_all
+      when "2"
+        @cat = "Dessert"
+      when "3"
+        @cat = "Entrée"
+      when "4"
+        @cat = "Breakfast"
+      when "5"
+        @cat = "Snack"
+      when "6"
+        @cat = "Side"
+      when "7"
+        @cat = "Beverage"
+      when "8"
+        @cat = "GFF??"
+      when "9"
+        @cat ="Vegan"
+      when "10"
+        @cat ="Helpful How-to"
+      end
+      @cat
   end
 
   def search_and_print_by_category(input)
-    category_wanted = convert_input_to_category(input)
+    category_wanted = convert_input_to_category
     recipe_objects = EasyVegan::Recipe.all
-    #binding.pry
+    binding.pry
     recipe_objects.each_with_index do |recipe, index|
       if recipe.category.include?("#{category_wanted}")
-        puts "#{index+1}. #{recipe[:title]}"
+        #binding.pry
+        puts "#{index+1}. #{recipe.title}"
       end
+    end
+  end
+
+  def print_categories
+    recipe_objects = EasyVegan::Recipe.all
+    recipe_objects.each_with_index do |recipe, index|
+      puts "#{index+1}. #{recipe.category}"
     end
   end
 
