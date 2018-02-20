@@ -6,12 +6,9 @@ class Dogs::Scraper
     doc = Nokogiri::HTML(open("http://www.dogbreedslist.info/family-dog-breeds/#.Wotwi6inFPa"))
 
     doc.search("div.main-r")
-    name = doc.css(".right-t").collect do |dog|
-      puts "#{dog.name}"
-    end
+    name = doc.css(".right-t").text
     popularity = doc.css(".pop p").text
     Dogs::DogsPopularity.new(name, popularity)
-    binding.pry
 
   end
 
