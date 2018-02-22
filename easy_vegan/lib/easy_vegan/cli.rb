@@ -3,6 +3,7 @@ require_relative "./recipe.rb"
 require_relative "./scraper.rb"
 require 'pry'
 class EasyVegan::CLI
+  attr_accessor :input
 
   def call
     puts "Recipe Categories:"
@@ -20,34 +21,27 @@ class EasyVegan::CLI
   end
 
   def menu
-    input = ""
+    @input = ""
     puts "Which category of recipes would you like to explore? You may type a category to explore, or type exit"
-    input = gets.strip
-    if input.to_i > 0 && input.to_i <= EasyVegan::Scraper.scrape_categories.size
-        input = input.to_i
-
-      #EasyVegan::Scraper.scrape_recipe_page(url)
-      #binding.pry
+    @input = gets.strip.to_i
+    if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
+      convert_input_to_category
       #create all recipe objects
-      make_recipe_objects
-      #EasyVegan::Recipe.create_from_collection(EasyVegan::Scraper.scrape_index_page)
 
+      make_recipe_objects
       #collect urls, send every url to be scraped. read_each_recipe_page automates the scraping of all individual recipe pages and adds all recipe attributes to recipe objects
       add_attributes_to_recipes
-      #EasyVegan::Scraper.read_each_recipe_page
-
-      #convert integer input and assign it to the correct category.
 
       #search by category (cli.search_by_category)
-      search_and_print_by_category(input)
-
-    elsif input == "exit"
+    elsif @input == "exit"
       goodbye
+    else
+      puts "Sorry, please enter an appropriate integer."
     end
   end
 
-  def convert_input_to_category(input)
-    case input
+  def convert_input_to_category
+    case @input
       when "1"
         @cat = print_all
       when "2"
@@ -72,10 +66,10 @@ class EasyVegan::CLI
       @cat
   end
 
-  def search_and_print_by_category(input)
+  def search_and_print_by_category
     category_wanted = convert_input_to_category
-    recipe_objects = EasyVegan::Recipe.all
     binding.pry
+    recipe_objects = EasyVegan::Recipe.all
     recipe_objects.each_with_index do |recipe, index|
       if recipe.category.include?("#{category_wanted}")
         #binding.pry
