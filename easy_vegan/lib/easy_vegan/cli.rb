@@ -80,12 +80,15 @@ class EasyVegan::CLI
     category_wanted = convert_input_to_category
     recipe_objects = EasyVegan::Recipe.all
     index = 1
+    relevant = []
     recipe_objects.each do |recipe|
       if recipe.category.include?("#{category_wanted}")
         #binding.pry
+        relevant << recipe
         puts "#{index}. #{recipe.title}"
         index += 1
       end
+      relevant
     end
   end
 
