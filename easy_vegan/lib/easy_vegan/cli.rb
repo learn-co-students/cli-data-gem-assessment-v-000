@@ -11,7 +11,6 @@ class EasyVegan::CLI
     #remove line below after you find cuisine_category bug
     #EasyVegan::Scraper.scrape_recipe_page("https://minimalistbaker.com/raw-oreos/")
     menu
-    print_recipe_details
   end
 
   def list_categories
@@ -131,15 +130,39 @@ class EasyVegan::CLI
   end
 
   def search_for_vegan
-    puts "vegan options"
+    recipe_objects = EasyVegan::Recipe.all
+    index = 1
+    relevant = []
+    recipe_objects.each do |recipe|
+      if recipe.cuisine_category.include?("Vegan")
+        #binding.pry
+        relevant << recipe
+        puts "#{index}. #{recipe.title}"
+        index += 1
+      end
+      relevant
+    end
   end
+
 
   def search_for_gluten
     puts "gf options"
   end
 
   def search_for_entrees
-    puts "entrees"
+    #include entree, soup, salad
+    recipe_objects = EasyVegan::Recipe.all
+    index = 1
+    relevant = []
+    recipe_objects.each do |recipe|
+      if recipe.category.include?("Soup") || recipe.category.include?("Salad") || recipe.category.include?("Entrée")
+        #binding.pry
+        relevant << recipe
+        puts "#{index}. #{recipe.title}"
+        index += 1
+      end
+      relevant
+    end
   end
 
   def search_for_snacks
