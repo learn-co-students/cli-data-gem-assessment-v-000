@@ -43,6 +43,7 @@ class EasyVegan::CLI
   end
 
   def convert_input_to_category
+
     case @input
       when 1
         print_all
@@ -88,19 +89,19 @@ class EasyVegan::CLI
         puts "#{index}. #{recipe.title}"
         index += 1
       end
-      relevant
     end
+    print_recipe_details(relevant)
   end
 
-  def print_recipe_details
+  def print_recipe_details(relevant)
     puts "Which recipe would you like to know more about?"
     interest = gets.chomp.to_i - 1
-    recipes_to_print = search_and_print_by_category
+    #recipes_to_print = search_and_print_by_category
     #binding.pry
-    puts "Title: #{recipes_to_print[interest].title}"
-    puts "Attributes: #{recipes_to_print[interest].cuisine_category}"
-    puts "Serves: #{recipes_to_print[interest].serving_size}"
-    puts "Recipe URL: #{recipes_to_print[interest].url}"
+    puts "Title: #{relevant[interest].title}"
+    puts "Attributes: #{relevant[interest].cuisine_category}"
+    puts "Serves: #{relevant[interest].serving_size}"
+    puts "Recipe URL: #{relevant[interest].url}"
   end
 
 
@@ -140,8 +141,8 @@ class EasyVegan::CLI
         puts "#{index}. #{recipe.title}"
         index += 1
       end
-      relevant
     end
+    print_recipe_details(relevant)
   end
 
 
