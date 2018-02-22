@@ -92,53 +92,20 @@ class EasyVegan::CLI
     end
   end
 
-
-  def print_categories
-    recipe_objects = EasyVegan::Recipe.all
-    cats = []
-    recipe_objects.each do |recipe|
-      cats << recipe.category
-    end
-      puts cats.uniq!
-  end
-
-
   def goodbye
     puts "Come back soon for more vegan recipes!"
   end
 
+
 #we need to refactor print such that it only prints recipes with category = input
 #the recipe objects will not have a category attribute until add_attributes is run successfully. we need to carefully choose order of menu and call
 
-
-  def print_recipe_titles(input)
-    @recipe_titles = EasyVegan::Scraper.scrape_index_page
-    puts "Featured Recipes:"
-    @recipe_titles.each_with_index do |recipe, index|
-      if @recipe_titles.category.includes?(input)
-        binding.pry
-        puts "#{index+1}. #{recipe[:title]}"
-      else
-        puts "We can not find any recipes in the category you specified"
-      end
-    end
-  end
 
   def make_recipe_objects
     recipe_objects = EasyVegan::Scraper.scrape_index_page
     EasyVegan::Recipe.create_from_collection(recipe_objects)
 
   end
-
-  # def add_attributes_to_recipes
-  #   attributes = EasyVegan::Scraper.read_each_recipe_page
-  #   #binding.pry
-  #   EasyVegan::Recipe.all.each do |recipe|
-  #     recipe.add_recipe_attributes(attributes)
-  #     binding.pry
-  #     #binding.pry
-  #   end
-  # end
 
 
 #we need to only add the attributes of one recipe at time. at this point, attirbutes is holding everything
@@ -170,4 +137,28 @@ class EasyVegan::CLI
     puts "desserts"
   end
 
+end
+
+=begin
+//////////////methods for debugging only///////////////
+def print_recipe_titles(input)
+  @recipe_titles = EasyVegan::Scraper.scrape_index_page
+  puts "Featured Recipes:"
+  @recipe_titles.each_with_index do |recipe, index|
+    if @recipe_titles.category.includes?(input)
+      binding.pry
+      puts "#{index+1}. #{recipe[:title]}"
+    else
+      puts "We can not find any recipes in the category you specified"
+    end
+  end
+end
+
+def print_categories
+  recipe_objects = EasyVegan::Recipe.all
+  cats = []
+  recipe_objects.each do |recipe|
+    cats << recipe.category
+  end
+    puts cats.uniq!
 end
