@@ -22,7 +22,7 @@ class EasyVegan::CLI
 
   def menu
     @input = ""
-    puts "Which category of recipes would you like to explore? You may type a category to explore, or type exit"
+    puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
     @input = gets.strip.to_i
     if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
 
@@ -33,7 +33,8 @@ class EasyVegan::CLI
       add_attributes_to_recipes
 
       #search by category (cli.search_by_category)
-      search_and_print_by_category
+      check
+      #search_and_print_by_category
     elsif @input == "exit"
       goodbye
     else
@@ -46,21 +47,21 @@ class EasyVegan::CLI
       when 1
         print_all
       when 2
-        "Dessert"
+        search_for_dessert
       when 3
-        "Entrée"
+        search_for_entrees
       when 4
         "Breakfast"
       when 5
-        "Snack"
+        search_for_snacks
       when 6
         "Side"
       when 7
         "Beverage"
       when 8
-        "GFF??"
+        search_for_gluten
       when 9
-        "Vegan"
+        search_for_vegan
       when 10
         "Helpful How-to"
       else
@@ -68,24 +69,34 @@ class EasyVegan::CLI
       end
   end
 
+  def check
+    chek = convert_input_to_category
+    if chek.class == String
+        search_and_print_by_category
+    end
+  end
+
   def search_and_print_by_category
     category_wanted = convert_input_to_category
     recipe_objects = EasyVegan::Recipe.all
-    recipe_objects.each_with_index do |recipe, index|
+    index = 1
+    recipe_objects.each do |recipe|
       if recipe.category.include?("#{category_wanted}")
         #binding.pry
-        puts "#{index+1}. #{recipe.title}"
-      else
-        puts "not entered if statement"
+        puts "#{index}. #{recipe.title}"
+        index += 1
       end
     end
   end
 
+
   def print_categories
     recipe_objects = EasyVegan::Recipe.all
-    recipe_objects.each_with_index do |recipe, index|
-      puts "#{index+1}. #{recipe.category}"
+    cats = []
+    recipe_objects.each do |recipe|
+      cats << recipe.category
     end
+      puts cats.uniq!
   end
 
 
@@ -134,6 +145,26 @@ class EasyVegan::CLI
       recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(recipe.url))
       #binding.pry
     end
+  end
+
+  def search_for_vegan
+    puts "vegan options"
+  end
+
+  def search_for_gluten
+    puts "gf options"
+  end
+
+  def search_for_entrees
+    puts "entrees"
+  end
+
+  def search_for_snacks
+    puts "snacks"
+  end
+
+  def search_for_dessert
+    puts "desserts"
   end
 
 end
