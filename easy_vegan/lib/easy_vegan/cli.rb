@@ -11,6 +11,7 @@ class EasyVegan::CLI
     #remove line below after you find cuisine_category bug
     #EasyVegan::Scraper.scrape_recipe_page("https://minimalistbaker.com/raw-oreos/")
     menu
+    print_recipe_details
   end
 
   def list_categories
@@ -92,6 +93,18 @@ class EasyVegan::CLI
     end
   end
 
+  def print_recipe_details
+    puts "Which recipe would you like to know more about?"
+    interest = gets.chomp.to_i - 1
+    recipes_to_print = search_and_print_by_category
+    #binding.pry
+    puts "Title: #{recipes_to_print[interest].title}"
+    puts "Attributes: #{recipes_to_print[interest].cuisine_category}"
+    puts "Serves: #{recipes_to_print[interest].serving_size}"
+    puts "Recipe URL: #{recipes_to_print[interest].url}"
+  end
+
+
   def goodbye
     puts "Come back soon for more vegan recipes!"
   end
@@ -137,7 +150,7 @@ class EasyVegan::CLI
     puts "desserts"
   end
 
-end
+
 
 =begin
 //////////////methods for debugging only///////////////
@@ -161,4 +174,6 @@ def print_categories
     cats << recipe.category
   end
     puts cats.uniq!
+end
+=end
 end
