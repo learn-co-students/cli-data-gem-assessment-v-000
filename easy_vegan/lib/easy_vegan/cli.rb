@@ -25,14 +25,15 @@ class EasyVegan::CLI
     puts "Which category of recipes would you like to explore? You may type a category to explore, or type exit"
     @input = gets.strip.to_i
     if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
-      search_and_print_by_category
-      #create all recipe objects
 
+      #create all recipe objects
       make_recipe_objects
+
       #collect urls, send every url to be scraped. read_each_recipe_page automates the scraping of all individual recipe pages and adds all recipe attributes to recipe objects
       add_attributes_to_recipes
 
       #search by category (cli.search_by_category)
+      search_and_print_by_category
     elsif @input == "exit"
       goodbye
     else
@@ -69,12 +70,13 @@ class EasyVegan::CLI
 
   def search_and_print_by_category
     category_wanted = convert_input_to_category
-    binding.pry
     recipe_objects = EasyVegan::Recipe.all
     recipe_objects.each_with_index do |recipe, index|
       if recipe.category.include?("#{category_wanted}")
         #binding.pry
         puts "#{index+1}. #{recipe.title}"
+      else
+        puts "not entered if statement"
       end
     end
   end
