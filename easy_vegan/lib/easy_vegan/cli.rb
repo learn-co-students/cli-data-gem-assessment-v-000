@@ -3,7 +3,7 @@ require_relative "./recipe.rb"
 require_relative "./scraper.rb"
 require 'pry'
 class EasyVegan::CLI
-  attr_accessor :input
+  attr_accessor :input, :cat
 
   def call
     puts "Recipe Categories:"
@@ -25,7 +25,7 @@ class EasyVegan::CLI
     puts "Which category of recipes would you like to explore? You may type a category to explore, or type exit"
     @input = gets.strip.to_i
     if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
-      convert_input_to_category
+      search_and_print_by_category
       #create all recipe objects
 
       make_recipe_objects
@@ -42,28 +42,29 @@ class EasyVegan::CLI
 
   def convert_input_to_category
     case @input
-      when "1"
-        @cat = print_all
-      when "2"
-        @cat = "Dessert"
-      when "3"
-        @cat = "Entrée"
-      when "4"
-        @cat = "Breakfast"
-      when "5"
-        @cat = "Snack"
-      when "6"
-        @cat = "Side"
-      when "7"
-        @cat = "Beverage"
-      when "8"
-        @cat = "GFF??"
-      when "9"
-        @cat ="Vegan"
-      when "10"
-        @cat ="Helpful How-to"
+      when 1
+        print_all
+      when 2
+        "Dessert"
+      when 3
+        "Entrée"
+      when 4
+        "Breakfast"
+      when 5
+        "Snack"
+      when 6
+        "Side"
+      when 7
+        "Beverage"
+      when 8
+        "GFF??"
+      when 9
+        "Vegan"
+      when 10
+        "Helpful How-to"
+      else
+        puts "invalid entry"
       end
-      @cat
   end
 
   def search_and_print_by_category
