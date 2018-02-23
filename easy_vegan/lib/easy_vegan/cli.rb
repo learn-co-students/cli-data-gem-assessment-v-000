@@ -58,9 +58,9 @@ class EasyVegan::CLI
       when 7
         "Beverage"
       when 8
-        search_for_gluten_free
+        search_for_recipe_attribute("Gluten-Free")
       when 9
-        search_for_vegan
+        search_for_recipe_attribute("Vegan")
       when 10
         "Helpful How-to"
       else
@@ -119,26 +119,12 @@ class EasyVegan::CLI
     end
   end
 
-  def search_for_vegan
-    recipe_objects = EasyVegan::Recipe.all
-    index = 1
-    relevant = []
-    recipe_objects.each do |recipe|
-      if recipe.cuisine_category.include?("Vegan")
-        relevant << recipe
-        puts "#{index}. #{recipe.title}"
-        index += 1
-      end
-    end
-    print_recipe_details(relevant)
-  end
-
-def search_for_gluten_free
+def search_for_recipe_attribute(keyword)
   recipe_objects = EasyVegan::Recipe.all
   index = 1
   relevant = []
   recipe_objects.each do |recipe|
-    if recipe.cuisine_category.include?("Gluten-Free")
+    if recipe.cuisine_category.include?("#{keyword}")
       relevant << recipe
       puts "#{index}. #{recipe.title}"
       index += 1
