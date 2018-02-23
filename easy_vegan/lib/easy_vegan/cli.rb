@@ -46,7 +46,7 @@ class EasyVegan::CLI
       when 1
         print_all
       when 2
-        search_for_dessert
+        search_for_sweets
       when 3
         search_for_entrees
       when 4
@@ -125,7 +125,6 @@ class EasyVegan::CLI
     relevant = []
     recipe_objects.each do |recipe|
       if recipe.cuisine_category.include?("Vegan")
-        #binding.pry
         relevant << recipe
         puts "#{index}. #{recipe.title}"
         index += 1
@@ -146,23 +145,43 @@ class EasyVegan::CLI
     relevant = []
     recipe_objects.each do |recipe|
       if recipe.category.include?("Soup") || recipe.category.include?("Salad") || recipe.category.include?("Entrée")
-        #binding.pry
         relevant << recipe
         puts "#{index}. #{recipe.title}"
         index += 1
       end
-      relevant
     end
+    print_recipe_details(relevant)
   end
 
   def search_for_snacks
-    puts "snacks"
+    #include dip, appetizer, smoothie, sauce
+    recipe_objects = EasyVegan::Recipe.all
+    index = 1
+    relevant = []
+    recipe_objects.each do |recipe|
+      if recipe.category.include?("Dip") || recipe.category.include?("Appetizer") || recipe.category.include?("Smoothie") || recipe.category.include?("Sauce")
+        relevant << recipe
+        puts "#{index}. #{recipe.title}"
+        index += 1
+      end
+    end
+    print_recipe_details(relevant)
   end
 
-  def search_for_dessert
-    puts "desserts"
+  def search_for_sweets
+    #include desserts, frosting
+    recipe_objects = EasyVegan::Recipe.all
+    index = 1
+    relevant = []
+    recipe_objects.each do |recipe|
+      if recipe.category.include?("Dessert") || recipe.category.include?("Frosting")
+        relevant << recipe
+        puts "#{index}. #{recipe.title}"
+        index += 1
+      end
+    end
+    print_recipe_details(relevant)
   end
-
 
 
 =begin
