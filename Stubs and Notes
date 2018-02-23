@@ -545,3 +545,22 @@ end
     #     @home_page = home_page
     #     @@all << self
     # end
+
+def self.get_titles_from_content_urls
+        url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+        home_page = Nokogiri::HTML(open(url))
+        # title_array = []
+        titles_from_content_arrays = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.text }
+        titles_from_content_arrays.pop(4)
+        # titles_from_content_arrays
+        titles_from_content_arrays.collect do |raw_title| 
+            sliced_title = raw_title.slice(0, 53)           
+            raw_title
+            resliced_title = raw_title[0...-1]
+            resliced_title
+            titles_from_content_arrays
+            binding.pry
+            # title_array << resliced_title
+        end
+        # title_array
+    end

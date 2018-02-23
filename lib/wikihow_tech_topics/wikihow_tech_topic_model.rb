@@ -4,6 +4,8 @@ class WikihowTechTopics::WikihowTechTopicModel
    
     @@all = []
 
+    instance = WikihowTechTopics::WikihowTechTopicModel.new
+
     def initialize(title = nil, content = nil, url = nil)
         @title = title
         @content = content
