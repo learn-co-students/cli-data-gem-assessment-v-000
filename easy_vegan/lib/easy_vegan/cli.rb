@@ -25,16 +25,15 @@ class EasyVegan::CLI
     puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
     @input = gets.strip.to_i
     if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
-
       #create all recipe objects
       make_recipe_objects
 
       #collect urls, send every url to be scraped. read_each_recipe_page automates the scraping of all individual recipe pages and adds all recipe attributes to recipe objects
       add_attributes_to_recipes
 
-      #search by category (cli.search_by_category)
+      #trigger the correct search function with check. Check eventually calls on print_recipe_details (cli.search_by_category)
       check
-      #search_and_print_by_category
+
     elsif @input == "exit"
       goodbye
     else
@@ -43,7 +42,6 @@ class EasyVegan::CLI
   end
 
   def convert_input_to_category
-
     case @input
       when 1
         print_all
@@ -104,25 +102,16 @@ class EasyVegan::CLI
     puts "Recipe URL: #{relevant[interest].url}"
   end
 
-
   def goodbye
     puts "Come back soon for more vegan recipes!"
   end
 
-
-#we need to refactor print such that it only prints recipes with category = input
-#the recipe objects will not have a category attribute until add_attributes is run successfully. we need to carefully choose order of menu and call
-
-
   def make_recipe_objects
     recipe_objects = EasyVegan::Scraper.scrape_index_page
     EasyVegan::Recipe.create_from_collection(recipe_objects)
-
   end
 
-
 #we need to only add the attributes of one recipe at time. at this point, attirbutes is holding everything
-
   def add_attributes_to_recipes
     EasyVegan::Recipe.all.each do |recipe|
       recipe.add_recipe_attributes(EasyVegan::Scraper.scrape_recipe_page(recipe.url))
