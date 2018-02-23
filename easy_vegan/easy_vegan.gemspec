@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Aubrey Neimeier'"]
   spec.email         = ["'neimeier.1@osu.edu'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Quickly browse hundreds of easy vegan recipes!}
+  spec.description   = %q{ Follow the prompts to browse hundreds of vegan recipes! After selecting a category of recipes, relevant recipes will be displayed to browse further details. Every recipe you view will contain the following details; title, recipe category, cuisine category, the serving size, and the url for the specific recipe. All recipe information has been scraped from a lovely food blog, titled Minimalist Baker.}
   spec.homepage      = "https://github.com/AubreyNeimeier/easy_vegan"
   spec.license       = "MIT"
 

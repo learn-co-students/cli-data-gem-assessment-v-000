@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Follow the prompts to browse hundreds of vegan recipes! After selecting a category of recipes, relevant recipes will be displayed to browse further details. Every recipe you view will contain the following details; title, recipe category, cuisine category, the serving size, and the url for the specific recipe. All recipe information has been scraped from a lovely food blog, titled Minimalist Baker.
 
 ## Development
 
