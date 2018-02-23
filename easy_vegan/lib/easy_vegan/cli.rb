@@ -24,6 +24,7 @@ class EasyVegan::CLI
     @input = ""
     puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
     @input = gets.strip.to_i
+    puts "Please be patient as the recipe database loads."
     if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
       #create all recipe objects
       make_recipe_objects
