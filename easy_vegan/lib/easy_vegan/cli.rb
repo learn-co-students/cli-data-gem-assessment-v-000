@@ -62,7 +62,7 @@ class EasyVegan::CLI
       when 9
         search_for_recipe_attribute("Vegan")
       when 10
-        "Helpful How-to"
+        search_by_title_keyword("How To")
       else
         puts "invalid entry"
       end
@@ -133,6 +133,32 @@ def search_for_recipe_attribute(keyword)
   print_recipe_details(relevant)
 end
 
+def print_all
+  recipe_objects = EasyVegan::Recipe.all
+  index = 1
+  relevant = []
+  recipe_objects.each do |recipe|
+      relevant << recipe
+      puts "#{index}. #{recipe.title}"
+      index += 1
+  end
+  print_recipe_details(relevant)
+end
+
+
+def search_by_title_keyword(keyword)
+    recipe_objects = EasyVegan::Recipe.all
+    index = 1
+    relevant = []
+    recipe_objects.each do |recipe|
+      if recipe.title.include?("#{keyword}")
+        relevant << recipe
+        puts "#{index}. #{recipe.title}"
+        index += 1
+      end
+    end
+  print_recipe_details(relevant)
+end
 
   def search_for_entrees
     #include entree, soup, salad
