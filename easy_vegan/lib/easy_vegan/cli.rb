@@ -105,14 +105,14 @@ class EasyVegan::CLI
 
   def secondary_menu
     puts "What would you like to do now?"
-    puts "Type "exit" to exit the program or type back to see the main menu again"
+    puts "Type exit to exit the program or type back to see the main menu again"
     input_2 = gets.strip
-      if input_2 = "exit"
+      if input_2 == "exit"
         goodbye
-      elsif input_2 = "back"
+      elsif input_2 == "back"
         list_categories
         puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
-        input_3 = gets.strip.to_i
+        @input = gets.strip.to_i
         check
       end
     end
