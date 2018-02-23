@@ -20,8 +20,8 @@ class WikihowTechTopics::WikihowTechTopicModel
 
     def self.scraped_content_array
         content_array = WikihowTechTopics::Scraper.scraped_content_array
-        content_array.each_with_index do |content, index|
-            @@all[index].content = content
+        content_array.each_with_index do |scraped_content, index|
+            @@all[index].content = scraped_content
         end
     end
     

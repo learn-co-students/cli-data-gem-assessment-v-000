@@ -1,5 +1,3 @@
-
-
 class WikihowTechTopics::Scraper
 
     def self.get_content_urls
