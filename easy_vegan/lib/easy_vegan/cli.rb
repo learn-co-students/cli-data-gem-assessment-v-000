@@ -58,7 +58,7 @@ class EasyVegan::CLI
       when 7
         "Beverage"
       when 8
-        search_for_gluten
+        search_for_gluten_free
       when 9
         search_for_vegan
       when 10
@@ -133,10 +133,20 @@ class EasyVegan::CLI
     print_recipe_details(relevant)
   end
 
-
-  def search_for_gluten
-    puts "gf options"
+def search_for_gluten_free
+  recipe_objects = EasyVegan::Recipe.all
+  index = 1
+  relevant = []
+  recipe_objects.each do |recipe|
+    if recipe.cuisine_category.include?("Gluten-Free")
+      relevant << recipe
+      puts "#{index}. #{recipe.title}"
+      index += 1
+    end
   end
+  print_recipe_details(relevant)
+end
+
 
   def search_for_entrees
     #include entree, soup, salad
