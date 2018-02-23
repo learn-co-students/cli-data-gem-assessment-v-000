@@ -16,10 +16,11 @@ class WikihowTechTopics::Scraper
         # title_array = []
         titles_from_content_arrays = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.text }
         titles_from_content_arrays.pop(4)
-        final_title_array = titles_from_content_arrays.collect {|raw_title| raw_title.slice!(0, 53) }
-        final_title_array                     
+        titles_from_content_arrays.collect do |raw_title| raw_title.slice!(0, 53)
+       
+                             
             
-            binding.pry
+        end
     end
 
     def self.scraped_content_array
