@@ -5,30 +5,36 @@ class Dogs::CLI
     Dogs::Scraper.scrape_dogs
     list_dogs
     menu
-    binding.pry
   end
 
   def list_dogs
-    Dogs::DogsPopularity.all.each do |dog|
-      puts "#{dog.name}"
+    counter = 0
+    while counter < 20
+      Dogs::DogsPopularity.all.each do |dog|
+        puts "#{counter +=1}. #{dog.name}"
+      end
     end
   end
 
   def menu
 		input = nil
 		while input != "exit"
+      puts " "
+      puts " "
 			puts <<-DOC.gsub /^\s+/, ""
-			Enter a number 1-20 to see the dogs popularity and best quality!
-      Or type "List" to see the list of dogs again
-      Or type "Exit" to leave the program!
+			Enter a number 1-20 to see the ranking of popularity for a family dog also it's best quality!
+      Type "List" to see the list of dogs again
+      Type "Exit" to leave the program!
 			DOC
-			input = gets.strip.downcase
+      puts " "
+      input = gets.strip.downcase
+      puts " "
 
       if input.to_i > 0 && input.to_i < 21
 				index = input.to_i-1
 				puts ""
-				puts Dogs::DogsPopularity.all[index].name
-        puts "#{Dogs::DogsPopularity.all[index].popularity}th most popular family dog!"
+				puts "#{Dogs::DogsPopularity.all[index].name}:"
+        puts "Family dog ranking =  ##{Dogs::DogsPopularity.all[index].popularity}!"
         puts "Best quality = #{Dogs::DogsPopularity.all[index].temper}"
 				puts ""
 
@@ -40,6 +46,8 @@ class Dogs::CLI
 
 			else
 				puts "I don't see that option here...please choose from the list below"
+        puts " "
+        list_dogs
 			end
 		end
 	end
