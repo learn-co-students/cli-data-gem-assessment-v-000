@@ -15,5 +15,4 @@ class Dogs::DogsPopularity
 
 
 
-
 end
