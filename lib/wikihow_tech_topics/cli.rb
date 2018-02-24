@@ -25,7 +25,7 @@ class WikihowTechTopics::CLI
         # WikihowTechTopics::Scraper.get_titles_from_content_urls
         scraped_titles.each.with_index(1) do |title, i|
             @scraped_titles_array << title
-            puts "#{i}. #{title}"
+            puts "#{i}. #{title[i-1]}"
         end
         puts ""
         puts ""
@@ -38,7 +38,7 @@ class WikihowTechTopics::CLI
                 when @user_input == i
                     puts ""
                     puts ""
-                    puts title
+                    puts title[i-1]
                     puts ""
                     puts ""
                     puts "Here are your article steps ... "
@@ -90,6 +90,7 @@ class WikihowTechTopics::CLI
                 puts "Goodbye for now!"
                 puts ""
                 puts ""
+                exit
             end
     end
 end
