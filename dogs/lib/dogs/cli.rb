@@ -32,11 +32,11 @@ class Dogs::CLI
 
       if input.to_i > 0 && input.to_i < 21
 				index = input.to_i-1
-				puts ""
-				puts "#{Dogs::DogsPopularity.all[index].name}:"
-        puts "Family dog ranking =  ##{Dogs::DogsPopularity.all[index].popularity}!"
-        puts "Best quality = #{Dogs::DogsPopularity.all[index].temper}"
-				puts ""
+  				puts ""
+  				puts "#{Dogs::DogsPopularity.all[index].name}:"
+          puts "Family dog ranking =  ##{Dogs::DogsPopularity.all[index].popularity}!"
+          puts "Best quality = #{Dogs::DogsPopularity.all[index].temper}"
+  				puts ""
 
       elsif input == "list"
         list_dogs
