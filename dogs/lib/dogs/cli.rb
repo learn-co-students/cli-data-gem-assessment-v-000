@@ -54,7 +54,5 @@ class Dogs::CLI
 
 	def goodbye
 		puts "          Thank you for stopping by! Have a wonderful day!"
-
 	end
-
 end

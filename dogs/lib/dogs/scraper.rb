@@ -10,7 +10,6 @@ class Dogs::Scraper
       popularity = dog.css(".list-02 p").text
       temper = dog.css(".list-03 p").first.text
       Dogs::DogsPopularity.new(name, popularity, temper)
-    #  binding.pry
     end
   end
 end
