@@ -1,9 +1,10 @@
 class Dogs::CLI
 
   def call
+    puts " "
     puts "Welcome to family friendly dog rankings!"
     puts " "
-    puts "Enter a number 1-20 to see the ranking of popularity for a family friendly dog, also it's best quality!"
+    puts "Enter a number 1-20 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
     puts " "
     Dogs::Scraper.scrape_dogs
     list_dogs
