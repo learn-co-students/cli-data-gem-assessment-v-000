@@ -7,23 +7,13 @@ Great for those looking to add a four-legged fur baby into their families!
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'dogs'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install dogs
+  $ gem install dogs
 
 ## Usage
 
-TODO: Write usage instructions here
+ Type the below and follow the on screen prompts.
+
+ $ dogs
 
 ## Development
 
