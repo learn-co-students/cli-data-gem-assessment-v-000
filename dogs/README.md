@@ -1,8 +1,9 @@
 # Dogs
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dogs`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby gem provides a list of 20 well known dog breeds and will allow you to select one to see it's family friendly popularity ranking, also it's best quality!
 
-TODO: Delete this and the text above, and describe your gem
+Great for those looking to add a four-legged fur baby into their families!
+
 
 ## Installation
 

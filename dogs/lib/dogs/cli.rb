@@ -1,7 +1,10 @@
 class Dogs::CLI
 
   def call
-    puts ""
+    puts "Welcome to family friendly dog rankings!"
+    puts " "
+    puts "Enter a number 1-20 to see the ranking of popularity for a family friendly dog, also it's best quality!"
+    puts " "
     Dogs::Scraper.scrape_dogs
     list_dogs
     menu
@@ -22,8 +25,8 @@ class Dogs::CLI
       puts " "
       puts " "
 			puts <<-DOC.gsub /^\s+/, ""
-			Enter a number 1-20 to see the ranking of popularity for a family dog also it's best quality!
-      Type "List" to see the list of dogs again
+      Enter another number 1-20!
+      Type "List" to see the list of dogs again!
       Type "Exit" to leave the program!
 			DOC
       puts " "

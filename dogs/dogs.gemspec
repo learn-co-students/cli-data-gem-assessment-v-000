@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'popemray1986@gmail.com'"]
 
   spec.summary       = %q{Find dogs and their popularity}
-  spec.description   = %q{}
+  spec.description   = %q{List 20 dogs from the dog breeds list website and gives you popularity and best qualities }
   spec.homepage      = "http://www.dogbreedslist.info/family-dog-breeds/#.Wotwi6inFPa"
   spec.license       = "MIT"
 
