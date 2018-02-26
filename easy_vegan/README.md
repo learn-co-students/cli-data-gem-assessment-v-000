@@ -1,8 +1,6 @@
 # EasyVegan
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/easy_vegan`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Follow the prompts to browse hundreds of vegan recipes! After selecting a category of recipes, relevant recipes will be displayed to browse further details. The following details are available for each recipe; title, recipe category, cuisine category, serving size, and the recipe url. All recipe information has been scraped from a lovely food blog, titled "Minimalist Baker".
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Follow the prompts to browse hundreds of vegan recipes! After selecting a category of recipes, relevant recipes will be displayed to browse further details. Every recipe you view will contain the following details; title, recipe category, cuisine category, the serving size, and the url for the specific recipe. All recipe information has been scraped from a lovely food blog, titled Minimalist Baker.
+ Follow the prompts to browse hundreds of vegan recipes! After selecting a category of recipes, relevant recipes will be displayed to browse further details. Every recipe you view will contain the following details; title, recipe category, cuisine category, the serving size, and the url for the specific recipe. All recipe information has been scraped from a lovely food blog, titled Minimalist Baker.
 
 ## Development
 
