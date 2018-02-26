@@ -18,6 +18,8 @@ attr_accessor :category, :total_time, :cuisine_category, :serving_size, :url, :t
     return_value_of_scraped_recipe_page.each {|key, value| self.send(("#{key}="), value)}
   end
 
+#blahj basldkjfla;kdsjf
+#bddl
 
   def self.all
     @@all
