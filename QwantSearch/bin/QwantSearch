@@ -1,5 +1,4 @@
-
-require "../lib/QwantSearch"
+require_relative '../lib/QwantSearch'
 
 puts "Hello World"
 QwantSearch::CLI.new.call
