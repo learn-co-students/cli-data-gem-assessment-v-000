@@ -34,7 +34,8 @@ class QwantSearch::CLI
     when "5"
       puts "Description article 5"
     when"exit"
-
+      puts "exit"
+      return
     else
       "Selection unclear - please type the number of the article you want to explore or exit."
     end
