@@ -1,3 +1,5 @@
+require_relative '../QwantSearch'
+
 class QwantSearch::CLI
 
   def call
@@ -7,8 +9,7 @@ class QwantSearch::CLI
       puts "What do you want to search?"
       get_qwant_results(get_user_input)
       menu
-      make_a_search = new_request?
-      #binding.pry
+      make_a_search = new_request
     end
   end
 
@@ -31,27 +32,25 @@ class QwantSearch::CLI
 
   def get_qwant_results(input)
     puts "Here are the top results:"
-    puts "1 - Result 1"
-    puts "2 - Result 2"
-    puts "3 - Result 3"
-    puts "4 - Result 4"
-    puts "6 - Result 6"
+    search = QwantSearch::Scrapper.new
+    search.results
   end
 
 
   def menu
     puts "Type the number you want to explore, or exit to quit"
-    case get_user_input
+    input = get_user_input
+    case input
     when "1"
-      puts "Description article 1"
+      search.description(input)
     when "2"
-      puts "Description article 2"
+      search.description(input)
     when "3"
-      puts "Description article 3"
+      search.description(input)
     when "4"
-      puts "Description article 4"
+      search.description(input)
     when "5"
-      puts "Description article 5"
+      search.description(input)
     when"exit"
       puts "exit"
       return
