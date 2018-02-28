@@ -4,7 +4,7 @@ require_relative '../QwantSearch'
     def initialize
     end
 
-    def results
+    def results (input)
       puts "1 - Result 1"
       puts "2 - Result 2"
       puts "3 - Result 3"
@@ -13,6 +13,6 @@ require_relative '../QwantSearch'
     end
 
     def description(input)
-      puts "Description article #{1}""
+      puts "Description article #{input}"
     end
 end

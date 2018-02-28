@@ -9,7 +9,7 @@ class QwantSearch::CLI
       puts "What do you want to search?"
       get_qwant_results(get_user_input)
       menu
-      make_a_search = new_request
+      make_a_search = new_request?
     end
   end
 
@@ -30,10 +30,10 @@ class QwantSearch::CLI
     end
   end
 
-  def get_qwant_results
+  def get_qwant_results(input)
     puts "Here are the top results:"
-    search = QwantSearch::Scrapper.new
-    search.results
+    @search = QwantSearch::Scrapper.new
+    @search.results(input)
   end
 
 
@@ -42,15 +42,15 @@ class QwantSearch::CLI
     input = get_user_input
     case input
     when "1"
-      search.description(input)
+      @search.description(input)
     when "2"
-      search.description(input)
+      @search.description(input)
     when "3"
-      search.description(input)
+      @search.description(input)
     when "4"
-      search.description(input)
+      @search.description(input)
     when "5"
-      search.description(input)
+      @search.description(input)
     when"exit"
       puts "exit"
       return
