@@ -1,5 +1,4 @@
-require "./lib/QwantSearch"
+require "../lib/QwantSearch"
 
-puts "Hello Workld"
-
+puts "Hello World"
 QwantSearch::CLI.new.call
