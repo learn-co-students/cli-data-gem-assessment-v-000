@@ -46,7 +46,6 @@ class QwantSearch::CLI
     elsif input == "exit"
       return
     else
-      binding.pry
       puts "Selection unclear - please type the number of the article you want to explore or exit."
       menu
     end
