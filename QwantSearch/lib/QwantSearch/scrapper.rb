@@ -4,6 +4,10 @@ require_relative '../QwantSearch'
     def initialize
     end
 
+    def createURL(input)
+      ("&t=all").prepend(input.gsub(" ","%20")).prepend("https://www.qwant.com/?q=")
+    end
+
     def number_of_results
       5
     end

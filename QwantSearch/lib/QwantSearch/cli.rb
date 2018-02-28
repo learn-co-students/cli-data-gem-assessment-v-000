@@ -31,8 +31,9 @@ class QwantSearch::CLI
   end
 
   def get_qwant_results(input)
-    puts "Here are the top results:"
     @search = QwantSearch::Scrapper.new
+    puts "Here are the top results for #{input}:"
+    puts "#{@search.createURL(input)}"
     @search.results(input)
   end
 
@@ -45,7 +46,9 @@ class QwantSearch::CLI
     elsif input == "exit"
       return
     else
-      "Selection unclear - please type the number of the article you want to explore or exit."
+      binding.pry
+      puts "Selection unclear - please type the number of the article you want to explore or exit."
+      menu
     end
   end
 
