@@ -1,13 +1,30 @@
 class QwantSearch::CLI
 
   def call
+    make_a_search = true
     puts "Welcome to QwantSearch, what do you want to search today?"
-    get_qwant_results(get_user_input)
-    menu
+    while make_a_search == true
+      get_qwant_results(get_user_input)
+      menu
+      make_a_search = new_request?
+    end
   end
 
   def get_user_input
     user_input = gets.to_s.strip
+  end
+
+  def new_request?
+    puts "Do you want to make another search? (Y/N)"
+    user_input = get_user_input.downCase
+    case user_input
+    when "y"
+      true
+    when "n"
+      false
+    else puts "selection_unclear - please type Y or N"
+      new_request?
+    end
   end
 
   def get_qwant_results(input)
