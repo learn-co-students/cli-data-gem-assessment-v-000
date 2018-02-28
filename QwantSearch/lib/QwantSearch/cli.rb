@@ -40,19 +40,9 @@ class QwantSearch::CLI
   def menu
     puts "Type the number you want to explore, or exit to quit"
     input = get_user_input
-    case input
-    when "1"
+    if input.to_i > 0 && input.to_i <= @search.number_of_results
       @search.description(input)
-    when "2"
-      @search.description(input)
-    when "3"
-      @search.description(input)
-    when "4"
-      @search.description(input)
-    when "5"
-      @search.description(input)
-    when"exit"
-      puts "exit"
+    elsif input == "exit"
       return
     else
       "Selection unclear - please type the number of the article you want to explore or exit."
