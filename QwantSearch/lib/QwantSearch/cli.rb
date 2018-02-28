@@ -30,7 +30,7 @@ class QwantSearch::CLI
     end
   end
 
-  def get_qwant_results(input)
+  def get_qwant_results
     puts "Here are the top results:"
     search = QwantSearch::Scrapper.new
     search.results
