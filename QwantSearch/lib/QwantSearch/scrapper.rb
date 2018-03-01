@@ -3,22 +3,19 @@ require_relative '../QwantSearch'
 #test
   class QwantSearch::Scrapper
 
-    def initialize
-    end
-
     def createURL(input)
       @link = ("&t=all").prepend(input.gsub(" ","%20")).prepend("https://www.qwant.com/?q=")
-    end
-
-    def number_of_results
-      @results.length
     end
 
     def scrap_website
       @doc = Nokogiri::HTML(open(@link))
       scrap_search_results
       scrap_results_descriptions
-      binding.pry
+      #binding.pry
+    end
+
+    def number_of_results
+      @results.length
     end
 
     def scrap_search_results
