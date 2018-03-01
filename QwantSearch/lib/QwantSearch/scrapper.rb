@@ -7,7 +7,7 @@ require_relative '../QwantSearch'
     end
 
     def createURL(input)
-      ("&t=all").prepend(input.gsub(" ","%20")).prepend("https://www.qwant.com/?q=")
+      @link = ("&t=all").prepend(input.gsub(" ","%20")).prepend("https://www.qwant.com/?q=")
     end
 
     def number_of_results
@@ -15,8 +15,10 @@ require_relative '../QwantSearch'
     end
 
     def scrap_website
+      @doc = Nokogiri::HTML(open(@link))
       scrap_search_results
       scrap_results_descriptions
+      binding.pry
     end
 
     def scrap_search_results
@@ -29,9 +31,8 @@ require_relative '../QwantSearch'
     end
 
     def scrap_results_descriptions
-      binding.pry
       @descriptions =[]
-      #code to scrap and push the results in the @ results array
+      #code to scrap and push the description in the @descriptions array
         #to come
 
       #temporary results tab
