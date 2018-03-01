@@ -8,10 +8,14 @@ require_relative '../QwantSearch'
     end
 
     def scrap_website
-      @doc = Nokogiri::HTML(open(@link))
+      create_XML_document
       scrap_search_results
       scrap_results_descriptions
       #binding.pry
+    end
+
+    def create_XML_document
+      @doc = Nokogiri::HTML(open(@link))
     end
 
     def number_of_results
