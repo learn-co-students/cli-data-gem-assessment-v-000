@@ -34,7 +34,7 @@ class QwantSearch::CLI
     @search = QwantSearch::Scrapper.new
     puts "Here are the top results for #{input}:"
     puts "#{@search.createURL(input)}"
-    @search.scrap_search_results
+    @search.scrap_website
     @search.display_results
   end
 
@@ -43,7 +43,7 @@ class QwantSearch::CLI
     puts "Type the number you want to explore, or exit to quit"
     input = get_user_input
     if input.to_i > 0 && input.to_i <= @search.number_of_results
-      @search.display_description
+      @search.display_description(input)
     elsif input == "exit"
       return
     else
