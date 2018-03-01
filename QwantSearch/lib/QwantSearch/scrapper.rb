@@ -11,18 +11,39 @@ require_relative '../QwantSearch'
     end
 
     def number_of_results
-      5
+      @results.length
     end
 
-    def results (input)
-      puts "1 - Result 1"
-      puts "2 - Result 2"
-      puts "3 - Result 3"
-      puts "4 - Result 4"
-      puts "5 - Result 5"
+    def scrap_website
+      scrap_search_results
+      scrap_results_descriptions
     end
 
-    def description(input)
-      puts "Description article #{input}"
+    def scrap_search_results
+      @results =[]
+      #code to scrap and push the results in the @ results array
+        #to come
+
+      #temporary results tab
+      @results =["Result 1","Result 2","Result 3","Result 4","Result 5", ]
+    end
+
+    def scrap_results_descriptions
+      @descriptions =[]
+      #code to scrap and push the results in the @ results array
+        #to come
+
+      #temporary results tab
+      @descriptions =["Description 1","Description 2","Description 3","Description 4","Description 5", ]
+    end
+
+    def display_results
+      @results.each_with_index do |result, index|
+        puts "#{index} - #{result}"
+      end
+    end
+
+    def display_description(input)
+      puts "#{@descriptions[input]}"
     end
 end
