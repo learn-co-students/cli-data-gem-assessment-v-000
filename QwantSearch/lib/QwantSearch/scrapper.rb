@@ -9,7 +9,7 @@ require_relative '../QwantSearch'
 
     def scrap_website
       @doc = Nokogiri::HTML(open(@link))
-      #create_XML_document_with_selenium_webriver
+      # create_XML_document_with_selenium_webriver
       #create_XML_document_with_watir_webriver
       scrap_search_results
       scrap_results_descriptions
