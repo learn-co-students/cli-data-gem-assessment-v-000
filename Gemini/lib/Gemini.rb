@@ -1,4 +1,4 @@
-require "Gemini/version"
+require_relative "./Gemini/version"
 require_relative "./Gemini/cli"
 require_relative "./Gemini/scrapper"
 require 'pry'
