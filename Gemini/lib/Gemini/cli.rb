@@ -24,7 +24,7 @@ class Gemini::CLI
     elsif input == "exit"
       return
     else
-      puts "Selection unclear - please type the number of the article you want to explore or exit."
+      puts "Selection unclear - please type the number of the pair you want to check or exit."
       menu
     end
   end
