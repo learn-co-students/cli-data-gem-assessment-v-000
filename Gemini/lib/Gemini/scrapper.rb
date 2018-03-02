@@ -22,17 +22,14 @@ require_relative '../Gemini'
     def display_percentage_and_variations(input)
       case input
       when "1"
-        puts " 1 BTC = $10000"
+        puts "1 BTC = $10000"
         puts "The price increased/decreased by XX%"
-        #return
       when "2"
-        puts " 1 ETH = $800"
+        puts "1 ETH = $800"
         puts "The price increased/decreased by YY%"
-        #return
       when "3"
-        puts "1 ETH = BTC0.070000000 "
+        puts "1 ETH = 0.070000000 BTC "
         puts "The price increased/decreased by ZZ%"
-        #return
       end
     end
 
