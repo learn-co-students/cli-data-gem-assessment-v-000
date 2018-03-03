@@ -24,6 +24,8 @@ require_relative '../BitcoinLiterature'
           case (column_count % 4)
           when 0
             document.name = td.text.strip.tr('"', '')
+            document.url = td.attr("href")
+            binding.pry
           #when 1 - not used as we don't collect formats
           when 2
             document.author = td.text.strip

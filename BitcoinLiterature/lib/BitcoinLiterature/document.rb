@@ -1,7 +1,7 @@
 require_relative '../BitcoinLiterature'
 
 class BitcoinLiterature::Document
-  attr_accessor :name, :author, :date
+  attr_accessor :name, :author, :date, :url
   @@all =[]
 
   def self.all
