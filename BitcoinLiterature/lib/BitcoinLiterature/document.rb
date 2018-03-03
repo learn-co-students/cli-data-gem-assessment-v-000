@@ -23,7 +23,7 @@ class BitcoinLiterature::Document
   end
 
   def display_documents_info
-    puts "#{self.name} has been written by #{self.author} on #{self.date}"
+    puts "#{self.name} has been written by #{self.author} on #{self.date}\n You can access the document here: #{self.url}
   end
 
 end
