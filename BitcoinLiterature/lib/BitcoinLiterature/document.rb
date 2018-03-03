@@ -1,7 +1,7 @@
 require_relative '../BitcoinLiterature'
 
 class BitcoinLiterature::Document
-  attr_accessor :name, :author, :date
+  attr_accessor :name, :author, :date, :url
   @@all =[]
 
   def self.all
@@ -12,6 +12,10 @@ class BitcoinLiterature::Document
     @@all << self
   end
 
+  def reset
+    @@all = []
+  end
+
   def self.display_documents
     @@all.each_with_index do |document, index|
       puts "#{index +1} - #{document.name}"
@@ -19,7 +23,7 @@ class BitcoinLiterature::Document
   end
 
   def display_documents_info
-    puts "#{self.name} has been written by #{self.author} on #{self.date}"
+    puts "#{self.name} has been written by #{self.author} on #{self.date}\nYou can access the document here:#{self.url}"
   end
 
 end

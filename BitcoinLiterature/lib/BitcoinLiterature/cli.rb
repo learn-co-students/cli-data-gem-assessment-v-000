@@ -7,11 +7,7 @@ class BitcoinLiterature::CLI
     puts "Welcome to Gemini"
     while make_a_search == true
       BitcoinLiterature::Scrapper.new
-<<<<<<< HEAD:BitcoinLiterature/lib/BitcoinLiterature/cli.rb
       menu_list_of_documents
-=======
-      menu
->>>>>>> abd942bb1841cffa23f3ae7d81e82d085e17abc9:BitcoinLiterature/lib/BitcoinLiterature/BitcoinLiterrature/lib/BitcoinLiterrature/cli.rb
       make_a_search = new_request?
     end
   end
