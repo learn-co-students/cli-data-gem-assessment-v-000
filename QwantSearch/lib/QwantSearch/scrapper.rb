@@ -9,29 +9,19 @@ require_relative '../QwantSearch'
 
     def scrap_website
       @doc = Nokogiri::HTML(open(@link))
-      # create_XML_document_with_selenium_webriver
-      #create_XML_document_with_watir_webriver
       scrap_search_results
       scrap_results_descriptions
+      create_XML_document_with_watir_webriver
       #binding.pry
     end
 
-    # def create_XML_document_with_selenium_webriver
-    #   #Selenium::WebDriver::Chrome.driver_path = './geckodriver.exe'
-    #   driver = Selenium::WebDriver.for :firefox
-    #   driver.navigate.to @link
-    #   sleep 2.0
-    #   html = driver.find_element("result_actions")
-    # end
-
-    #def create_XML_document_with_watir_webriver
-      #browser = Watir::Browser.new :firefox
-    #  driver = Selenium::WebDriver.for :edge
-    #  driver.navigate.to @link
-    #  sleep 2.0
-    #  html = driver.find_element("result_actions")
-
-
+    def create_XML_document_with_watir_webriver
+      browser = Watir::Browser.new :chrome
+      browser.goto @link
+      sleep 2.0
+      html = Nokogiri::HTML(browser.html)
+      binding.pry
+   end
 
     def number_of_results
       @results.length

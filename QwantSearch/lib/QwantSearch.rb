@@ -4,7 +4,8 @@ require_relative "./QwantSearch/scrapper"
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
-require 'selenium-webdriver'
+require 'watir'
+#require 'chromedriver-helper'
 
 
 
