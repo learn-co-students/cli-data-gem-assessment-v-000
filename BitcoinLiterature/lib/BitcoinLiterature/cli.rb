@@ -20,10 +20,9 @@ class BitcoinLiterature::CLI
     if input.to_i > 0 && input.to_i <= BitcoinLiterature::Document.all.size
       document = BitcoinLiterature::Document.all[input.to_i - 1]
       document.display_documents_info
-    elsif input == "exit"
-      return
     else
-      puts "Selection unclear - please type the number of the pair you want to check or exit."
+      puts "Selection unclear - please type the number of the document you want to check."
+      sleep 3
       menu_list_of_documents
     end
   end
