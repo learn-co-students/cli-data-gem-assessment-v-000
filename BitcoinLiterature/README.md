@@ -34,4 +34,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'Beche
 
 
 ## License
+<<<<<<< HEAD
 spec.license = 'OSL-3.0'
+=======
+spec.license = 'OSL-3.0'
+>>>>>>> 242327fe05323189a0d654e616bb72a9cb7d9bb1
