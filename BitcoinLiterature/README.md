@@ -1,8 +1,6 @@
 # BitcoinLiterature
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/BitcoinLiterature`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The BitcoinLiterature gem scrape information from the Nakamoto Institute website (http://nakamotoinstitute.org/literature/) and list available documents. It then offers to show some details about the document you select (author and date of publication)
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Launch the gem. A list of available documents will be prompted and you can access related information for each document.
 
 ## Development
 
