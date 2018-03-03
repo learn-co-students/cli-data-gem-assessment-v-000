@@ -35,6 +35,7 @@ class BitcoinLiterature::CLI
     user_input = get_user_input.downcase
     case user_input
     when "y"
+      BitcoinLiterature::Document.reset
       true
     when "n"
       false
@@ -42,8 +43,6 @@ class BitcoinLiterature::CLI
       new_request?
     end
   end
-
-
 
   def get_user_input
     gets.to_s.strip

@@ -8,6 +8,10 @@ class BitcoinLiterature::Document
     @@all
   end
 
+  def self.reset
+    @@all =[]
+  end
+
   def save
     @@all << self
   end
