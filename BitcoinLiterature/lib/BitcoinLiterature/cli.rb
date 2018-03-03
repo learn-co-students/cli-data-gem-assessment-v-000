@@ -6,7 +6,7 @@ class BitcoinLiterature::CLI
     make_a_search = true
     puts "Welcome to Gemini"
     while make_a_search == true
-      query_website_data
+      BitcoinLiterature::Scrapper.new
       menu
       make_a_search = new_request?
     end
@@ -16,23 +16,18 @@ class BitcoinLiterature::CLI
 
   def menu
     puts "The documents available are:"
-    @query.display_documents
+      BitcoinLiterature::Document.display_documents
     puts "What document do you want more info on?"
     input = get_user_input
-    if input.to_i > 0 && input.to_i <= @query.number_of_documents
-      @query.display_documents_info(input)
+    if input.to_i > 0 && input.to_i <= BitcoinLiterature::Document.all.size
+      document = BitcoinLiterature::Document.all[input.to_i - 1]
+      document.display_documents_info
     elsif input == "exit"
       return
     else
       puts "Selection unclear - please type the number of the pair you want to check or exit."
       menu
     end
-  end
-
-
-
-  def query_website_data
-    @query = BitcoinLiterature::Scrapper.new
   end
 
   def new_request?

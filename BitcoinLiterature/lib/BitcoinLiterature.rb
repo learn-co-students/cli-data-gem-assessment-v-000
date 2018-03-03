@@ -1,5 +1,6 @@
 require_relative "./BitcoinLiterature/version"
 require_relative "./BitcoinLiterature/cli"
+require_relative "./BitcoinLiterature/document"
 require_relative "./BitcoinLiterature/scrapper"
 require 'pry'
 require 'nokogiri'
