@@ -16,7 +16,6 @@ require_relative '../QwantSearch'
       #binding.pry
     end
 
-<<<<<<< HEAD
     # def create_XML_document_with_selenium_webriver
     #   #Selenium::WebDriver::Chrome.driver_path = './geckodriver.exe'
     #   driver = Selenium::WebDriver.for :firefox
@@ -31,16 +30,8 @@ require_relative '../QwantSearch'
     #  driver.navigate.to @link
     #  sleep 2.0
     #  html = driver.find_element("result_actions")
-    #end
-=======
-    def create_XML_document
-      driver = Selenium::WebDriver.for :ie
-      driver.navigate.to @link
-      sleep 2.0
-      html = driver.find_element("result_actions")
-      #@doc = Nokogiri::HTML(open(@link))
-    end
->>>>>>> 2f177d5a5b6946656cb674feb4c483da7c86389c
+
+
 
     def number_of_results
       @results.length
