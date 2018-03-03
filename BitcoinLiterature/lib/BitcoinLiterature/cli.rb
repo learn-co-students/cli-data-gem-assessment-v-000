@@ -10,9 +10,7 @@ class BitcoinLiterature::CLI
       menu
       make_a_search = new_request?
     end
-  end
-
-
+  endcd
 
   def menu
     puts "The documents available are:"
