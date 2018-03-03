@@ -12,7 +12,7 @@ require_relative '../BitcoinLiterature'
       @document_date =[]
       puts "scrapping website"
       scrap_table
-      binding.pry
+      #binding.pry
     end
 
     def scrap_table
@@ -21,6 +21,7 @@ require_relative '../BitcoinLiterature'
       table.search('tr').each do |tr|
         column_count = 0
         tr.search('td').each do |td|
+          #binding.pry
           case (column_count % 4)
           when 0
             @document_name << td.text.strip
@@ -36,24 +37,19 @@ require_relative '../BitcoinLiterature'
     end
 
     def display_documents
-      puts "Doc 1"
-      puts "Doc 2"
-      puts "Doc 2"
+      @document_name.each_with_index do |document,index|
+        puts "#{index + 1} - #{@document_name[index].tr('"', '')}\n"
+      end
+
     end
 
     def number_of_documents
-      3
+      @document_name.length
     end
 
     def display_documents_info(input)
-      case input
-      when "1"
-        puts "/Doc 1/ has been written by /X/ on /date/"
-      when "2"
-        puts "/Doc 2/ has been written by /X/ on /date/"
-      when "3"
-        puts "/Doc 3/ has been written by /X/ on /date/"
-      end
+      index = input.to_i - 1
+      puts "#{@document_name[index]} has been written by #{@document_author[index]} on #{@document_date[index]}"
     end
 
   end

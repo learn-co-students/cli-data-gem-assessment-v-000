@@ -1,4 +1,4 @@
 
-require_relative '../lib/Gemini'
+require_relative '../lib/BitcoinLiterature'
 
 BitcoinLiterature::CLI.new.call

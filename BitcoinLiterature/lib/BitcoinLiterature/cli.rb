@@ -16,11 +16,11 @@ class BitcoinLiterature::CLI
 
   def menu
     puts "The documents available are:"
-    @query.display_documnts
+    @query.display_documents
     puts "What document do you want more info on?"
     input = get_user_input
     if input.to_i > 0 && input.to_i <= @query.number_of_documents
-      @query.display_documents_info
+      @query.display_documents_info(input)
     elsif input == "exit"
       return
     else
