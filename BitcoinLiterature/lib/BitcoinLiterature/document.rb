@@ -12,7 +12,7 @@ class BitcoinLiterature::Document
     @@all << self
   end
 
-  def reset
+  def self.reset
     @@all = []
   end
 
