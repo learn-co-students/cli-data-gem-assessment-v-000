@@ -27,7 +27,7 @@ require_relative '../BitcoinLiterature'
             document.url = td.css("a").attr("href").value.prepend("http://nakamotoinstitute.org")
           #when 1 - not used as we don't collect formats
           when 2
-            document.author = td.text.strip.gsub("\n","").gsub(/\s\s+/,' ')
+            document.author = td.text.strip.gsub(/\s\s+/,' ')
             #binding.pry
           when 3
             document.date = td.text.strip
