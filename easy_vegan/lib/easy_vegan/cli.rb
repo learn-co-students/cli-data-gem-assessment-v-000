@@ -96,14 +96,24 @@ class EasyVegan::CLI
 
   def print_recipe_details(relevant)
     puts "Which recipe would you like to know more about?"
-    interest = gets.chomp.to_i - 1
-    #recipes_to_print = search_and_print_by_category
-    #binding.pry
-    puts "Title: #{relevant[interest].title}"
-    puts "Attributes: #{relevant[interest].cuisine_category}"
-    puts "Serves: #{relevant[interest].serving_size}"
-    puts "Recipe URL: #{relevant[interest].url}"
-    secondary_menu
+    raw = gets.chomp
+    interest = raw.to_i - 1
+
+      if interest > relevant.size || interest <= 0
+        binding.pry
+        puts "Sorry, please enter an appropriate integer or exit the program by typing exit."
+        print_recipe_details(relevant)
+      elsif raw == "exit"
+        goodbye
+      else
+      #recipes_to_print = search_and_print_by_category
+      #binding.pry
+      puts "Title: #{relevant[interest].title}"
+      puts "Attributes: #{relevant[interest].cuisine_category}"
+      puts "Serves: #{relevant[interest].serving_size}"
+      puts "Recipe URL: #{relevant[interest].url}"
+      secondary_menu
+      end
   end
 
   def secondary_menu
