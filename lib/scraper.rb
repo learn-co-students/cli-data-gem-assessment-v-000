@@ -68,16 +68,25 @@ class Scraper
     # }
 
     #finds all portal links under the selected_topic and adds them to the @topic_links array
-    doc.search(".portal-container p b a").each{|anchor|
+    # doc.search(".portals-container p b a").each{|anchor|
+    #   #binding.pry
+    #   if anchor.attribute("href").value.include?("/wiki/Portal:")
+    #     @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+    #     #anchor['class']="portals"
+    #   end
+    # }
+    # doc.search(".portals-container dl dd a").each{|anchor|
+    #   #anchor['class']="portals"
+    #   @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+    # }
+
+    doc.search(".portals-container a").each{|anchor|
+      #anchor['class']="portals"
       if anchor.attribute("href").value.include?("/wiki/Portal:")
         @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
-        #anchor['class']="portals"
       end
     }
-    doc.search(".portal-container dl dd a").each{|anchor|
-      #anchor['class']="portals"
-      @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
-    }
+
     binding.pry
     return @topic_links
    end
