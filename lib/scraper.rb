@@ -11,7 +11,13 @@ class Scraper
     doc = Nokogiri::HTML(html) do |config|
       config.noblanks
     end
-    binding.pry
+    #binding.pry
+    doc.search("div").each{|anchor|
+      if anchor['style'] == "display: block;border: 0px solid #A3BFB1;border-bottom: 0px solid #A3BFB1;vertical-align: top;background: #F5FFFA;color: black;margin-bottom: 10px;padding: 1em;margin-top: 0em;padding-top: .3em;"
+        anchor['class'] = "portals-container"
+      end
+    }
+
     #"display: block;border: 0px solid #A3BFB1; #if use this I need to remove the first 2 undesired elements
 
     # ####################determining headline containers###################
@@ -38,28 +44,28 @@ class Scraper
     # ####################################
 
     #Set div container class .title_container for all parent elements of each .headlines title
-    doc.search("#mw-content-text div table").each{|anchor|
-      #if anchor['style'] == "position: relative;border: 0px solid #A3BFB1;background: #CEF2E0;color: black;padding: .1em;text-align: center;font-weight: bold;font-size: 100%;margin-bottom: 0px;border-top: 1px solid #A3BFB1;border-bottom: 1px solid #A3BFB1;"
-        anchor['class'] = "title-container" unless anchor.text.include?("General reference")
-      #end
-    }
+    # doc.search("#mw-content-text div table").each{|anchor|
+    #   #if anchor['style'] == "position: relative;border: 0px solid #A3BFB1;background: #CEF2E0;color: black;padding: .1em;text-align: center;font-weight: bold;font-size: 100%;margin-bottom: 0px;border-top: 1px solid #A3BFB1;border-bottom: 1px solid #A3BFB1;"
+    #     anchor['class'] = "title-container" unless anchor.text.include?("General reference")
+    #   #end
+    # }
 
     #set .headlines class for the topic_selection
-    doc.search("h2 .mw-headline big").each{|anchor|
-      anchor['class'] = "headlines" unless anchor.text == "Wikipedia's contents: Portals" || anchor.text == "Wikipedia's contents: Portals" || anchor.text.include?("General reference")
-      if anchor.text == topic_selection
-        anchor['id'] = "selected-topic"
-      end
-    }
+    # doc.search("h2 .mw-headline big").each{|anchor|
+    #   anchor['class'] = "headlines" unless anchor.text == "Wikipedia's contents: Portals" || anchor.text == "Wikipedia's contents: Portals" || anchor.text.include?("General reference")
+    #   if anchor.text == topic_selection
+    #     anchor['id'] = "selected-topic"
+    #   end
+    # }
     #removes line break element from doc object #Text('/n')
     #sets the parent class container .portal_container for each of the .portals
-    doc.search(".title-container").each{|anchor|
-      #anchor.next.remove
-      listcontent = anchor.next
-      if anchor.at_css("#selected-topic") != nil
-        listcontent['class'] = "portal-container"
-      end
-    }
+    # doc.search(".title-container").each{|anchor|
+    #   #anchor.next.remove
+    #   listcontent = anchor.next
+    #   if anchor.at_css("#selected-topic") != nil
+    #     listcontent['class'] = "portal-container"
+    #   end
+    # }
 
     #finds all portal links under the selected_topic and adds them to the @topic_links array
     doc.search(".portal-container p b a").each{|anchor|
