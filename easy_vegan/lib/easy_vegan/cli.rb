@@ -102,9 +102,9 @@ class EasyVegan::CLI
       if interest > relevant.size || interest <= 0
         puts "Sorry, please enter an appropriate integer or exit the program by typing exit."
         print_recipe_details(relevant)
-      end
-
-      while raw != "exit"
+      elsif raw == "exit"
+          goodbye
+      else
         #recipes_to_print = search_and_print_by_category
         #binding.pry
         puts "Title: #{relevant[interest].title}"
@@ -113,13 +113,6 @@ class EasyVegan::CLI
         puts "Recipe URL: #{relevant[interest].url}"
         secondary_menu
       end
-
-      if raw == "exit"
-        goodbye
-      end
-
-      binding.pry
-
   end
 
   def secondary_menu
