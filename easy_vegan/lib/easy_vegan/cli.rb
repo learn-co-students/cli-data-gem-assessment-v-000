@@ -25,7 +25,6 @@ class EasyVegan::CLI
     puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
     raw = gets.strip
     @input = raw.to_i
-    binding.pry
     if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
       puts "Please be patient as the recipe database loads."
       #create all recipe objects
@@ -36,9 +35,7 @@ class EasyVegan::CLI
 
       #trigger the correct search function with check. Check eventually calls on print_recipe_details (cli.search_by_category)
       check
-
-
-    elsif @input == "exit"
+    elsif raw =="exit"
       goodbye
     else
       puts "Sorry, please enter an appropriate integer."
