@@ -23,8 +23,9 @@ class EasyVegan::CLI
   def menu
     @input = ""
     puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
-    @input = gets.strip.to_i
-
+    raw = gets.strip
+    @input = raw.to_i
+    binding.pry
     if @input > 0 && @input <= EasyVegan::Scraper.scrape_categories.size
       puts "Please be patient as the recipe database loads."
       #create all recipe objects
@@ -35,6 +36,7 @@ class EasyVegan::CLI
 
       #trigger the correct search function with check. Check eventually calls on print_recipe_details (cli.search_by_category)
       check
+
 
     elsif @input == "exit"
       goodbye
@@ -96,24 +98,31 @@ class EasyVegan::CLI
 
   def print_recipe_details(relevant)
     puts "Which recipe would you like to know more about?"
+
     raw = gets.chomp
     interest = raw.to_i - 1
 
       if interest > relevant.size || interest <= 0
-        binding.pry
         puts "Sorry, please enter an appropriate integer or exit the program by typing exit."
         print_recipe_details(relevant)
-      elsif raw == "exit"
-        goodbye
-      else
-      #recipes_to_print = search_and_print_by_category
-      #binding.pry
-      puts "Title: #{relevant[interest].title}"
-      puts "Attributes: #{relevant[interest].cuisine_category}"
-      puts "Serves: #{relevant[interest].serving_size}"
-      puts "Recipe URL: #{relevant[interest].url}"
-      secondary_menu
       end
+
+      while raw != "exit"
+        #recipes_to_print = search_and_print_by_category
+        #binding.pry
+        puts "Title: #{relevant[interest].title}"
+        puts "Attributes: #{relevant[interest].cuisine_category}"
+        puts "Serves: #{relevant[interest].serving_size}"
+        puts "Recipe URL: #{relevant[interest].url}"
+        secondary_menu
+      end
+
+      if raw == "exit"
+        goodbye
+      end
+
+      binding.pry
+
   end
 
   def secondary_menu
@@ -125,7 +134,7 @@ class EasyVegan::CLI
       elsif input_2 == "back"
         list_categories
         puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
-        @input = gets.strip.to_i
+        input_2 = gets.strip.to_i
         check
       end
     end
