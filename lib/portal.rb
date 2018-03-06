@@ -24,7 +24,6 @@ class Portal
       @portal = Portal.all.detect{|item| url == @portal_url}
     else
       @portal = Portal.new(url)
-      @portal.topic =
       @@all << @portal
     end
   end

@@ -31,21 +31,22 @@ class Scraper
     }
     return @topic_links
    end
-######################
+
+   #Scrapes all main topics from all portals main page
    def self.all_topics
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals")
     doc = Nokogiri::HTML(html) do |config|
       config.noblanks
     end
 
+    #sets a container for the main topic headlines
     doc.search("#mw-content-text div table table div").each{|anchor|
       if anchor['style'] == "position: relative;border: 0px solid #A3BFB1;background: #CEF2E0;color: black;padding: .1em;text-align: center;font-weight: bold;font-size: 100%;margin-bottom: 0px;border-top: 1px solid #A3BFB1;border-bottom: 1px solid #A3BFB1;"
         anchor['class'] = "title_container" unless anchor.text.include?("General reference")
       end
-      #if anchor.children.css.include?("#selected_topic")
     }
 
-    #set .headlines class for the topic_selection
+    #set .headlines class for all main topics
     doc.search("h2 .mw-headline big").each{|anchor|
       anchor['class'] = "headlines" unless anchor.text == "Wikipedia's contents: Portals" || anchor.text == "Wikipedia's contents: Portals" || anchor.text.include?("General reference")
     }
@@ -56,10 +57,9 @@ class Scraper
       copy.slice!(-3..-1)
       @@all_topics << copy
     }
-    #binding.pry
     return @@all_topics
    end
-#####################
+
    def self.scrape_portal_dyk(rand_portal_url)
     html = open(rand_portal_url)
     doc = Nokogiri::HTML(html)
@@ -69,9 +69,5 @@ class Scraper
       return doc.search(".dyk_container ul li").sample.text
     end
    end
-
-  # def self.all_topics
-  #   self.scrape_main_topics
-  # end
 
 end

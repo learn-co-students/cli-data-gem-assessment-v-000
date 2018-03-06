@@ -36,11 +36,11 @@ class Topic
     @@all
   end
 
-  def find_or_create_by_name(name)
-    if Topic.all.detect{|item| item.name == name}
-      @topic = Topic.all.detect{|item| item.name == name}
+  def self.find_or_create_by_name(name)
+    if self.all.detect{|item| item.name == name}
+      @topic = self.all.detect{|item| item.name == name}
     else
-      @topic = Topic.new(name)
+      @topic = self.new(name)
     end
     @topic
   end

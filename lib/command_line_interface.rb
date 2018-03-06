@@ -16,7 +16,8 @@ class CommandLineInterface
     @selected = Topic.find_or_create_by_name(@choice)
 
     #selects a random portal url from Scraper.scrape_portals_page
-    Portal.find_or_create_by_url(@selected.sample)
+    @portal = Portal.find_or_create_by_url(@selected.sample)
+    @poral.topic = @selected
   end
 
   #beautifies and lists the command line options
