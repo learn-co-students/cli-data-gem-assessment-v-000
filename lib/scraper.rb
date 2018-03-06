@@ -5,8 +5,8 @@ require 'pry'
 class Scraper
   @@all_topics = []
 
-  def self.scrape_portals_page(topic_selection)
-    @topic_links = []
+  def self.scrape_portals_page(choice)
+    @topic_links = {}
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals")
     doc = Nokogiri::HTML(html) do |config|
       config.noblanks
@@ -80,14 +80,21 @@ class Scraper
     #   @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
     # }
 
-    doc.search(".portals-container a").each{|anchor|
-      #anchor['class']="portals"
-      if anchor.attribute("href").value.include?("/wiki/Portal:")
-        @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+    doc.search(".portals-container a").each_with_index{|anchor, i|
+      links = []
+      if i == choice && anchor.attribute("href").value.include?("/wiki/Portal:")
+          links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+          # @topic_links[choice] =
+          # @topic_links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
       end
+      @topic_links = links
     }
-
-    binding.pry
+    # binding.pry
+    # # doc.search(".portals-container a")[choice.to_i].attribute("href").value.prepend("https://en.wikipedia.org")
+    #
+    # # doc.search(".portals-container a")[choice.to_i].attribute("href").value.prepend("https://en.wikipedia.org")
+    #
+    # binding.pry
     return @topic_links
    end
 ######################

@@ -50,15 +50,5 @@ class Topic
     @@all
   end
 
-  def self.find_or_create_by_name(name)
-    #binding.pry
-    if @@all.detect{|item| item.name == name}
-      @topic = @@all.detect{|item| item.name == name}
-    else
-      @topic = Topic.new(name)
-    end
-    @topic.add_portal
-  end
-
   #binding.pry
 end

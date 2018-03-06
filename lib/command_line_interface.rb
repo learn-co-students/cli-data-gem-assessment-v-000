@@ -27,12 +27,23 @@ class CommandLineInterface
 
   def self.find_choice
     picked = @list[@choice.to_i - 1]
-    selected = Topic.find_or_create_by_name(picked)
+    selected = Topic.find_or_create_by_name(@choice)
     #binding.pry
     puts "You selected #{picked}"
     puts "#{selected}"
     puts "#{Topic.all}"
   end
+
+  def find_or_create_by_name(name)
+    #binding.pry
+    if Topic.all.detect{|item| item.name == name}
+      @topic = Topic.all.detect{|item| item.name == name}
+    else
+      @topic = Topic.new(name)
+    end
+    @topic.add_portal
+  end
+
 
   # def get_random_fact
   #   lookforkey = @all_choices[@choice.to_i - 1].to_sym
