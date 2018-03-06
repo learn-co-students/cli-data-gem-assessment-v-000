@@ -53,6 +53,7 @@ class EasyVegan::CLI
       when 3
         #["Entrée", "Soup", "Salad"]
         search_for_entrees
+        #search_for_keywords(["Entrée", "Soup", "Salad"])
       when 4
         "Breakfast"
       when 5
@@ -205,20 +206,6 @@ end
     print_recipe_details(relevant)
   end
 
-  def search_for_keywords(keyword_array)
-    #include entree, soup, salad
-    recipe_objects = EasyVegan::Recipe.all
-    index = 1
-    relevant = []
-    keyword_array.each do |keyword|
-      if recipe.category.include?("Soup") || recipe.category.include?("Salad") || recipe.category.include?("Entrée")
-        relevant << recipe
-        puts "#{index}. #{recipe.title}"
-        index += 1
-      end
-    end
-    print_recipe_details(relevant)
-  end
 
   def search_for_snacks
     #include dip, appetizer, smoothie, sauce
