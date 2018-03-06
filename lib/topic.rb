@@ -13,13 +13,6 @@ class Topic
     @@all << self
   end
 
-  # def self.create_from_collection(students_array)
-  #   students_array.each{|student|
-  #     newstudent = self.new(student)
-  #   }
-
-  # end
-
   def find_random_portal_page
     find_rand_portal = Scraper.scrape_portals_page(@name).sample
     #binding.pry
@@ -48,6 +41,16 @@ class Topic
 
   def self.all
     @@all
+  end
+
+  def find_or_create_by_name(name)
+    #binding.pry
+    if Topic.all.detect{|item| item.name == name}
+      @topic = Topic.all.detect{|item| item.name == name}
+    else
+      @topic = Topic.new(name)
+    end
+    @topic
   end
 
   #binding.pry
