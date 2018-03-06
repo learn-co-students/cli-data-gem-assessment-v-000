@@ -35,9 +35,11 @@ class EasyVegan::CLI
 
       #trigger the correct search function with check. Check eventually calls on print_recipe_details (cli.search_by_category)
       check
-    elsif raw =="exit"
+    elsif raw == "exit"
       goodbye
     else
+    #if @input > EasyVegan::Scraper.scrape_categories.size || @input < 0
+      #binding.pry
       puts "Sorry, please enter an appropriate integer."
       menu
     end
@@ -130,6 +132,9 @@ class EasyVegan::CLI
         puts "Which category of recipes would you like to explore? You may type a category to explore or type exit."
         input_2 = gets.strip.to_i
         check
+      else
+        puts "Please enter a valid integer"
+        secondary_menu
       end
     end
 
