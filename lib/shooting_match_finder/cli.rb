@@ -13,19 +13,21 @@ class ShootingMatchFinder::CLI
     2. SUPS Practical Pistol - Date
     3. Other match - date
     DOC
+    puts "Enter a match number for more info, list to see matches again, or type exit."
   end
 
   def menu
-    puts "Enter the number of the match you'd like more info about, or type exit."
     input = nil
     while input != "exit"
       input = gets.strip
-      if input.to_i == 0
-        puts "Please enter a match number."
+      if input.downcase == "list"
+        list_matches
       elsif input.to_i == 1
         puts "1. 2018 Berry's Steel Open - Date"
       elsif input.to_i == 2
         puts "2. SUPS Practical Pistol - Date"
+      else
+        puts "Please enter a match number."
       end
     end
   end
