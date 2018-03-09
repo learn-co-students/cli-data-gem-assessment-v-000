@@ -26,3 +26,5 @@ Build methods for CLI interface
 list_matches
 menu
 exit message
+
+Building out the Match class
