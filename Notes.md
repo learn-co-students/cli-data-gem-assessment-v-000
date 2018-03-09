@@ -19,3 +19,10 @@ Berry's Steel Open, the date, the match description, location, entry fee
 
 Match objects, What properties do they have?
 A Match has a name, a date, a location, an entry fee, a description.
+
+
+Next Steps:
+Build methods for CLI interface
+list_matches
+menu
+exit message
