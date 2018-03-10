@@ -23,7 +23,7 @@ class ShootingMatchFinder::CLI
       if input.downcase == "list"
         list_matches
       elsif input.to_i == 1
-        Match.new
+        Match.new_from_practiscore
       elsif input.to_i == 2
         puts "2. SUPS Practical Pistol - Date"
       else
