@@ -16,14 +16,4 @@ class BitcoinLiterature::Document
     @@all = []
   end
 
-  # def self.display_documents
-  #   @@all.each_with_index do |document, index|
-  #     puts "#{index +1} - #{document.name}"
-  #   end
-  # end
-
-  def display_documents_info
-    puts "#{self.name} has been written by #{self.author} on #{self.date}\nYou can access the document here:#{self.url}"
-  end
-
 end
