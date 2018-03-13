@@ -1,22 +1,21 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "nyt_bestsellers/version"
+require "nyt_top15_bestsellers/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "nyt_bestsellers"
-  spec.version       = NytBestsellers::VERSION
+  spec.name          = "nyt_top15_bestsellers"
+  spec.version       = NytTop15Bestsellers::VERSION
   spec.authors       = ["'Monica Tamaru Jones'"]
   spec.email         = ["'mntamaru@gmail.com'"]
 
-  spec.summary       = "This gem scrapes the New York Times website and lists the book bestsellers in fiction and nonfiction, with authors and time on the list."
-  spec.description   = "The top 15 fiction and non-fiction books from the New York Times website will be displayed, along with the author and time on the list. The list will be shown for combined ebook and print editions."
-  spec.homepage      = "https://github.com/mntjones/nyt-bestsellers"
+  spec.summary       = "CLI app to tell you current top 15 fiction and non-fiction bestsellers on the New York Times book list."
+  spec.description   = "CLI app to tell you current top 15 fiction and non-fiction bestsellers on the New York Times book list. App will scrape data from the NYT website. CLI will ask if user wants price and provide media version (hardcover, kindle, paperback) and price."
+  spec.homepage      = "https://github.com/mntjones/nyt-top15-bestsellers"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
-  
   if spec.respond_to?(:metadata)
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
   else

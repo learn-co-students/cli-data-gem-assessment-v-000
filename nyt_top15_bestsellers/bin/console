@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "nyt_bestsellers"
+require "nyt_top15_bestsellers"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -11,4 +11,5 @@ require "nyt_bestsellers"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+#IRB.start(__FILE__)
+puts "Let's go!"
