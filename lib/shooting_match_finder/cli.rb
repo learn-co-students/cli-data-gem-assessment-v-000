@@ -1,3 +1,5 @@
+require 'pry'
+
 class ShootingMatchFinder::CLI
 
   def start
@@ -9,6 +11,8 @@ class ShootingMatchFinder::CLI
   def list_matches
     puts "Here are the matches in your area:"
     Match.new_from_practiscore
+    puts "#{Match.show_matches[0].name}"
+    #binding.pry  #this will eventually change to show the name and date attributes of the Match objects created upon scraping Practiscore.
     puts "Enter a match number for more info, list to see matches again, or type exit."
   end
 
@@ -19,7 +23,7 @@ class ShootingMatchFinder::CLI
       if input.downcase == "list"
         list_matches
       elsif input.to_i == 1
-        Match.new_from_practiscore
+        puts "#{Match.show_matches[0].name}"  #This should pull and show more info about a specific match.
       elsif input.to_i == 2
         puts "2. SUPS Practical Pistol - Date"
       else

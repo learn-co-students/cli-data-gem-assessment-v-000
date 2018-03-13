@@ -4,15 +4,15 @@ class Match
   @@all = []
 
   def initialize
-    puts "1. 2018 Berry's Steel Open - Date"
-    puts "You've initialized a new match! Here's all the info...."
+    @name = "2018 Berry's Steel Open"
+    @@all << self
   end
 
   def self.new_from_practiscore
     Match.new
   end
 
-  def show_matches
+  def self.show_matches
     @@all
   end
 end
