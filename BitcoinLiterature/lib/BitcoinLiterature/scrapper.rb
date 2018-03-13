@@ -8,6 +8,7 @@ require_relative '../BitcoinLiterature'
     def scrap_website
       @doc = Nokogiri::HTML(open("http://nakamotoinstitute.org/literature/"))
       puts "scrapping website"
+      # binding.pry
       scrap_table
       #binding.pry
     end
@@ -28,7 +29,6 @@ require_relative '../BitcoinLiterature'
           #when 1 - not used as we don't collect formats
           when 2
             document.author = td.text.strip.gsub(/\s\s+/,' ')
-            #binding.pry
           when 3
             document.date = td.text.strip
           end
