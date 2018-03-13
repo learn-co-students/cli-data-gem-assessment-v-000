@@ -11,8 +11,8 @@ class ShootingMatchFinder::CLI
   def list_matches
     puts "Here are the matches in your area:"
     Match.new_from_practiscore
-    puts "#{Match.show_matches[0].name}"
-    #binding.pry  #this will eventually change to show the name and date attributes of the Match objects created upon scraping Practiscore.
+    puts "#{Match.show_matches[0].name}" #this will eventually change to show the name and date attributes of the Match objects created upon scraping Practiscore.
+    #binding.pry
     puts "Enter a match number for more info, list to see matches again, or type exit."
   end
 
