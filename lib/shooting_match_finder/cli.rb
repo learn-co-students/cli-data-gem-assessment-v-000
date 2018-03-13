@@ -8,11 +8,7 @@ class ShootingMatchFinder::CLI
 
   def list_matches
     puts "Here are the matches in your area:"
-    puts <<-DOC
-    1. 2018 Berry's Steel Open - Date
-    2. SUPS Practical Pistol - Date
-    3. Other match - date
-    DOC
+    Match.new_from_practiscore
     puts "Enter a match number for more info, list to see matches again, or type exit."
   end
 
