@@ -9,23 +9,23 @@
 
 #1
 CLI interface:
-https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-fiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Fiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fcombined-print-and-e-book-fiction%2F&pgtype=Reference
-Type NYT-fiction
-Get top 15 fiction (combined ebook/print) and how long on list
+https://sf.eater.com/maps/best-new-restaurants-san-francisco-oakland-berkeley-heatmap
 
-https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-nonfiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2F&pgtype=Reference
-Type NYT-nonfiction
-Get top 15 nonfiction (combined ebook/print) and how long on list
+a. Get the current listings of the SF Eater Heatmap by number on heatmap, name of restaurant, and address
+    1. My Eatery - 1234 Main St, SF, CA 94111
+    etc.
+b. Ask if you want restaurant info?
+    -> Get blurb written about restaurant
+c. Ask if want to link to Opentable to make reservation, or go to restaurant website for more info.
+    "Do you want to: 1. Make a reservation using Opentable, or 2. Go to the restaurant's website? Enter exit to quit."
 
-    1. Title - author - time on list
-   
-   
+
 #2
 Using bundler:
 http://bundler.io/v1.16/guides/creating_gem.html
 RubyGems Guide:
 http://guides.rubygems.org/make-your-own-gem/
-CLI gen:
+CLI gem:
 http://robdodson.me/how-to-write-a-command-line-ruby-gem/
 
 #3
