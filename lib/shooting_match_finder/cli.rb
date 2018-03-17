@@ -10,12 +10,8 @@ class ShootingMatchFinder::CLI
 
   def list_matches
     puts "Here are the matches in your area:"
-    #the scraper class will eventually be responsible for creating these matches. I'm hard coding a match creation in this method for now.
     Match.new
-    Match.show_matches.each.with_index(1) do |match, i|
-      puts "#{i}. #{match.name} - #{match.date}"
-    end
-    #binding.pry
+    Match.show_matches.each.with_index(1){|match, i| puts "#{i}. #{match.name} - #{match.date}"}
     puts "Enter a match number for more info, list to see matches again, or type exit."
   end
 
