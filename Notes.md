@@ -36,3 +36,7 @@ Build the Scraper class to pull information from Practiscore
 Build Scraper class methods that the Match class can use to instantiate new Match objects with attributes from Practiscore data.
 Update the CLI interface to utilize and show Match objects and attributes instead of hard coded info.
 Update the CLI interface to use iteration and interpolation to display information about matches. Should be the CLI's responsibility to arrange and present the data.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 455fcbf6e69442353a93d8c71434035a371d2ef0

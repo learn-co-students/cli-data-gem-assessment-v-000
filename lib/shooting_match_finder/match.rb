@@ -4,7 +4,8 @@ class Match
   @@all = []
 
   def initialize
-    @name = "2018 Berry's Steel Open"
+    @name = "SUPS Practical Pistol"
+    @date = "Sometime Soon"
     @@all << self
   end
 
