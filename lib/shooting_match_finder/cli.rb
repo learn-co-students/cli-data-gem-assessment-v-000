@@ -19,14 +19,14 @@ class ShootingMatchFinder::CLI
     puts "Enter a match number for more info, list to see matches again, or type exit."
   end
 
-  def menu
+  def menu #I really don't like the way this menu is set up. I think I can find a better way to do this.
     input = nil
     while input != "exit"
       input = gets.strip
       if input.downcase == "list"
         list_matches
       elsif input.to_i == 1
-        puts "#{Match.show_matches[0].name}"  #This should pull and show more info about a specific match.
+        puts "#{Match.show_matches[0].description}"  #This should pull and show more info about a specific match.
       elsif input.to_i == 2
         puts "2. SUPS Practical Pistol - Date"
       else
