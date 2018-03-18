@@ -9,8 +9,8 @@ class ShootingMatchFinder::CLI
   end
 
   def list_matches
+    Match.new_from_practiscore
     puts "Here are the matches in your area:"
-    Match.new
     Match.show_matches.each.with_index(1){|match, i| puts "#{i}. #{match.name} - #{match.date}"}
     puts "Enter a match number for more info, list to see matches again, or type exit."
   end
@@ -22,9 +22,9 @@ class ShootingMatchFinder::CLI
       if input.downcase == "list"
         list_matches
       elsif input.to_i == 1
-        puts "#{Match.show_matches[0].description}"  #This should pull and show more info about a specific match.
+        puts "More info on Match 1...."  #This should pull and show more info about a specific match.
       elsif input.to_i == 2
-        puts "2. SUPS Practical Pistol - Date"
+        puts "More info on Match 2...."
       else
         puts "Please enter a match number."
       end
