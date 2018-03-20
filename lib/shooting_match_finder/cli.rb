@@ -8,6 +8,8 @@ class ShootingMatchFinder::CLI
     farewell
   end
 
+  #need a method that supplies a url to #scrape_matches
+
   def list_matches
     Match.new_from_practiscore
     puts "Here are the matches in your area:"
