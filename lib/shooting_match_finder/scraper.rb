@@ -7,7 +7,11 @@ class ShootingMatchFinder::Scraper
   def self.scrape_matches #This to create an array of hashes that Match.rb can use to instanstiate Match objects.
     doc = Nokogiri::HTML(open("https://practiscore.com/search/matches"))
     doc.css("#searchResultsList").collect do |match|
-      #this creates the array, the iteration will go over each match and store data as a hash.
+      {:name => "",
+       :date => "",
+       :location => "",
+       :entry_fee => "",
+       :description => ""}
     end
     binding.pry
 
