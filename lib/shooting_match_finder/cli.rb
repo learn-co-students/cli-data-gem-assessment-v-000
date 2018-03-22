@@ -16,7 +16,6 @@ class ShootingMatchFinder::CLI
   def list_matches
     puts "Here are the matches in your area:"
     Match.show_matches.each.with_index(1){|match, i| puts "#{i}. #{match.name}"}
-    puts "Enter a match number for more info, next to see more matches, or type exit."
   end
 
   #def menu #I really don't like the way this menu is set up. I think I can find a better way to do this.
@@ -38,10 +37,11 @@ class ShootingMatchFinder::CLI
   def menu
     input = nil
     while input != "exit"
+      puts "Enter a match number for more info, list to see matches, or type exit."
       input = gets.strip
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i < Match.show_matches.length
         puts "#{Match.show_matches[input.to_i - 1].name}"
-        puts "#{Match.show_matches[input.to_i - 1].description}" if Match.show_matches[input.to_i - 1]
+        puts "#{Match.show_matches[input.to_i - 1].description}"
       elsif input.downcase == "list"
         list_matches
       else
