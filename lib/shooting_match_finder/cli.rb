@@ -41,7 +41,9 @@ class ShootingMatchFinder::CLI
       input = gets.strip
       if input.to_i > 0 && input.to_i < Match.show_matches.length
         puts "#{Match.show_matches[input.to_i - 1].name}"
-        puts "#{Match.show_matches[input.to_i - 1].description}"
+        puts "  #{Match.show_matches[input.to_i - 1].location}"
+        puts "  #{Match.show_matches[input.to_i - 1].entry_fee}"
+        puts "  #{Match.show_matches[input.to_i - 1].description}"
       elsif input.downcase == "list"
         list_matches
       else

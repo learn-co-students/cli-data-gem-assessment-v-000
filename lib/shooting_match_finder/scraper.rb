@@ -19,3 +19,9 @@ class ShootingMatchFinder::Scraper
 end
 #doc.css("#searchResultsList").collect do |match|
 # Match name: doc.css("#searchResultsList > li:nth-child(1) > a > div > h4 > span").text.strip is close, but not quite.
+
+
+#Okay, TODO for Scraper:
+# => Configure scrape_matches to grab the href of each match.
+# => Create a new method to scrape from the provided href of a match.
+# => That new method will collect the rest of the data.
