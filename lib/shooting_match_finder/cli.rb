@@ -3,15 +3,17 @@ require 'pry'
 class ShootingMatchFinder::CLI
 
   def start
+    create_matches
     list_matches
     menu
     farewell
   end
 
-  #need a method that supplies a url to #scrape_matches
+  def create_matches
+    Match.new_from_practiscore
+  end
 
   def list_matches
-    Match.new_from_practiscore
     puts "Here are the matches in your area:"
     Match.show_matches.each.with_index(1){|match, i| puts "#{i}. #{match.name} - #{match.date}"}
     puts "Enter a match number for more info, list to see matches again, or type exit."
