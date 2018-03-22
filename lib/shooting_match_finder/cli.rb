@@ -15,22 +15,37 @@ class ShootingMatchFinder::CLI
 
   def list_matches
     puts "Here are the matches in your area:"
-    Match.show_matches.each.with_index(1){|match, i| puts "#{i}. #{match.name} - #{match.date}"}
-    puts "Enter a match number for more info, list to see matches again, or type exit."
+    Match.show_matches.each.with_index(1){|match, i| puts "#{i}. #{match.name}"}
+    puts "Enter a match number for more info, next to see more matches, or type exit."
   end
 
-  def menu #I really don't like the way this menu is set up. I think I can find a better way to do this.
+  #def menu #I really don't like the way this menu is set up. I think I can find a better way to do this.
+  #  input = nil
+  #  while input != "exit"
+  #    input = gets.strip
+  #    if input.downcase == "list"
+  #      list_matches
+  #    elsif input.to_i == 1
+  #      puts "More info on Match 1...."  #This should pull and show more info about a specific match.
+  #    elsif input.to_i == 2
+  #      puts "More info on Match 2...."
+  #    else
+  #      puts "Please enter a match number."
+  #    end
+  #  end
+  #end
+
+  def menu
     input = nil
     while input != "exit"
       input = gets.strip
-      if input.downcase == "list"
+      if input.to_i > 0
+        puts "#{Match.show_matches[input.to_i - 1].name}"
+        puts "#{Match.show_matches[input.to_i - 1].description}" if Match.show_matches[input.to_i - 1]
+      elsif input.downcase == "list"
         list_matches
-      elsif input.to_i == 1
-        puts "More info on Match 1...."  #This should pull and show more info about a specific match.
-      elsif input.to_i == 2
-        puts "More info on Match 2...."
       else
-        puts "Please enter a match number."
+        puts "Please enter a match number, or type exit."
       end
     end
   end
