@@ -5,21 +5,18 @@ class Match
   @@all = []
 
 
-  def initialize
+  def initialize(match_hash)
+    match_hash.each {|key, value| self.send(("#{key}="), value)}
     @@all << self
   end
 
-  def self.new_from_practiscore #creates Matches and assigns them attributes based on a hash.
-    ShootingMatchFinder::Scraper.scrape_matches.each do |match_info|
-      new_match = self.new
-      #binding.pry
-      new_match.add_attributes(match_info)
-    end
+  def self.new_from_practiscore(match_array) #creates Matches and assigns them attributes based on a hash.
+    match_array.each{|match_hash| Match.new(match_hash)}
   end
 
-  def add_attributes(match_info)
-    match_details.each {|key, value| self.send(("#{key}="), value)}
-  end
+#  def add_attributes(match_info)
+#    match_details.each {|key, value| self.send(("#{key}="), value)}
+#  end
 
   def self.show_matches
     @@all

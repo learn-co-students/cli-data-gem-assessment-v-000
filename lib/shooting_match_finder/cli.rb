@@ -2,6 +2,8 @@ require 'pry'
 
 class ShootingMatchFinder::CLI
 
+  BASE_PATH = "https://practiscore.com"
+
   def start
     create_matches
     list_matches
@@ -10,7 +12,8 @@ class ShootingMatchFinder::CLI
   end
 
   def create_matches
-    Match.new_from_practiscore
+    matches = ShootingMatchFinder::Scraper.scrape_matches(BASE_PATH + '/search/matches')
+    Match.new_from_practiscore(matches)
   end
 
   def list_matches
