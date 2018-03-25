@@ -12,6 +12,7 @@ class ShootingMatchFinder::Scraper
           :location => "There will be a location",
           :entry_fee => "There will be an Entry Fee",
           :description => "There will be a description"}
+          binding.pry
     end
     matches
   end
