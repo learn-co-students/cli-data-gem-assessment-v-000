@@ -8,7 +8,7 @@ class ShootingMatchFinder::Scraper
     doc = Nokogiri::HTML(open(website_url))
     matches = doc.css(".list-group-item").collect do |match_details|
           {:name => match_details.css(".searchMatchWebName").text.gsub("Open", "").gsub("Closed", "").strip,
-          #:match_url => match_details.css("a").attr('href').text,
+          :match_url => match_details.xpath('//*[@id="searchResultsList"]/li[1]/a/@href').text.strip,
           :date => "There will be a date",
           :location => "There will be a location",
           :entry_fee => "There will be an Entry Fee",
