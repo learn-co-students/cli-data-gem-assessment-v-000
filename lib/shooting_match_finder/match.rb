@@ -14,9 +14,9 @@ class Match
     match_array.each{|match_hash| Match.new(match_hash)}
   end
 
-#  def add_attributes(match_info)
-#    match_details.each {|key, value| self.send(("#{key}="), value)}
-#  end
+ # def add_attributes(match_info)
+ #   match_info.each {|key, value| self.send(("#{key}="), value)}
+ # end
 
   def self.show_matches
     @@all
