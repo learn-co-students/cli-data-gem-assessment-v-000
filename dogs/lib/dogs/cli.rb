@@ -20,14 +20,14 @@ class Dogs::CLI
 
      if input == "a"
        counter = 0
-      Dogs::DogsPopularity.all.each do |dog|
+       Dogs::DogsPopularity.all.each do |dog|
         if counter >= 0 && counter <= 9
           puts "#{counter +=1}. #{dog.name}"
         end
-      end
-      puts ""
-      puts ""
-        puts "Enter a number 1-10 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
+       end
+       puts ""
+       puts ""
+       puts "Enter a number 1-10 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
 
     elsif input == "b"
       counter = 21
@@ -40,8 +40,6 @@ class Dogs::CLI
       puts ""
       puts "Enter a number 11-20 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
     end
-    puts ""
-    puts ""
   end
 
   def menu
