@@ -33,11 +33,13 @@ class ShootingMatchFinder::CLI
       puts "Enter a match number for more info, list to see matches, or type exit."
       input = gets.strip
       if input.to_i > 0 && input.to_i < Match.show_matches.length
+        puts ""
         puts "#{Match.show_matches[input.to_i - 1].name}"
         puts "  Start Time: #{Match.show_matches[input.to_i - 1].match_start}"
         puts "  Location:   #{Match.show_matches[input.to_i - 1].location}"
         puts "  Entry Fee:  #{Match.show_matches[input.to_i - 1].entry_fee}"
         puts "  #{Match.show_matches[input.to_i - 1].description}"
+        puts ""
       elsif input.downcase == "list"
         list_matches
       else
