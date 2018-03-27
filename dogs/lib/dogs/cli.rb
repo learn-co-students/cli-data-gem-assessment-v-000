@@ -1,10 +1,11 @@
 class Dogs::CLI
 
+
   def call
     puts " "
     puts "Welcome to family friendly dog rankings!"
     puts " "
-    puts "Enter a number 1-20 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
+  #  puts "Enter a number 1-20 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
     puts " "
     Dogs::Scraper.scrape_dogs
     list_dogs
@@ -12,12 +13,35 @@ class Dogs::CLI
   end
 
   def list_dogs
-    counter = 0
-    while counter < 20
+    input = nil
+    puts "Which list would you like to see A or B"
+    input = gets.strip.downcase
+    puts " "
+
+     if input == "a"
+       counter = 0
       Dogs::DogsPopularity.all.each do |dog|
-        puts "#{counter +=1}. #{dog.name}"
+        if counter >= 0 && counter <= 9
+          puts "#{counter +=1}. #{dog.name}"
+        end
       end
+      puts ""
+      puts ""
+        puts "Enter a number 1-10 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
+
+    elsif input == "b"
+      counter = 21
+      Dogs::DogsPopularity.all.reverse.each do |dog|
+        if counter <= 21 && counter >= 12
+          puts "#{counter -=1}"" #{dog.name}"
+        end
+      end
+      puts ""
+      puts ""
+      puts "Enter a number 11-20 to see the ranking of popularity for a family friendly dog, also the breeds best quality!"
     end
+    puts ""
+    puts ""
   end
 
   def menu
@@ -26,7 +50,7 @@ class Dogs::CLI
       puts " "
       puts " "
 			puts <<-DOC.gsub /^\s+/, ""
-      Enter another number 1-20!
+      Enter another number 1-10 or 11-20!
       Type "List" to see the list of dogs again!
       Type "Exit" to leave the program!
 			DOC
