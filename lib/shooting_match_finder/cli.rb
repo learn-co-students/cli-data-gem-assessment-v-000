@@ -6,6 +6,7 @@ class ShootingMatchFinder::CLI
 
   def start
     create_matches
+    add_attributes_to_match
     list_matches
     menu
     farewell
@@ -14,6 +15,13 @@ class ShootingMatchFinder::CLI
   def create_matches
     matches = ShootingMatchFinder::Scraper.scrape_matches(BASE_PATH + '/search/matches')
     Match.new_from_practiscore(matches)
+  end
+
+  def add_attributes_to_match
+    Match.show_matches.each do |match|
+      attributes = ShootingMatchFinder::Scraper.scrape_from_match_url(BASE_PATH + match.match_url)
+      match.add_attributes(attributes)
+    end
   end
 
   def list_matches
