@@ -1,8 +1,6 @@
 # ShootingMatchFinder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/shooting_match_finder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Shooting Match Finder! This gem will give you a list of the top shooting matches happening around the country! You can also view specific details about any match, such as their cost, location, and start date. Thank you for using Shooting Match Finder!
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run: find-matches after installing the gem!
 
 ## Development
 
