@@ -1,6 +1,6 @@
 require 'pry'
 class Match
-  attr_accessor :name, :location, :entry_fee, :date, :description, :match_url
+  attr_accessor :name, :location, :entry_fee, :match_start, :description, :match_url
 
   @@all = []
 

@@ -17,13 +17,16 @@ class ShootingMatchFinder::Scraper
 
   def self.scrape_from_match_url(match_url)
     doc = Nokogiri::HTML(open(match_url))
-    match_info = {:date => "There will be a date",
-                  :location => "There will be a location",
-                  :entry_fee => "There will be an Entry Fee",
-                  :description => "There will be a description"}
+    match_info = {:match_start => doc.css("#psMainContainer > div.row.lightBox > div.col-xs-12.clearfix > div:nth-child(1) > p:nth-child(2) > strong").text.strip,
+                  :location => doc.css("#psMainContainer > div.row.lightBox > div.col-xs-12.clearfix > div:nth-child(1) > p:nth-child(3)").text.gsub("Location:", "").strip,
+                  :entry_fee => doc.xpath('//*[@id="psMainContainer"]/div[2]/div[3]/div[1]/dl/dd/text()').text.strip,
+                  :description => doc.xpath('//*[@id="psMainContainer"]/div[2]/div[3]/div[1]/p[3]').text}
   end
 
 end
+
+#//*[@id="psMainContainer"]/div[2]/div[3]/div[1]/p[3]
+
 #doc.css("#searchResultsList").collect do |match|
 # Match name: doc.css("#searchResultsList > li:nth-child(1) > a > div > h4 > span").text.strip is close, but not quite.
 
