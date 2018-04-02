@@ -8,9 +8,10 @@ class ShootingMatchFinder::Scraper
     matches = doc.css(".list-group-item")
       i = 0
       matches[i, 10].collect do |match_details|
+        i += 10
         {:name => match_details.css(".searchMatchWebName").text.gsub("Open", "").gsub("Closed", "").strip,
         :match_url => match_details.css("a").attr('href').text}
-        i += 10
+        
     end
   end
 
