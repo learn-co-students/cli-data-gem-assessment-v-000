@@ -53,12 +53,12 @@ class ShootingMatchFinder::CLI
     puts "Come back again for more matches!"
   end
 
-  def match_scroller
-    #we want this to show 10 matches at a time, then ask the user for more, while also allowing #menu commands to work.
-    Match.show_matches.each.with_index(1) do |match, i|
-        puts "#{i}. #{match.name}"
-      end
-    end
-  end
+  # def match_scroller
+  #   #we want this to show 10 matches at a time, then ask the user for more, while also allowing #menu commands to work.
+  #   Match.show_matches.each.with_index(1) do |match, i|
+  #       puts "#{i}. #{match.name}"
+  #     end
+  #   end
+  # end
 
 end
