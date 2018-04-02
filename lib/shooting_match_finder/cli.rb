@@ -32,7 +32,7 @@ class ShootingMatchFinder::CLI
     while input != "exit"
       puts "Enter a match number for more info, list to see matches, or type exit."
       input = gets.strip
-      if input.to_i > 0 && input.to_i < Match.show_matches.length
+      if input.to_i > 0 && input.to_i - 1 < Match.show_matches.length
         puts ""
         puts "#{Match.show_matches[input.to_i - 1].name}"
         puts "  Start Time: #{Match.show_matches[input.to_i - 1].match_start}"
