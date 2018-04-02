@@ -11,7 +11,7 @@ class ShootingMatchFinder::Scraper
         i += 10
         {:name => match_details.css(".searchMatchWebName").text.gsub("Open", "").gsub("Closed", "").strip,
         :match_url => match_details.css("a").attr('href').text}
-        
+
     end
   end
 
