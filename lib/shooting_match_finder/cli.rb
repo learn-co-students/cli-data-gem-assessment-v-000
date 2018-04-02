@@ -43,7 +43,7 @@ class ShootingMatchFinder::CLI
         puts ""
       elsif input.downcase == "list"
         list_matches
-      elsif input.downcase == "next" 
+      elsif input.downcase == "next"
          start
       else
         puts "Please enter a match number, or type exit."
