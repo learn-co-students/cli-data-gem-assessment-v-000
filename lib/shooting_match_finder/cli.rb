@@ -61,5 +61,5 @@ class ShootingMatchFinder::CLI
       end
     end
   end
-  
+
 end

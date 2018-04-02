@@ -6,11 +6,15 @@ class ShootingMatchFinder::Scraper
   def self.scrape_matches(website_url) #This creates an array of hashes that we then use to create match objects.
     doc = Nokogiri::HTML(open(website_url))
     matches = doc.css(".list-group-item")
-      matches[0...51].collect do |match_details|
+      i = 0
+      matches[i, 10].collect do |match_details|
         {:name => match_details.css(".searchMatchWebName").text.gsub("Open", "").gsub("Closed", "").strip,
         :match_url => match_details.css("a").attr('href').text}
+        i += 10
     end
   end
+
+  #scrape_matches could incorporate a counter, keeps track of where the last iteration ended, adds 10 to it, then scrapes as needed. Each iteration adds to the counter.
 
   def self.scrape_from_match_url(match_url) #Used to add attributes to newly created match objects.
     doc = Nokogiri::HTML(open(match_url))
