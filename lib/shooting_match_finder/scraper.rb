@@ -12,7 +12,6 @@ class ShootingMatchFinder::Scraper
         :match_url => match_details.css("a").attr('href').text}
     end
     i += 10
-    matches
   end
 
   #scrape_matches could incorporate a counter, keeps track of where the last iteration ended, adds 10 to it, then scrapes as needed. Each iteration adds to the counter.
