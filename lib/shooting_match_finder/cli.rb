@@ -5,8 +5,8 @@ class ShootingMatchFinder::CLI
   def start
     create_matches
     add_attributes_to_match
-    #list_matches
-    match_scroller
+    list_matches
+    #match_scroller
     menu
     farewell
   end
@@ -56,7 +56,6 @@ class ShootingMatchFinder::CLI
   def match_scroller
     #we want this to show 10 matches at a time, then ask the user for more, while also allowing #menu commands to work.
     Match.show_matches.each.with_index(1) do |match, i|
-      10.times do
         puts "#{i}. #{match.name}"
       end
     end
