@@ -1,5 +1,5 @@
 #!usr/bin/env ruby
 
-require_relative './lib/epic_road_trips'
+require_relative '../lib/epic_road_trips'
 
 EpicRoadTrips::CLI.new.call
