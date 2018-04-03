@@ -1,4 +1,4 @@
-require "epic_road_trips/version"
+require_relative '../config/environment'
 
 module EpicRoadTrips
   # Your code goes here...
