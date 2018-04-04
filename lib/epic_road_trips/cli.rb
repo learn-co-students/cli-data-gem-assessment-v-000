@@ -32,7 +32,7 @@ class EpicRoadTrips::CLI
       elsif input == "list"
         list_road_trips
       else
-        puts "Hmm, I didn't catch that. Please enter 'list' or 'exit'."
+        puts "Hmm, I didn't catch that. Please enter 'list' or 'adios'."
        end
      end
     end

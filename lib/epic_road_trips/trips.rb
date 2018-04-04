@@ -1,4 +1,3 @@
-
 class EpicRoadTrips::Trips
   attr_accessor :road, :description
 
