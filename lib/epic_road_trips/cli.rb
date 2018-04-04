@@ -1,14 +1,16 @@
 class EpicRoadTrips::CLI
 
   def call
-    puts "Welcome world traveler!"
+    puts ""
+    puts "--*-- Welcome World Traveler! --*--"
+    puts ""
+    puts ">> Let's go on an EPIC Road Trip! <<"
     list_road_trips
     menu
     goodbye
   end
 
   def list_road_trips
-    puts "Let's go on an EPIC Road Trip!"
     puts ""
     EpicRoadTrips::Trips.all.each.with_index(1) do |trip, i|
       puts "#{i}. #{trip.road}"
