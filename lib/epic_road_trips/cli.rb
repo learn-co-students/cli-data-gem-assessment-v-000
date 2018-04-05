@@ -1,3 +1,5 @@
+require_relative './scraper.rb'
+
 class EpicRoadTrips::CLI
 
   def call

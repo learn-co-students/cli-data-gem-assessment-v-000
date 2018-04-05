@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "The Worlds Most Epic Road Trips"
   spec.description   = "Explore and learn more about the worlds most epic road trips."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/Dee-Race/epic-road-trips-cli-gem"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -32,4 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "nokogiri", ">= 0"
+  spec.add_development_dependency "pry", ">= 0"
 end
