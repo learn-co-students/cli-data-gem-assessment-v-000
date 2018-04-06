@@ -15,7 +15,14 @@ class EpicRoadTrips::CLI
   def list_road_trips
     puts ""
     EpicRoadTrips::Trips.all.each.with_index(1) do |trip, i|
-      puts "#{i}. #{trip.road}"
+      puts "#{trip.road}"
+    end
+  end
+
+  def list_descriptions
+    puts ""
+    EpicRoadTrips::Trips.all.each.with_index(1) do |trip, i|
+      puts "#{trip.description}"
     end
   end
 
@@ -28,14 +35,17 @@ class EpicRoadTrips::CLI
       puts "Enter 'list' to see all EPIC road trips"
       puts "Enter 'adios' to exit program."
       puts ""
-      input = gets.strip.downcase
+      input = gets.strip
 
-      if input.to_i > 0
-        trips = @all[input.to_i-1]
-        puts "#{trips.road} - #{trips.description}"
+      if input.to_i == 1
+        road_trip_1
+      elsif input.to_i == 2
+        puts "Ring Road - Iceland"
+      elsif input.to_i == 3
+        puts "Cabot Trail - Canada"
       elsif input == "list"
         list_road_trips
-      else
+      elsif
         puts "Hmm, I didn't catch that. Please enter 'list' or 'adios'."
        end
      end
@@ -43,5 +53,9 @@ class EpicRoadTrips::CLI
 
   def goodbye
     puts "See you next time for your next EPIC road trip!"
+  end
+
+  def road_trip_1
+    puts ">> Wild Atlantic Way <<"
   end
 end

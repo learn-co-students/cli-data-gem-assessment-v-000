@@ -12,7 +12,6 @@ class EpicRoadTrips::Trips
   def initialize(road = nil, description = nil)
     @road = road
     @description = description
-    @@all << self
   end
 
   def self.all
@@ -21,20 +20,26 @@ class EpicRoadTrips::Trips
 
 
   def self.get_page
-    doc = Nokogiri::HTML(open("https://www.roughguides.com/gallery/worlds-greatest-road-trips/"))
+    doc = Nokogiri::HTML(open("https://theplanetd.com/best-road-trips/"))
 
-    doc.css(".row").each do |road_trip|
-      trip = self.new
-      trip.road = road_trip.css("h2").text
-      trip.description = road_trip.css("p").text
-    @@all << trip
-    binding.pry
+
+    doc.css(".entry h2").each do |road_trip|
+        trip = self.new
+        trip.road = road_trip.css("span").text
+        #trip.description = road_trip.css("p").text
+        @@all << trip
+
+        #binding.pry
+
+
+      end
     end
-  end
   end
 end
 
 EpicRoadTrips::Trips.get_page
+
+# .gsub("#2", "")
 
 # doc.css(".row h2")[0].text
   # => "1. Cabot Trail, Canada"
