@@ -26,7 +26,7 @@ class EpicRoadTrips::Trips
       list_trips = doc.css(".entry")
       list_trips.each do |road_trip|
         trip_name = road_trip.css("h2").text.gsub("\u2013", "").gsub("\u00A0", "").split("#")
-        trip_highlights = road_trip.css("blockquote").text.gsub("\u2013", "").split("\u00A0") #splits some, not sure if this is possible or will correspond with correct trip 
+        trip_highlights = road_trip.css("blockquote").text.gsub("\u2013", "").split("\u00A0") #splits some, not sure if this is possible or will correspond with correct trip
         i = 0
         trip_name.each do |name|
           trip = self.new
@@ -44,6 +44,7 @@ class EpicRoadTrips::Trips
 
 EpicRoadTrips::Trips.get_page
 
+<<<<<<< HEAD
 
 #If I change to list_trips = doc.css(".entry h2")
 # list_trips.each do |road_trip|
@@ -66,3 +67,11 @@ EpicRoadTrips::Trips.get_page
 # doc.css (".entry blockquote").each do |road_trip|
 #  highlights = road_trip.text
 # end
+=======
+
+#If I change to list_trips = doc.css(".entry h2")
+# list_trips.each do |road_trip|
+  #trip = self.new
+  #trip.road = road_trip.css("span")text
+# => It outputs ALL the roadtrips in CLI 1-16 - BUT no descriptions
+>>>>>>> 7e098e9be2bba0b522ffd0b81feda9041201cd25
