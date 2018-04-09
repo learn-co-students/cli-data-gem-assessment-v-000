@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'deerace12@gmail.com'"]
 
   spec.summary       = "The Worlds Most Epic Road Trips"
-  spec.description   = "Explore and learn more about the worlds most epic road trips."
+  spec.description   = "Explore and learn more about the worlds most epic road trips published by Fodors Travel Guide."
   spec.homepage      = "https://github.com/Dee-Race/epic-road-trips-cli-gem"
   spec.license       = "MIT"
 
