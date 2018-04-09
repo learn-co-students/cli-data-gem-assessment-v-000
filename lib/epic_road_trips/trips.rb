@@ -5,46 +5,33 @@ require 'open-uri'
 module EpicRoadTrips
 
 class EpicRoadTrips::Trips
-  attr_accessor :road, :highlight
-
-
-  #def initialize(road = nil, description = nil)
-    #@road = road
-    #@description = description
-  #end
-
-  #def self.all
-    #@@all
-  #end
+    attr_accessor :road, :description
 
 
   def self.get_page
       trips = []
 
-      doc = Nokogiri::HTML(open("https://theplanetd.com/best-road-trips/"))
+       doc = Nokogiri::HTML(open("https://www.fodors.com/news/photos/the-20-best-road-trips-on-earth"))
 
-      list_trips = doc.css(".entry")
-      list_trips.each do |road_trip|
-        trip_name = road_trip.css("h2").text.gsub("\u2013", "").gsub("\u00A0", "").split("#")
-        trip_highlights = road_trip.css("blockquote").text.gsub("\u2013", "").split("\u00A0") #splits some, not sure if this is possible or will correspond with correct trip
-        i = 0
-        trip_name.each do |name|
-          trip = self.new
-          binding.pry
-          trip.road = name
-          trip.highlight = trip_highlights[i]
-          i += 1
-        end
-          trips << trip # trip method error
-        end
-        trips
-      end
-    end
-  end
+       list_trips = doc.css(".container.slides")
+       list_trips.each do |road_trip|
+         trip = self.new
+         trip.road = road_trip.css("h2").text.strip.gsub("\n", "").gsub("Book a Hotel", "")
+         trip.description = road_trip.css("p").text.gsub("\u2019", " ").gsub("\u00A0", " ")
 
-EpicRoadTrips::Trips.get_page
+         trips << trip
 
-<<<<<<< HEAD
+         end
+         trips
+       end
+     end
+   end
+
+ #EpicRoadTrips::Trips.get_page
+
+ # The Wild Atlantic Way - is organized in a different way on the site so
+ # it doesnt show up - Could I start iteration at trip #2? How would I do this
+
 
 #If I change to list_trips = doc.css(".entry h2")
 # list_trips.each do |road_trip|
@@ -67,11 +54,10 @@ EpicRoadTrips::Trips.get_page
 # doc.css (".entry blockquote").each do |road_trip|
 #  highlights = road_trip.text
 # end
-=======
+
 
 #If I change to list_trips = doc.css(".entry h2")
 # list_trips.each do |road_trip|
   #trip = self.new
   #trip.road = road_trip.css("span")text
 # => It outputs ALL the roadtrips in CLI 1-16 - BUT no descriptions
->>>>>>> 7e098e9be2bba0b522ffd0b81feda9041201cd25

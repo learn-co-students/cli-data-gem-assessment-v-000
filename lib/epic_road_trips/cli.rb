@@ -1,27 +1,25 @@
 class EpicRoadTrips::CLI
 
   def call
+    greeting
+    list_road_trips
+    menu
+    goodbye
+  end
+
+  def greeting
     puts ""
     puts "--*-- Welcome World Traveler! --*--"
     puts ""
     puts ">> Let's go on an EPIC Road Trip! <<"
-    list_road_trips
-    menu
-    goodbye
+    puts ""
   end
 
   def list_road_trips
     puts ""
     @trips = EpicRoadTrips::Trips.get_page
     @trips.each_with_index do |trip, i|
-      puts "#{trip.road}"
-    end
-  end
-
-  def list_descriptions
-    puts ""
-    EpicRoadTrips::Trips.all.each.with_index(1) do |trip, i|
-      puts "#{trip.highlight}"
+      puts "#{i+1}. #{trip.road}"
     end
   end
 
@@ -31,28 +29,27 @@ class EpicRoadTrips::CLI
       puts ""
       puts "Enter the number of the roadtrip you'd like more info on"
       puts ""
-      puts "Enter 'list' to see all EPIC road trips"
+      puts "Enter 'list' to see all EPIC road trips."
       puts "Enter 'adios' to exit program."
-      puts ""
       input = gets.strip
 
       if input.to_i > 0
         trip = @trips[input.to_i-1]
 
-        puts "#{trip.road}"
-        puts "#{trip.highlight}"
+        puts "------------- >> #{trip.road} << ------------- "
+        puts ""
+        puts "-------*-------*-------*-------*-------*-------*-------*------- "
+        puts ""
+        puts "#{trip.description}"
+        puts ""
       elsif input == "list"
-        list_road_trips
-       end
-     end
+          list_road_trips
+      end
     end
+  end
 
   def goodbye
     puts ""
     puts "See you next time for your next EPIC road trip!"
-  end
-
-  def road_trip_1
-    puts ">> Wild Atlantic Way <<"
   end
 end
