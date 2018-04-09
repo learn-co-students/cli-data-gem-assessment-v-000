@@ -5,13 +5,15 @@ require 'pry'
 class Scraper
   @@all_topics = []
 
-  def self.scrape_portals_page(choice)
+  def self.scrape_portals_page(name)
+    choice_index = @@all_topics.index(name)
     #choice is the chosen topic index
     #there are 11 main topics derrived from Scraper.all_topics
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals")
     doc = Nokogiri::HTML(html) do |config|
       config.noblanks
     end
+
 
     #set portals-container class for all portal links for each topic
     #Thus there are 12 portal links containers but we're skipping the first one
@@ -22,14 +24,16 @@ class Scraper
     }
 
     #find and return all portal links within a chosen topic
+    links = []
     doc.search(".portals-container a").each_with_index{|anchor, i|
-      links = []
-      if i == choice && anchor.attribute("href").value.include?("/wiki/Portal:")
+
+      if i == choice_index + 1 && anchor.attribute("href").value.include?("/wiki/Portal:")
           links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
       end
-      @topic_links = links
     }
-    return @topic_links
+    return links
+    binding.pry
+
    end
 
    #Scrapes all main topics from all portals main page

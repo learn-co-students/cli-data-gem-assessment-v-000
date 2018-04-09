@@ -14,19 +14,19 @@ class Topic
 
   def find_random_portal_page
     find_rand_portal = Scraper.scrape_portals_page(@name).sample
-    create_portal = Portal.new(find_rand_portal)
-    return create_portal
+    # create_portal = Portal.find_rand_portal
+    # return create_portal
   end
 
   def self.all_topics_list
     return Scraper.all_topics
   end
 
-  def add_portal
-    new_portal = self.find_random_portal_page
-    @portals << new_portal
-    new_portal.topic = self
-  end
+  # def add_portal
+  #   new_portal = self.find_random_portal_page
+  #   @portals << new_portal
+  #   new_portal.topic = self
+  # end
 
   def portals
     @portals
@@ -41,6 +41,9 @@ class Topic
       @topic = self.all.detect{|item| item.name == name}
     else
       @topic = self.new(name)
+      @topic.portals = Scraper.scrape_portals_page(name)
+      # binding.pry
+      # @topic.url =
     end
     @topic
   end

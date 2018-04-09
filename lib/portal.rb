@@ -7,6 +7,9 @@ class Portal
   @@all = []
 
   def initialize
+    # (name, url)
+    # @name = name
+    # @url = url
     @facts = []
   end
 
@@ -18,10 +21,9 @@ class Portal
     @@all
   end
 
-  def self.find_or_create_by_url(url)
-    @url = url
-    if Portal.all.detect{|item| url == @portal_url}
-      @portal = Portal.all.detect{|item| url == @portal_url}
+  def self.find_or_create_by_url(name, url)
+    if Portal.all.detect{|item| name == item.name}
+      @portal = Portal.all.detect{|item| name == item.name}
     else
       @portal = Portal.new(url)
       @@all << @portal
