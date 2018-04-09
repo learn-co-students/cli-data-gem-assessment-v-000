@@ -1,5 +1,3 @@
-require_relative './scraper.rb'
-
 class EpicRoadTrips::CLI
 
   def call
@@ -14,8 +12,16 @@ class EpicRoadTrips::CLI
 
   def list_road_trips
     puts ""
+    @trips = EpicRoadTrips::Trips.get_page
+    @trips.each_with_index do |trip, i|
+      puts "#{trip.road}"
+    end
+  end
+
+  def list_descriptions
+    puts ""
     EpicRoadTrips::Trips.all.each.with_index(1) do |trip, i|
-      puts "#{i}. #{trip.road}"
+      puts "#{trip.highlight}"
     end
   end
 
@@ -28,20 +34,25 @@ class EpicRoadTrips::CLI
       puts "Enter 'list' to see all EPIC road trips"
       puts "Enter 'adios' to exit program."
       puts ""
-      input = gets.strip.downcase
+      input = gets.strip
 
       if input.to_i > 0
-        trips = @all[input.to_i-1]
-        puts "#{trips.road} - #{trips.description}"
+        trip = @trips[input.to_i-1]
+
+        puts "#{trip.road}"
+        puts "#{trip.highlight}"
       elsif input == "list"
         list_road_trips
-      else
-        puts "Hmm, I didn't catch that. Please enter 'list' or 'adios'."
        end
      end
     end
 
   def goodbye
+    puts ""
     puts "See you next time for your next EPIC road trip!"
+  end
+
+  def road_trip_1
+    puts ">> Wild Atlantic Way <<"
   end
 end

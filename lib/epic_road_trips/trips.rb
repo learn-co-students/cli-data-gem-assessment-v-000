@@ -5,46 +5,64 @@ require 'open-uri'
 module EpicRoadTrips
 
 class EpicRoadTrips::Trips
-  attr_accessor :road, :description
+  attr_accessor :road, :highlight
 
-  @@all = []
 
-  def initialize(road = nil, description = nil)
-    @road = road
-    @description = description
-    @@all << self
-  end
+  #def initialize(road = nil, description = nil)
+    #@road = road
+    #@description = description
+  #end
 
-  def self.all
-    @@all
-  end
+  #def self.all
+    #@@all
+  #end
 
 
   def self.get_page
-    doc = Nokogiri::HTML(open("https://www.roughguides.com/gallery/worlds-greatest-road-trips/"))
+      trips = []
 
-    doc.css(".row").each do |road_trip|
-      trip = self.new
-      trip.road = road_trip.css("h2").text
-      trip.description = road_trip.css("p").text
-    @@all << trip
-    binding.pry
+      doc = Nokogiri::HTML(open("https://theplanetd.com/best-road-trips/"))
+
+      list_trips = doc.css(".entry")
+      list_trips.each do |road_trip|
+        trip_name = road_trip.css("h2").text.gsub("\u2013", "").gsub("\u00A0", "").split("#")
+        trip_highlights = road_trip.css("blockquote").text.gsub("\u2013", "").split("\u00A0") #splits some, not sure if this is possible or will correspond with correct trip 
+        i = 0
+        trip_name.each do |name|
+          trip = self.new
+          binding.pry
+          trip.road = name
+          trip.highlight = trip_highlights[i]
+          i += 1
+        end
+          trips << trip # trip method error
+        end
+        trips
+      end
     end
   end
-  end
-end
 
 EpicRoadTrips::Trips.get_page
 
-# doc.css(".row h2")[0].text
-  # => "1. Cabot Trail, Canada"
 
-# doc.css(".row h2")[1].text
-  # => "2. The Garden Route, South Africa"
+#If I change to list_trips = doc.css(".entry h2")
+# list_trips.each do |road_trip|
+  #trip = self.new
+  #trip.road = road_trip.css("span")text
+# => It outputs ALL the roadtrips in CLI 1-16 - BUT no descriptions
 
-# doc.css(".row h2")[2].text
-  # => "3. Colombia River Gorge, USA"
+# doc.css("blockquote").text - returns all highlights, trying to iterate through this instead of "p"
+# If I iterate through -  for trips and highlights I was getting a long string for each - how
+# do I separate the strings into the objects?
 
-# doc.css(".row h2")[3].text
-  # => "4. San Juan Skyway,\u00A0USA"
-# doc.css (".row p").text
+
+#Using a while loops to iterate through
+
+# doc.css(".entry h2").each do |road_trip|
+#  trips = road_trip.text
+# end
+
+
+# doc.css (".entry blockquote").each do |road_trip|
+#  highlights = road_trip.text
+# end
