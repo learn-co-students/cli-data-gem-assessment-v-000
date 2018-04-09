@@ -1,8 +1,8 @@
 # EpicRoadTrips
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/epic_road_trips`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby Gem provides a CLI to explore the worlds most epic road trips brought to you by Fodors Travel Guide. Have fun with your new gem!
 
-TODO: Delete this and the text above, and describe your gem
+In this directory, you'll find the files you need to be abe to package up your Ruby library into a gem. Put your Ruby code in the file `lib/epic_road_trips`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    Run: `epic-road-trips` after installing the gem.
 
 ## Development
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'hey-36741'/epic_road_trips. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'Dee-Race'/epic_road_trips. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
