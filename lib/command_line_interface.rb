@@ -1,4 +1,4 @@
-require_relative "../lib/facts.rb"
+require_relative "../lib/fact.rb"
 require_relative "../lib/topic.rb"
 require "colorize"
 
@@ -18,8 +18,8 @@ class CommandLineInterface
     # binding.pry
     #selects a random portal url from Scraper.scrape_portals_page
     @portal = Portal.find_or_create_by_url(@randurl)
-    @portal.topic = @selectedTopic
-    @selectedTopic.portals << @portal
+    # @portal.topic = @selectedTopic
+    # @selectedTopic.portals << @portal
   end
 
   #beautifies and lists the command line options

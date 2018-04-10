@@ -25,18 +25,33 @@ class Scraper
 
     #find and return all sub-portal links within a chosen topic
     @links = []
-    doc.search(".portals-container a").each_with_index{|anchor, i|
-      if i == choice_index && anchor.attribute("href").value.include?("/wiki/Portal:")
-          @links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
-      end
-    }
+    # doc.search(".portals-container a").each_with_index{|anchor, i|
+    #   if i == choice_index && anchor.attribute("href").value.include?("/wiki/Portal:")
+    #       @links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+    #   end
+    # }
+    # binding.pry
+
+    randval = Random.new
+    randnum = randval.rand(doc.search(".portals-container")[choice_index].search("a").count{|i| i.attribute("href").value.include?("/wiki/Portal:")})
+    randportal = doc.search(".portals-container")[choice_index].search("a")[randnum].attribute("href").value.prepend("https://en.wikipedia.org")
+    # doc.search(".portals-container")[1].search("a")[0].attribute("href").value
+    # doc.search(".portals-container")[choice_index].search("a").each{|atr|
+    #   if atr.attribute("href").value.include?("/wiki/Portal:")
+    #     @links << atr.attribute("href").value.prepend()
+    #   end
+    # }
+
+    # topic.
+    # .("href").count
+    #
+    # doc.search(".portals-container a")[choice_index].attribute("href").count
 
     # randval = Randomn.new
     # portal_count = doc.search(".portals-container a").attribute("href").count{|i| i.value.include?("/wiki/Portal:")}
     #   randval.rand(portalcount)
 
-    return @links.sample
-    binding.pry
+    return randportal
 
    end
 
