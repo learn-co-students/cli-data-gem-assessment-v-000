@@ -19,7 +19,7 @@ class EpicRoadTrips::CLI
     puts ""
     @trips = EpicRoadTrips::Trips.get_page
     @trips.each_with_index do |trip, i|
-      puts "#{i+1}. #{trip.road}"
+      puts "#{i+1}. #{trip.road} - #{trip.country}"
     end
   end
 
@@ -36,7 +36,7 @@ class EpicRoadTrips::CLI
       if input.to_i > 0
         trip = @trips[input.to_i-1]
 
-        puts "------------- >> #{trip.road} << ------------- "
+        puts "-------- >> #{trip.road} - #{trip.country} << -------- "
         puts ""
         puts "-------*-------*-------*-------*-------*-------*-------*------- "
         puts ""
