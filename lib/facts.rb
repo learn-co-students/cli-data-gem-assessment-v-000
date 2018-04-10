@@ -7,8 +7,8 @@ class Fact
   #finds a random fact
   #returns facts
   #need to add a mechanism to keep the same fact from being returned again
-  attr_accessor :name, :facts, :all, :portal
-  
+  attr_accessor :text, :all, :portal
+
   @@all_viewed_facts = []
   def initialize(portal_url)
     @portal_url = portal_url
@@ -23,9 +23,9 @@ class Fact
     #@@all_topics
     @@all_viewed_facts
   end
-  
+
   def self.find_or_create_by_name
     self.random
   end
-  
+
 end

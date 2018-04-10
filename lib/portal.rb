@@ -3,14 +3,16 @@ require_relative "../lib/scraper.rb"
 class Portal
   #belongs_to topic
   #has_many Facts
-  attr_accessor :url, :topic
+  attr_accessor :url, :facts, :topic
   @@all = []
 
-  def initialize
+  def initialize(url)
     # (name, url)
     # @name = name
     # @url = url
+    @url = url
     @facts = []
+    @@all << self
   end
 
   def self.random_fact
@@ -21,9 +23,9 @@ class Portal
     @@all
   end
 
-  def self.find_or_create_by_url(name, url)
-    if Portal.all.detect{|item| name == item.name}
-      @portal = Portal.all.detect{|item| name == item.name}
+  def self.find_or_create_by_url(url)
+    if Portal.all.detect{|portal| url == portal.url}
+      @portal = Portal.all.detect{|portal| url == portal.url}
     else
       @portal = Portal.new(url)
       @@all << @portal

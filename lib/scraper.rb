@@ -23,15 +23,15 @@ class Scraper
       end
     }
 
-    #find and return all portal links within a chosen topic
-    links = []
+    #find and return all sub-portal links within a chosen topic
+    @links = []
     doc.search(".portals-container a").each_with_index{|anchor, i|
 
-      if i == choice_index + 1 && anchor.attribute("href").value.include?("/wiki/Portal:")
-          links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
+      if i == choice_index && anchor.attribute("href").value.include?("/wiki/Portal:")
+          @links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
       end
     }
-    return links
+    return [name, @links.sample]
     binding.pry
 
    end

@@ -8,7 +8,7 @@ class Topic
   def initialize(name)
     @name = name
     @portals = []
-    add_portal
+    # add_portal
     @@all << self
   end
 

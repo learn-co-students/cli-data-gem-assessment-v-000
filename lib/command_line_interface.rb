@@ -10,14 +10,16 @@ class CommandLineInterface
     #Displays all available main topics
     display_all_topics
     puts "Select a number to explore facts from that topic"
-    @choice = @list[gets.strip.to_i - 1]
+    @choice = @list[gets.strip.to_i]
 
     #finds or creates an Topic instance
-    @selected = Topic.find_or_create_by_name(@choice)
-    binding.pry
+    @selectedTopic = Topic.find_or_create_by_name(@choice)
+    @randurl = Scraper.scrape_portals_page(@choice)
+    # binding.pry
     #selects a random portal url from Scraper.scrape_portals_page
-    @portal = Portal.find_or_create_by_url(@choice, @selected)
-    @portal.topic = @selected
+    @portal = Portal.find_or_create_by_url(@randurl)
+    @portal.topic = @selectedTopic
+    @selectedTopic.portals << @portal
   end
 
   #beautifies and lists the command line options
