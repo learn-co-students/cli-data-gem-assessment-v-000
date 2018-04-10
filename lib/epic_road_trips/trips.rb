@@ -16,7 +16,7 @@ class EpicRoadTrips::Trips
        list_trips = doc.css(".container.slides")
        list_trips.each do |road_trip|
          trip = self.new
-         trip.road = road_trip.css("h2").text.strip.gsub("\n", "").gsub("Book a Hotel", "")
+         trip.road = road_trip.css("h2").text.strip.gsub("\n", "").gsub("Book a Hotel", "").strip
          trip.country = road_trip.css("h3 span").text.strip.gsub("\n", "")
          trip.description = road_trip.css("p").text.gsub("\u2019", " ").gsub("\u00A0", " ")
 
