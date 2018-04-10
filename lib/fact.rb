@@ -7,25 +7,31 @@ class Fact
   #finds a random fact
   #returns facts
   #need to add a mechanism to keep the same fact from being returned again
-  attr_accessor :name, :facts, :all, :portal
-  
-  @@all_viewed_facts = []
-  def initialize(portal_url)
-    @portal_url = portal_url
-    @@all_viewed_facts << self
+  attr_accessor :text, :url, :portal
+
+  @@all = []
+  def initialize(url, text)
+    @text = text
+    @url = url
+    @@all << self
   end
 
-  def self.random
-    return Scraper.scrape_portal_dyk(@portal_url)
-  end
+  # def self.random
+  #   return Scraper.scrape_portal_dyk(@url)
+  # end
 
   def self.all
     #@@all_topics
-    @@all_viewed_facts
+    @@all
   end
-  
-  def self.find_or_create_by_name
-    self.random
+
+  def self.find_or_create_by_url(url)
+    if Fact.all.detect{|fact| url == fact.url}
+      @fact = Portal.all.detect{|fact| url == fact.url}
+    else
+      @fact = Portal.new(url)
+      @@all << @fact
+    end
   end
-  
+
 end

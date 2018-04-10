@@ -26,12 +26,16 @@ class Scraper
     #find and return all sub-portal links within a chosen topic
     @links = []
     doc.search(".portals-container a").each_with_index{|anchor, i|
-
       if i == choice_index && anchor.attribute("href").value.include?("/wiki/Portal:")
           @links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
       end
     }
-    return [name, @links.sample]
+
+    # randval = Randomn.new
+    # portal_count = doc.search(".portals-container a").attribute("href").count{|i| i.value.include?("/wiki/Portal:")}
+    #   randval.rand(portalcount)
+
+    return @links.sample
     binding.pry
 
    end
