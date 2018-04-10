@@ -7,9 +7,6 @@ class Portal
   @@all = []
 
   def initialize(url)
-    # (name, url)
-    # @name = name
-    # @url = url
     @url = url
     @facts = []
     @@all << self

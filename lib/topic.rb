@@ -4,7 +4,7 @@ require_relative "../lib/portal.rb"
 class Topic
   #has many Portals
   @@all = []
-  attr_accessor :name, :portals, :all
+  attr_accessor :name, :portals
   def initialize(name)
     @name = name
     @portals = []
