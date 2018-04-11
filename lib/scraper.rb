@@ -65,10 +65,15 @@ class Scraper
     doc = Nokogiri::HTML(html)
 
     if doc.at_css("[id^='Did_you_know']") != nil && doc.at_css("[id^='Did_you_know']").parent.parent.next.next != nil
-      # binding.pry
+      binding.pry
       doc.at_css("[id^='Did_you_know']").parent.parent.next.next['class']="dyk_container"
       # doc.search(".dyk_container").children.search("p")[0].text
       # binding.pry
+      if doc.search(".dyk_container p") == ""
+        if doc.search(".dyk_container ul")
+          doc.search(".dyk_container ul li")[0].text
+        end
+      end
 
       return doc.search(".dyk_container p").count
     end

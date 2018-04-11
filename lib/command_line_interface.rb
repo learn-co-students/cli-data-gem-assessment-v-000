@@ -24,7 +24,7 @@ class CommandLineInterface
 
     @fact = Fact.find_or_create_by_url(@randurl, @randfact, @portal)
     @portal.facts << @fact
-    binding.pry
+    # binding.pry
     # binding.pry
     @portal.topic = @selectedTopic
   end

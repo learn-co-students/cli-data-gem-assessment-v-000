@@ -26,11 +26,11 @@ class Fact
     @@all
   end
 
-  def self.find_or_create_by_url(url)
+  def self.find_or_create_by_url(url, text, portal)
     if Fact.all.detect{|fact| url == fact.url}
       @fact = Portal.all.detect{|fact| url == fact.url}
     else
-      @fact = Portal.new(url)
+      @fact = Portal.new(url, text, portal)
       @@all << @fact
     end
   end
