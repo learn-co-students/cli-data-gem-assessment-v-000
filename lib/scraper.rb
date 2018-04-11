@@ -72,6 +72,7 @@ class Scraper
 
       return doc.search(".dyk_container p").count
     end
+    #returns the text of a random fact
    end
 
 end

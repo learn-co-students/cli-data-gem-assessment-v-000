@@ -10,7 +10,8 @@ class Fact
   attr_accessor :text, :url, :portal
 
   @@all = []
-  def initialize(url, text)
+  def initialize(url, text, portal)
+    @portal = portal
     @text = text
     @url = url
     @@all << self
