@@ -23,33 +23,10 @@ class Scraper
       end
     }
 
-    #find and return all sub-portal links within a chosen topic
-    @links = []
-    # doc.search(".portals-container a").each_with_index{|anchor, i|
-    #   if i == choice_index && anchor.attribute("href").value.include?("/wiki/Portal:")
-    #       @links << anchor.attribute("href").value.prepend("https://en.wikipedia.org")
-    #   end
-    # }
-    # binding.pry
-
+    #randomnly select a sub-portal from the main topic portal choice
     randval = Random.new
     randnum = randval.rand(doc.search(".portals-container")[choice_index].search("a").count{|i| i.attribute("href").value.include?("/wiki/Portal:")})
     randportal = doc.search(".portals-container")[choice_index].search("a")[randnum].attribute("href").value.prepend("https://en.wikipedia.org")
-    # doc.search(".portals-container")[1].search("a")[0].attribute("href").value
-    # doc.search(".portals-container")[choice_index].search("a").each{|atr|
-    #   if atr.attribute("href").value.include?("/wiki/Portal:")
-    #     @links << atr.attribute("href").value.prepend()
-    #   end
-    # }
-
-    # topic.
-    # .("href").count
-    #
-    # doc.search(".portals-container a")[choice_index].attribute("href").count
-
-    # randval = Randomn.new
-    # portal_count = doc.search(".portals-container a").attribute("href").count{|i| i.value.include?("/wiki/Portal:")}
-    #   randval.rand(portalcount)
 
     return randportal
 
@@ -87,9 +64,13 @@ class Scraper
     html = open(rand_portal_url)
     doc = Nokogiri::HTML(html)
 
-    if doc.at_css("[id^='Did_you_know']") != nil
-      doc.at_css("[id^='Did_you_know']").parent.parent.next.next['class']="dyk_container" unless doc.at_css("[id^='Did_you_know']").parent.parent.next.next == nil
-      return doc.search(".dyk_container ul li").sample.text
+    if doc.at_css("[id^='Did_you_know']") != nil && doc.at_css("[id^='Did_you_know']").parent.parent.next.next != nil
+      # binding.pry
+      doc.at_css("[id^='Did_you_know']").parent.parent.next.next['class']="dyk_container"
+      # doc.search(".dyk_container").children.search("p")[0].text
+      # binding.pry
+
+      return doc.search(".dyk_container p").count
     end
    end
 

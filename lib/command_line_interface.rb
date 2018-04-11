@@ -15,10 +15,12 @@ class CommandLineInterface
     #finds or creates an Topic instance
     @selectedTopic = Topic.find_or_create_by_name(@choice)
     @randurl = Scraper.scrape_portals_page(@choice)
+    # Scraper.scrape_portal_dyk(@randurl)
     # binding.pry
     #selects a random portal url from Scraper.scrape_portals_page
     @portal = Portal.find_or_create_by_url(@randurl)
-    # @portal.topic = @selectedTopic
+    # binding.pry
+    @portal.topic = @selectedTopic
     # @selectedTopic.portals << @portal
   end
 
