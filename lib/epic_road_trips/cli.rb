@@ -44,6 +44,8 @@ class EpicRoadTrips::CLI
         puts ""
       elsif input == "list"
           list_road_trips
+      elsif
+        puts "Hmm, I didn't catch that."
       end
     end
   end
