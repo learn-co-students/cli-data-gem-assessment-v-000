@@ -18,10 +18,11 @@ class CommandLineInterface
     # Scraper.scrape_portal_dyk(@randurl)
     # binding.pry
     #selects a random portal url from Scraper.scrape_portals_page
-    @portal = Portal.find_or_create_by_url(@randurl)
+    @portal = Portal.find_or_create_by_url(@randurl, @selectedTopic)
+    @selectedTopic.portals << @portal
+    binding.pry
     # binding.pry
     @portal.topic = @selectedTopic
-    # @selectedTopic.portals << @portal
   end
 
   #beautifies and lists the command line options
