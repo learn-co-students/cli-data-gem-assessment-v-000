@@ -6,7 +6,7 @@ require "garden_helper/version"
 Gem::Specification.new do |spec|
   spec.name          = "garden_helper"
   spec.version       = GardenHelper::VERSION
-  spec.platform      = Gem::Platform::Ruby
+  spec.platform      = Gem::Platform::RUBY
   spec.authors       = ["'David Markel'"]
   spec.email         = ["'davidgmarkel@gmail.com'"]
 
