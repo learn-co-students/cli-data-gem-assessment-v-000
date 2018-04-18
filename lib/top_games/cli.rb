@@ -13,17 +13,24 @@ class TopGames::CLI
   end 
   
   def info_input
-    puts " Please make a selection of a game using (1-3) or type EXIT to quit"
+    puts " Please make a selection of a game using (1-3), or type rankings
+    to see the list again, type EXIT to quit"
     input = gets.strip.downcase
     
     if input == "1"
       puts "GOW info"
+      info_input
     elsif input == "2"
      puts "MHW info"
+     info_input
     elsif input == "3"
     puts "Y'S info"
+    info_input
+    elsif input == "rankings"
+    game_rankings
+    info_input
     elsif input == "exit"
-    exit 
+    quit_app
   else 
     puts "Uh oh, please make a selection 1-3 or exit to quit :]"
     info_input
