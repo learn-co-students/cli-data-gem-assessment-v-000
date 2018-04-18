@@ -1,6 +1,6 @@
 class TopGames::CLI 
   
-  def call 
+  def start
     puts "The top three upcoming games from IGN are as follows:"
     game_rankings
     info_input

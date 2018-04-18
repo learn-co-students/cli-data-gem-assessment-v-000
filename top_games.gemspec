@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'David Ritchey'"]
   spec.email         = ["'ritchey0713@gmail.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{"A CLI interface to see the top three games"}
+ 
+  spec.homepage      = "https://github.com/ritchey0713/cli-data-gem-assessment-v-000.git"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

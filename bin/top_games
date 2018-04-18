@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby 
 
 require './lib/top_games'
 
-TopGames::CLI.new.call
+TopGames::CLI.new.start
