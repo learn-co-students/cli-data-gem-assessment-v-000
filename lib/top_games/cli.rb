@@ -7,9 +7,10 @@ class TopGames::CLI
   end 
   
   def game_rankings
-    puts "1. God of war, PS4, april 20, 2018"
-    puts "2. Monster Hunter World, PC, TBA"
-    puts "3. Y's PC, TBA"
+    # puts "1. God of war, PS4, april 20, 2018"
+    # puts "2. Monster Hunter World, PC, TBA"
+    # puts "3. Y's PC, TBA"
+    @games = TopGames::Games.ranking
   end 
   
   def info_input
