@@ -8,6 +8,7 @@ class TopGames::CLI
   
   def game_rankings
     @games = TopGames::Game.ranking
+    @games.each.with_index
   end 
   
   def info_input
