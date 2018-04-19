@@ -9,6 +9,8 @@ class TopGames::Games
     game_1.developer = "Square"
     game.release_date = "1995"
     
+    game_1.summary = "blah blah blah"
+    
   end 
   
 end 
