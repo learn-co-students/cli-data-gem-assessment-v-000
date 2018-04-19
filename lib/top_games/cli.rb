@@ -7,7 +7,7 @@ class TopGames::CLI
   end 
   
   def game_rankings
-    @games = TopGames::Games.ranking
+    @games = TopGames::Game.ranking
   end 
   
   def info_input

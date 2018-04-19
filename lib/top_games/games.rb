@@ -1,4 +1,6 @@
-class TopGames::Games 
+class TopGames::Game
+  
+  attr_accessor :name, :developer, :release_date, :url, :summary
   
   def self.ranking
     #will return the instances of games 
@@ -25,6 +27,7 @@ class TopGames::Games
     game_3.url = "http://www.ign.com/lists/top-100-rpgs/1/1/3"
     game_3.summary = "blah blah blah"
     
+    [game_1, game_2, game_3]
   end 
   
 end 
