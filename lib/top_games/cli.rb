@@ -19,13 +19,13 @@ class TopGames::CLI
     input = gets.strip.downcase
     
     if input == "1"
-      puts "GOW info"
+      puts "CT info"
       info_input
     elsif input == "2"
-     puts "MHW info"
+     puts "FF6 info"
      info_input
     elsif input == "3"
-    puts "Y'S info"
+    puts "BG info"
     info_input
     elsif input == "rankings"
     game_rankings
