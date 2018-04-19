@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby 
 
-require './lib/top_games'
+require "bundler/setup"
+require "top_games"
 
 TopGames::CLI.new.start

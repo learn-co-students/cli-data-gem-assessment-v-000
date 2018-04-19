@@ -14,20 +14,14 @@ class TopGames::CLI
     puts " Please make a selection of a game using (1-3), or type rankings
     to see the list again, type EXIT to quit"
     input = gets.strip.downcase
-    
-    if input == "1"
-      puts "CT info"
-      info_input
-    elsif input == "2"
-     puts "FF6 info"
-     info_input
-    elsif input == "3"
-    puts "BG info"
-    info_input
+   
+    if input.to_i > 0 
+      puts @games[input.to_i - 1]
+     
     elsif input == "rankings"
     game_rankings
-    info_input
-    elsif input == "exit"
+    info_input  
+  elsif input == "exit"
     quit_app
   else 
     puts "Uh oh, please make a selection 1-3 or exit to quit :]"
