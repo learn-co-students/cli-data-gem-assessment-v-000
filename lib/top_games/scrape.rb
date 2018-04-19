@@ -5,7 +5,7 @@ class TopGames::Scrape
    def self.scrape_games
      
      games = []
-     games << self.scrape_ign
+     games << self.scrape_site
      
      
     #     game_1 = self.new 
@@ -32,14 +32,11 @@ class TopGames::Scrape
     games 
   end 
   
-  def self.scrape_ign
-    doc = Nokogiri::HTML(open("https://www.ign.com/lists/top-100-rpgs"))
-   name = doc.search("style.classname").text
-  
- end 
-    binding.pry
+  def self.scrape_site
+    doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
+   name = doc.search("h3#kingdom-come-deliverance").text
+   binding.pry
     
-  end 
     
     
 

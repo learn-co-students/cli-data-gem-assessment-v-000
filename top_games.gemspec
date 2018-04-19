@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'David Ritchey'"]
   spec.email         = ["'ritchey0713@gmail.com'"]
 
-  spec.summary       = %q{"A CLI interface to see the top three RPG from the IGN.com top 100 list"}
+  spec.summary       = %q{"A CLI interface to see the top three RPG from the site PCgamer.com"}
  
   spec.homepage      = "https://github.com/ritchey0713/cli-data-gem-assessment-v-000.git"
   spec.license       = "MIT"

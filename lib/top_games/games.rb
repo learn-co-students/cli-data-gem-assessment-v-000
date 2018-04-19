@@ -1,7 +1,7 @@
 class TopGames::Game
   
  def self.ranking
-  #scrape ign 
+  #scrape pcgamer
   @games = TopGames::Scrape.scrape_games
   end 
   
