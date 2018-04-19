@@ -3,6 +3,8 @@ class TopGames::Scrape
     attr_accessor :name, :developer, :release_date, :url, :summary
   
    def self.scrape_games
+     
+     games = []
         game_1 = self.new 
     game_1.name = "Chrono Trigger"
     game_1.developer = "Square"
@@ -24,7 +26,7 @@ class TopGames::Scrape
     game_3.url = "http://www.ign.com/lists/top-100-rpgs/1/1/3"
     game_3.summary = "blah blah blah"
     
-    [game_1, game_2, game_3]
+    games 
   end 
   
 end 
