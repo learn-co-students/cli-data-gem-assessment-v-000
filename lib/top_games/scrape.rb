@@ -29,4 +29,8 @@ class TopGames::Scrape
     games 
   end 
   
+  def scrape_ign
+    
+  end 
+  
 end 
