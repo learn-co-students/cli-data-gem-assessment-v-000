@@ -34,7 +34,14 @@ class TopGames::Scrape
   
   def self.scrape_ign
     doc = Nokogiri::HTML(open("https://www.ign.com/lists/top-100-rpgs"))
+   name = doc.search("style.classname").text
+  
+ end 
     binding.pry
+    
+  end 
+    
+    
 
     
     
