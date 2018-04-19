@@ -8,7 +8,9 @@ class TopGames::CLI
   
   def game_rankings
     @games = TopGames::Game.ranking
-    @games.each.with_index
+    @games.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.name}, Developer: #{game.developer}, Release date: #{game.release_date}"
+    end 
   end 
   
   def info_input
@@ -18,6 +20,7 @@ class TopGames::CLI
    
     if input.to_i > 0 
       puts @games[input.to_i - 1]
+      info_input
      
     elsif input == "rankings"
     game_rankings

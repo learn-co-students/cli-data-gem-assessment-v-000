@@ -3,8 +3,7 @@ class TopGames::Game
   attr_accessor :name, :developer, :release_date, :url, :summary
   
   def self.ranking
-    #will return the instances of games 
-    puts "YOU WILL SCRAPE AND MAKE PROGRESS"
+  #scrape ign 
     
     game_1 = self.new 
     game_1.name = "Chrono Trigger"
@@ -21,9 +20,9 @@ class TopGames::Game
     game_2.summary = "blah blah blah"
     
     game_3 = self.new 
-    game_3.name = "Final Fantasy VI"
-    game_3.developer = "Square"
-    game_3.release_date = "1994"
+    game_3.name = "Baldur's Gate II: Shadows of Amn"
+    game_3.developer = "Bio Wares"
+    game_3.release_date = "2000"
     game_3.url = "http://www.ign.com/lists/top-100-rpgs/1/1/3"
     game_3.summary = "blah blah blah"
     
