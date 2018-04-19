@@ -8,7 +8,7 @@ class TopGames::Games
     game_1.name = "Chrono Trigger"
     game_1.developer = "Square"
     game.release_date = "1995"
-    
+    game_1.url = "http://www.ign.com/lists/top-100-rpgs/1/1/3"
     game_1.summary = "blah blah blah"
     
   end 
