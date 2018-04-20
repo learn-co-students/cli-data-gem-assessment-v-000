@@ -35,6 +35,7 @@ class TopGames::Scrape
   def self.scrape_site
     doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
    name = doc.search("h3#kingdom-come-deliverance").text
+   developer = doc.search()
    binding.pry
     
     

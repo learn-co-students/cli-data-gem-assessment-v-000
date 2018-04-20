@@ -1,7 +1,7 @@
 class TopGames::CLI 
   
   def start
-    puts "The top three upcoming games from IGN are as follows:"
+    puts "The top three RPG listed under PCgamer.com are as follows:"
     game_rankings
     info_input
   end 
