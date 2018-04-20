@@ -1,6 +1,6 @@
 class TopGames::Scrape 
   
-    attr_accessor :name, :developer, :release_date, :url, :summary
+    attr_accessor :name, :release_date, :summary
   
    def self.scrape_games
      
@@ -32,14 +32,18 @@ class TopGames::Scrape
     games 
   end 
   
-  def self.scrape_pcgamer
+  def self.scrape_games
     doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
-    name = doc.search("h3#kingdom-come-deliverance").text
+    name_1 = doc.search("h3#kingdom-come-deliverance").text
+    release_date_1 = doc.search('p')[7].text
+    
   
    binding.pry
  end 
 
 def self.scrape_summary
+  
+  summary_1 = doc.search('p')[8].text #kingdom come summary 
   
 end 
   
