@@ -32,12 +32,12 @@ class TopGames::Scrape
     games 
   end 
   
-  def self.scrape_wow
-    doc = Nokogiri::HTML(open("https://worldofwarcraft.com/en-us/"))
+  def self.scrape_pcgamer
+    doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
+    name = doc.search("h3#kingdom-come-deliverance").text
   
    binding.pry
  end 
- titles = 
 
 def self.scrape_summary
   
