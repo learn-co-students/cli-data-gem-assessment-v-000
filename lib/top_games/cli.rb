@@ -25,27 +25,28 @@ class TopGames::CLI
         puts TopGames::Game.scrape_summary[0]
         puts game_rankings
        info_input
-       elsif input == "2"
+       
+      elsif input == "2"
        puts TopGames::Game.scrape_summary[1]
-        puts game_rankings
+       puts game_rankings
        info_input
        
-       elsif input == '3'
+      elsif input == '3'
         puts TopGames::Game.scrape_summary[2]
         puts game_rankings
-       info_input
+        info_input
            
       elsif input == "rankings"
-      game_rankings
-      info_input
+        game_rankings
+        info_input
       
       elsif input == "exit"
-      quit_app
+        quit_app
       else 
        puts "Uh oh, please make a selection 1-3 or exit to quit :]"
        info_input
       end 
-end 
+  end 
 
 def quit_app
   puts "Please check back often to see new rankings and updates on games!"
