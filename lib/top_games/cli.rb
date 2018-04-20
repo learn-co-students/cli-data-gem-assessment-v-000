@@ -7,19 +7,24 @@ class TopGames::CLI
   end 
   
   def game_rankings
-    @games = TopGames::Game.ranking
-    @games.each.with_index(1) do |game, i|
-      puts "#{i}. #{game.name}, Developer: #{game.developer}, Release date: #{game.release_date}"
+    games = TopGames::Game.ranking
+
+    games.each.with_index(1) do |game, i|
+      puts "#{i}. #{game.name}, Release date: #{game.release_date}"
     end 
   end 
   
   def info_input
+    
     puts " Please make a selection of a game using (1-3), or type rankings
     to see the list again, type EXIT to quit"
+
     input = gets.strip.downcase
    
-    if input.to_i > 0 
-      puts @games[input.to_i - 1]
+    if input == "1" 
+      puts TopGames::Game.scrape_summary[0]
+      puts game_rankings
+     
       info_input
      
     elsif input == "rankings"
