@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "Upcoming_Movies/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "Upcoming_Movies"
+  spec.name          = "upcoming_movies"
   spec.version       = UpcomingMovies::VERSION
   spec.authors       = ["'ayesha ansari'"]
   spec.email         = ["'ayesha.x.ansari@gmail.com'"]
