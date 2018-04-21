@@ -2,16 +2,16 @@ class TopGames::Game
 
 attr_accessor :name, :release_date, :summary
     
-   def self.ranking
+   def self.ranking #games array caller 
      self.scrape_games
    end 
     
-    def self.summary
+    def self.summary #summary array caller
       self.scrape_summary
     end 
     
     
-     def self.scrape_games
+     def self.scrape_games #game save method
        games = []
        
        games << self.scrape_kingdom
@@ -19,7 +19,7 @@ attr_accessor :name, :release_date, :summary
        games << self.scrape_path
      end 
     
-    def self.scrape_summary
+     def self.scrape_summary #summary save method
       summary = [] 
       
       summary << self.scrape_story_1
@@ -27,7 +27,7 @@ attr_accessor :name, :release_date, :summary
       summary << self.scrape_story_3
     end
     
-    def self.scrape_kingdom #name, release date and developer info
+    def self.scrape_kingdom #scraper for kingdom come (name, dev, and release date)
       doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
      
       game_1 = self.new 
@@ -36,7 +36,7 @@ attr_accessor :name, :release_date, :summary
       game_1 
     end 
     
-    def self.scrape_divinity #name, release date and developer info
+    def self.scrape_divinity #scraper for divinity 
       doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
       
       game_2 = self.new 
@@ -45,7 +45,7 @@ attr_accessor :name, :release_date, :summary
       game_2
     end 
     
-    def self.scrape_path #name, release date and developer info
+    def self.scrape_path #scraper for path of exile 
       doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
       
       game_3 = self.new 
@@ -54,7 +54,7 @@ attr_accessor :name, :release_date, :summary
       game_3
    end 
   
-   def self.scrape_story_1 #game_1 summary 
+   def self.scrape_story_1 #kingdom come summary 
      doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
      
      summary_1 = self.new 
@@ -62,7 +62,7 @@ attr_accessor :name, :release_date, :summary
      summary_1
    end 
    
-    def self.scrape_story_2 #game_2 summary 
+    def self.scrape_story_2 #divinity summary 
      doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
     
      summary_2 = self.new 
@@ -70,7 +70,7 @@ attr_accessor :name, :release_date, :summary
      summary_2
     end 
    
-     def self.scrape_story_3 #game_3 summary 
+     def self.scrape_story_3 #path of exile summary 
      doc = Nokogiri::HTML(open("https://www.pcgamer.com/best-rpgs-of-all-time/"))
     
      summary_3 = self.new 
