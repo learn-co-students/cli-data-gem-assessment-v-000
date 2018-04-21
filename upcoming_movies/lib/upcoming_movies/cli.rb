@@ -9,7 +9,8 @@ class UpcomingMovies::CLI
 
   def list_movies
     puts "Listed Below Are Upcming Movies"
-#    @movies  =  UpcomingMovies::Movies.today
+    @movies  =  UpcomingMovies::Movies.today
+    puts @movies
   end
 
   def menu
