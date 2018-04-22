@@ -20,10 +20,11 @@ class Movie
 
   def self.scrape_woot
     doc = Nokogiri::HTML(open("https://www.tribute.ca/toronto-movies-on/"))
-    scrape_movie = doc.search(".content.base")
-    #puts scrape_movie
+    scrape_movie = doc.search(".page-content h3")
+    
+    puts doc
     scrape_movie.each do |movie|
-      puts movie
+    #  puts movie
 
       movie_title = movie.css("li h2 children").text
       puts "hello"

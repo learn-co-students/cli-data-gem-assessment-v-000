@@ -9,18 +9,23 @@ class Scraper
 
   def scrape_comingsoon_movies
        movies = []
-       doc = get_page.css("h3")
+       doc = get_page.css(".showtime-card.showtime-single")
 
-      scraper_doc   = doc.css(".showtime-card .showtime-single")
+      # binding.pry
 
-      scraper_doc.each do |movie_row|
-        puts movie_row
-      movies <<
-        {
-          :name =>  movie_row.attr("href"),
-          :genre =>  movie_row.css(".movie-details .movie-genres").text,
-          :profile_url =>  movie_row.attr("href")
-        }
+    #  scraper_doc   = doc.css(".showtime-card .showtime-single")
+
+
+
+      doc.each do |movie_row|
+
+        title = movie_row.search("h3.showtime-card--title").text
+        genre =  movie_row.search("p.movie-genres").text
+      #  genre =  movie_row.search("p.movie-details.movie-genres").text
+      #  rating = movie_row.search("h3.showtime-card--title").text
+        puts title.strip
+        puts genre.strip
+      #  puts "test
     end
        puts movies
        #binding.pry
