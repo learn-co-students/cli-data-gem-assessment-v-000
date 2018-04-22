@@ -27,7 +27,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    Run the app by calling ./bin/top_games, after boot, it will pull up the top three games
+    from pcgamer.com, after you can inquire a summary of each game by inputting the correct
+    number, it will also bring you back to the main menu afterwards. You can type 'exit' to 
+    quit the app. 
 
 ## Development
 
