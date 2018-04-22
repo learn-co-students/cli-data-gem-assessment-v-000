@@ -17,16 +17,15 @@ class UpcomingMovies::CLI
     puts "Enter the number of movie you want more information on or type exit to "
     input = nil
     while input != "exit"
+      puts "enter the number of movie you want to find more detail on."  
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts   "More info on movie 1"
-      when "2"
-       puts  "More info on movie 2"
-     when "list"
+      
+      if input.to_i > 0
+         puts @movies[input.to_i - 1 ]
+      elsif input == "list"
         list_movies
       else
-        "please type list or exit  "
+          puts " Not sure what ypu want type list or exit"
       end
     end
   end

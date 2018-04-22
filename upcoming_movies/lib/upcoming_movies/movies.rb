@@ -1,4 +1,5 @@
 class UpcomingMovies::Movies
+
   attr_accessor  :name, :price, :url
 
   def self.today
@@ -21,5 +22,4 @@ class UpcomingMovies::Movies
 
 
   end
-
 end
