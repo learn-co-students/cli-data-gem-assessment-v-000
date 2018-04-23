@@ -10,7 +10,7 @@ class TopGames::CLI
       games = TopGames::Game.ranking
   
       games.each.with_index(1) do |game, i|
-        puts "#{i}. #{game.name}, Release date: #{game.release_date}"
+        puts "#{i}. #{game.name}, #{game.release_date}"
       end 
     end 
     
@@ -24,16 +24,19 @@ class TopGames::CLI
         if input == "1" 
           puts TopGames::Game.scrape_summary[0]
           puts game_rankings
+          sleep(5)
           info_input
            
         elsif input == "2"
           puts TopGames::Game.scrape_summary[1]
           puts game_rankings
+          sleep(5)
           info_input
            
         elsif input == '3'
           puts TopGames::Game.scrape_summary[2]
           puts game_rankings
+          sleep(5)
           info_input
              
         elsif input == "rankings"
