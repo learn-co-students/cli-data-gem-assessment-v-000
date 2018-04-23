@@ -25,6 +25,9 @@ class Scraper
       #  rating = movie_row.search("h3.showtime-card--title").text
         puts title.strip
         puts genre.strip
+        time = genre[1,5]
+        puts "time"
+        puts time
       #  puts "test
     end
        puts movies
