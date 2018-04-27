@@ -1,6 +1,7 @@
 class UpcomingMovies::CLI
   def call
     puts "Upconing Movies"
+    UpcomingMovies::Scraper.new.make_comingsoon_movies
     list_movies
     menu
     "checking menu"
