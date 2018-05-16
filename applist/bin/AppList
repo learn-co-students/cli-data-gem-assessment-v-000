@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './applist/lib/applist'
+
+Applist::CLI.new.call
