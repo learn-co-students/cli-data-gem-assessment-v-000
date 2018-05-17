@@ -1,6 +1,3 @@
-#require 'Nokogiri'
-#require 'open-uri'
-
 class Applist::CLI
   
   def call
@@ -17,7 +14,7 @@ class Applist::CLI
   end
 
   def menu
-    puts "Enter the number for the app you would like to view. Type list to see the list again or type exit to leave:"
+    puts "This is a list of the most popular free apps available on the Apple App Store. Please enter the number for the app you would like to view. Type list to see the list again or type exit to leave:"
     input = nil
     while input != "exit"
     input = gets.strip.downcase
