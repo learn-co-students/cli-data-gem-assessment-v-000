@@ -1,0 +1,28 @@
+
+[1mFrom:[0m /home/Evbw/cli-data-gem-assessment-v-000/applist/lib/applist/apps.rb @ line 24 Applist::Apps.popular:
+
+     [1;34m4[0m: [32mdef[0m [1;36mself[0m.[1;34mpopular[0m
+     [1;34m5[0m:   app_page = [1;34;4mNokogiri[0m::HTML(open([31m[1;31m"[0m[31mhttps://www.apple.com/itunes/charts/free-apps/[1;31m"[0m[31m[0m))
+     [1;34m6[0m:   apps = []
+     [1;34m7[0m: 
+     [1;34m8[0m:   app_page.css([31m[1;31m"[0m[31mdiv.section-content li[1;31m"[0m[31m[0m).each [32mdo[0m |app|
+     [1;34m9[0m:     
+    [1;34m10[0m:     app_obj = { [35mname[0m: [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m, [35mcategory[0m: [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m, [35mlink[0m: [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m }
+    [1;34m11[0m:     app_obj[[33m:name[0m] = [app.css([31m[1;31m"[0m[31mh3 a[1;31m"[0m[31m[0m).text]
+    [1;34m12[0m:     app_obj[[33m:category[0m] = [app.css([31m[1;31m"[0m[31mh4 a[1;31m"[0m[31m[0m).text]
+    [1;34m13[0m:     app_obj[[33m:link[0m] = [app.css([31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m).attribute([31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m).value]
+    [1;34m14[0m:     apps << app_obj
+    [1;34m15[0m:   [32mend[0m
+    [1;34m16[0m:   
+    [1;34m17[0m:   apps.each [32mdo[0m |app|
+    [1;34m18[0m:     
+    [1;34m19[0m:     app_obj = { [35mdesc[0m: [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m, [35mavg_rating[0m: [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m }
+    [1;34m20[0m:     doc = [1;34;4mNokogiri[0m::HTML(open(app[[33m:link[0m][[1;34m0[0m]))
+    [1;34m21[0m:     app_obj[[33m:desc[0m] = doc.css([31m[1;31m"[0m[31m.section__description[1;31m"[0m[31m[0m).text
+    [1;34m22[0m:     app_obj[[33m:desc[0m] = doc.css([31m[1;31m"[0m[31m.we-customer-ratings__averages__display[1;31m"[0m[31m[0m).text
+    [1;34m23[0m:     apps << app_obj
+ => [1;34m24[0m:     binding.pry
+    [1;34m25[0m:   [32mend[0m
+    [1;34m26[0m:   
+    [1;34m27[0m: [32mend[0m
+
