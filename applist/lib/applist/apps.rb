@@ -14,13 +14,13 @@ class Applist::Apps
       apps << app_obj
     end
     
-    apps.each do |app|
-      doc = Nokogiri::HTML(open(app[:link][0]))
-      app[:desc] = doc.css(".section__description").text
-      app[:avg_rating] = doc.css(".we-customer-ratings__averages__display").text
+    #apps.each do |app|
+    #  doc = Nokogiri::HTML(open(app[:link][0]))
+    #  app[:desc] = doc.css(".section__description").text
+    #  app[:avg_rating] = doc.css(".we-customer-ratings__averages__display").text
       
     #binding.pry
-    end
+    #end
     apps
   end
         
