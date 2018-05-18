@@ -1,22 +1,25 @@
 class Applist::Apps
-  attr_accessor :name, :category
+  attr_accessor :name, :category, :link
   
   def self.popular
     app_page = Nokogiri::HTML(open("https://www.apple.com/itunes/charts/free-apps/"))
-    apps = {}
+    apps = []
     
     app_page.css("div.section-content li").each do |app|
-      #apps << app.css("h3 a").text
       
-      if app.css("h3 a").text
-        apps[:name] = app.css("h3 a").text
-      elsif app.css("h4 a").text
-        apps[:category] = app.css("h4 a").text
-      end
+      obj = { name: '', category: '', link: '' }
+      obj[:name] = [app.css("h3 a").text]
+      obj[:category] = [app.css("h4 a").text]
+      obj[:link] = [app.css("a").attribute("href").value]
       
-      binding.pry
-        
     end
+    
+    apps.each do |app|
+      doc = Nokogiri::HTML(open(app[:link]))
+      #doc.css('.desc')
+      binding.pry
+    end
+    
   end
-  
+        
 end

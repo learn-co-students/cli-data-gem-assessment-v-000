@@ -1,4 +1,5 @@
 class Applist::CLI
+  attr_accessor :name, :category, :link
   
   def call
     list_apps
