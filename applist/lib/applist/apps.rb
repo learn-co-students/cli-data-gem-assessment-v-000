@@ -8,16 +8,17 @@ class Applist::Apps
     app_page.css("div.section-content li").each do |app|
       
       obj = { name: '', category: '', link: '' }
-      apps << obj[:name] = [app.css("h3 a").text]
-      apps << obj[:category] = [app.css("h4 a").text]
-      apps << obj[:link] = [app.css("a").attribute("href").value]
-      binding.pry  
+      obj[:name] = [app.css("h3 a").text]
+      obj[:category] = [app.css("h4 a").text]
+      obj[:link] = [app.css("a").attribute("href").value]
+      apps << obj
     end
     
     apps.each do |app|
-      doc = Nokogiri::HTML(open(app[:link]))
+      
+      doc = Nokogiri::HTML(open(app[:link][0]))
       #doc.css('.desc')
-    
+      binding.pry
     end
     
   end
