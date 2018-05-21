@@ -2,8 +2,8 @@ class Applist::CLI
   attr_accessor :name, :category, :link, :desc, :avg_rating
   
   def call
-    menu
     list_apps
+    menu
     goodbye
   end
   
@@ -16,7 +16,6 @@ class Applist::CLI
 
   def menu
     puts "This is a list of the most popular free apps available on the Apple App Store. Please enter the number for the app you would like to view. Type list to see the list again or type exit to leave:"
-    list_apps
     input = nil
     while input != "exit"
     input = gets.strip.downcase

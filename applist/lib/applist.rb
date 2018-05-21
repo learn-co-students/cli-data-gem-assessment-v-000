@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'openssl'
 require 'pry'
 
 require_relative "./applist/version"
