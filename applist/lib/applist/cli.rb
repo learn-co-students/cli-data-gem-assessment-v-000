@@ -23,7 +23,7 @@ class Applist::CLI
         the_app = @apps[input.to_i - 1]
         puts "#{the_app[:name][0]} in #{the_app[:category][0]}."
         puts "Average Rating: #{the_app[:avg_rating]}"
-        puts "Description: #{the_app[:desc]}"
+        puts "#{the_app[:desc]}"
         puts "Please type the number of the app you are interested in, list to see them again, or exit to leave."
       elsif input == "list"
         list_apps

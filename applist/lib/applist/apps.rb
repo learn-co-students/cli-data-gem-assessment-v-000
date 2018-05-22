@@ -4,8 +4,7 @@ class Applist::Apps
   def self.popular
     app_page = Nokogiri::HTML(open("https://www.apple.com/itunes/charts/free-apps/"))
     apps = []
-    i = 0
-    while i < 1
+
       app_page.css("div.section-content li").each do |app|
         
         @app_obj = { name: '', category: '', link: '', desc: '', avg_rating: '' }
@@ -18,10 +17,7 @@ class Applist::Apps
           @app_obj[:avg_rating] = doc.css(".we-customer-ratings__averages__display").text
         
         apps << @app_obj
-    #   binding.pry
       end
-      i += 1
-    end
 
     apps
   end
