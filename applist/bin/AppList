@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './applist/lib/applist'
+require_relative '../lib/applist'
 
 Applist::CLI.new.call

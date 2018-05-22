@@ -12,24 +12,20 @@ class Applist::Apps
       @app_obj[:category] = [app.css("h4 a").text]
       @app_obj[:link] = [app.css("a").attribute("href").value]
       
+        doc = Nokogiri::HTML(open(@app_obj[:link][0], 'User-Agent' => 'firefox'))
+        @app_obj[:desc] = doc.css(".section__description").text
+        @app_obj[:avg_rating] = doc.css(".we-customer-ratings__averages__display").text
+      
       apps << @app_obj
-    #  binding.pry
+      
+      #binding.pry
     end
     
-    apps.each do |app|
-      
-      #doc = Nokogiri::HTML(open(app[:link][0], 'User-Agent' => 'firefox'))
-      
-      url = app[:link][0]
-      puts url
-      content = open(url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'firefox')
-      doc = Nokogiri::HTML(content)
-      #binding.pry
-      @app_obj[:desc] = doc.css(".section__description").text
-      @app_obj[:avg_rating] = doc.css(".we-customer-ratings__averages__display").text
-      apps << @app_obj
-      
-    end
+    #links = apps.collect do |app|
+    #  app[:link][0]
+    #end
+    
+    
     apps
   end
         
