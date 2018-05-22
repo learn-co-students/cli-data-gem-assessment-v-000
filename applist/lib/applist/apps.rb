@@ -4,35 +4,26 @@ class Applist::Apps
   def self.popular
     app_page = Nokogiri::HTML(open("https://www.apple.com/itunes/charts/free-apps/"))
     apps = []
-    
-    app_page.css("div.section-content li").each do |app|
-      
-      @app_obj = { name: '', category: '', link: '', desc: '', avg_rating: '' }
-      @app_obj[:name] = [app.css("h3 a").text]
-      @app_obj[:category] = [app.css("h4 a").text]
-      @app_obj[:link] = [app.css("a").attribute("href").value]
-      
-        doc = Nokogiri::HTML(open(@app_obj[:link][0], 'User-Agent' => 'firefox'))
-        @app_obj[:desc] = doc.css(".section__description").text
-        @app_obj[:avg_rating] = doc.css(".we-customer-ratings__averages__display").text
-      
-      apps << @app_obj
-      
-      #binding.pry
+    i = 0
+    while i < 1
+      app_page.css("div.section-content li").each do |app|
+        
+        @app_obj = { name: '', category: '', link: '', desc: '', avg_rating: '' }
+        @app_obj[:name] = [app.css("h3 a").text]
+        @app_obj[:category] = [app.css("h4 a").text]
+        @app_obj[:link] = [app.css("a").attribute("href").value]
+        
+          doc = Nokogiri::HTML(open(@app_obj[:link][0], 'User-Agent' => 'firefox'))
+          @app_obj[:desc] = doc.css(".section__description").text
+          @app_obj[:avg_rating] = doc.css(".we-customer-ratings__averages__display").text
+        
+        apps << @app_obj
+    #   binding.pry
+      end
+      i += 1
     end
-    
-    #links = apps.collect do |app|
-    #  app[:link][0]
-    #end
-    
-    
+
     apps
   end
         
 end
-
-# puts "checking #{array.length} items"
-# array.each_with_index(1) do |item, index|
-#   # do stuff 
-#   puts "#{index} checked"
-# end
