@@ -1,8 +1,9 @@
+
 # Build a CLI Application with External Data
 
 ## Overview
 
-In this lesson you're going to build an application that provides a Command Line Interface (CLI) to an external data source. The CLI will be composed of an Object Oriented Ruby application. 
+In this lesson you're going to build an application that provides a Command Line Interface (CLI) to an external data source. The CLI will be composed of an Object Oriented Ruby application.
 
 **Please note that while you will be writing code to scrape data from a public website, what we're really looking for is your capacity to effectively write good object oriented ruby code (objects, not hashes, separation of concerns, etc.) - we're less interested in the details of the regex's or selector you're using to parse the web pages that you're scraping.**
 
@@ -43,7 +44,7 @@ Take the time to clone, run and look through the code for both of these in detai
 11. On Learn, submit links to the GitHub repository for your app, your video demo, and your blog post each to the corresponding textbox in the right rail, and hit "I'm done" to wrap it up.  
 
 
-## If you're a Learn-Verified Premium student: 
+## If you're a Learn-Verified Premium student:
 
 Unlike the rest of the curriculum, if you have any questions about your assessment or need help with it, please don’t use the Ask New Question feature. Rather than working with Learn Experts, please reach out to your Learn Instructor responsible for this section instead.
 
@@ -61,7 +62,7 @@ If necessary, after the assessment, be prepared to:
 
 ### What to expect from the assessment
 
-Project reviews are focused on preparing you for technical interviews. Treat project reviews as if they were technical interviews, in both attitude and technical presentation. 
+Project reviews are focused on preparing you for technical interviews. Treat project reviews as if they were technical interviews, in both attitude and technical presentation.
 
 #### Be scrappy.
 - If you make a mistake, correct yourself! We all make mistakes, I promise.
@@ -71,20 +72,20 @@ Project reviews are focused on preparing you for technical interviews. Treat pro
 
 #### Make no little plans.
 - You're going to learn a ton. We will give pointers and show you ways to improve your code. This isn't telling you that your code is wrong, it's simply us teaching. Whatever you don't quite understand will be explained.
-- Be proud of your project and your code, and show confidence in it. 
+- Be proud of your project and your code, and show confidence in it.
 
 #### Radiate positivity.
-- Present yourself and your project in the best way possible. 
-- Be open to feedback, both positive and constructive. 
+- Present yourself and your project in the best way possible.
+- Be open to feedback, both positive and constructive.
 - Remember, the interviewer is a person too. Be nice to them!
 
 #### Work Together.
 - Trust yourself.
 - Trust us - our goal is to help you be successful in achieving your goals.
-- We understand that this process can be stressful. We’re here to help you through. 
+- We understand that this process can be stressful. We’re here to help you through.
 
 #### Pursue mastery.
-- Use the best technical vocabulary you can. We’ll help you with the words you can’t remember, or if you’re unsure about how something is pronounced. 
+- Use the best technical vocabulary you can. We’ll help you with the words you can’t remember, or if you’re unsure about how something is pronounced.
 - Ask questions! Curiosity and willingness to learn are hugely valued in our industry. If you haven’t heard of something, that’s okay - use this opportunity to learn about it!
 
 
@@ -99,7 +100,7 @@ Project reviews are focused on preparing you for technical interviews. Treat pro
 
 - [How to build a ruby gem](http://guides.rubygems.org/make-your-own-gem/)
 - [How to publish your gem](http://guides.rubygems.org/publishing/)
-- [Environments, Requiring Files, Bundler, and Gems](https://www.youtube.com/watch?v=XBgZLm-sdl8) 
+- [Environments, Requiring Files, Bundler, and Gems](https://www.youtube.com/watch?v=XBgZLm-sdl8)
 - [Video- CLI Data Gem Walkthrough](https://www.youtube.com/watch?v=_lDExWIhYKI)
 - [Video- CLI Data Gem Walkthrough: Creating a CLI Scraper Gem](https://www.youtube.com/watch?v=Y5X6NRQi0bU)
 - [Video- Common Anti-Patterns in CLI Data Gem](https://www.youtube.com/watch?v=cbMa87oWv08)
