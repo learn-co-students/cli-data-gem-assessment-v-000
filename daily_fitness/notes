@@ -1,0 +1,41 @@
+CLI Project
+
+Daily_Fitness
+
+What will it show?
+
+3 options : Based On BodyBuilding.com
+
+	1. The Workout Article Of the Day
+
+	2. The Nutrition Article Of the Day
+
+	3. The Supplement article of the Day.
+
+	4. The Motivation Article Of the Day
+
+Introductory Message -
+
+	“Hello! Are you ready to supplement your fitness lifestyle?
+
+		Choose between three options. Press “1” to get the Best Promotional
+    Products of the day, press “2” to get the Workout Article of the day and
+    press “3” for the Nutritional Article of the day.
+
+	Please proceed with one of  the options above if you are serious about your gains!”
+
+	Article details
+   - Title
+   - Description
+   - URL
+
+Tips From Avi -
+
+1. Plan your gem, imagine your interface
+2. Start with the project structure - google
+3. Start with the entry point - the file run
+4. Force that to build the CLI Interface
+5. Stub out the interface
+6. Start making things real
+7. Discover objects
+8. Program
