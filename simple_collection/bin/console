@@ -12,5 +12,3 @@ require "simple_collection"
 
 require "irb"
 IRB.start(__FILE__)
-
-#testinggggg
