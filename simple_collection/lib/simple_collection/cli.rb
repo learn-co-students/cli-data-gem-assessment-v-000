@@ -1,5 +1,5 @@
 #CLI Controller
-class SimpleCollection_CLI
+class SimpleCollection::CLI
 
   def call
     welcome
@@ -14,6 +14,6 @@ class SimpleCollection_CLI
   def goodbye
     puts "Happy Knitting!"
   end
-    
+
 
 end
