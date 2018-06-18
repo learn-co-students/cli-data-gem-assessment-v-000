@@ -22,9 +22,9 @@ class Scraper
   #   remedies
   # end
 
-  def self.ailment_remedy_hash
-    Hash[scrape_ailments.zip(scrape_remedies.map { |r| r.split(",")  })]
-  end
+  # def self.ailment_remedy_hash
+  #   Hash[scrape_ailments.zip(scrape_remedies.map { |r| r.split(",")  })]
+  # end
 
   def self.herbal_medicine
     @@doc_2.css('p')[4..7]

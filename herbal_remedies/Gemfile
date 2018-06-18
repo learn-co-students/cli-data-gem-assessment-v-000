@@ -4,4 +4,3 @@ require 'open-uri'
 require 'pry'
 
 # Specify your gem's dependencies in herbal_remedies.gemspec
-gemspec

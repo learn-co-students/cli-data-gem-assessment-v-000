@@ -10,32 +10,30 @@ class CommandLineInteface
 
   def call
     print_options
-
     input = nil
-
     until input == "exit"
       print_instructions
       input = gets.strip
 
-      if input.to_i == 1
-        puts 'Common Ailments:'
-        print_all_ailments
-        loop do
-          input = gets.strip
-          if input.to_i > 0
-            search_remedy_for_ailment(input.to_i)
-          elsif input.downcase == "all"
-            display_all_remedies_for_ailments
-          elsif input == "exit"
-            break
-          elsif input == "menu"
-            call
-          else
-            puts "Please select a valid option. You can also enter 'menu' or 'exit':"
-          end
-        end
+      # if input.to_i == 1
+      #   puts 'Common Ailments:'
+      #   print_all_ailments
+      #   loop do
+      #     input = gets.strip
+      #     if input.to_i > 0
+      #       search_remedy_for_ailment(input.to_i)
+      #     elsif input.downcase == "all"
+      #       display_all_remedies_for_ailments
+      #     elsif input == "exit"
+      #       break
+      #     elsif input == "menu"
+      #       call
+      #     else
+      #       puts "Please select a valid option. You can also enter 'menu' or 'exit':"
+      #     end
+      #   end
 
-      elsif input.to_i == 2
+      if input.to_i == 1
         puts "Top 65 Most Commonly Used Herbs:"
         display_herbal_remedies
         loop do
@@ -44,19 +42,25 @@ class CommandLineInteface
           if input.to_i > 0
             search_herbal_remedy(input.to_i-1)
           elsif input == "search"
-            puts "Would you like to search by Medicinal Use or Properties (M/P)"
-            input = gets.strip.downcase
-            if input == "m"
-              until input == "exit"
-                puts "Enter the Medicinal Use or condition you would like to search for or type 'exit':"
-                input = gets.strip
-                search_by_medicinal_use(input)
-              end
-            elsif input == "p"
-              until input == "exit"
-                puts "Enter the Herbal Property you would like to search for or type 'exit':"
-                input = gets.strip
-                search_by_properties(input)
+            loop do
+              puts "Would you like to search by Medicinal Use or Properties (M/P)"
+              input = gets.strip.downcase
+              if input == "m"
+                until input == "exit"
+                  puts "Enter the Medicinal Use or condition you would like to search for or type 'exit':"
+                  input = gets.strip
+                  search_by_medicinal_use(input)
+                end
+              elsif input == "p"
+                until input == "exit"
+                  puts "Enter the Herbal Property you would like to search for or type 'exit':"
+                  input = gets.strip
+                  search_by_properties(input)
+                end
+              elsif input == "exit"
+                break
+              else
+                puts "Please type 'M' or 'P'"
               end
             end
           elsif input == "menu"
@@ -70,15 +74,15 @@ class CommandLineInteface
           end
         end
 
-      elsif input.to_i == 3
+      elsif input.to_i == 2
         puts "What Is Herbal Medicine?"
         display_text(Scraper.herbal_medicine)
 
-      elsif input.to_i == 4
+      elsif input.to_i == 3
         puts "Benefits of Herbal Medicine"
         display_text(Scraper.benefits_of_h_m)
 
-      elsif input.to_i == 5
+      elsif input.to_i == 4
         puts "Beneath The Surface of Healing: Mind, Body and Soul"
         display_text(Scraper.bonus)
 
@@ -95,11 +99,10 @@ class CommandLineInteface
     puts ""
     puts "Welcome to Herbal Remedies!"
     puts ""
-    puts "1. Herbal Remdies for Common Ailments"
-    puts "2. Top 65 Most Commonly Used Herbs" #=> New Feature
-    puts "3. What Is Herbal Medicine?"
-    puts "4. Benefits of Herbal Medicine"
-    puts "5. BONUS: Beneath The Surface of Healing: Mind, Body and Soul"
+    puts "1. Top 65 Most Commonly Used Herbs"
+    puts "2. What Is Herbal Medicine?"
+    puts "3. Benefits of Herbal Medicine"
+    puts "4. BONUS: Beneath The Surface of Healing: Mind, Body and Soul"
     puts ""
   end
 
@@ -130,11 +133,11 @@ class CommandLineInteface
     puts ""
   end
 
-  def display_all_remedies_for_ailments
-    puts ""
-    Ailment.all.each {|a| puts " #{a.name}: #{a.remedy.join(", ")}"}
-    puts ""
-  end
+  # def display_all_remedies_for_ailments
+  #   puts ""
+  #   Ailment.all.each {|a| puts " #{a.name}: #{a.remedy.join(", ")}"}
+  #   puts ""
+  # end
 
   def display_text(from_scraper)
     from_scraper.each do |info|
@@ -178,21 +181,33 @@ class CommandLineInteface
 
   def search_by_medicinal_use(input)
     puts ""
-    Herbs.search_by_medicinal_use(input).each do |herb|
-      puts herb.name.upcase
+    if Herbs.search_by_medicinal_use(input) != []
       puts ""
-      puts herb.medicinal_uses
-      puts ""
+      puts "The fallowing herbs are good for #{input}:"
+      Herbs.search_by_medicinal_use(input).each do |herb|
+        puts herb.name.upcase
+        puts ""
+        puts "Other Medical Uses: " + herb.medicinal_uses
+        puts ""
+        puts "Properties: " + herb.properties
+        puts ""
+      end
+    else
+      puts "Try again:"
     end
   end
 
   def search_by_properties(input)
     puts ""
-    Herbs.search_by_properties(input).each do |herb|
-      puts herb.name.upcase
-      puts ""
-      puts herb.properties
-      puts ""
+    if Herbs.search_by_properties(input) != []
+      Herbs.search_by_properties(input).each do |herb|
+        puts herb.name.upcase
+        puts ""
+        puts herb.properties
+        puts ""
+      end
+    else
+      puts "Try again:"
     end
   end
 
