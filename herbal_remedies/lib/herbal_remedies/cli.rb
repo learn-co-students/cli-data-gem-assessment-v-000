@@ -113,25 +113,25 @@ class CommandLineInteface
     puts ""
   end
 
-  def create_ailments
-    Ailment.create_from_hash(Scraper.ailment_remedy_hash)
-  end
-
-  def print_all_ailments
-    puts ''
-    Ailment.all.each_with_index do |ailment, i|
-      puts "#{i+1}. #{ailment.name}"
-    end
-    puts ""
-    puts "Select a number of an ilness to discover it's respective herbal remedy."
-    puts "You can also enter 'all' to see all remedies or enter exit:"
-  end
-
-  def search_remedy_for_ailment(input)
-    array = Ailment.all
-    puts "#{array[input-1].name}: #{array[input-1].remedy.join(", ")}"
-    puts ""
-  end
+  # def create_ailments
+  #   Ailment.create_from_hash(Scraper.ailment_remedy_hash)
+  # end
+  #
+  # def print_all_ailments
+  #   puts ''
+  #   Ailment.all.each_with_index do |ailment, i|
+  #     puts "#{i+1}. #{ailment.name}"
+  #   end
+  #   puts ""
+  #   puts "Select a number of an ilness to discover it's respective herbal remedy."
+  #   puts "You can also enter 'all' to see all remedies or enter exit:"
+  # end
+  #
+  # def search_remedy_for_ailment(input)
+  #   array = Ailment.all
+  #   puts "#{array[input-1].name}: #{array[input-1].remedy.join(", ")}"
+  #   puts ""
+  # end
 
   # def display_all_remedies_for_ailments
   #   puts ""
