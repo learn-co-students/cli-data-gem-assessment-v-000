@@ -1,5 +1,5 @@
 #CLI Controller
-class SimpleCollection::CLI
+class SimpleCollection::CLI.new
 
   def call
     puts "Welcome Knitter! What would you like to make today?"
