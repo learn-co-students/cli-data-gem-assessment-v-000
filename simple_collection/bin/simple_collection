@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
+require 'pry'
+require "bundler/setup"
+require "simple_collection"
 
-require_relative '../simple_collection/lib/simple_collection'
-
+#binding.pry
 SimpleCollection::CLI.new.call
