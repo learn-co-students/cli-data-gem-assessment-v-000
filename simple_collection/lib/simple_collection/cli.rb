@@ -2,9 +2,9 @@
 class CLI
 
   def call
-    #puts "Welcome Knitter! What would you like to make today?"
-    scrape_page
-    #start
+    puts "Welcome Knitter! What would you like to make today?"
+    #scrape_page
+    start
   end
 
   def start
