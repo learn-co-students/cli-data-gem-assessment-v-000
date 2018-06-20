@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
+require 'nokogiri'
+require 'open-uri'
 require 'pry'
 require "bundler/setup"
-require "simple_collection"
+require_relative '../lib/simple_collection/cli'
 
 #binding.pry
-SimpleCollection::CLI.new.call
+CLI.new.call

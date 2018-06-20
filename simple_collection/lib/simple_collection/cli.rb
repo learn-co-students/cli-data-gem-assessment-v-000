@@ -1,9 +1,10 @@
 #CLI Controller
-class SimpleCollection::CLI.new
+class CLI
 
   def call
-    puts "Welcome Knitter! What would you like to make today?"
-    start
+    #puts "Welcome Knitter! What would you like to make today?"
+    scrape_page
+    #start
   end
 
   def start
@@ -34,5 +35,8 @@ class SimpleCollection::CLI.new
     end
   end
 
-
+  def scrape_page
+    doc = Nokogiri::HTML(open("http://tincanknits.com/thesimplecollection.html"))
+    puts doc.css("p")[0]
+  end
 end
