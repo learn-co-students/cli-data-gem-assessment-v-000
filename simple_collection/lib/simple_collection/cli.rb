@@ -55,3 +55,4 @@ class CLI
     puts ""
     puts "#{pattern.description}"
   end
+end
