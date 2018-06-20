@@ -55,4 +55,12 @@ class CLI
     puts ""
     puts "#{pattern.description}"
   end
+
+  def print_patterns(list)
+    puts "Patterns #{list} - #{list+17}"
+    puts ""
+    SimpleCollection::Patterns.all[list-1, 18].each_with_index(list) do |pattern, index|
+      puts "#{index}. #{pattern.name}"
+    end
+  end
 end
