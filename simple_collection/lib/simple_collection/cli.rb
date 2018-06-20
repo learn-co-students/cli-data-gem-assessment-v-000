@@ -2,23 +2,29 @@
 class CLI
 
   def call
-    puts "Welcome Knitter! What would you like to make today?"
+    puts "Welcome to The Simple Collection by Tin Can Knits!"
     #scrape_page
     start
   end
 
   def start
-    puts "For a list of patterns, please enter 1"
-    input = gets.strip.to_i
+    puts "For a list of patterns, please type patterns."
+    input = gets.strip
+    if input == "patterns"
 
-    #sourcing code goes here
+    print_patterns(list)
+
+    else
+      puts "I don't understand your response."
+      start
+    end
 
     puts "Which pattern would you like more information on?"
     input = gets.strip
 
     #more code here
 
-    #more code here
+    print_patterns(pattern)
 
     puts "Would you like to learn about another pattern? Please enter y or n."
 
