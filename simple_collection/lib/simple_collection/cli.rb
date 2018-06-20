@@ -40,4 +40,12 @@ class CLI
 
   def print_patterns(pattern)
     puts "#{pattern.name}"
+    puts ""
+    puts "Sizing: #{pattern.sizing}"
+    puts "Materials: #{pattern.materials}"
+    puts "Gauge: #{pattern.gauge}"
+    puts "Suggested Needles #{pattern.suggested_needles}"
+    puts "Notes: #{pattern.notes}"
+    puts ""
+    puts "#{pattern.description}"
   end
