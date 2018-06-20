@@ -4,6 +4,12 @@ class SimpleCollection::Patterns
 
   @@all = []
 
+  def self.new_from_index_page(p)
+    self.new(
+    p.css().text,
+    
+    )
+
   def initialize(name=nil, position=nil)
     @name = name
     @position = position
@@ -12,5 +18,9 @@ class SimpleCollection::Patterns
 
   def self.all
     @@all
+  end
+
+  def doc
+    @doc ||= Nokogiri::HTML(open(self.url))
   end
 end
