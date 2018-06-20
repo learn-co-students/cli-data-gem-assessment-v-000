@@ -8,9 +8,7 @@ class CLI
   end
 
   def start
-    puts "For garments, please enter 1"
-    puts "For accessories, please enter 2"
-    puts "To view all patterns, please enter 3"
+    puts "For a list of patterns, please enter 1"
     input = gets.strip.to_i
 
     #sourcing code goes here
@@ -39,4 +37,7 @@ class CLI
     doc = Nokogiri::HTML(open("http://tincanknits.com/thesimplecollection.html"))
     puts doc.css("p")[0]
   end
-end
+
+  def print_patterns(pattern)
+    puts "#{pattern.name}"
+  end
