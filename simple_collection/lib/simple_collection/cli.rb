@@ -42,8 +42,8 @@ class CLI
 
   def scrape_page
     doc = Nokogiri::HTML(open("http://tincanknits.com/thesimplecollection.html"))
-    stuff = doc.css("tr td a img.img-thumbnail-tight")
-    patterns = stuff.map {|img|
+    page = doc.css("tr td a img.img-thumbnail-tight")
+    patterns = page.map {|img|
       Pattern.new(img.attr("alt"), img.parent.attr("href"))}
     patterns = patterns.uniq {|patt| patt.name}
     patterns.select {|patt|
