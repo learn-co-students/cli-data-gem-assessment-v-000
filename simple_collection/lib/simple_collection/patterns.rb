@@ -1,4 +1,4 @@
-class SimpleCollection::Patterns
+class Pattern
 
   attr_accessor :name, :url, :size, :materials, :gauge, :suggested_needles, :notes, :description
 
@@ -9,6 +9,15 @@ class SimpleCollection::Patterns
     p.css().text,
 
     )
+  end
+
+  def scrape_pattern
+    doc = Nokogiri::HTML(open("http://tincanknits.com/#{url}"))
+    #puts doc.css("p")
+    #stuff = doc.css("tr td a img.img-thumbnail-tight")
+    @size = doc.css("div.LHbox table")[1].css("tr")[0].css("td")[1].text
+    #size = doc.css("div.LHbox table")[1].css("tr")[0]
+    
   end
 
   def initialize(name=nil, url=nil)

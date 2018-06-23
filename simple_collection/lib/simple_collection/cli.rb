@@ -20,12 +20,12 @@ class CLI
       start
     end
 
-    puts "Which pattern would you like more information on?"
-    input = gets.strip
+    puts "To see more information about a pattern, please enter its number."
+    input = gets.strip.to_i
 
-    #more code here
-
-    print_patterns(pattern)
+    pattern = list[input-1]
+    pattern.scrape_pattern
+    print_pattern(pattern)
 
     puts "Would you like to learn about another pattern? Please enter y or n."
 
@@ -43,17 +43,18 @@ class CLI
   def scrape_page
     doc = Nokogiri::HTML(open("http://tincanknits.com/thesimplecollection.html"))
     stuff = doc.css("tr td a img.img-thumbnail-tight")
-    names = stuff.map {|img|
-      img.attr("alt")}
-    names.uniq.select {|name|
-      name != "Handmade in the UK" && name != "Knitting Basics PDF"}
+    patterns = stuff.map {|img|
+      Pattern.new(img.attr("alt"), img.parent.attr("href"))}
+    patterns = patterns.uniq {|patt| patt.name}
+    patterns.select {|patt|
+      patt.name != "Handmade in the UK" && patt.name != "Knitting Basics PDF"}
     #puts doc.css("tr p:first-child span.pattnavtext")
   end
 
-  def print_patterns(pattern)
+  def print_pattern(pattern)
     puts "#{pattern.name}"
     puts ""
-    puts "Sizing: #{pattern.sizing}"
+    puts "Sizing: #{pattern.size}"
     puts "Materials: #{pattern.materials}"
     puts "Gauge: #{pattern.gauge}"
     puts "Suggested Needles #{pattern.suggested_needles}"
@@ -64,7 +65,7 @@ class CLI
 
   def print_patterns(list)
     list.each_with_index do |pattern, index|
-      puts "#{index+1}. #{pattern}"
+      puts "#{index+1}. #{pattern.name}"
     end
   end
 end
