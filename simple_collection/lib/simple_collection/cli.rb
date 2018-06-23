@@ -1,12 +1,10 @@
 #CLI Controller
 class CLI
 
-  attr_accessor :list
-
   def call
-    #puts "Welcome to The Simple Collection by Tin Can Knits!"
-    scrape_page
-    #start
+    puts "Welcome to The Simple Collection by Tin Can Knits!"
+    #scrape_page
+    start
   end
 
   def start
@@ -14,6 +12,7 @@ class CLI
     input = gets.strip
     if input == "patterns"
 
+    list = scrape_page
     print_patterns(list)
 
     else
@@ -43,7 +42,11 @@ class CLI
 
   def scrape_page
     doc = Nokogiri::HTML(open("http://tincanknits.com/thesimplecollection.html"))
-    puts doc.css("tr td a img")
+    stuff = doc.css("tr td a img.img-thumbnail-tight")
+    names = stuff.map {|img|
+      img.attr("alt")}
+    names.uniq.select {|name|
+      name != "Handmade in the UK" && name != "Knitting Basics PDF"}
     #puts doc.css("tr p:first-child span.pattnavtext")
   end
 
@@ -60,10 +63,8 @@ class CLI
   end
 
   def print_patterns(list)
-    #puts "Patterns #{list} - #{list+17}"
-    #puts ""
-    SimpleCollection::Patterns.all.each_with_index(list) do |pattern, index|
-      puts "#{index}. #{pattern.name}"
+    list.each_with_index do |pattern, index|
+      puts "#{index+1}. #{pattern}"
     end
   end
 end
