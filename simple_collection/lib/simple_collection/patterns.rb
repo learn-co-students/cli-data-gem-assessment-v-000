@@ -17,7 +17,10 @@ class Pattern
     #stuff = doc.css("tr td a img.img-thumbnail-tight")
     @size = doc.css("div.LHbox table")[1].css("tr")[0].css("td")[1].text
     #size = doc.css("div.LHbox table")[1].css("tr")[0]
-    
+    @materials = doc.css("div.LHbox table")[1].css("tr")[1].css("td")[1].text
+    @gauge = doc.css("div.LHbox table")[1].css("tr")[2].css("td")[1].text
+    @suggested_needles = doc.css("div.LHbox table")[1].css("tr")[3].css("td")[1].text
+    @notes = doc.css("div.LHbox table")[1].css("tr")[4].css("td")[1].text
   end
 
   def initialize(name=nil, url=nil)

@@ -52,15 +52,17 @@ class CLI
   end
 
   def print_pattern(pattern)
+    puts ""
     puts "#{pattern.name}"
     puts ""
     puts "Sizing: #{pattern.size}"
     puts "Materials: #{pattern.materials}"
     puts "Gauge: #{pattern.gauge}"
-    puts "Suggested Needles #{pattern.suggested_needles}"
+    puts "Suggested Needles: #{pattern.suggested_needles}"
     puts "Notes: #{pattern.notes}"
     puts ""
     puts "#{pattern.description}"
+    puts ""
   end
 
   def print_patterns(list)
