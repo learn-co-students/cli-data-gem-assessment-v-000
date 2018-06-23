@@ -52,7 +52,7 @@ class CLI
   end
 
   def print_pattern(pattern)
-    puts ""
+    puts "--------------------"
     puts "#{pattern.name}"
     puts ""
     puts "Sizing: #{pattern.size}"
@@ -62,7 +62,7 @@ class CLI
     puts "Notes: #{pattern.notes}"
     puts ""
     puts "#{pattern.description}"
-    puts ""
+    puts "--------------------"
   end
 
   def print_patterns(list)
