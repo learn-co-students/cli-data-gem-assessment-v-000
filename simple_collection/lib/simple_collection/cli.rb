@@ -4,9 +4,9 @@ class CLI
   attr_accessor :list
 
   def call
-    puts "Welcome to The Simple Collection by Tin Can Knits!"
-    #scrape_page
-    start
+    #puts "Welcome to The Simple Collection by Tin Can Knits!"
+    scrape_page
+    #start
   end
 
   def start
@@ -43,7 +43,8 @@ class CLI
 
   def scrape_page
     doc = Nokogiri::HTML(open("http://tincanknits.com/thesimplecollection.html"))
-    puts doc.css("p")[0]
+    puts doc.css("tr td a img")
+    #puts doc.css("tr p:first-child span.pattnavtext")
   end
 
   def print_patterns(pattern)
