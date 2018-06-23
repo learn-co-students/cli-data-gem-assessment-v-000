@@ -1,6 +1,8 @@
 # SimpleCollection
 
-
+This program scrapes data from the website for the knitting pattern collection called "The Simple Collection" by Tin Can Knits.
+The program will generate a list of patterns and the user will select which pattern they would like to have more information about.
+The program will then generate information about the pattern, such as sizing, materials, gauge, suggested needles, notes, and a description. 
 
 
 ## Installation
