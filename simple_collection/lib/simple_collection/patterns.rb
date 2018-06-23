@@ -21,6 +21,9 @@ class Pattern
     @suggested_needles = doc.css("div.LHbox table")[1].css("tr")[3].css("td")[1].text
     @notes = doc.css("div.LHbox table")[1].css("tr")[4].css("td")[1].text
     @description = doc.css("div.LHbox blockquote p").text
+    #@gauge = doc.css("div.LHbox table")[1].css("tr")[2].css("td")[2]
+    #@suggested_needles = doc.css("div.LHbox table")[1].css("tr")[3].css("td")[2].text
+    #@notes = doc.css("div.LHbox table")[1].css("tr")[4].css("td")[2].text
   end
 
   def initialize(name=nil, url=nil)
