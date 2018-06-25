@@ -16,7 +16,7 @@ class CLI
     print_patterns(list)
 
     else
-      puts "I don't understand your response."
+      puts "I don't understand your response. Please try again."
       start
     end
 

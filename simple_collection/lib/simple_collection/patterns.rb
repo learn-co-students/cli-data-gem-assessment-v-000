@@ -4,26 +4,17 @@ class Pattern
 
   @@all = []
 
-  #def self.new_from_index_page(p)
-    #self.new(
-    #p.css().text,
-
-    ##end
-
   def scrape_pattern
     doc = Nokogiri::HTML(open("http://tincanknits.com/#{url}"))
     #puts doc.css("p")
     #stuff = doc.css("tr td a img.img-thumbnail-tight")
     @size = doc.css("div.LHbox table")[1].css("tr")[0].css("td")[1].text
-    #size = doc.css("div.LHbox table")[1].css("tr")[0]
+    # test size = doc.css("div.LHbox table")[1].css("tr")[0]
     @materials = doc.css("div.LHbox table")[1].css("tr")[1].css("td")[1].text
     @gauge = doc.css("div.LHbox table")[1].css("tr")[2].css("td")[1].text
     @suggested_needles = doc.css("div.LHbox table")[1].css("tr")[3].css("td")[1].text
     @notes = doc.css("div.LHbox table")[1].css("tr")[4].css("td")[1].text
     @description = doc.css("div.LHbox blockquote p").text
-    #@gauge = doc.css("div.LHbox table")[1].css("tr")[2].css("td")[2]
-    #@suggested_needles = doc.css("div.LHbox table")[1].css("tr")[3].css("td")[2].text
-    #@notes = doc.css("div.LHbox table")[1].css("tr")[4].css("td")[2].text
   end
 
   def initialize(name=nil, url=nil)
@@ -36,9 +27,4 @@ class Pattern
     @@all
   end
 
-
-
-  #def doc
-    #@doc ||= Nokogiri::HTML(open(self.url))
-  #end
 end
