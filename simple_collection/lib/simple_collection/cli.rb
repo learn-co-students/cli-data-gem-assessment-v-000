@@ -31,7 +31,7 @@ class CLI
 
     input = gets.strip
     if input == "y"
-      start
+      print_patterns(list)
     elsif input == "n"
       puts "Happy Knitting!"
     else
@@ -72,4 +72,8 @@ class CLI
       puts "#{index+1}. #{pattern.name}"
     end
   end
+  
+  def goodbye
+  end
+    
 end
