@@ -32,7 +32,7 @@ class CLI
     input = gets.strip
     if input == "y"
       start
-    else input
+    elsif input == "n" 
       puts "Happy Knitting!"
     end
   end
@@ -44,7 +44,7 @@ class CLI
       Pattern.new(img.attr("alt"), img.parent.attr("href"))}
     patterns = patterns.uniq {|patt| patt.name}
     patterns.select {|patt|
-      patt.name != "Handmade in the UK" && patt.name != "Knitting Basics PDF"}
+      patt.name != "Handmade in the UK" && patt.name != "Knitting Basics PDF" && patt.name != "Grain by Tin Can Knits"}
     #puts doc.css("tr p:first-child span.pattnavtext")
   end
 
