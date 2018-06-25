@@ -34,6 +34,8 @@ class CLI
       start
     elsif input == "n" 
       puts "Happy Knitting!"
+    else 
+      puts "I'm sorry, please start again."
     end
   end
 
