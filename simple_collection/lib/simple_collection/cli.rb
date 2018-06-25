@@ -31,12 +31,9 @@ class CLI
 
     input = gets.strip
     if input == "y"
-      print_patterns(list)
-    elsif input == "n"
-      puts "Happy Knitting!"
-    else
-      puts "Please enter your answer again."
       start
+    else input
+      puts "Happy Knitting!"
     end
   end
 
