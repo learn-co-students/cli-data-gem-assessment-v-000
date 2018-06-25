@@ -70,7 +70,5 @@ class CLI
     end
   end
   
-  def goodbye
-  end
-    
+
 end
