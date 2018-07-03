@@ -11,4 +11,5 @@ class Scraper
     #puts doc.css("tr p:first-child span.pattnavtext")
   end
 
+
 end

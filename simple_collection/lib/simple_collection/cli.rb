@@ -16,9 +16,9 @@ class CLI
     until input == "patterns" 
       puts "I don't understand your response. Please try again."
       input = gets.strip
-  end
+    end
 
-    list = Scraper.new.scrape_page #new
+    list = Scraper.new.scrape_page
     print_patterns(list)
 
     puts "To see more information about a pattern, please enter its number."
