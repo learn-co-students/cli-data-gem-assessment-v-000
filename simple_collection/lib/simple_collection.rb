@@ -9,3 +9,4 @@ require 'pry'
 require "bundler/setup"
 require_relative '../lib/simple_collection/cli'
 require_relative '../lib/simple_collection/patterns'
+require_relative '../lib/simple_collection/scraper'
