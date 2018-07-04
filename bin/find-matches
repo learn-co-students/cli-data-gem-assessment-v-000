@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require_relative "../lib/shooting_match_finder.rb"
+
+ShootingMatchFinder::CLI.new.start
