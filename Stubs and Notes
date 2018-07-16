@@ -1,0 +1,566 @@
+
+For current commit message:  
+
+'small edit of instructions in CLI for accuracy, made sure CLI works since changes, removed unneeded comments, added unused code to Stubs and Notes'
+
+GOALS to include in ReadMe:
+
+DONE 1. Make cli user friendly
+DONE 2. Make model able to store different urls to scrape ... attracessor from Scraper?
+DONE 3. Make model able to store article titles and content but don't necessarily connect it to specific scraped titles and contents
+
+ Steps for next time:
+
+DONE 1. Finish parsing cli to make information more user friendly
+DONE 2. Finish making model workable for instantiating title and content and connect from cli, not scraper?
+DONE 3. finish main steps below
+
+
+
+Testing out model methods
+
+1. Checking out any issues with TOS for scraping DONE
+2. Start Readme DONE
+
+3. Create CLI to return numbered list of articles DONE
+
+User will be able to choose from numbered list of article titles to see content
+
+4.  Build out Scraper to scrape this page for attributes DONE
+5.  Build out module DONE
+6.  Make sure CLI works DONE
+7.  Finish/proof Readme DONE
+8.  Finish pushing gem to rubygems DONE
+9.  Blog (all along) DONE
+10. Make sure all steps in lab are finished DONE
+11. Look over code for points of elegance and clarity such as indenting and descriptive naming DONE
+12. Submit project DONE
+
+
+Refactoring possibiilties for after submitting the project:
+
+DONE find a way to intantiate content as well as titles in model
+
+DONE instantiate urls used in Scraper as well as titles and content
+
+DONE take responsibility of instantiation of urls away from Scraper and make it the model's
+
+DONE cli consistently pulls from Scraper, all instances from Scraper are instantiated in model, and all methods in model pull from Scraper
+
+DONE popping of unneeded side articles more consistent, all in Scraper and done closer to the origin of scraped info 
+
+Not done:
+
+make sure it's easy for any new index page from wikihow to be scraped, not just the one currently scraped in the project
+
+number individual steps for each article and put them in column form
+
+
+Unused Code:
+
+
+
+            # elsif final_content.size == 1 
+            #     final_content
+
+
+                # puts final_content
+            #     content_parser_multiple_methods(final_content)
+            #     # binding.pry
+            #     # final content.each.with_index do |method, num|
+            #     #     puts "Method #{num}. #{method}" unless num < 2
+            #         # parsed_content = content_parser(final_content)
+            # case
+            #     when @user_input == i
+                    
+            #             binding.pry
+
+            #         end
+        
+            #     when @user_input == i 
+            #         if final_content.size == 1
+            #             content_parser_single_method(final_content)
+            #         end
+                    # puts "#{parsed_content[0]}"
+              
+
+
+
+# WikihowTechTopics::CLI.get_content_for_user
+
+
+WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+WikihowTechTopics::WikihowTechTopicModel.content_from_content_array
+# WikihowTechTopics::WikihowTechTopicModel.add_content_from_content_array
+
+    # def content_parser(content)
+    #     content.each.with_index(1) do |method, i|
+    #         puts "Method #{i}. #{method}"
+    #             unless i < 2
+    #             end
+    #         end
+    # end
+
+    #             def 
+    #     content.each.with_index(1) do |method, i|
+    #         method.split(".").each.with_index do |step, step_num|
+    #             puts  "#{step_num}. #{step}."
+    #         end
+    #     end
+    #     end
+    # end
+
+    # def self.scraped_content
+    #     newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.create_from_content_hash
+    #     newly_scraped_for_content.each.with_index(1) do |content_steps, i|
+    #         puts "#{i}. #{content_steps}"
+    #     end
+    # end    
+
+    # scraped_content
+
+    # def self.scraped_titles
+    #     newly_scraped_for_titles = WikihowTechTopics::WikihowTechTopicModel.create_from_title_hash
+    #     newly_scraped_for_titles.each.with_index(1) do |title, i|
+    #         unless title == ""
+    #             puts "#{i}. #{title}"
+    #         end
+    #     end
+    #     puts ""
+    #     puts ""
+    # end  
+    # scraped_titles
+
+
+
+
+
+# def self.create_from_title_array
+#     # title_array.each do |title| 
+#         WikihowTechTopics::WikihowTechTopicModel.new(title)
+#     @@all << self
+#     end
+# end
+
+# def add_content_from_content_array(content_array)
+#     content_array.each do |content| 
+#         WikihowTechTopics::WikihowTechTopicModel.new(title_array)
+#     @@all << self        
+#     end
+# end
+# 
+
+# def initialize(title=nil, content=nil)
+#     @title = title
+#     @content = content
+#     @@all << self
+# end
+
+# def bob
+#     binding.pry
+
+#     bob = WikihowTechTopics::WikihowTechTopicModel.new
+
+#     bob.title = boss
+# end
+
+
+
+
+# #     def initialize(title=nil, content=nil)
+# #         @title = title
+# #         @content = content
+# #         @@all << self
+# #     end
+
+# #     def self.create_from_title_array
+# #         title = WikihowTechTopics::WikihowTechTopicModel.new
+# #         # new_title_array = 
+# #         # WikihowTechTopics::Scraper.scraped_title_array.each do |title_from_array|
+# #         # title = self.new(title_from_array)
+# #         # title_from_array = self.title
+# #         binding.pry
+
+# #     end
+
+# #     def self.create_from_content_array
+# #         new_content_array = WikihowTechTopics::Scraper.scraped_content_array
+# #         new_content_array.each do |content_from_array|
+#         self.    content = self.new(content_from_array)
+#             @@all << content
+#             binding.pry
+
+#         end
+#     end
+
+
+
+        # values_in_array = new_title_array.map {|hash| hash[:title]}
+
+# WikihowTechTopics::Scraper.scraped_content_hash
+
+
+        # new_title_array = [{key1 => value1}, {key2 => value2} ]
+
+    # def self.create_from_collection(students_array)
+    #     students_array.each do |student_hash| 
+    #       Student.new(student_hash)
+    #     end
+    # end
+    
+
+    # def self.create_from_content_hash
+    #     new_content = WikihowTechTopics::Scraper.scraped_content_hash
+    #     new_content.each {|key, value| self.send("#{key}=", value)}
+    #         @@all << self
+    # end
+
+
+# WikihowTechTopics::WikihowTechTopicModel.create_from_content_array
+
+
+    # def self.create_from_collection(students_array)
+    #     students_array.each do |student_hash| 
+    #     Student.new(student_hash)
+    #     end
+    # end
+    
+    # def add_student_attributes(attributes_hash)
+    #     attributes_hash.each {|key, value| self.send("#{key}=", value)}
+    #     @@all << self
+    # end
+    # def initialize(student_hash)
+    #     student_hash.each {|key, value| self.send("#{key}=", value)}
+    #     @@all << self
+    #   end
+    
+    #   def self.create_from_collection(students_array)
+    #     students_array.each do |student_hash| 
+    #       Student.new(student_hash)
+    #     end
+    #   end
+    
+    #   def add_student_attributes(attributes_hash)
+    #     attributes_hash.each {|key, value| self.send("#{key}=", value)}
+    #     @@all << self
+    #   end
+    
+    #   def self.all
+    #     @@all@@all = []
+
+
+
+
+
+
+        # content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+
+
+    # def leaving_out_featured_articles
+    #     home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+    #     left_out_articles_array = []
+    #     div#side-featured-articles
+
+    # end
+
+
+# Question: Why did a below not need an argument of url but the current way does? (is the differenc each and map)? And was using each the reason I only got one link and a time and not all of the links scraped?)
+
+# test_array = [{'title' => 'how to text', 'content' => 'just do it'}], {'title' => 'how to email', 'content' => 'just do it, too'}]
+
+
+# home_page.css(".thumbnail").each do |content_url|
+#     content_url.css("a").attribute("href").text
+
+# scraped_content_ary = []
+
+# scraped_content_url = content_url.css("a").attribute("href").text
+
+# scraped_content_ary << "https:" + scraped_content_url
+
+# scraped_content_ary.each do |complete_content_url|
+#     content_page = Nokogiri::HTML(open(complete_content_url))
+
+# content_page.css('div.steps').each do |full_content|
+#     full_content.css("b").text
+#     @content_array << full_content.css("b").text
+#     binding.pry
+
+    # def initialize
+    #     @title_hash_array = []
+    # end
+    # @title_array = []
+
+    #     students = []
+    #     index_page.css("div.roster-cards-container").each do |card|
+    #       card.css(".student-card a").each do |student|
+    #         student_profile_link = "./fixtures/student-site/#{student.attr('href')}"
+    #         student_location = student.css('.student-location').text
+    #         student_name = student.css('.student-name').text
+    #         students << {name: student_name, location: student_location, profile_url: student_profile_link}
+    #       end
+    #     end
+    #     students
+    #   end
+
+        # final_scraped_content.each do |steps|
+        #     content_hash[:content] = steps
+    #     try = home_page.css('div#bodycontents').each {|title_info| title_info.css('.text').each do |s| x = s.css('span').text x end 
+    # binding.pry  }
+        
+
+            # .each do |t|
+
+            #     t.css('span').each do
+            # t.each do |indiv_title|
+            #     title_array << {title: indiv_title} 
+
+            #         home_page.css('.text').each do |title_info|
+            # title_info_for_hash = title_info.css('span').text
+            # title_array << {title: title_info_for_hash} 
+
+            # home_page.css('div#bodycontents text').each do |title_info|
+            # binding.pry
+            # title_info_for_hash = title_info.css('span').text
+            # title_array << {title: title_info_for_hash} 
+
+
+
+
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
+class WikihowTechTopics::Scraper
+
+    attr_accessor :url
+
+    # def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
+    #     @title_array = title_array
+    #     @content_array = content_array
+    #     @home_page = home_page
+    #     @@all << self
+    # end
+
+    def self.scraped_title_array
+        home_page = Nokogiri::HTML(open("https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"))
+        title_array = []
+        home_page.css('.text').each do |title_info|
+        info_for_title_array = title_info.css('span').text
+        title_array << info_for_title_array
+        end
+        title_array.pop(5)
+        title_array
+    end
+
+    def self.scraped_content_array
+        url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+        home_page = Nokogiri::HTML(open(url))
+
+        content_urls = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.attribute("href").text }
+
+        http_added = content_urls.map { |content_url| "https:" + content_url }
+        
+        url_array_sidebar_articles_removed = http_added.pop(4)
+
+        http_added.map do |complete_content_url| 
+            content_pages_to_scrape = Nokogiri::HTML(open(complete_content_url))
+        
+        final_scraped_content = content_pages_to_scrape.css('div.steps').map { |full_content|
+                full_content.css("b").text }
+
+        final_scraped_content
+        end
+    end
+
+    def self.all
+        @@all
+    end
+
+    basic_computers_page = WikihowTechTopics::Scraper.new
+    basic_computers_page.home_page = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+    basic_computers_page.title_array = self.scraped_title_array
+    basic_computers_page.content_array = self.scraped_content_array
+
+end
+
+# make url instances and put them in @@all
+# url instances are connected to urls scraped from website
+#     title urls
+#     content urls
+
+# can the instances be shoveled into model.all?
+
+
+# WikihowTechTopics::WikihowTechTopicModel.titles_from_title_array
+# WikihowTechTopics::WikihowTechTopicModel.scraped_content_array
+# WikihowTechTopics::WikihowTechTopicModel.content_urls
+# WikihowTechTopics::WikihowTechTopicModel.every_nth
+
+# def call
+#     puts "hello"
+#     start
+# end
+
+# def start
+#     list_titles
+#     puts "Welcome to Wikihow Tech Topics (\"When all you want is the steps\")!"
+#     puts ""
+#     puts "Review the list of articles above,\ntype the number of the article\nthat you wish to read the steps of, and hit return."
+#     puts ""
+#     run
+# end
+
+# def run
+#     get_title_for_user
+#     get_content_for_user_multiple_methods
+#     get_content_for_user_single_method
+# end
+
+# def list_titles
+#     @scraped_titles_array = []
+#     WikihowTechTopics::WikihowTechTopicModel.all
+#     WikihowTechTopics::WikihowTechTopicModel.all.each.with_index(1) do |title, i|
+#         @scraped_titles_array << title.title
+#         puts "#{i}. #{title.title}"
+#     end
+#     puts ""
+#     puts ""
+# end  
+
+# def get_title_for_user
+#     @user_input = gets.to_i
+#     @scraped_titles_array.each.with_index(1) do |title, i|
+#         case
+#             when @user_input == i
+#                 puts ""
+#                 puts ""
+#                 puts title
+#                 puts ""
+#                 puts ""
+#                 puts "Here are your article steps ... "
+#                 puts ""
+#                 puts ""            
+#         end
+#     end
+# end
+
+# def get_content_for_user_multiple_methods
+#     newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.all
+#     newly_scraped_for_content.each.with_index(1) do |final_content, i|
+#         case
+#         when @user_input == i && final_content.size >= 2
+#                 content_parser_multiple_methods(final_content)
+#                 option
+#         end
+#     end
+# end
+        
+# def get_content_for_user_single_method
+#     newly_scraped_for_content = WikihowTechTopics::WikihowTechTopicModel.all
+#     # binding.pry
+#     newly_scraped_for_content.each.with_index(1) do |final_content, i|
+#         case
+#         when @user_input == i && final_content.size == 1
+#             puts final_content
+#             option
+#         end
+#     end
+# end
+
+# def content_parser_multiple_methods(content)
+#     content.each.with_index(1) do |method, method_num|
+#         puts "Method/Part #{method_num}. #{method}"
+#     end
+# end
+
+# def option
+
+#     puts ""
+#     puts ""
+#     puts "Would you like to read another article? (type y for \"yes\" and n for \"no\")"
+#     read_again_input = gets.strip
+#         if read_again_input == "y" 
+#             start
+#         else 
+#             puts ""
+#             puts ""
+#             puts "Goodbye for now!"
+#             puts ""
+#             puts ""
+#         end
+# end
+# end
+
+# WikihowTechTopics::Scraper.get_content_urls
+# WikihowTechTopics::Scraper.get_titles_from_content_urls
+# WikihowTechTopics::Scraper.get_titles_from_home_page
+
+    # def self.every_nth
+
+    #     self.all.map do |element|
+    #         element.inspect
+    #         binding.pry
+    #     end
+    # end 
+
+    # def self.make_titles
+    #     get_titles_from_content_urls.each do |title|
+    #     WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
+
+    #     binding.pry
+        # puts 'ok'
+
+        # self.get_content_urls.each do |title|
+        # WikihowTechTopics::WikihowTechTopicModel.titles_from_content_urls(title)
+
+        # end
+    # end
+
+
+
+    # basic_computers_page = WikihowTechTopics::Scraper.new
+    # basic_computers_page.home_page = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+    # basic_computers_page.title_array = self.scraped_title_array
+    # basic_computers_page.content_array = self.scraped_content_array
+
+# make url instances and put them in @@all
+# url instances are connected to urls scraped from website
+#     title urls
+#     content urls
+
+# can the instances be shoveled into model.all?
+
+        # self.get_content_urls.each do |content_url|
+        #     content_urls = Nokogiri::HTML(open(content_url))
+        #     content_urls.css('.text').each do |title_info|
+        #     info_for_title_array = title_info.css('span').text
+        #     title_array << info_for_title_array
+        #     title_array
+            # end
+
+                # def initialize(title=nil, content=nil, home_page=nil, title_array = nil, content_array = nil)
+    #     @title_array = title_array
+    #     @content_array = content_array
+    #     @home_page = home_page
+    #     @@all << self
+    # end
+
+def self.get_titles_from_content_urls
+        url = "https://www.wikihow.com/Category:Selecting-and-Buying-a-Computer"
+        home_page = Nokogiri::HTML(open(url))
+        # title_array = []
+        titles_from_content_arrays = home_page.css(".thumbnail").children.css("a").map { |content_link| content_link.text }
+        titles_from_content_arrays.pop(4)
+        # titles_from_content_arrays
+        titles_from_content_arrays.collect do |raw_title| 
+            sliced_title = raw_title.slice(0, 53)           
+            raw_title
+            resliced_title = raw_title[0...-1]
+            resliced_title
+            titles_from_content_arrays
+            binding.pry
+            # title_array << resliced_title
+        end
+        # title_array
+    end
