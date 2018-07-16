@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "./lib/bgg_top_100"
+
+BggTop100::CLI.new.call
