@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "./lib/veteran_offers" #loads main lib
+
+
+VeteranOffers::CLI.new.call
