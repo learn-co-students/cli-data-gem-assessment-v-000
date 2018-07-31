@@ -14,8 +14,6 @@ class Scraper
       config.noblanks
     end
 
-
-
     #set portals-container class for all portal links for each topic
     #Thus there are 12 portal links containers but we're skipping the first one
     doc.search("div").each{|anchor|
@@ -59,28 +57,6 @@ class Scraper
       @@all_topics << copy
     }
     return @@all_topics
-   end
-
-   def self.scrape_portal_dyk(rand_portal_url)
-    html = open(rand_portal_url)
-    doc = Nokogiri::HTML(html)
-
-    if doc.at_css("[id^='Did_you_know']") != nil && doc.at_css("[id^='Did_you_know']").parent.parent.next.next != nil
-      doc.at_css("[id^='Did_you_know']").parent.parent.next.next['class']="dyk_container"
-      # doc.search(".dyk_container").children.search("p")[0].text
-      # binding.pry
-      if doc.search(".dyk_container p") == ""
-        if doc.search(".dyk_container ul")
-          return doc.search(".dyk_container ul li")[0].text
-        end
-      else
-        return doc.search(".dyk_container p").text
-      end
-    elsif doc.search(".dyk_container") == nil
-      return false
-    end
-    # binding.pry
-    #returns the text of a random fact
    end
 
 end

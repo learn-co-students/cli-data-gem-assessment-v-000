@@ -22,12 +22,6 @@ class Topic
     return Scraper.all_topics
   end
 
-  # def add_portal
-  #   new_portal = self.find_random_portal_page
-  #   @portals << new_portal
-  #   new_portal.topic = self
-  # end
-
   def portals
     @portals
   end
@@ -39,12 +33,8 @@ class Topic
   def self.find_or_create_by_name(name)
     if self.all.detect{|topic| topic.name == name}
       @topic = self.all.detect{|topic| topic.name == name}
-      # @portal = Portal.find_or_create_by_url(Scraper.scrape_portals_page(name))
-      # @portal.topic = @topic
-      # @fact = Fact.find_or_create_by_url(Scraper.scrape_portal_dyk(@portal.url))
     else
       @topic = self.new(name)
-      # @topic.portals = Scraper.scrape_portals_page(name)
     end
     @topic
   end
