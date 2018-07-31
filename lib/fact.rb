@@ -10,10 +10,8 @@ class Fact
   attr_accessor :text, :url, :portal
 
   @@all = []
-  def initialize(url, text, portal)
-    @portal = portal
+  def initialize(text)
     @text = text
-    @url = url
     @@all << self
   end
 
@@ -26,12 +24,11 @@ class Fact
     @@all
   end
 
-  def self.find_or_create_by_url(url, text, portal)
-    if Fact.all.detect{|fact| url == fact.url}
-      @fact = Portal.all.detect{|fact| url == fact.url}
+  def self.find_or_create_by_text(text)
+    if Fact.all.detect{|fact| fact.text}
+      @fact = Fact.all.detect{|fact| fact.text}
     else
-      @fact = Portal.new(url, text, portal)
-      @@all << @fact
+      @fact = Fact.new(text)
     end
   end
 

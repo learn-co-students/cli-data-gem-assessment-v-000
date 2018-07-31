@@ -13,20 +13,27 @@ class CommandLineInterface
     @choice = @list[gets.strip.to_i]
 
     #finds or creates an Topic instance
-    @selectedTopic = Topic.find_or_create_by_name(@choice)
+    @topic = Topic.find_or_create_by_name(@choice)
     @randurl = Scraper.scrape_portals_page(@choice)
+    if @randfact == false
+      until Scraper.scrape_portal_dyk(@randfact) != false
+        @randfact = Scraper.scrape_portals_page(@randurl)
+      end
+    end
     @randfact = Scraper.scrape_portal_dyk(@randurl)
     # Scraper.scrape_portal_dyk(@randurl)
     # binding.pry
     #selects a random portal url from Scraper.scrape_portals_page
-    @portal = Portal.find_or_create_by_url(@randurl, @selectedTopic)
-    @selectedTopic.portals << @portal
+    @portal = Portal.find_or_create_by_url(@randurl)
+    @portal.topic = @topic
+    @topic.portals << @portal
 
-    @fact = Fact.find_or_create_by_url(@randurl, @randfact, @portal)
+    @fact = Fact.find_or_create_by_text(@randfact)
+    @fact.portal = @portal
     @portal.facts << @fact
     # binding.pry
-    # binding.pry
-    @portal.topic = @selectedTopic
+    binding.pry
+    puts @portal
   end
 
   #beautifies and lists the command line options

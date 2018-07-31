@@ -15,19 +15,20 @@ class Scraper
     end
 
 
+
     #set portals-container class for all portal links for each topic
     #Thus there are 12 portal links containers but we're skipping the first one
     doc.search("div").each{|anchor|
-      if anchor['style'] == "display: block;border: 0px solid #A3BFB1;border-bottom: 0px solid #A3BFB1;vertical-align: top;background: #F5FFFA;color: black;margin-bottom: 10px;padding: 1em;margin-top: 0em;padding-top: .3em;"
+      if anchor['style'] == "box-sizing: border-box; border: 0px solid #A3BFB1; border-bottom: 0px solid #A3BFB1;; border-top-width: 1px; vertical-align: top;background: #F5FFFA;opacity: 1; color: black; text-align: left; margin: 0 0 10px; padding: 1em;;padding-top: .3em;-moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;"
         anchor['class'] = "portals-container"
       end
     }
+
 
     #randomnly select a sub-portal from the main topic portal choice
     randval = Random.new
     randnum = randval.rand(doc.search(".portals-container")[choice_index].search("a").count{|i| i.attribute("href").value.include?("/wiki/Portal:")})
     randportal = doc.search(".portals-container")[choice_index].search("a")[randnum].attribute("href").value.prepend("https://en.wikipedia.org")
-
     return randportal
 
    end
@@ -65,18 +66,20 @@ class Scraper
     doc = Nokogiri::HTML(html)
 
     if doc.at_css("[id^='Did_you_know']") != nil && doc.at_css("[id^='Did_you_know']").parent.parent.next.next != nil
-      binding.pry
       doc.at_css("[id^='Did_you_know']").parent.parent.next.next['class']="dyk_container"
       # doc.search(".dyk_container").children.search("p")[0].text
       # binding.pry
       if doc.search(".dyk_container p") == ""
         if doc.search(".dyk_container ul")
-          doc.search(".dyk_container ul li")[0].text
+          return doc.search(".dyk_container ul li")[0].text
         end
+      else
+        return doc.search(".dyk_container p").text
       end
-
-      return doc.search(".dyk_container p").count
+    elsif doc.search(".dyk_container") == nil
+      return false
     end
+    # binding.pry
     #returns the text of a random fact
    end
 
