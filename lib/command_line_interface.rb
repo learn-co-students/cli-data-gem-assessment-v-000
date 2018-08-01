@@ -7,12 +7,11 @@ class CommandLineInterface
     puts "Welcome to Did-You-Know Wikipedia Edition!"
     puts "Please select a topic to be given a random Wikipedia Portal to read:"
     generate_topic_list
-    display_all_topics     #Displays all available main topics
     get_inputs #starts cli flow
   end
 
   def self.get_inputs
-    display_all_topics
+    display_all_topics         #Displays all available main topics
     puts "Select a number to explore that topic"
     get_choice #gets users main topic choice
     get_rand_url #gets random sub-topic and creates Portal objects
