@@ -20,21 +20,7 @@ class CommandLineInterface
     #finds or creates an Topic instance
 
 
-    puts "We've selected " + Scraper.get_portal_name(@randurl)
- + " for you within the " + @choice +" topic you selected."
-    puts "Would you like to visit this page? (Y/N)"
-    if gets.strip.upcase == "Y"
-      puts @randurl
-      Launchy.open(@randurl)
-    else
-      puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
-      choice = gets.strip
-      if choice == "reroll"
-        get_rand_url
-      elsif choice == "new"
-        get_inputs
-      end
-    end
+    visit_portal
   end
 
   #beautifies and lists the command line options
@@ -55,7 +41,28 @@ class CommandLineInterface
   def self.get_rand_url
     @randurl = Scraper.scrape_portals_page(@choice)
     @portal = Portal.find_or_create_by_url(@randurl)
+    @portal.name = Scraper.get_portal_name(@randurl)
     @portal.topic = @topic
     @topic.portals << @portal
+  end
+
+  def self.visit_portal
+    puts "We've selected " + Scraper.get_portal_name(@randurl)
+ + " for you within the " + @choice +" topic you selected."
+    puts "Would you like to visit this page? (Y/N)"
+    if gets.strip.upcase == "Y"
+      puts @randurl
+      Launchy.open(@randurl)
+    else
+      puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
+      choice = gets.strip
+      if choice == "reroll"
+        get_rand_url
+        binding.pry
+        visit_portal
+      elsif choice == "new"
+        get_inputs
+      end
+    end
   end
 end

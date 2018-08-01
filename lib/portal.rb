@@ -3,7 +3,7 @@ require_relative "../lib/scraper.rb"
 class Portal
   #belongs_to topic
   #has_many Facts
-  attr_accessor :url, :topic
+  attr_accessor :url, :topic, :name
   @@all = []
 
   def initialize(url)
