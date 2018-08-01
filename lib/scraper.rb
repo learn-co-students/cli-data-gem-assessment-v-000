@@ -23,7 +23,6 @@ class Scraper
       end
     }
 
-
     #randomnly select a sub-portal from the main topic portal choice
     randval = Random.new
     randnum = randval.rand(doc.search(".portals-container")[choice_index].search("a").count{|i| i.attribute("href").value.include?("/wiki/Portal:")})

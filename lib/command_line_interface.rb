@@ -6,21 +6,15 @@ class CommandLineInterface
   def self.run
     puts "Welcome to Did-You-Know Wikipedia Edition!"
     puts "Please select a topic to be given a random Wikipedia Portal to read:"
-    get_inputs
-
+    get_inputs #starts cli flow
   end
 
   def self.get_inputs
-
-    #Displays all available main topics
-    display_all_topics
+    display_all_topics     #Displays all available main topics
     puts "Select a number to explore that topic"
-    get_choice
-    get_rand_url
-    #finds or creates an Topic instance
-
-
-    visit_portal
+    get_choice #gets users main topic choice
+    get_rand_url #gets random sub-topic and creates Portal objects
+    visit_portal #asks user if they want to visit the randomnly select sub-topic
   end
 
   #beautifies and lists the command line options
@@ -58,7 +52,6 @@ class CommandLineInterface
       choice = gets.strip
       if choice == "reroll"
         get_rand_url
-        binding.pry
         visit_portal
       elsif choice == "new"
         get_inputs
