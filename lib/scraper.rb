@@ -59,4 +59,12 @@ class Scraper
     return @@all_topics
    end
 
+   def self.get_portal_name(url)
+     html = open(url)
+     doc = Nokogiri::HTML(html) do |config|
+       config.noblanks
+     end
+     return doc.search("title").text
+   end
+
 end
