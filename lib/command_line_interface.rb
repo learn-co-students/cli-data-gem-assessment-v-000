@@ -6,11 +6,13 @@ class CommandLineInterface
   def self.run
     puts "Welcome to Did-You-Know Wikipedia Edition!"
     puts "Please select a topic to be given a random Wikipedia Portal to read:"
+    generate_topic_list
+    display_all_topics     #Displays all available main topics
     get_inputs #starts cli flow
   end
 
   def self.get_inputs
-    display_all_topics     #Displays all available main topics
+    display_all_topics
     puts "Select a number to explore that topic"
     get_choice #gets users main topic choice
     get_rand_url #gets random sub-topic and creates Portal objects
@@ -20,10 +22,15 @@ class CommandLineInterface
   #beautifies and lists the command line options
   def self.display_all_topics
     colors = [:red, :green, :yellow, :blue, :magenta, :cyan, :red, :green, :yellow, :blue, :magenta]
-    @list = []
-    Topic.all_topics_list.each_with_index{|item, indx|
-      @list << item
+    @list.each_with_index{|item,indx|
       puts "#{indx + 1}. #{item}".colorize(colors[indx])
+    }
+  end
+
+  def self.generate_topic_list
+    @list = []
+    Topic.all_topics_list.each{|item|
+      @list << item
     }
   end
 
