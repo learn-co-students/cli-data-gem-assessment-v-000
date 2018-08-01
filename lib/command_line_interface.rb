@@ -10,7 +10,7 @@ class CommandLineInterface
     #Displays all available main topics
     display_all_topics
     puts "Select a number to explore that topic"
-    @choice = @list[gets.strip.to_i]
+    @choice = @list[gets.strip.to_i - 1]
 
     #finds or creates an Topic instance
     @topic = Topic.find_or_create_by_name(@choice)

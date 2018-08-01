@@ -6,7 +6,8 @@ class Scraper
   @@all_topics = []
 
   def self.scrape_portals_page(name)
-    choice_index = @@all_topics.index(name)
+    choice_index = @@all_topics.index(name) + 1
+
     #choice is the chosen topic index
     #there are 11 main topics derrived from Scraper.all_topics
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals")
