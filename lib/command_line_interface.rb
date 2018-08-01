@@ -23,7 +23,7 @@ class CommandLineInterface
     puts "We've selected " + Scraper.get_portal_name(@randurl)
  + " for you within the " + @choice +" topic you selected."
     puts "Would you like to visit this page? (Y/N)"
-    if gets.strip == "Y"
+    if gets.strip.upcase == "Y"
       puts @randurl
       Launchy.open(@randurl)
     else
