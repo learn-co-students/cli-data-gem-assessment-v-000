@@ -9,7 +9,7 @@ This CLI allows the user to select from a list of main topics on Wikipedia then 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'bored_wikipedia_explorer'
+gem 'bored-wikipedia-explorer'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bored_wikipedia_explorer
+    $ gem install bored-wikipedia-explorer
 
 ## Usage
 
