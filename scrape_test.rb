@@ -7,12 +7,12 @@ class Scraper
   def scrape_index
     doc = Nokogiri::HTML(open("https://www.startupgrind.com/events/"))
     binding.pry
-
+    #collection of events = doc.css(".panel-picture-content)
     #event_type = doc.css(".panel-picture-content h5").text
     #date(this only returns the first one though)  =doc.css(".panel-picture-content .date").text.split("- ")[0].strip
     #date (this returns the same with regular expression) = doc.css(".panel-picture-content .date").text.match(/[A-Z].+\s\d/)
     #date (this returns dates without location but with \n and its one long string) = doc.css(".panel-picture-content .date").text.strip.gsub(/\s+-.+$/,"")
-    
+
   end
 
 end
