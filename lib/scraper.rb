@@ -1,7 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-
 class Scraper
   @@all_topics = []
 
@@ -15,6 +11,7 @@ class Scraper
       config.noblanks
     end
 
+    puts "***Scraping Portals Page"
     #set portals-container class for all portal links for each topic
     #Thus there are 12 portal links containers but we're skipping the first one
     doc.search("div").each{|anchor|
@@ -61,6 +58,7 @@ class Scraper
 
    def self.get_portal_name(url)
      html = open(url)
+     puts "***Scraping Portal Name"
      doc = Nokogiri::HTML(html) do |config|
        config.noblanks
      end

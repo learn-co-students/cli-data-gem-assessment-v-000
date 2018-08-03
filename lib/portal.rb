@@ -1,5 +1,3 @@
-require_relative "../lib/scraper.rb"
-
 class Portal
   attr_accessor :url, :topic, :name
   @@all = []

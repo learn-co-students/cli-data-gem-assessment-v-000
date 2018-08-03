@@ -1,2 +1,9 @@
 require 'nokogiri'
 require 'launchy'
+require_relative "./lib/topic.rb"
+require "colorize"
+require_relative "./lib/scraper.rb"
+require 'open-uri'
+require 'pry'
+require_relative "./lib/portal.rb"
+require_relative "./lib/command_line_interface.rb"

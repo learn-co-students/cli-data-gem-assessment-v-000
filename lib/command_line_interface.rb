@@ -1,7 +1,3 @@
-require_relative "../lib/topic.rb"
-require "colorize"
-require "launchy"
-
 class CommandLineInterface
   def self.run
     puts "Welcome to Did-You-Know Wikipedia Edition!"
@@ -41,13 +37,14 @@ class CommandLineInterface
   def self.get_rand_url
     @randurl = Scraper.scrape_portals_page(@choice)
     @portal = Portal.find_or_create_by_url(@randurl)
-    @portal.name = Scraper.get_portal_name(@randurl)
+    @selected = Scraper.get_portal_name(@randurl)
+    @portal.name = @selected
     @portal.topic = @topic
     @topic.portals << @portal
   end
 
   def self.visit_portal
-    puts "We've selected " + Scraper.get_portal_name(@randurl)
+    puts "We've selected " + @selected
  + " for you within the " + @choice +" topic you selected."
     puts "Would you like to visit this page? (Y/N)"
     if gets.strip.upcase == "Y"
@@ -65,3 +62,11 @@ class CommandLineInterface
     end
   end
 end
+
+
+#add exit to cli app
+#account for edge case input validations
+#add environment file to lib
+#remove returns
+#create topic instances immediately 
+#after opening page ask if user wants to continue browsing new pages
