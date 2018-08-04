@@ -10,10 +10,12 @@ class Scraper
     #collection of events = doc.css(".panel-picture-content")
     #title/name = doc.css(".panel-picture-content h4").text
     #event_type = doc.css(".panel-picture-content h5").text
-    #short_descrip = doc.css(".panel-picture-content .description").text
-    #location = doc.css(".panel-picture-content .chapter-link").text
-    #location_link =
-    #details_link =
+    #short_descrip = doc.css("p.description").text
+    #location = doc.css("a.chapter-link").text
+    #location_link = doc.css(".date a").attribute("href").value
+    #card.css("a").attribute("href").value}
+    #details_link = doc.css(".panel-picture-content a")[1].attribute("href").value
+
     #date(this only returns the first one though)  =doc.css(".panel-picture-content .date").text.split("- ")[0].strip
     #date (this returns the same with regular expression) = doc.css(".panel-picture-content .date").text.match(/[A-Z].+\s\d/)
     #date (this returns dates without location but with \n and its one long string) = doc.css(".panel-picture-content .date").text.strip.gsub(/\s+-.+$/,"")
