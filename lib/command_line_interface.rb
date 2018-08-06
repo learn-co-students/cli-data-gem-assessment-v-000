@@ -65,8 +65,28 @@ class CommandLineInterface
     puts "We've selected " + @selected
  + " for you within the " + @choice +" topic you selected."
     puts "Would you like to visit this page? (Y/N)"
-    make_choice = gets.strip
+    make_choice = gets.strip.upcase
     if !quit?(make_choice)
+      case make_choice
+      when "Y"
+        puts @randurl
+        Launchy.open(@randurl)
+        puts "Do you want to continue exploring? (Y/N)"
+        continue = gets.strip.upcase
+        case continue
+        when "N"
+          continue = "exit"
+          quit?(continue)
+        when "Y"
+          start
+        else
+          #not sure what to direct the user to here if they select a random charcter not included in the options
+        end
+      when "N"
+        continue = "exit"
+        quit?(continue)
+      end
+      ####################
       if make_choice.upcase == "Y"
         puts @randurl
         Launchy.open(@randurl)
