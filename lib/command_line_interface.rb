@@ -67,7 +67,7 @@ class CommandLineInterface
       if make_choice.upcase == "Y"
         puts @randurl
         Launchy.open(@randurl)
-        run
+        start
       elsif make_choice.upcase == "N"
         puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
         choice = gets.strip
