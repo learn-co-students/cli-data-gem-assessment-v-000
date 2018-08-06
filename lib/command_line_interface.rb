@@ -2,13 +2,13 @@ class CommandLineInterface
   def self.run
     puts "Welcome to Did-You-Know Wikipedia Edition!"
     puts "To quit the Wikipedia explorer at anytime type 'exit'."
-    puts "Please select a topic to be given a random Wikipedia Portal to read:"
     @status = "online"
     generate_topic_list
     start
   end
 
   def self.start
+    puts "Please select a topic to be given a random Wikipedia Portal to read:"
     while @status == "online"
       get_inputs #starts cli flow
     end
@@ -71,7 +71,10 @@ class CommandLineInterface
       elsif make_choice.upcase == "N"
         puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
         choice = gets.strip
-        if choice == "reroll"
+        if choice == "exit"
+          @status = "offline"
+          puts "Goodbye explorer."
+        elsif choice == "reroll"
           get_rand_url
           visit_portal
         elsif choice == "new"
