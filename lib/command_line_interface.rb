@@ -37,12 +37,11 @@ class CommandLineInterface
 
   def self.get_choice
     ask_input = gets.strip
-    if ask_input == "exit"
-      puts "Goodbye explorer."
-      @status = "offline"
-    else
+    if quit?(ask_input)
       @choice = @list[ask_input.to_i - 1]
       @topic = Topic.find_or_create_by_name(@choice)
+    else
+      quit?(ask_input)
     end
   end
 
@@ -60,10 +59,7 @@ class CommandLineInterface
  + " for you within the " + @choice +" topic you selected."
     puts "Would you like to visit this page? (Y/N)"
     make_choice = gets.strip
-    if make_choice == "exit"
-      @status = "offline"
-      puts "Goodbye explorer."
-    else
+    if quit?(make_choice)
       if make_choice.upcase == "Y"
         puts @randurl
         Launchy.open(@randurl)
@@ -89,6 +85,8 @@ class CommandLineInterface
           end
         end
       end
+    else
+      quit?(make_choice)
     end
   end
 
