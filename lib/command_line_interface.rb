@@ -38,8 +38,10 @@ class CommandLineInterface
   def self.get_choice
     ask_input = gets.strip
     if !quit?(ask_input)
-      if ask_input != "1"
-        self.send(__callee__)
+      if !ask_input.to_i.between?(1,12)#ask_input != "1"
+        # self.send(__callee__)
+        puts "Invalid input. Please choose a number between 1 and 12."
+        get_choice
       else
       # binding.pry
         @choice = @list[ask_input.to_i - 1]
