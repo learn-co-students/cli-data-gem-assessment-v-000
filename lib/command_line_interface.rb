@@ -1,9 +1,13 @@
 class CommandLineInterface
   def self.run
     puts "Welcome to Did-You-Know Wikipedia Edition!"
+    puts "To quit the Wikipedia explorer at anytime type 'exit'."
     puts "Please select a topic to be given a random Wikipedia Portal to read:"
-    generate_topic_list
-    get_inputs #starts cli flow
+    @status = "online"
+    while @status == "online"
+      generate_topic_list
+      get_inputs #starts cli flow
+    end
   end
 
   def self.generate_topic_list
@@ -28,8 +32,14 @@ class CommandLineInterface
 
 
   def self.get_choice
-    @choice = @list[gets.strip.to_i - 1]
-    @topic = Topic.find_or_create_by_name(@choice)
+    ask_input = gets.strip
+    if ask_input == "exit"
+      puts "Goodbye explorer."
+      @status = "offline"
+    else
+      @choice = @list[ask_input.to_i - 1]
+      @topic = Topic.find_or_create_by_name(@choice)
+    end
   end
 
   def self.get_rand_url
@@ -45,17 +55,24 @@ class CommandLineInterface
     puts "We've selected " + @selected
  + " for you within the " + @choice +" topic you selected."
     puts "Would you like to visit this page? (Y/N)"
-    if gets.strip.upcase == "Y"
-      puts @randurl
-      Launchy.open(@randurl)
+    make_choice = gets.strip
+    if make_choice == "exit"
+      @status = "offline"
+      puts "Goodbye explorer."
     else
-      puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
-      choice = gets.strip
-      if choice == "reroll"
-        get_rand_url
-        visit_portal
-      elsif choice == "new"
-        get_inputs
+      if make_choice.upcase == "Y"
+        puts @randurl
+        Launchy.open(@randurl)
+        run
+      elsif make_choice.upcase == "N"
+        puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
+        choice = gets.strip
+        if choice == "reroll"
+          get_rand_url
+          visit_portal
+        elsif choice == "new"
+          get_inputs
+        end
       end
     end
   end
