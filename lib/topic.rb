@@ -15,10 +15,6 @@ class Topic
     # return create_portal
   end
 
-  def self.all_topics_list
-    return Scraper.all_topics
-  end
-
   def portals
     @portals
   end

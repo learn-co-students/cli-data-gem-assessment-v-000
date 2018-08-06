@@ -53,7 +53,11 @@ class Scraper
       copy.slice!(-3..-1)
       @@all_topics << copy
     }
-    return @@all_topics
+
+    @@all_topics.each{|item|
+      Topic.new(item)
+    }
+    @@all_topics
    end
 
    def self.get_portal_name(url)

@@ -6,6 +6,10 @@ class CommandLineInterface
     get_inputs #starts cli flow
   end
 
+  def self.generate_topic_list
+    @list = Scraper.all_topics
+  end
+
   def self.get_inputs
     display_all_topics         #Displays all available main topics
     puts "Select a number to explore that topic"
@@ -22,12 +26,6 @@ class CommandLineInterface
     }
   end
 
-  def self.generate_topic_list
-    @list = []
-    Topic.all_topics_list.each{|item|
-      @list << item
-    }
-  end
 
   def self.get_choice
     @choice = @list[gets.strip.to_i - 1]
@@ -68,5 +66,5 @@ end
 #account for edge case input validations
 #add environment file to lib
 #remove returns
-#create topic instances immediately 
+#create topic instances immediately
 #after opening page ask if user wants to continue browsing new pages
