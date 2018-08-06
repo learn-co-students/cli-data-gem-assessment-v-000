@@ -4,8 +4,12 @@ class CommandLineInterface
     puts "To quit the Wikipedia explorer at anytime type 'exit'."
     puts "Please select a topic to be given a random Wikipedia Portal to read:"
     @status = "online"
+    generate_topic_list
+    start
+  end
+
+  def self.start
     while @status == "online"
-      generate_topic_list
       get_inputs #starts cli flow
     end
   end
