@@ -38,8 +38,13 @@ class CommandLineInterface
   def self.get_choice
     ask_input = gets.strip
     if !quit?(ask_input)
-      @choice = @list[ask_input.to_i - 1]
-      @topic = Topic.find_or_create_by_name(@choice)
+      if ask_input != "1"
+        self.send(__callee__)
+      else
+      # binding.pry
+        @choice = @list[ask_input.to_i - 1]
+        @topic = Topic.find_or_create_by_name(@choice)
+      end
     else
       quit?(ask_input)
     end
@@ -107,5 +112,5 @@ end
 #add environment file to lib
 #DONE remove returns
 #DONE create topic instances immediately
-#after opening page ask if user wants to continue browsing new pages
+#DONE after opening page ask if user wants to continue browsing new pages
 #need to account for random characters being entered into cli
