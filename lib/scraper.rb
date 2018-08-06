@@ -24,8 +24,7 @@ class Scraper
     randval = Random.new
     randnum = randval.rand(doc.search(".portals-container")[choice_index].search("a").count{|i| i.attribute("href").value.include?("/wiki/Portal:")})
     randportal = doc.search(".portals-container")[choice_index].search("a")[randnum].attribute("href").value.prepend("https://en.wikipedia.org")
-    return randportal
-
+    randportal
    end
 
    #Scrapes all main topics from all portals main page
@@ -66,7 +65,7 @@ class Scraper
      doc = Nokogiri::HTML(html) do |config|
        config.noblanks
      end
-     return doc.search("title").text
+     doc.search("title").text
    end
 
 end

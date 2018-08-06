@@ -16,8 +16,7 @@ class Portal
       @portal = Portal.all.detect{|portal| url == portal.url}
     else
       @portal = Portal.new(url)
-      # @@all << @portal
-      return @portal
+      @portal
     end
   end
 end
