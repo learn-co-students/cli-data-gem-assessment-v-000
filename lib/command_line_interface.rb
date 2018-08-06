@@ -67,28 +67,47 @@ class CommandLineInterface
       if make_choice.upcase == "Y"
         puts @randurl
         Launchy.open(@randurl)
-        start
+        puts "Do you want to continue exploring? (Y/N)"
+        continue = gets.strip
+        if continue == "N"
+          continue = "exit"
+          quit?(continue)
+        elsif continue.upcase == "Y"
+          start
+        else
+          quit?(continue)
+        end
       elsif make_choice.upcase == "N"
         puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
         choice = gets.strip
-        if choice == "exit"
-          @status = "offline"
-          puts "Goodbye explorer."
-        elsif choice == "reroll"
-          get_rand_url
-          visit_portal
-        elsif choice == "new"
-          get_inputs
+        if quit?(choice)
+          if choice.upcase == "REROLL"
+            get_rand_url
+            visit_portal
+          elsif choice.upcase == "NEW"
+            get_inputs
+          end
         end
       end
+    end
+  end
+
+
+  def self.quit?(option)
+    if option.upcase == "EXIT"
+      @status = "offline"
+      puts "Goodbye explorer."
+    else
+      true
     end
   end
 end
 
 
-#add exit to cli app
-#account for edge case input validations
+#DONE add exit to cli app
+#DONE account for edge case input validations
 #add environment file to lib
-#remove returns
-#create topic instances immediately
+#DONE remove returns
+#DONE create topic instances immediately
 #after opening page ask if user wants to continue browsing new pages
+#need to account for random characters being entered into cli
