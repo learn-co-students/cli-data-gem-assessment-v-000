@@ -37,7 +37,7 @@ class CommandLineInterface
 
   def self.get_choice
     ask_input = gets.strip
-    if quit?(ask_input)
+    if !quit?(ask_input)
       @choice = @list[ask_input.to_i - 1]
       @topic = Topic.find_or_create_by_name(@choice)
     else
@@ -59,7 +59,7 @@ class CommandLineInterface
  + " for you within the " + @choice +" topic you selected."
     puts "Would you like to visit this page? (Y/N)"
     make_choice = gets.strip
-    if quit?(make_choice)
+    if !quit?(make_choice)
       if make_choice.upcase == "Y"
         puts @randurl
         Launchy.open(@randurl)
@@ -76,7 +76,7 @@ class CommandLineInterface
       elsif make_choice.upcase == "N"
         puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
         choice = gets.strip
-        if quit?(choice)
+        if !quit?(choice)
           if choice.upcase == "REROLL"
             get_rand_url
             visit_portal
@@ -96,7 +96,7 @@ class CommandLineInterface
       @status = "offline"
       puts "Goodbye explorer."
     else
-      true
+      false
     end
   end
 end
