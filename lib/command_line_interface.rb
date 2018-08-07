@@ -73,6 +73,10 @@ class CommandLineInterface
         Launchy.open(@randurl)
         puts "Do you want to continue exploring? (Y/N)"
         continue = gets.strip.upcase
+        while continue != "Y" && continue != "N"
+          puts "Do you want to continue exploring? Please enter Y/N"
+          continue
+        end
         case continue
         when "N"
           continue = "exit"
@@ -80,6 +84,7 @@ class CommandLineInterface
         when "Y"
           start
         else
+          puts "Do you want to continue exploring? Please enter Y/N"
           #not sure what to direct the user to here if they select a random charcter not included in the options
         end
       when "N"
