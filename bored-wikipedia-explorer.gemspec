@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'bored-wikipedia-explorer'
-  s.version     = '0.1.2'
+  s.version     = '0.1.3'
   s.date        = '2018-09-01'
   s.summary     = "If you're bored this is the CLI app for you to explore new topics on Wikipedia."
   s.description = "A simple content discovery gem"
