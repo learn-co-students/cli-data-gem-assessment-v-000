@@ -14,14 +14,36 @@ class CommandLineInterface
     end
   end
 
+  def self.get_current_input
+    @current_input = gets.strip.upcase
+  end
+
+  def self.quit?(option)
+    if option == "EXIT"
+      @status = "offline"
+      puts "Goodbye explorer."
+    else
+      false
+    end
+  end
+
   def self.generate_topic_list
     @list = Scraper.all_topics
   end
 
+  def self.get_rand_url
+    # binding.pry
+    @randurl = Scraper.scrape_portals_page(@topic)
+    @portal = Portal.find_or_create_by_url(@randurl)
+    @selected = Scraper.get_portal_name(@randurl)
+    @portal.name = @selected
+    @portal.topic = @topic
+    @topic.portals << @portal
+  end
+
   def self.get_inputs
     display_all_topics         #Displays all available main topics
-    puts "Select a number to explore that topic"
-    get_choice #gets users main topic choice
+    get_topic_choice #gets users main topic choice
     get_rand_url #gets random sub-topic and creates Portal objects
     visit_portal #asks user if they want to visit the randomnly select sub-topic
   end
@@ -35,100 +57,73 @@ class CommandLineInterface
   end
 
 
-  def self.get_choice
-    ask_input = gets.strip
-    if !quit?(ask_input)
-      if !ask_input.to_i.between?(1,12)#ask_input != "1"
+  def self.get_topic_choice
+    puts "Select a number (1-12) to explore that topic"
+    get_current_input
+    if !quit?(@current_input)
+      while !@current_input.to_i.between?(1,12)#ask_input != "1"
         # self.send(__callee__)
         puts "Invalid input. Please choose a number between 1 and 12."
-        get_choice
+        get_topic_choice
+      end
       else
       # binding.pry
-        @choice = @list[ask_input.to_i - 1]
+        @choice = @list[@current_input.to_i - 1]
         @topic = Topic.find_or_create_by_name(@choice)
+        binding.pry
       end
     else
-      quit?(ask_input)
+      quit?(@current_input)
     end
-  end
-
-  def self.get_rand_url
-    @randurl = Scraper.scrape_portals_page(@choice)
-    @portal = Portal.find_or_create_by_url(@randurl)
-    @selected = Scraper.get_portal_name(@randurl)
-    @portal.name = @selected
-    @portal.topic = @topic
-    @topic.portals << @portal
   end
 
   def self.visit_portal
     puts "We've selected " + @selected
  + " for you within the " + @choice +" topic you selected."
     puts "Would you like to visit this page? (Y/N)"
-    make_choice = gets.strip.upcase
-    if !quit?(make_choice)
-      case make_choice
+    visit_page?
+  end
+
+  def self.visit_page?
+    #checks if user wants to visit the selected portal page
+    get_current_input
+    if !quit?(@current_input)
+      case @current_input
       when "Y"
         puts @randurl
         Launchy.open(@randurl)
         puts "Do you want to continue exploring? (Y/N)"
-        continue = gets.strip.upcase
-        while continue != "Y" && continue != "N"
-          puts "Do you want to continue exploring? Please enter Y/N"
-          continue
-        end
-        case continue
-        when "N"
-          continue = "exit"
-          quit?(continue)
-        when "Y"
-          start
-        else
-          puts "Do you want to continue exploring? Please enter Y/N"
-          #not sure what to direct the user to here if they select a random charcter not included in the options
-        end
+        keep_exploring?
       when "N"
-        continue = "exit"
-        quit?(continue)
+        explore_more
       end
-      ####################
-      if make_choice.upcase == "Y"
-        puts @randurl
-        Launchy.open(@randurl)
-        puts "Do you want to continue exploring? (Y/N)"
-        continue = gets.strip
-        if continue == "N"
-          continue = "exit"
-          quit?(continue)
-        elsif continue.upcase == "Y"
-          start
-        else
-          quit?(continue)
-        end
-      elsif make_choice.upcase == "N"
-        puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
-        choice = gets.strip
-        if !quit?(choice)
-          if choice.upcase == "REROLL"
-            get_rand_url
-            visit_portal
-          elsif choice.upcase == "NEW"
-            get_inputs
-          end
-        end
-      end
+  end
+
+  def self.keep_exploring?
+    get_current_input
+    if @current_input == "Y"
+      start
+    elsif @current_input == "N"
+      quit?("EXIT")
     else
-      quit?(make_choice)
+      puts "Please enter a valid command (Y/N) to keep exploring."
+      keep_exploring?
     end
   end
 
-
-  def self.quit?(option)
-    if option.upcase == "EXIT"
-      @status = "offline"
-      puts "Goodbye explorer."
-    else
-      false
+  def self.explore_more
+    puts "Either type 'reroll' to choose another page within the " + @choice + " topic you selected. Or select a new topic with 'new'."
+    get_current_input
+    if !quit?(@current_input)
+      if @current_input == "REROLL"
+        get_rand_url
+        visit_portal
+      elsif @current_input == "NEW"
+        get_inputs
+      else
+        puts "Invalid input please enter (reroll/new)."
+        explore_more
+      end
     end
   end
 end

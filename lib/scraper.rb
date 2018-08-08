@@ -2,7 +2,12 @@ class Scraper
   @@all_topics = []
 
   def self.scrape_portals_page(name)
-    choice_index = @@all_topics.index(name) + 1
+    Topic.all.each_with_index{|item,indx|
+      if item.name == name
+        @choice_index = indx + 1
+      end
+    }
+    # choice_index = @@all_topics.index(name) + 1
 
     #choice is the chosen topic index
     #there are 11 main topics derrived from Scraper.all_topics
@@ -22,8 +27,8 @@ class Scraper
 
     #randomnly select a sub-portal from the main topic portal choice
     randval = Random.new
-    randnum = randval.rand(doc.search(".portals-container")[choice_index].search("a").count{|i| i.attribute("href").value.include?("/wiki/Portal:")})
-    randportal = doc.search(".portals-container")[choice_index].search("a")[randnum].attribute("href").value.prepend("https://en.wikipedia.org")
+    randnum = randval.rand(doc.search(".portals-container")[@choice_index].search("a").count{|i| i.attribute("href").value.include?("/wiki/Portal:")})
+    randportal = doc.search(".portals-container")[@choice_index].search("a")[randnum].attribute("href").value.prepend("https://en.wikipedia.org")
     randportal
    end
 
