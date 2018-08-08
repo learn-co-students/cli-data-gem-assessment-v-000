@@ -70,9 +70,6 @@ class CommandLineInterface
       @choice = @list[@current_input.to_i - 1]
       @topic = Topic.find_or_create_by_name(@choice)
       # binding.pry
-      else
-        quit?(@current_input)
-      end
     else
       quit?(@current_input)
     end
@@ -98,6 +95,7 @@ class CommandLineInterface
       when "N"
         explore_more
       end
+    end
   end
 
   def self.keep_exploring?
@@ -128,12 +126,3 @@ class CommandLineInterface
     end
   end
 end
-
-
-#DONE add exit to cli app
-#DONE account for edge case input validations
-#add environment file to lib
-#DONE remove returns
-#DONE create topic instances immediately
-#DONE after opening page ask if user wants to continue browsing new pages
-#need to account for random characters being entered into cli
