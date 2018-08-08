@@ -94,6 +94,9 @@ class CommandLineInterface
         keep_exploring?
       when "N"
         explore_more
+      else
+        puts "Invalid input. Please select (Y/N) to keep exploring or quit."
+        visit_page?
       end
     end
   end
