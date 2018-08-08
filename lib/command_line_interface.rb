@@ -33,7 +33,7 @@ class CommandLineInterface
 
   def self.get_rand_url
     # binding.pry
-    @randurl = Scraper.scrape_portals_page(@topic)
+    @randurl = Scraper.scrape_portals_page(@topic.name)
     @portal = Portal.find_or_create_by_url(@randurl)
     @selected = Scraper.get_portal_name(@randurl)
     @portal.name = @selected
@@ -60,17 +60,18 @@ class CommandLineInterface
   def self.get_topic_choice
     puts "Select a number (1-12) to explore that topic"
     get_current_input
+    # binding.pry
     if !quit?(@current_input)
       while !@current_input.to_i.between?(1,12)#ask_input != "1"
         # self.send(__callee__)
         puts "Invalid input. Please choose a number between 1 and 12."
         get_topic_choice
       end
-      else
+      @choice = @list[@current_input.to_i - 1]
+      @topic = Topic.find_or_create_by_name(@choice)
       # binding.pry
-        @choice = @list[@current_input.to_i - 1]
-        @topic = Topic.find_or_create_by_name(@choice)
-        binding.pry
+      else
+        quit?(@current_input)
       end
     else
       quit?(@current_input)
