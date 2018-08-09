@@ -22,13 +22,16 @@ class CommandLineInterface
     if option == "EXIT"
       @status = "offline"
       puts "Goodbye explorer."
+      exit
     else
       false
     end
   end
 
   def self.generate_topic_list
-    @list = Scraper.all_topics
+    Scraper.all_topics
+    @list = Topic.all_topic_names
+    #create class method within Topic in order to find all topic names
   end
 
   def self.get_rand_url
@@ -103,13 +106,17 @@ class CommandLineInterface
 
   def self.keep_exploring?
     get_current_input
-    if @current_input == "Y"
-      start
-    elsif @current_input == "N"
-      quit?("EXIT")
+    if !quit?(@current_input)
+      if @current_input == "Y"
+        start
+      elsif @current_input == "N"
+        quit?("EXIT")
+      else
+        puts "Please enter a valid command (Y/N) to keep exploring."
+        keep_exploring?
+      end
     else
-      puts "Please enter a valid command (Y/N) to keep exploring."
-      keep_exploring?
+      quit?(@current_input)
     end
   end
 

@@ -1,8 +1,8 @@
 class Scraper
-  @@all_topics = []
 
   def self.scrape_portals_page(name)
-    choice_index = @@all_topics.index(name) + 1
+    # choice_index = @@all_topics.index(name) + 1
+    choice_index = Topic.all_topic_names.index(name) + 1
 
     #choice is the chosen topic index
     #there are 11 main topics derrived from Scraper.all_topics
@@ -26,10 +26,12 @@ class Scraper
     randportal = doc.search(".portals-container")[choice_index].search("a")[randnum].attribute("href").value.prepend("https://en.wikipedia.org")
     randportal
    end
+
 ##################################
    #Scrapes all main topics from all portals main page
    #creates all topic instances
    def self.all_topics
+    all_topics = []
     html = open("https://en.wikipedia.org/wiki/Portal:Contents/Portals")
     doc = Nokogiri::HTML(html) do |config|
       config.noblanks
@@ -51,13 +53,12 @@ class Scraper
     doc.search(".headlines").each{|anchor|
       copy = anchor.text.chomp("(see in all page types)").strip
       copy.slice!(-3..-1)
-      @@all_topics << copy
+      all_topics << copy
     }
 
-    @@all_topics.each{|item|
+    all_topics.each{|item|
       Topic.new(item)
     }
-    @@all_topics
    end
 
    def self.get_portal_name(url)

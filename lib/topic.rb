@@ -32,4 +32,12 @@ class Topic
     @topic
   end
 
+  def self.all_topic_names
+    list = []
+    @@all.each do |t|
+      list << t.name
+    end
+    list
+  end
+
 end
