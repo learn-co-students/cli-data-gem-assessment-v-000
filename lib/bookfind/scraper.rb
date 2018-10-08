@@ -1,4 +1,4 @@
-class Bookfind::Scraper
+class Scraper
 
   def getinfo
     booklist = Nokogiri::HTML(open("https://litreactor.com/columns/storyville-3-essential-books-you-should-read-in-every-major-genre/"))
