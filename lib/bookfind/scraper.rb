@@ -1,3 +1,7 @@
+require "nokogiri"
+require "pry"
+require "open-uri"
+
 class Scraper
 
   def getinfo
