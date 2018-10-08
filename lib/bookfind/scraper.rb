@@ -18,5 +18,5 @@ class Scraper
   #   getgenre.each do |gen|
   #     binding.pry 
   #   end
-  end
+  # end
 end
