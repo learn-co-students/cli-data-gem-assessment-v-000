@@ -4,9 +4,13 @@ class Bookfind::Scraper
     booklist = Nokogiri::HTML(open("https://litreactor.com/columns/storyville-3-essential-books-you-should-read-in-every-major-genre/"))
   end
   
+  def getgenre
+    self.getinfo.css("h2")
+  end
+  
   def makegenre
-    self.getinfo.css("h2") do |bookinf|
-      binding.pry
+    getgenre.each do |gen|
+      binding.pry 
     end
   end
 end
