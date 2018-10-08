@@ -6,6 +6,9 @@ class Scraper
 
   def self.getinfo
     booklist = Nokogiri::HTML(open("https://litreactor.com/columns/storyville-3-essential-books-you-should-read-in-every-major-genre/"))
+  end
+  
+  def self.getgen
     booklist.css("h2"). each do |gen|
       binding.pry
     end
