@@ -9,7 +9,7 @@ class Scraper
   end
   
   def self.getgen
-    booklist.css("h2"). each do |gen|
+    booklist.css("h2"). each do |gen| gen.text.gsub()
       binding.pry
     end
   end
