@@ -1,0 +1,27 @@
+
+[1mFrom:[0m /home/schanrai/cli-data-gem-assessment-v-000/scrape_test.rb @ line 13 Scraper#scrape_index:
+
+     [1;34m7[0m: [32mdef[0m [1;34mscrape_index[0m
+     [1;34m8[0m:   doc = [1;34;4mNokogiri[0m::HTML(open([31m[1;31m"[0m[31mhttps://www.startupgrind.com/events/[1;31m"[0m[31m[0m))
+     [1;34m9[0m:   scraped_index = []
+    [1;34m10[0m:   doc.css([31m[1;31m"[0m[31m#upcoming-events .panel-picture-content[1;31m"[0m[31m[0m).each [32mdo[0m |events|
+    [1;34m11[0m:   scraped_index << {[33m:name[0m => events.css([31m[1;31m"[0m[31mh4[1;31m"[0m[31m[0m).text,
+    [1;34m12[0m:   [33m:event_type[0m => events.css([31m[1;31m"[0m[31mh5[1;31m"[0m[31m[0m).text}
+ => [1;34m13[0m:     binding.pry
+    [1;34m14[0m:   [1;34m#collection of events = doc.css(".panel-picture-content")[0m
+    [1;34m15[0m:   [1;34m#title/name = doc.css(".panel-picture-content h4").text[0m
+    [1;34m16[0m:   [1;34m#event_type = doc.css(".panel-picture-content h5").text[0m
+    [1;34m17[0m: 
+    [1;34m18[0m:   [1;34m#short_descrip = events.css("p.description").text[0m
+    [1;34m19[0m:   [1;34m#location = events.css("a.chapter-link").text[0m
+    [1;34m20[0m:   [1;34m#location_link = events.css(".date a").attribute("href").value[0m
+    [1;34m21[0m:   [1;34m#details_link = events.css("a")[1].attribute("href").value[0m
+    [1;34m22[0m: 
+    [1;34m23[0m:   [1;34m#date(this only returns the first one though)  =events.css(".panel-picture-content .date").text.split("- ")[0].strip[0m
+    [1;34m24[0m: 
+    [1;34m25[0m:   [1;34m#date (this returns the same with regular expression) = doc.css(".panel-picture-content .date").text.match(/[A-Z].+\s\d/)[0m
+    [1;34m26[0m:   [1;34m#date (this returns dates without location but with \n and its one long string) = doc.css(".panel-picture-content .date").text.strip.gsub(/\s+-.+$/,"")[0m
+    [1;34m27[0m:   [32mend[0m
+    [1;34m28[0m:   scraped_index
+    [1;34m29[0m: [32mend[0m
+
