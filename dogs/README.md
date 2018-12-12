@@ -12,13 +12,9 @@ Great for those looking to add a four-legged fur baby into their families!
 ## Usage
 
  Type the below and follow the on screen prompts.
-<<<<<<< HEAD
 
- $ dogs
-=======
->>>>>>> 560581037c0a18d31a8adb438874b79383b0f7dd
+$ dogs
 
- $ dogs
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
