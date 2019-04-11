@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+#require 'nokogiri'
+#require 'open-uri'
+#require 'pry'
+#require "bundler/setup"
+#require_relative '../lib/simple_collection/patterns'
+#require_relative '../lib/simple_collection/scraper'
+
+require_relative '../lib/simple_collection'
+
+#binding.pry
+CLI.new.call
