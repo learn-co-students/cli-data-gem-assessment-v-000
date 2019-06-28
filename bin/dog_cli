@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+# require './lib/dog'
+require "bundler/setup"
+require "dog"
+
+
+Dog::CLI.new.call
