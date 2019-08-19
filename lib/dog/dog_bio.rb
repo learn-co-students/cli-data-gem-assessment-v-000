@@ -1,12 +1,11 @@
-require 'pry'
 class Dog::DogBio
-  attr_accessor :breed, :bio
+  attr_accessor :breed, :url, :bio
 
   @@all = []
 
-  def initialize(breed, bio)
+  def initialize(breed, url)
     @breed = breed
-    @bio = bio
+    @url = url
     @@all << self
   end
 
@@ -14,6 +13,5 @@ class Dog::DogBio
   def self.all
     @@all
   end
-  
 
-end
+end #end of class
