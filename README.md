@@ -1,6 +1,6 @@
 # Dog
 
-Welcome to my first project! This is the Dog CLI Biography menu. What this command line interface does is that it has the user select one from many dogs and then scrapes data from the purina website and gives a biography about that one dog the user chose.  
+Welcome to my first project! This is the Dog CLI Biography menu. What this command line interface does is that it has the user select one from many dogs and then scrapes data from the Purina website and gives a biography about that one dog the user chose. It gives the user many options on what dogs they would like to know more about.
 
 ## Installation
 
