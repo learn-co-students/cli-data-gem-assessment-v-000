@@ -9,7 +9,6 @@ class Dog::DogBio
     @@all << self
   end
 
-
   def self.all
     @@all
   end
