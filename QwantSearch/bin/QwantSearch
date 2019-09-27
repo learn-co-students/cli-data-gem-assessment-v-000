@@ -1,0 +1,4 @@
+
+require_relative '../lib/QwantSearch'
+
+QwantSearch::CLI.new.call
