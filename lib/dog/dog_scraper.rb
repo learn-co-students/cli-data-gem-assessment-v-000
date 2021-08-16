@@ -20,5 +20,5 @@ class Dog::DogScraper
     doc = Nokogiri::HTML(open(f_url))
     dog_bio.bio = doc.search("section.mainContent p").text
   end
-  
+
 end #end of class

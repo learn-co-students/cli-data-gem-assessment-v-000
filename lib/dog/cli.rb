@@ -1,8 +1,10 @@
+require 'pry'
 class Dog::CLI
 
   def call
     Dog::DogScraper.scrape_dogs
     list_dogs
+    binding.pry
     menu
   end
 

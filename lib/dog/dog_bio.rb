@@ -13,4 +13,10 @@ class Dog::DogBio
     @@all
   end
 
+  def self.dogs_usa
+    @@all.select do |dog|
+      dog.breed.include? "American"
+    end
+  end
+
 end #end of class
